@@ -30,7 +30,7 @@ class Preferences:
         """
         self.application_id = os.environ.get("application_id")
         self.application_secret = os.environ.get("application_secret")
-        self.scopes = os.environ.get("scopes")
+        self.scopes = os.environ.get("scopes").split(" ")
         self.redirect_url = os.environ.get("redirect_url")
 
     def validate(self) -> bool:
