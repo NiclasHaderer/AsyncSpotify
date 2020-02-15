@@ -73,11 +73,14 @@ class Preferences:
         Takes the preferences saved in the object and saves them as os environment variables
         :return: None
         """
-
-        os.environ["application_id"] = self.application_id
-        os.environ["application_secret"] = self.application_secret
-        os.environ["scopes"] = " ".join(self.scopes)
-        os.environ["redirect_url"] = self.redirect_url
+        if self.application_id:
+            os.environ["application_id"] = self.application_id
+        if self.application_secret:
+            os.environ["application_secret"] = self.application_secret
+        if self.scopes:
+            os.environ["scopes"] = " ".join(self.scopes)
+        if self.redirect_url:
+            os.environ["redirect_url"] = self.redirect_url
 
     def validate(self) -> bool:
         """
