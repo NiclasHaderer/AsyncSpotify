@@ -18,6 +18,11 @@ jobs:
       uses: actions/setup-python@master
       with:
         python-version: 3.8
+        
+    - name: Set environment variables
+      env:
+        scopes: "ugc-image-upload user-read-playback-state user-read-email playlist-read-collaborative user-modify-playback-state user-read-private playlist-modify-public user-library-modify user-top-read user-read-currently-playing playlist-read-private user-follow-read app-remote-control user-read-recently-played playlist-modify-private user-follow-modify user-library-read"
+        redirect_url: "http://localhost:5000/"
     - name: Generate coverage report
       run: |
         pip install pytest
