@@ -1,4 +1,4 @@
-name: Codecoverage
+name: Unit Tests
 on:
   push:
     branches:
