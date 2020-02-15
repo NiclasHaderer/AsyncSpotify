@@ -35,7 +35,7 @@ class API:
         url: str = f"{URLS.AUTHORIZE}?redirect_uri={self.preferences.redirect_url}&{urlencode(params)}"
 
         # Check if a state is required
-        url += "&state={state}" if state else ""
+        url += f"&state={state}" if state else ""
         return url
 
     def open_oauth_dialog_in_browser(self, show_dialogue: bool = True) -> None:

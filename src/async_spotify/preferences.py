@@ -1,7 +1,7 @@
 import os
 from typing import List
 
-from . import SpotifyError
+from async_spotify.spotify_errors import SpotifyError
 """
 Scopes available:
 ugc-image-upload 
