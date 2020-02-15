@@ -1,9 +1,10 @@
 name: Codecoverage
-on: 
+on:
   push:
-    branches: master
+    branches:
+      - master
   watch:
-    types: [stared]
+    types: [started]
 jobs:
   run:
     runs-on: ${{ matrix.os }}
