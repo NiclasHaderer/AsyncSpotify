@@ -1,0 +1,40 @@
+name: Codecoverage
+on:
+  push:
+    branches:
+      - master
+  watch:
+    types: [started]
+jobs:
+  run:
+    runs-on: ${{ matrix.os }}
+    strategy:
+      matrix: 
+        os: [ubuntu-latest, macos-latest, windows-latest]
+    if: github.actor == github.event.repository.owner.login
+    steps:
+    - uses: actions/checkout@master
+    - name: Setup Python  
+      uses: actions/setup-python@master
+      with:
+        python-version: 3.8
+        
+    - name: Set environment variables
+      run: echo "Setting evnironment variables"
+      env:
+        scopes: "ugc-image-upload user-read-playback-state user-read-email playlist-read-collaborative user-modify-playback-state user-read-private playlist-modify-public user-library-modify user-top-read user-read-currently-playing playlist-read-private user-follow-read app-remote-control user-read-recently-played playlist-modify-private user-follow-modify user-library-read"
+        redirect_url: "http://localhost:5000/"
+    - name: Generate coverage report
+      run: |
+        pip install pytest
+        pip install pytest-cov
+        pip install -r requirements.dev.txt
+        pytest --cov=async_spotify src/test --cov-report=xml
+    - name: Upload coverage to Codecov  
+      uses: codecov/codecov-action@v1.0.5
+      with:
+        token: ${{ secrets.CODECOV_TOKEN }}
+        file: ./coverage.xml
+        flags: unittests
+        name: codecov-spotify-api
+        fail_ci_if_error: true
