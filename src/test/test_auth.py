@@ -11,7 +11,13 @@ def preferences():
 
 class TestAuth:
 
-    def test_load_preferences(self):
+    def test_load_secret_preferences(self):
+        preferences = Preferences()
+        preferences.load_from_docker_secret()
+        assert preferences.validate()
+        assert None is preferences.save_preferences_to_evn()
+
+    def test_load_os_preferences(self):
         preferences = Preferences()
         preferences.load_from_env()
 
@@ -19,7 +25,7 @@ class TestAuth:
         return preferences
 
     def test_auth_url(self):
-        api = API(self.test_load_preferences())
+        api = API(self.test_load_os_preferences())
         url = api.build_authorization_url(show_dialog=False, state="TestState")
         print(url)
         assert ("show_dialog=False" in url and "state=TestState" in url)
