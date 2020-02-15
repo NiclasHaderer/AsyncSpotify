@@ -2,8 +2,6 @@ import os
 from typing import List
 from get_docker_secret import get_docker_secret
 
-from async_spotify.spotify_errors import SpotifyError
-
 """
 Scopes available:
 ugc-image-upload 
@@ -51,12 +49,10 @@ class Preferences:
         Scopes has to be a string separated by ' '
         :return: None
         """
-        self.application_id = os.environ.get("application_id")
-        self.application_secret = os.environ.get("application_secret")
-        try:
-            self.scopes = os.environ.get("scopes").split(" ")
-        except Exception:
-            raise SpotifyError("The scopes dont have the right format or are not set")
+        self.application_id = os.environ.get("application_id", self.application_id)
+        self.application_secret = os.environ.get("application_secret", self.application_secret)
+        self.scopes = os.environ.get("scopes", self.scopes)
+        self.scopes = self.scopes.split(" ") if self.scopes else None
         self.redirect_url = os.environ.get("redirect_url")
 
     def load_from_docker_secret(self) -> None:
@@ -66,13 +62,11 @@ class Preferences:
         Scopes has to be a string separated by ' '
         :return: None
         """
-        self.application_id = get_docker_secret('application_id')
-        self.application_secret = get_docker_secret('application_secret')
-        try:
-            self.scopes = get_docker_secret('scopes').split(" ")
-        except Exception:
-            raise SpotifyError("The scopes dont have the right format or are not set")
-        self.redirect_url = get_docker_secret('redirect_url')
+        self.application_id = get_docker_secret('application_id', self.application_id)
+        self.application_secret = get_docker_secret('application_secret', self.application_secret)
+        self.scopes = get_docker_secret('scopes', self.application_secret)
+        self.scopes = self.scopes.split(" ") if self.scopes else None
+        self.redirect_url = get_docker_secret('redirect_url', self.application_secret)
 
     def save_preferences_to_evn(self) -> None:
         """

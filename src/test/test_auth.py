@@ -14,7 +14,6 @@ class TestAuth:
     def test_load_secret_preferences(self):
         preferences = Preferences()
         preferences.load_from_docker_secret()
-        assert preferences.validate()
         assert None is preferences.save_preferences_to_evn()
 
     def test_load_os_preferences(self):
