@@ -1,7 +1,9 @@
 import os
 from typing import List
+from get_docker_secret import get_docker_secret
 
 from async_spotify.spotify_errors import SpotifyError
+
 """
 Scopes available:
 ugc-image-upload 
@@ -56,6 +58,32 @@ class Preferences:
         except Exception:
             raise SpotifyError("The scopes dont have the right format or are not set")
         self.redirect_url = os.environ.get("redirect_url")
+
+    def load_from_docker_secret(self) -> None:
+        """
+        Loads the Preferences from docker secret.
+        The variable names have to be the same as the property name.
+        Scopes has to be a string separated by ' '
+        :return: None
+        """
+        self.application_id = get_docker_secret('application_id')
+        self.application_secret = get_docker_secret('application_secret')
+        try:
+            self.scopes = get_docker_secret('scopes').split(" ")
+        except Exception:
+            raise SpotifyError("The scopes dont have the right format or are not set")
+        self.redirect_url = get_docker_secret('redirect_url')
+
+    def save_preferences_to_evn(self) -> None:
+        """
+        Takes the preferences saved in the object and saves them as os environment variables
+        :return: None
+        """
+
+        os.environ["application_id"] = self.application_id
+        os.environ["application_secret"] = self.application_secret
+        os.environ["scopes"] = " ".join(self.scopes)
+        os.environ["redirect_url"] = self.redirect_url
 
     def validate(self) -> bool:
         """
