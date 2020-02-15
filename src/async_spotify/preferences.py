@@ -51,9 +51,10 @@ class Preferences:
         """
         self.application_id = os.environ.get("application_id", self.application_id)
         self.application_secret = os.environ.get("application_secret", self.application_secret)
-        self.scopes = os.environ.get("scopes", self.scopes)
-        self.scopes = self.scopes.split(" ") if self.scopes else None
-        self.redirect_url = os.environ.get("redirect_url")
+        self.redirect_url = os.environ.get("redirect_url", self.redirect_url)
+
+        scopes = os.environ.get("scopes", self.scopes)
+        self.scopes = scopes.split(" ") if scopes else self.scopes
 
     def load_from_docker_secret(self) -> None:
         """
@@ -64,9 +65,10 @@ class Preferences:
         """
         self.application_id = get_docker_secret('application_id', self.application_id)
         self.application_secret = get_docker_secret('application_secret', self.application_secret)
-        self.scopes = get_docker_secret('scopes', self.application_secret)
-        self.scopes = self.scopes.split(" ") if self.scopes else None
         self.redirect_url = get_docker_secret('redirect_url', self.application_secret)
+
+        scopes = get_docker_secret('scopes', self.application_secret)
+        self.scopes = scopes.split(" ") if scopes else self.scopes
 
     def save_preferences_to_evn(self) -> None:
         """
