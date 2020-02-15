@@ -26,8 +26,6 @@ jobs:
         application_secret: ${{ secrets.application_secret }}
         scopes: "ugc-image-upload user-read-playback-state user-read-email playlist-read-collaborative user-modify-playback-state user-read-private playlist-modify-public user-library-modify user-top-read user-read-currently-playing playlist-read-private user-follow-read app-remote-control user-read-recently-played playlist-modify-private user-follow-modify user-library-read"
         redirect_url: "http://localhost:5000/"
-    - name: test env
-      run: echo $application_id && echo $scopes
     - name: Setup python packages
       run: pip install -r requirements.dev.txt
     - name: Generate coverage report
