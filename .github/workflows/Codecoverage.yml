@@ -1,11 +1,16 @@
 name: Codecoverage
-on: [push]
+on: 
+  push:
+    branches: master
+  watch:
+    types: [stared]
 jobs:
   run:
     runs-on: ${{ matrix.os }}
     strategy:
       matrix: 
         os: [ubuntu-latest, macos-latest, windows-latest]
+    if: github.actor == github.event.repository.owner.login
     steps:
     - uses: actions/checkout@master
     - name: Setup Python  
