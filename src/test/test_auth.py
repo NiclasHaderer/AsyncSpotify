@@ -1,5 +1,6 @@
 from async_spotify.api import API
 from async_spotify.preferences import Preferences
+import logging
 
 
 class TestAuth:
@@ -14,7 +15,10 @@ class TestAuth:
         preferences = Preferences()
         preferences.load_from_env()
 
-        print(preferences)
+        print(preferences.scopes)
+        print(preferences.application_id)
+        print(preferences.redirect_url)
+
         assert preferences.validate()
 
     def test_auth_url(self):
@@ -23,5 +27,4 @@ class TestAuth:
 
         api = API(preferences)
         url = api.build_authorization_url(show_dialog=False, state="TestState")
-        print(url)
         assert ("show_dialog=False" in url and "state=TestState" in url)
