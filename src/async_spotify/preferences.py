@@ -1,6 +1,27 @@
 import os
 from typing import List
 
+from . import SpotifyError
+"""
+Scopes available:
+ugc-image-upload 
+user-read-playback-state 
+user-read-email 
+playlist-read-collaborative 
+user-modify-playback-state 
+user-read-private 
+playlist-modify-public 
+user-library-modify 
+user-top-read 
+user-read-currently-playing 
+playlist-read-private 
+user-follow-read app-remote-control 
+user-read-recently-played 
+playlist-modify-private 
+user-follow-modify 
+user-library-read
+"""
+
 
 class Preferences:
     """
@@ -30,7 +51,10 @@ class Preferences:
         """
         self.application_id = os.environ.get("application_id")
         self.application_secret = os.environ.get("application_secret")
-        self.scopes = os.environ.get("scopes").split(" ")
+        try:
+            self.scopes = os.environ.get("scopes").split(" ")
+        except Exception:
+            raise SpotifyError("The scopes dont have the right format or are not set")
         self.redirect_url = os.environ.get("redirect_url")
 
     def validate(self) -> bool:

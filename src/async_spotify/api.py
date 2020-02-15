@@ -4,10 +4,10 @@ from urllib.parse import urlencode
 
 import aiohttp
 
-from async_spotify.AuthToken import SpotifyAuthorisationToken
-from async_spotify.Preferences import Preferences
-from async_spotify.SpotifyError import SpotifyError
-from async_spotify.URLS import URLS
+from async_spotify.spotify_authorization_token import SpotifyAuthorisationToken
+from async_spotify.preferences import Preferences
+from async_spotify.spotify_errors import SpotifyError
+from async_spotify.urls import URLS
 
 
 class API:
@@ -21,7 +21,7 @@ class API:
         """
         Builds the URL for the authorisation
         :param state: State of the authorization
-        :param show_dialog: Is the dialog supposed to be shown
+        :param show_dialog: Should the spotify auth dialog be shown
         :return: The encoded url
         """
 
@@ -42,7 +42,7 @@ class API:
         """
         Open the url in browser
         Only for testing purposes or the usage of this library in a desktop app
-        :param show_dialogue: Is the spotify auth dialogue to be shown
+        :param show_dialogue: Should the spotify auth dialog be shown
         :return: None
         """
 
