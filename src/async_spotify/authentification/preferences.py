@@ -1,6 +1,7 @@
 import os
 from typing import List
-from get_docker_secret import get_docker_secret
+
+from async_spotify.authentification.get_docker_secret import get_docker_secret
 
 """
 Scopes available:
@@ -29,13 +30,13 @@ class Preferences:
     """
 
     def __init__(self, application_id: str = None, application_secret: str = None, scopes: List[str] = None,
-                 redirect_url: str = None, state: str = None):
+                 redirect_url: str = None):
         """
         Create a new Spotify Preferences Object
-        @param application_id: The id of the application (Has to be set to use the object)
-        @param application_secret: The secret of the application (Has to be set to use the object)
-        @param scopes: The spotify scopes you app will request
-        @param redirect_url: The redirect url spotify will referee the user after authentication
+        :param application_id: The id of the application (Has to be set to use the object)
+        :param application_secret: The secret of the application (Has to be set to use the object)
+        :param scopes: The spotify scopes you app will request
+        :param redirect_url: The redirect url spotify will referee the user after authentication
         """
         self.application_id: str = application_id
         self.application_secret: str = application_secret
@@ -65,10 +66,11 @@ class Preferences:
         """
         self.application_id = get_docker_secret('application_id', self.application_id)
         self.application_secret = get_docker_secret('application_secret', self.application_secret)
-        self.redirect_url = get_docker_secret('redirect_url', self.application_secret)
+        self.redirect_url = get_docker_secret('redirect_url', self.redirect_url)
 
-        scopes = get_docker_secret('scopes', self.application_secret)
-        self.scopes = scopes.split(" ") if scopes else self.scopes
+        s = os.environ.get("scopes")
+        scopes = get_docker_secret('scopes', self.scopes)
+        self.scopes = scopes.split(" ") if scopes and not isinstance(scopes, list) else self.scopes
 
     def save_preferences_to_evn(self) -> None:
         """
@@ -87,8 +89,16 @@ class Preferences:
     def validate(self) -> bool:
         """
         Validate if the preferences can be used
-        @return: Are the preferences valid
+        :return: Are the preferences valid
         """
         if self.application_id and self.application_secret and self.scopes and self.redirect_url:
             return True
         return False
+
+    def __eq__(self, other):
+        """
+        Support for equal assertion
+        :param other: The other object the comparison is made to
+        :return: Is the content of the objects equal
+        """
+        return self.__dict__ == other.__dict__

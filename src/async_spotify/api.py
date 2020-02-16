@@ -1,11 +1,12 @@
 import base64
+import time
 import webbrowser
 from urllib.parse import urlencode
 
 import aiohttp
 
-from async_spotify.spotify_authorization_token import SpotifyAuthorisationToken
-from async_spotify.preferences import Preferences
+from async_spotify.authentification.spotify_authorization_token import SpotifyAuthorisationToken
+from async_spotify.authentification.preferences import Preferences
 from async_spotify.spotify_errors import SpotifyError
 from async_spotify.urls import URLS
 
@@ -49,35 +50,37 @@ class API:
         # Open url in a new window of the default browser, if possible
         webbrowser.open_new(self.build_authorization_url(show_dialogue))
 
-    async def refresh_token(self, refresh_token: str, grant_type: str = "refresh_token") -> SpotifyAuthorisationToken:
+    async def refresh_token(self, refresh_token: str, reauthorize=True) -> SpotifyAuthorisationToken:
         """
         Refresh the auth token with the refresh token or get a new auth token and refresh token with the code returned
         by the spotify auth flow
         :param refresh_token: The refresh token or the code returned by the spotify auth flow
-        :param grant_type: Default to refresh the token | Has to be "authorization_code" if you only have the code
-        returned by spotify
-        :return:
+        :param reauthorize: Should the token be reauthorized with a refresh token, or is this the first time you trie
+        to get a oauth_token and refresh token from spotify
+        :return: The SpotifyAuthorisationToken
         """
+
+        grant_type = "refresh_token"
+        if not reauthorize:
+            grant_type = "authorization_code"
 
         body: dict = {
             "grant_type": grant_type,
         }
 
-        if grant_type == "refresh_token":
+        if reauthorize:
             body["refresh_token"] = refresh_token
-        elif grant_type == "authorization_code":
+        else:
             body["code"] = refresh_token
             body["redirect_uri"] = self.preferences.redirect_url
 
-        app_id = self.preferences.application_id
-        app_secret = self.preferences.application_secret
-
-        b = str(base64.b64encode(f"{app_id}:{app_secret}".encode("UTF-8")), encoding="UTF-8")
-        header: base64 = f' Authorization: Basic {b}'
+        base_64: base64 = base64.b64encode(
+            f"{self.preferences.application_id}:{self.preferences.application_secret}".encode("ascii"))
+        header: dict = {'Authorization': f'Basic {base_64.decode("ascii")}'}
 
         async with aiohttp.ClientSession() as session:
-            async with session.post(URLS.REFRESH, data=body, headers=header) as resp:
-                print(resp.status)
-                print(await resp.text())
+            async with session.post(url=URLS.REFRESH, data=body, headers=header) as response:
+                print(response.status)
+                print(await response.text())
 
-        return ""
+        return SpotifyAuthorisationToken("", int(time.time()))
