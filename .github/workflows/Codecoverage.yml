@@ -10,7 +10,7 @@ jobs:
     runs-on: ${{ matrix.os }}
     strategy:
       matrix:
-        os: [ubuntu-latest, macos-latest, windows-latest]
+        os: [ubuntu-latest]
     if: github.actor == github.event.repository.owner.login
     steps:
     - uses: actions/checkout@master
@@ -20,6 +20,8 @@ jobs:
         python-version: 3.8
     - name: Setup python packages
       run: pip install -r requirements.dev.txt
+    - name: Save cookie file
+      run: echo ${{ secrets.cookies }} > cookies.txt && echo `pwd`
     - name: Generate coverage report
       env:
         application_id: ${{ secrets.application_id }}
