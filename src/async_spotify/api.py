@@ -11,8 +11,8 @@ from urllib.parse import urlencode
 import aiohttp
 
 from async_spotify.authentification._callback_server import _create_callback_server as create_callback_server
-from async_spotify.authentification.spotify_authorization_token import SpotifyAuthorisationToken
 from async_spotify.authentification.preferences import Preferences
+from async_spotify.authentification.spotify_authorization_token import SpotifyAuthorisationToken
 from async_spotify.spotify_errors import SpotifyError
 from async_spotify.urls import URLS
 
@@ -64,8 +64,8 @@ class API:
         # Open url in a new window of the default browser, if possible
         webbrowser.open_new(self.build_authorization_url(show_dialogue))
 
-    def get_code_with_cookie(self, cookie_file_location: str, callback_server_port: int = 1111,
-                             callback_server_url: str = "/test/api/callback") -> json:
+    def _get_code_with_cookie(self, cookie_file_location: str, callback_server_port: int = 1234,
+                              callback_server_url: str = "/test/api/callback") -> json:
         """
         This function takes care of the user interaction that is normally necessary to get the first code from spotify
         which is necessary to request the refresh_token and the oauth_token.
@@ -90,6 +90,9 @@ class API:
         (developer.spotify.com)
 
         :return: The spotify code that can be used to get a refresh_token and a oauth_token
+        :raises SpotifyError if the command was not successful
+        :raises UnicodeDecodeError if the returned string could not be decoded
+        :raises JSONDecodeError if the returned and decoded string is not a valid json
         """
 
         # Build the auth url
@@ -100,20 +103,25 @@ class API:
         webserver_process.start()
 
         # Curl the code from spotify
-        response: CompletedProcess = subprocess.run(
-            ['curl', '-L', '--cookie', f'{cookie_file_location}', f"{url}"],
-            stdout=subprocess.PIPE, stderr=subprocess.PIPE)
+        response: CompletedProcess = subprocess.run(['curl', '-L', '--cookie', f'{cookie_file_location}', f"{url}"],
+                                                    stdout=subprocess.PIPE, stderr=subprocess.PIPE)
+
 
         # Check if the return code is correct (otherwise raise exception)
-        response.check_returncode()
+        if response.returncode != 0:
+            raise SpotifyError(response.stderr)
+
         try:
             return_string: str = response.stdout.decode()
         except UnicodeDecodeError:
-            raise SpotifyError("The returned code could not be decoded.")
+            raise SpotifyError("The returned code could not be decoded." + str(response.stderr))
         try:
+            # TODO logging
             return_json: dict = json.loads(return_string)
         except JSONDecodeError:
-            raise SpotifyError("The returned code could not be parsed as a json")
+            # TODO logging
+            raise SpotifyError("The returned code could not be parsed as a json. Is the cookie file the right one?"
+                               + str(response.stderr))
 
         # Stop the webserver process
         webserver_process.join()

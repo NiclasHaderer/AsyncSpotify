@@ -31,9 +31,4 @@ def _create_callback_server(port: int = 1111, callback_route: str = '/test/api/c
     app = web.Application()
 
     app.add_routes(routes)
-    try:
-        web.run_app(app, port=port)
-    except Exception as e:
-        # Ignore the exception. Running a new Process is a async loop is not a good idea, but the only way to
-        # do it in this case
-        pass
+    web.run_app(app, port=port)

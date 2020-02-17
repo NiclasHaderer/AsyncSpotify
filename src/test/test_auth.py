@@ -38,3 +38,7 @@ class TestAuth():
     def test_expired_token(self):
         token = SpotifyAuthorisationToken("some random string", int(time.time()) - 3401, "Another random string")
         assert token.is_expired()
+
+    def test_code_retrieval(self, api: API):
+        code = api._get_code_with_cookie("/home/runner/work/AsyncSpotify/AsyncSpotify/cookies.txt")
+        assert code["code"] != ""
