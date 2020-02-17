@@ -1,12 +1,10 @@
 import time
-from unittest import TestCase
 
-from async_spotify import SpotifyAuthorisationToken
-from async_spotify.api import API
+from async_spotify import SpotifyAuthorisationToken, API
 from async_spotify.authentification.preferences import Preferences
 
 
-class TestAuth(TestCase):
+class TestAuth():
 
     def test_load_secret_preferences(self):
         preferences = Preferences()
@@ -28,10 +26,7 @@ class TestAuth(TestCase):
 
         assert preferences == loaded_preferences
 
-    def test_auth_url(self):
-        preferences: Preferences = Preferences()
-        preferences.load_from_env()
-
+    def test_auth_url(self, preferences: Preferences):
         api = API(preferences)
         url = api.build_authorization_url(show_dialog=False, state="TestState")
         assert ("show_dialog=False" in url and "state=TestState" in url)
