@@ -1,16 +1,20 @@
+import asyncio
 import base64
 import json
+import multiprocessing
 import subprocess
+import threading
 import time
 import webbrowser
 from json import JSONDecodeError
-from multiprocessing.context import Process
+from multiprocessing import get_context, Process
 from subprocess import CompletedProcess
 from urllib.parse import urlencode
 
 import aiohttp
 
-from async_spotify.authentification._callback_server import _create_callback_server as create_callback_server
+from async_spotify.authentification._callback_server import \
+    server_handler, _create_callback_server
 from async_spotify.authentification.preferences import Preferences
 from async_spotify.authentification.spotify_authorization_token import SpotifyAuthorisationToken
 from async_spotify.spotify_errors import SpotifyError
@@ -64,8 +68,8 @@ class API:
         # Open url in a new window of the default browser, if possible
         webbrowser.open_new(self.build_authorization_url(show_dialogue))
 
-    def _get_code_with_cookie(self, cookie_file_location: str, callback_server_port: int = 1234,
-                              callback_server_url: str = "/test/api/callback") -> json:
+    async def get_code_with_cookie(self, cookie_file_location: str, callback_server_port: int = 1234,
+                                   callback_server_url: str = "/test/api/callback") -> json:
         """
         This function takes care of the user interaction that is normally necessary to get the first code from spotify
         which is necessary to request the refresh_token and the oauth_token.
@@ -98,14 +102,15 @@ class API:
         # Build the auth url
         url = self.build_authorization_url(show_dialog=False)
 
-        # Create a process that starts the callback webserver
-        webserver_process = Process(target=create_callback_server, args=(callback_server_port, callback_server_url))
-        webserver_process.start()
+        # Create a webserver that runs in another process
+        webserver_process: Process = _create_callback_server(callback_server_port, callback_server_url)
+
+        # Give the server some time to start
+        await asyncio.sleep(2)
 
         # Curl the code from spotify
         response: CompletedProcess = subprocess.run(['curl', '-L', '--cookie', f'{cookie_file_location}', f"{url}"],
                                                     stdout=subprocess.PIPE, stderr=subprocess.PIPE)
-
 
         # Check if the return code is correct (otherwise raise exception)
         if response.returncode != 0:
@@ -114,19 +119,19 @@ class API:
         try:
             return_string: str = response.stdout.decode()
         except UnicodeDecodeError:
+            webserver_process.kill()
             raise SpotifyError("The returned code could not be decoded." + str(response.stderr))
         try:
             # TODO logging
             return_json: dict = json.loads(return_string)
         except JSONDecodeError:
             # TODO logging
+            webserver_process.kill()
             raise SpotifyError("The returned code could not be parsed as a json. Is the cookie file the right one?"
                                + str(response.stderr))
 
-        # Stop the webserver process
-        webserver_process.join()
+        # Stop the webserver thread
         webserver_process.kill()
-
         return return_json
 
     async def refresh_token(self, refresh_token: str, reauthorize=True) -> SpotifyAuthorisationToken:

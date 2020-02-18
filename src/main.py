@@ -12,7 +12,9 @@ async def main():
     preferences.load_from_docker_secret()
 
     spotify_api: API = API(preferences)
-    spotify_code = spotify_api._get_code_with_cookie("/home/niclas/IdeaProjects/AsyncSpotify/src/private/cookies.txt")
+    spotify_code = await spotify_api.get_code_with_cookie("/home/niclas/IdeaProjects/AsyncSpotify/src/private/cookies.txt")
     print(spotify_code)
 
-asyncio.run(main(), debug=True)
+
+if __name__ == '__main__':
+    asyncio.run(main(), debug=False)

@@ -40,5 +40,5 @@ class TestAuth():
         assert token.is_expired()
 
     def test_code_retrieval(self, api: API):
-        code = api._get_code_with_cookie("/home/runner/work/AsyncSpotify/AsyncSpotify/cookies.txt")
+        code = api.get_code_with_cookie("/home/runner/work/AsyncSpotify/AsyncSpotify/cookies.txt")
         assert code["code"] != ""
