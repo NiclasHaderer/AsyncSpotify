@@ -21,7 +21,7 @@ jobs:
     - name: Setup python packages
       run: pip install -r requirements.dev.txt
     - name: Save cookie file
-      run: echo ${{ secrets.cookies }} > cookies.txt && echo `pwd`
+      run: echo "${{ secrets.cookies }}" > cookies.txt
     - name: Generate coverage report
       env:
         application_id: ${{ secrets.application_id }}
