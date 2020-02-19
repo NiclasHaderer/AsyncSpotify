@@ -1,24 +1,21 @@
 import asyncio
 import base64
 import json
-import multiprocessing
 import subprocess
-import threading
 import time
 import webbrowser
 from json import JSONDecodeError
-from multiprocessing import get_context, Process
+from multiprocessing import Process
 from subprocess import CompletedProcess
 from urllib.parse import urlencode
 
 import aiohttp
 
-from async_spotify.authentification._callback_server import \
-    server_handler, _create_callback_server
-from async_spotify.authentification.preferences import Preferences
+from async_spotify.authentification.callback_server import create_callback_server
+from async_spotify.preferences import Preferences
 from async_spotify.authentification.spotify_authorization_token import SpotifyAuthorisationToken
 from async_spotify.spotify_errors import SpotifyError
-from async_spotify.urls import URLS
+from async_spotify.api.urls import URLS
 
 
 class API:
@@ -103,7 +100,7 @@ class API:
         url = self.build_authorization_url(show_dialog=False)
 
         # Create a webserver that runs in another process
-        webserver_process: Process = _create_callback_server(callback_server_port, callback_server_url)
+        webserver_process: Process = create_callback_server(callback_server_port, callback_server_url)
 
         # Give the server some time to start
         await asyncio.sleep(2)

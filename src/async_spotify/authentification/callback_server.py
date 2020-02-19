@@ -53,7 +53,7 @@ def make_server(port, callback_route) -> None:
     web.run_app(app=app, port=port)
 
 
-def _create_callback_server(port: int, callback_route: str) -> Process:
+def create_callback_server(port: int, callback_route: str) -> Process:
     mp_context = multiprocessing.get_context('spawn')
     webserver_process = mp_context.Process(target=make_server, args=(port, callback_route))
     webserver_process.start()
