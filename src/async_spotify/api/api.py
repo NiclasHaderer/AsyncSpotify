@@ -11,11 +11,11 @@ from urllib.parse import urlencode
 
 import aiohttp
 
-from async_spotify.authentification.callback_server import create_callback_server
-from async_spotify.preferences import Preferences
-from async_spotify.authentification.spotify_authorization_token import SpotifyAuthorisationToken
-from async_spotify.spotify_errors import SpotifyError
 from async_spotify.api.urls import URLS
+from async_spotify.authentification import SpotifyAuthorisationToken
+from async_spotify.authentification import create_callback_server
+from async_spotify.preferences import Preferences
+from async_spotify.spotify_errors import SpotifyError
 
 
 class API:
@@ -102,12 +102,15 @@ class API:
         # Create a webserver that runs in another process
         webserver_process: Process = create_callback_server(callback_server_port, callback_server_url)
 
+        print(webserver_process)
+
         # Give the server some time to start
-        await asyncio.sleep(2)
+        await asyncio.sleep(5)
 
         # Curl the code from spotify
         response: CompletedProcess = subprocess.run(['curl', '-L', '--cookie', f'{cookie_file_location}', f"{url}"],
                                                     stdout=subprocess.PIPE, stderr=subprocess.PIPE)
+        print(url)
 
         # Check if the return code is correct (otherwise raise exception)
         if response.returncode != 0:
@@ -117,7 +120,7 @@ class API:
             return_string: str = response.stdout.decode()
         except UnicodeDecodeError:
             webserver_process.kill()
-            raise SpotifyError("The returned code could not be decoded." + str(response.stderr))
+            raise SpotifyError("The returned code could not be decoded." + response.stderr.decode())
         try:
             # TODO logging
             return_json: dict = json.loads(return_string)
@@ -125,7 +128,7 @@ class API:
             # TODO logging
             webserver_process.kill()
             raise SpotifyError("The returned code could not be parsed as a json. Is the cookie file the right one?"
-                               + str(response.stderr))
+                               + response.stderr.decode())
 
         # Stop the webserver thread
         webserver_process.kill()

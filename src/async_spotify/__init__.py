@@ -1,3 +1,7 @@
+"""
+Asynchronous spotify api wrapper
+"""
+
 from .api import *
 from .authentification import *
 from .preferences import Preferences

@@ -1,5 +1,7 @@
 import time
 
+import pytest
+
 from async_spotify import SpotifyAuthorisationToken, API
 from async_spotify.preferences import Preferences
 
@@ -19,10 +21,16 @@ class TestAuth():
         assert preferences.validate()
 
     def test_save_preferences_to_env(self):
+        original_data = Preferences()
+        original_data.load_from_env()
+
         preferences = Preferences("test", "test", ["test", "test"], "test")
         preferences.save_preferences_to_evn()
-        loaded_preferences = Preferences("test", "test", ["test", "test"], "test")
+
+        loaded_preferences = Preferences()
         loaded_preferences.load_from_env()
+
+        original_data.save_preferences_to_evn()
 
         assert preferences == loaded_preferences
 
@@ -39,6 +47,7 @@ class TestAuth():
         token = SpotifyAuthorisationToken("some random string", int(time.time()) - 3401, "Another random string")
         assert token.is_expired()
 
-    def test_code_retrieval(self, api: API):
-        code = api.get_code_with_cookie("/home/runner/work/AsyncSpotify/AsyncSpotify/cookies.txt")
-        assert code["code"] != ""
+    @pytest.mark.asyncio
+    async def test_code_retrieval(self, api: API):
+        spotify_code = await api.get_code_with_cookie("/home/runner/work/AsyncSpotify/AsyncSpotify/cookies.txt")
+        assert spotify_code["code"] != ""

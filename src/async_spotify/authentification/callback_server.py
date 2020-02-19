@@ -3,11 +3,11 @@ This file provides a callback server for the spotify auth process. It is intende
 care.
 """
 
+import multiprocessing
 from multiprocessing import Process
 
 from aiohttp import web
 from multidict import MultiDictProxy
-import multiprocessing
 
 server_handler: multiprocessing.Pool = None
 
@@ -31,7 +31,7 @@ async def return_default(_):
     :return: "success"
     """
 
-    return web.json_response({"success", "created server"})
+    return web.json_response({"success": "created server"})
 
 
 def make_server(port, callback_route) -> None:
