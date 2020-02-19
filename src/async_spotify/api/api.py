@@ -102,15 +102,12 @@ class API:
         # Create a webserver that runs in another process
         webserver_process: Process = create_callback_server(callback_server_port, callback_server_url)
 
-        print(webserver_process)
-
         # Give the server some time to start
         await asyncio.sleep(5)
 
         # Curl the code from spotify
         response: CompletedProcess = subprocess.run(['curl', '-L', '--cookie', f'{cookie_file_location}', f"{url}"],
                                                     stdout=subprocess.PIPE, stderr=subprocess.PIPE)
-        print(url)
 
         # Check if the return code is correct (otherwise raise exception)
         if response.returncode != 0:
@@ -134,13 +131,16 @@ class API:
         webserver_process.kill()
         return return_json
 
-    async def refresh_token(self, refresh_token: str, reauthorize=True) -> SpotifyAuthorisationToken:
+    async def refresh_token(self, refresh_token: SpotifyAuthorisationToken = None, reauthorize: bool = True,
+                            code: str = None) -> SpotifyAuthorisationToken:
         """
         Refresh the auth token with the refresh token or get a new auth token and refresh token with the code returned
         by the spotify auth flow
         :param refresh_token: The refresh token or the code returned by the spotify auth flow
-        :param reauthorize: Should the token be reauthorized with a refresh token, or is this the first time you trie
-        to get a oauth_token and refresh token from spotify
+        :param reauthorize: Do want to reauthorize a expiring SpotifyAuthorisationToken or get a new one with the
+        spotify code. Set to false and add the code="your_code_here" if you want to get the SpotifyAuthorisationToken
+        for the first time
+        :param code: The code returned by spotify and the OAuth
         :return: The SpotifyAuthorisationToken
         """
 
@@ -153,9 +153,9 @@ class API:
         }
 
         if reauthorize:
-            body["refresh_token"] = refresh_token
+            body["refresh_token"] = refresh_token.refresh_token
         else:
-            body["code"] = refresh_token
+            body["code"] = code
             body["redirect_uri"] = self.preferences.redirect_url
 
         base_64: base64 = base64.b64encode(
