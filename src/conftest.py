@@ -24,6 +24,8 @@ def api():
     pref = Preferences()
     pref.load_from_env()
 
+    print(pref.redirect_url)
+
     # Create the api
     api = API(pref)
     return api

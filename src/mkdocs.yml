@@ -1,0 +1,8 @@
+site_name: "Async Spotify"
+# designed to work best with material theme
+theme:
+  name: "material"
+
+plugins:
+  - search
+  - mkdocstrings
