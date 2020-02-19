@@ -1,7 +1,7 @@
 import time
 
 from async_spotify import SpotifyAuthorisationToken, API
-from async_spotify.authentification.preferences import Preferences
+from async_spotify.preferences import Preferences
 
 
 class TestAuth():

@@ -1,8 +1,6 @@
 import os
 from typing import List
 
-from async_spotify.authentification.get_docker_secret import get_docker_secret
-
 """
 Scopes available:
 ugc-image-upload 
@@ -64,12 +62,11 @@ class Preferences:
         Scopes has to be a string separated by ' '
         :return: None
         """
-        self.application_id = get_docker_secret('application_id', self.application_id)
-        self.application_secret = get_docker_secret('application_secret', self.application_secret)
-        self.redirect_url = get_docker_secret('redirect_url', self.redirect_url)
+        self.application_id = self._get_docker_secret('application_id', self.application_id)
+        self.application_secret = self._get_docker_secret('application_secret', self.application_secret)
+        self.redirect_url = self._get_docker_secret('redirect_url', self.redirect_url)
 
-        s = os.environ.get("scopes")
-        scopes = get_docker_secret('scopes', self.scopes)
+        scopes = self._get_docker_secret('scopes', self.scopes)
         self.scopes = scopes.split(" ") if scopes and not isinstance(scopes, list) else self.scopes
 
     def save_preferences_to_evn(self) -> None:
@@ -94,6 +91,24 @@ class Preferences:
         if self.application_id and self.application_secret and self.scopes and self.redirect_url:
             return True
         return False
+
+    @staticmethod
+    def _get_docker_secret(name: str, default=None,
+                           secrets_dir=os.path.join(os.path.abspath(os.sep), 'var', 'run', 'secrets')) -> str:
+        """
+        Read the docker secret and return it
+        :param name: The name of the docker secret
+        :param default: The default value if no secret is found
+        :param secrets_dir: The directory where the secrets are stored
+        :returns: The docker secret
+        """
+
+        # try to read from secret file
+        try:
+            with open(os.path.join(secrets_dir, name), 'r') as secret_file:
+                return secret_file.read().strip()
+        except IOError as _:
+            return default
 
     def __eq__(self, other):
         """
