@@ -1,5 +1,8 @@
+"""
+Asynchronous spotify api wrapper
+"""
+
 from .api import *
-from .preferences import *
-from .spotify_authorization_token import *
+from .authentification import *
+from .preferences import Preferences
 from .spotify_errors import *
-from .urls import *
