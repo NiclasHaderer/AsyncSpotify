@@ -9,12 +9,12 @@ async def main():
     await sleep(1)
     preferences: Preferences = Preferences()
     preferences.load_from_env()
-    preferences.load_from_docker_secret()
-
     spotify_api: API = API(preferences)
+
     spotify_code = await spotify_api.get_code_with_cookie(
         "/home/niclas/IdeaProjects/AsyncSpotify/src/private/cookies.txt")
-    print(spotify_code)
+    t = await spotify_api.refresh_token(reauthorize=False, code=spotify_code)
+    print(t)
 
 
 if __name__ == '__main__':
