@@ -7,13 +7,15 @@ import webbrowser
 from json import JSONDecodeError
 from multiprocessing import Process
 from subprocess import CompletedProcess
+from typing import Tuple
 from urllib.parse import urlencode
 
 import aiohttp
 
+from async_spotify.api.status_codes import STATUS_CODES
 from async_spotify.api.urls import URLS
-from async_spotify.authentification import SpotifyAuthorisationToken
-from async_spotify.authentification import create_callback_server
+from async_spotify.authentification.callback_server import create_callback_server
+from async_spotify.authentification.spotify_authorization_token import SpotifyAuthorisationToken
 from async_spotify.preferences import Preferences
 from async_spotify.spotify_errors import SpotifyError
 
@@ -66,7 +68,7 @@ class API:
         webbrowser.open_new(self.build_authorization_url(show_dialogue))
 
     async def get_code_with_cookie(self, cookie_file_location: str, callback_server_port: int = 1234,
-                                   callback_server_url: str = "/test/api/callback") -> json:
+                                   callback_server_url: str = "/test/api/callback") -> str:
         """
         This function takes care of the user interaction that is normally necessary to get the first code from spotify
         which is necessary to request the refresh_token and the oauth_token.
@@ -120,8 +122,9 @@ class API:
             raise SpotifyError("The returned code could not be decoded." + response.stderr.decode())
         try:
             # TODO logging
-            return_json: dict = json.loads(return_string)
-        except JSONDecodeError:
+            return_value: dict = json.loads(return_string)
+            return_value: str = return_value["code"]
+        except JSONDecodeError or KeyError:
             # TODO logging
             webserver_process.kill()
             raise SpotifyError("The returned code could not be parsed as a json. Is the cookie file the right one?"
@@ -129,14 +132,15 @@ class API:
 
         # Stop the webserver thread
         webserver_process.kill()
-        return return_json
+        return return_value
 
-    async def refresh_token(self, refresh_token: SpotifyAuthorisationToken = None, reauthorize: bool = True,
+    async def refresh_token(self, spotify_authorisation_token: SpotifyAuthorisationToken = None,
+                            reauthorize: bool = True,
                             code: str = None) -> SpotifyAuthorisationToken:
         """
         Refresh the auth token with the refresh token or get a new auth token and refresh token with the code returned
         by the spotify auth flow
-        :param refresh_token: The refresh token or the code returned by the spotify auth flow
+        :param spotify_authorisation_token: The refresh token or the code returned by the spotify auth flow
         :param reauthorize: Do want to reauthorize a expiring SpotifyAuthorisationToken or get a new one with the
         spotify code. Set to false and add the code="your_code_here" if you want to get the SpotifyAuthorisationToken
         for the first time
@@ -144,7 +148,7 @@ class API:
         :return: The SpotifyAuthorisationToken
         """
 
-        grant_type = "refresh_token"
+        grant_type: str = "refresh_token"
         if not reauthorize:
             grant_type = "authorization_code"
 
@@ -153,7 +157,7 @@ class API:
         }
 
         if reauthorize:
-            body["refresh_token"] = refresh_token.refresh_token
+            body["refresh_token"] = spotify_authorisation_token.refresh_token
         else:
             body["code"] = code
             body["redirect_uri"] = self.preferences.redirect_url
@@ -164,7 +168,42 @@ class API:
 
         async with aiohttp.ClientSession() as session:
             async with session.post(url=URLS.REFRESH, data=body, headers=header) as response:
-                print(response.status)
-                print(await response.text())
+                response_ok = self._request_ok(response.status)
+                response_text: str = await response.text()
 
-        return SpotifyAuthorisationToken("", int(time.time()))
+        response_text: dict = json.loads(response_text)
+
+        if response_ok[0]:
+            if "refresh_token" not in response_text:
+                refresh_token = spotify_authorisation_token.refresh_token
+            else:
+                refresh_token = response_text["refresh_token"]
+
+            return SpotifyAuthorisationToken(refresh_token=refresh_token, activation_time=int(time.time()),
+                                             access_token=response_text["access_token"])
+
+        raise SpotifyError(response_ok[1] + "\n" + str(response_text))
+
+    @staticmethod
+    def _request_ok(status_code: int) -> Tuple[bool, str]:
+        """
+        Check if the returned status code is ok
+        :param status_code: The status code that should be checked
+        :return:
+                0 Is the response a success code
+                1 Is the response not a success code
+        """
+
+        if status_code in STATUS_CODES["OK"]:
+            return True, STATUS_CODES["OK"][status_code][0]
+
+        if status_code in STATUS_CODES["REDIRECT"]:
+            return False, STATUS_CODES["REDIRECT"][status_code][0]
+
+        if status_code in STATUS_CODES["CLIENT_ERROR"]:
+            return False, STATUS_CODES["CLIENT_ERROR"][status_code][0]
+
+        if status_code in STATUS_CODES["SERVER_ERROR"]:
+            return False, STATUS_CODES["SERVER_ERROR"][status_code][0]
+
+        return False, "Unknown error"

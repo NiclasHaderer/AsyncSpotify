@@ -66,7 +66,7 @@ class TestAuth():
         api = API(preferences)
 
         with pytest.raises(SpotifyError):
-            spotify_code = await api.get_code_with_cookie(
+            await api.get_code_with_cookie(
                 os.environ.get("cookie_file_path", "/home/niclas/IdeaProjects/AsyncSpotify/src/private/cookies.txt"))
 
     # Get the code from spotify
@@ -76,7 +76,7 @@ class TestAuth():
             os.environ.get("cookie_file_path", "/home/niclas/IdeaProjects/AsyncSpotify/src/private/cookies.txt"))
 
         PassTestData.spotify_code = spotify_code
-        assert spotify_code["code"] != ""
+        assert spotify_code != ""
 
     @pytest.mark.asyncio
     async def test_get_auth_code(self, api: API):
@@ -91,3 +91,10 @@ class TestAuth():
         PassTestData.auth_token = auth_token
 
         assert auth_token and not auth_token.is_expired()
+
+    def test_response_type(self, api: API):
+        assert api._request_ok(200)[0]
+        assert False is api._request_ok(300)[0]
+        assert False is api._request_ok(400)[0]
+        assert False is api._request_ok(500)[0]
+        assert False is api._request_ok(600)[0]
