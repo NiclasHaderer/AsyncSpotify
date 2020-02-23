@@ -14,7 +14,6 @@ async def main():
     spotify_code = await spotify_api.get_code_with_cookie(
         "/home/niclas/IdeaProjects/AsyncSpotify/src/private/cookies.txt")
     t = await spotify_api.refresh_token(reauthorize=False, code=spotify_code)
-    print(t)
 
 
 if __name__ == '__main__':

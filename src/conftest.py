@@ -12,6 +12,7 @@ scopes = ["ugc-image-upload", "user-read-playback-state", "user-read-email", "pl
 class PassTestData:
     spotify_code: str = None
     auth_token: SpotifyAuthorisationToken = None
+    api: API = None
 
 
 @pytest.fixture(scope='session')

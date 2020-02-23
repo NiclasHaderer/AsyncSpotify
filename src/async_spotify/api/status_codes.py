@@ -1,4 +1,9 @@
+"""
+A collection of http response codes and their meaning (copied from python requests)
+"""
+
 STATUS_CODES = {
+
     # Informational.
     'OK': {
         100: ('continue',),
@@ -6,7 +11,7 @@ STATUS_CODES = {
         102: ('processing',),
         103: ('checkpoint',),
         122: ('uri_too_long', 'request_uri_too_long'),
-        200: ('ok', 'okay', 'all_ok', 'all_okay', 'all_good', '\\o/', '✓'),
+        200: ('ok', 'okay', 'all_ok', 'all_okay', 'all_good'),
         201: ('created',),
         202: ('accepted',),
         203: ('non_authoritative_info', 'non_authoritative_information'),
@@ -70,7 +75,7 @@ STATUS_CODES = {
 
     # Server Error.
     'SERVER_ERROR': {
-        500: ('internal_server_error', 'server_error', '/o\\', '✗'),
+        500: ('internal_server_error', 'server_error'),
         501: ('not_implemented',),
         502: ('bad_gateway',),
         503: ('service_unavailable', 'unavailable'),

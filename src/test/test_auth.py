@@ -45,8 +45,7 @@ class TestAuth():
             API(p)
 
     # Test the generation of the auth url
-    def test_auth_url(self, preferences: Preferences):
-        api = API(preferences)
+    def test_auth_url(self, api: API):
         url = api.build_authorization_url(show_dialog=False, state="TestState")
         assert ("show_dialog=False" in url and "state=TestState" in url)
 
@@ -60,6 +59,7 @@ class TestAuth():
         token = SpotifyAuthorisationToken("some random string", int(time.time()) - 3401, "Another random string")
         assert token.is_expired()
 
+    # Test the retrial of the code with wrong params
     @pytest.mark.asyncio
     async def test_wrong_code_url(self):
         preferences = Preferences("test", "test", ["test"], "test")
@@ -78,20 +78,27 @@ class TestAuth():
         PassTestData.spotify_code = spotify_code
         assert spotify_code != ""
 
+    # Get the auth token
     @pytest.mark.asyncio
     async def test_get_auth_code(self, api: API):
+        await api.create_new_client()
+
         auth_token: SpotifyAuthorisationToken = await api.refresh_token(code=PassTestData.spotify_code,
                                                                         reauthorize=False)
         PassTestData.auth_token = auth_token
         assert auth_token is not None and not auth_token.is_expired()
 
+    # Refresh the auth token
     @pytest.mark.asyncio
-    async def test_refresh_auth_code(self, api: API):
+    async def test_refresh_auth_code(self, api):
+        await api.create_new_client()
+
         auth_token: SpotifyAuthorisationToken = await api.refresh_token(PassTestData.auth_token)
         PassTestData.auth_token = auth_token
 
         assert auth_token and not auth_token.is_expired()
 
+    # Test different response codes
     def test_response_type(self, api: API):
         assert api._request_ok(200)[0]
         assert False is api._request_ok(300)[0]
