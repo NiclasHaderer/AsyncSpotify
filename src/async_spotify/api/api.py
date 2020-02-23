@@ -1,3 +1,7 @@
+"""
+The main api class which will be used to authenticate and connect to the spotify api
+"""
+
 import asyncio
 import base64
 import json
@@ -7,12 +11,13 @@ import webbrowser
 from json import JSONDecodeError
 from multiprocessing import Process
 from subprocess import CompletedProcess
-from typing import Tuple
+from typing import Tuple, List
 from urllib.parse import urlencode
 
 import aiohttp
 from aiohttp import ClientSession, TCPConnector
 
+from async_spotify.api.albums import Albums
 from async_spotify.api.status_codes import STATUS_CODES
 from async_spotify.api.urls import URLS
 from async_spotify.authentification.callback_server import create_callback_server
@@ -22,6 +27,11 @@ from async_spotify.spotify_errors import SpotifyError
 
 
 class API:
+    """
+    The main api class which will be used to authenticate and connect to the spotify api.
+    Use this class to authenticate and connect to the spotify api.
+    """
+
     def __init__(self, preferences: Preferences, hold_authentication=False):
         """
         Create a new api class
@@ -40,6 +50,8 @@ class API:
         # noinspection PyTypeChecker
         self.spotify_authorisation_token: SpotifyAuthorisationToken = None
 
+        self.album: Albums = Albums(self)
+
     async def create_new_client(self, request_timeout: int = 30, request_limit: int = 500) -> None:
         """
         Create a new session which will be used to connect to the spotify api.
@@ -57,6 +69,16 @@ class API:
         timeout = aiohttp.ClientTimeout(total=request_timeout)
         connector = TCPConnector(limit=request_limit, enable_cleanup_closed=True)
         self.session = ClientSession(connector=connector, timeout=timeout)
+
+    async def close_client(self) -> None:
+        """
+        Close the current client session. You have to create a new one to connect again to spotify.
+        This method should always be called before you end your program
+        :return: None
+        """
+
+        if self.session:
+            await self.session.close()
 
     def build_authorization_url(self, show_dialog=True, state: str = None) -> str:
         """
