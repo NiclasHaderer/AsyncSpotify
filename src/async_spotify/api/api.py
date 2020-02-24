@@ -11,13 +11,14 @@ import webbrowser
 from json import JSONDecodeError
 from multiprocessing import Process
 from subprocess import CompletedProcess
-from typing import Tuple, List
+from typing import Tuple
 from urllib.parse import urlencode
 
-import aiohttp
-from aiohttp import ClientSession, TCPConnector
+from aiohttp import ClientSession, TCPConnector, ClientTimeout
 
-from async_spotify.api.albums import Albums
+from async_spotify.api.endpoints.albums import Albums
+from async_spotify.api.endpoints.artist import Artist
+
 from async_spotify.api.status_codes import STATUS_CODES
 from async_spotify.api.urls import URLS
 from async_spotify.authentification.callback_server import create_callback_server
@@ -32,6 +33,7 @@ class API:
     Use this class to authenticate and connect to the spotify api.
     """
 
+    # noinspection PyTypeChecker
     def __init__(self, preferences: Preferences, hold_authentication=False):
         """
         Create a new api class
@@ -40,17 +42,19 @@ class API:
         (default = False)
         """
 
+        # Check if the preferences are valid
         if not preferences.validate():
             raise SpotifyError("The preferences of your app are not correct")
 
+        # Set the preferences
         self.preferences: Preferences = preferences
         self.hold_authentication: bool = hold_authentication
-        # noinspection PyTypeChecker
         self.session: ClientSession = None
-        # noinspection PyTypeChecker
         self.spotify_authorisation_token: SpotifyAuthorisationToken = None
 
+        # Add all the api endpoints
         self.album: Albums = Albums(self)
+        self.artist: Artist = Artist(self)
 
     async def create_new_client(self, request_timeout: int = 30, request_limit: int = 500) -> None:
         """
@@ -66,7 +70,7 @@ class API:
         if self.session:
             await self.session.close()
 
-        timeout = aiohttp.ClientTimeout(total=request_timeout)
+        timeout = ClientTimeout(total=request_timeout)
         connector = TCPConnector(limit=request_limit, enable_cleanup_closed=True)
         self.session = ClientSession(connector=connector, timeout=timeout)
 
@@ -238,7 +242,7 @@ class API:
             raise SpotifyError("You have to create a new session with API.create_new_client() to connect to spotify")
 
         async with self.session.post(url=URLS.REFRESH, data=body, headers=header) as response:
-            response_ok = self._request_ok(response.status)
+            response_ok = self.request_ok(response.status)
             response_text: str = await response.text()
 
         response_text: dict = json.loads(response_text)
@@ -261,7 +265,7 @@ class API:
         return spotify_authorisation_token
 
     @staticmethod
-    def _request_ok(status_code: int) -> Tuple[bool, str]:
+    def request_ok(status_code: int) -> Tuple[bool, str]:
         """
         Check if the returned status code is ok
         :param status_code: The status code that should be checked

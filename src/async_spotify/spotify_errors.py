@@ -1,3 +1,8 @@
+"""
+File with all the errors possible
+"""
+
+
 class SpotifyError(Exception):
     """
     Custom error message

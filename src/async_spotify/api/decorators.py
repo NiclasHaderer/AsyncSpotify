@@ -1,24 +1,25 @@
 """
 A file with a wrapper functions
 """
-from async_spotify import API, SpotifyError
+from async_spotify import API
+from async_spotify.spotify_errors import SpotifyError
 
 
-def get_url(url: str):
+async def get_url(url: str):
     """
     Wrap a get function
     :param url: The url that should be called
     :return: The executable function
     """
 
-    def outer_wrapper(function):
+    async def outer_wrapper(function):
         """
         Return the wrapper function so the wrapper function can be called
         :param function: The function that should be called
         :return:
         """
 
-        def wrapper(*args, **kwargs):
+        async def wrapper(*args, **kwargs):
             """
             The wrapper that wraps the function to get the function arguments
             :param args: The args of the function
@@ -30,7 +31,7 @@ def get_url(url: str):
             query_params: dict = function(*args, **kwargs)
 
             async with api.session.get(url, params=query_params) as response:
-                response_code = api._request_ok(response.status)
+                response_code = api.request_ok(response.status)
                 response_json: dict = await response.json()
 
             if not response_code[0]:
@@ -43,4 +44,5 @@ def get_url(url: str):
     return outer_wrapper
 
 # TODO add optional arg auth_token: SpotifyAuthToken
+# TODO save auth
 # TODO add the header retrieval
