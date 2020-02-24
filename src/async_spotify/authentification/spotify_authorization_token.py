@@ -1,3 +1,7 @@
+"""
+This file contains the Spotify AuthorisationToken
+"""
+
 import time
 
 

@@ -18,7 +18,7 @@ STATUS_CODES = {
         204: ('no_content',),
         205: ('reset_content', 'reset'),
         206: ('partial_content', 'partial'),
-        207: ('multi_status', 'multiple_status', 'multi_stati', 'multiple_stati'),
+        207: ('multi_status', 'multiple_status', 'multiple_stati'),
         208: ('already_reported',),
         226: ('im_used',)
     },
@@ -33,7 +33,7 @@ STATUS_CODES = {
         305: ('use_proxy',),
         306: ('switch_proxy',),
         307: ('temporary_redirect', 'temporary_moved', 'temporary'),
-        308: ('permanent_redirect')
+        308: 'permanent_redirect'
     },
 
     # Client Error.

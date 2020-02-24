@@ -1,0 +1,15 @@
+site_name: "Async Spotify"
+
+nav:
+  - Overview: "index.md"
+  - Reference:
+      - preferences.py: "reference/preferences.md"
+
+theme:
+  name: "material"
+
+plugins:
+  - search
+  - mkdocstrings:
+      watch:
+        - src/async_spotify

@@ -1,3 +1,7 @@
+"""
+Handle the requests to the albums endpoint
+"""
+
 from typing import List
 
 from async_spotify import API
@@ -30,8 +34,18 @@ class Albums:
         required_args = {"id": album_id}
         return {**required_args, **kwargs}
 
-    async def get_album_tracks(self, id: str, limit: int = None, offset: int = None, market: str = None):
+    async def get_album_tracks(self, album_id: str):
+        """
+
+        :param album_id:
+        :return:
+        """
         pass
 
     async def get_multiple_albums(self, id_list: List[str], market: str = None):
+        """
+
+        :param id_list:
+        :param market:
+        """
         pass
