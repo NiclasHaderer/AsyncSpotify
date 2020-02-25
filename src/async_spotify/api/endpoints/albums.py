@@ -4,7 +4,7 @@ Handle the requests to the albums endpoint
 
 from typing import List
 
-from async_spotify import API
+import async_spotify
 from async_spotify.api.decorators import get_url
 
 
@@ -13,13 +13,13 @@ class Albums:
     Wraps the spotify album functions
     """
 
-    def __init__(self, api_object: API):
+    def __init__(self, api_object):
         """
         Create a new spotify album query class which handles the queries concerning albums
         :param api_object: The api object the class is assigned to
         """
 
-        self.api_object: API = api_object
+        self.api_object = api_object  # type: async_spotify.API
 
     @get_url
     async def get_album(self, album_id: str, **kwargs) -> dict:

@@ -16,15 +16,15 @@ from urllib.parse import urlencode
 
 from aiohttp import ClientSession, TCPConnector, ClientTimeout
 
-from async_spotify.api.endpoints.albums import Albums
-from async_spotify.api.endpoints.artist import Artist
+from .endpoints.albums import Albums
+from .endpoints.artist import Artist
 
-from async_spotify.api.status_codes import STATUS_CODES
-from async_spotify.api.urls import URLS
-from async_spotify.authentification.callback_server import create_callback_server
-from async_spotify.authentification.spotify_authorization_token import SpotifyAuthorisationToken
-from async_spotify.preferences import Preferences
-from async_spotify.spotify_errors import SpotifyError
+from .status_codes import STATUS_CODES
+from .urls import URLS
+from ..authentification.callback_server import create_callback_server
+from ..authentification.spotify_authorization_token import SpotifyAuthorisationToken
+from ..preferences import Preferences
+from ..spotify_errors import SpotifyError
 
 
 class API:

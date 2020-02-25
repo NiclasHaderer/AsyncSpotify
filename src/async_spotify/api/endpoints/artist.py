@@ -1,8 +1,7 @@
 """
 Handle the requests to the artist endpoint
 """
-
-from async_spotify import API
+import async_spotify
 
 
 class Artist:
@@ -10,13 +9,13 @@ class Artist:
     Wraps the spotify artist functions
     """
 
-    def __init__(self, api_object: API):
+    def __init__(self, api_object):
         """
         Create a new spotify artist query class which handles the queries concerning artists
         :param api_object: The api object the class is assigned to
         """
 
-        self.api_object: API = api_object
+        self.api_object = api_object  # type: async_spotify.API
 
     def get_artist(self, artist_id: str):
         """
