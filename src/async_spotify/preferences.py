@@ -35,10 +35,12 @@ class Preferences:
                  redirect_url: str = None):
         """
         Create a new Spotify Preferences Object
-        :param application_id: The id of the application (Has to be set to use the object)
-        :param application_secret: The secret of the application (Has to be set to use the object)
-        :param scopes: The spotify scopes you app will request
-        :param redirect_url: The redirect url spotify will referee the user after authentication
+
+        Args:
+            application_id: The id of the application (Has to be set to use the object)
+            application_secret: The secret of the application (Has to be set to use the object)
+            scopes: The spotify scopes you app will request
+            redirect_url: The redirect url spotify will referee the user after authentication
         """
         self.application_id: str = application_id
         self.application_secret: str = application_secret
@@ -47,11 +49,15 @@ class Preferences:
 
     def load_from_env(self) -> None:
         """
-        Load the Preferences from the environment.
-        The variable names have to be the same as the property name.
-        Scopes has to be a string separated by ' '
-        :return: None
+        Load the Preferences from the environment. The variable names have to be the same as the property name.
+
+        Important:
+            Scopes has to be a string separated by ' '
+
+        Returns:
+            None
         """
+
         self.application_id = os.environ.get("application_id", self.application_id)
         self.application_secret = os.environ.get("application_secret", self.application_secret)
         self.redirect_url = os.environ.get("redirect_url", self.redirect_url)
@@ -63,8 +69,12 @@ class Preferences:
         """
         Loads the Preferences from docker secret.
         The variable names have to be the same as the property name.
-        Scopes has to be a string separated by ' '
-        :return: None
+
+        Important:
+            Scopes has to be a string separated by ' '
+
+        Returns:
+            None
         """
         self.application_id = self._get_docker_secret('application_id', self.application_id)
         self.application_secret = self._get_docker_secret('application_secret', self.application_secret)
@@ -76,7 +86,12 @@ class Preferences:
     def save_preferences_to_evn(self) -> None:
         """
         Takes the preferences saved in the object and saves them as os environment variables
-        :return: None
+
+        Note:
+            This will however not be permanent but only last for one session
+
+        Returns:
+            None
         """
         if self.application_id:
             os.environ["application_id"] = self.application_id
@@ -89,8 +104,10 @@ class Preferences:
 
     def validate(self) -> bool:
         """
-        Validate if the preferences can be used
-        :return: Are the preferences valid
+        Validate if the preferences can be used. This will only check if the values of the preferences are not empty.
+
+        Returns:
+            Are the preferences valid
         """
         if self.application_id and self.application_secret and self.scopes and self.redirect_url:
             return True
@@ -101,10 +118,14 @@ class Preferences:
                            secrets_dir=os.path.join(os.path.abspath(os.sep), 'var', 'run', 'secrets')) -> str:
         """
         Read the docker secret and return it
-        :param name: The name of the docker secret
-        :param default: The default value if no secret is found
-        :param secrets_dir: The directory where the secrets are stored
-        :returns: The docker secret
+
+        Arguments:
+            name: The name of the docker secret
+            default: The default value if no secret is found
+            secrets_dir: The directory where the secrets are stored
+
+        Returns:
+            The docker secret
         """
 
         # try to read from secret file
@@ -117,7 +138,11 @@ class Preferences:
     def __eq__(self, other):
         """
         Support for equal assertion
-        :param other: The other object the comparison is made to
-        :return: Is the content of the objects equal
+
+        Arguments:
+            other: The other object the comparison is made to
+
+        Returns:
+            Is the content of the objects equal
         """
         return self.__dict__ == other.__dict__
