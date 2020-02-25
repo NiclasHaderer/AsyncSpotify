@@ -1,7 +1,7 @@
 """
 A file with a wrapper functions
 """
-from async_spotify import API
+import async_spotify
 from async_spotify.spotify_errors import SpotifyError
 
 
@@ -27,7 +27,7 @@ async def get_url(url: str):
             :return: The result of the function
             """
 
-            api: API = args[0].api_object
+            api = args[0].api_object  # type: async_spotify.API
             query_params: dict = function(*args, **kwargs)
 
             async with api.session.get(url, params=query_params) as response:
