@@ -1,3 +1,7 @@
+"""
+This file contains the Spotify AuthorisationToken
+"""
+
 import time
 
 
@@ -6,15 +10,15 @@ class SpotifyAuthorisationToken:
     Class that has the Authorisation Token
     """
 
-    def __init__(self, refresh_token: str, activation_time: int, authorisation_token: str = None):
+    def __init__(self, refresh_token: str, activation_time: int, access_token: str = None):
         """
         Generate a new authorisation token
         :param refresh_token: The refresh token that was given to the application
-        :param authorisation_token: The token that will be used to make request
+        :param access_token: The token that will be used to make request
         """
         self.activation_time: int = activation_time
         self.refresh_token: str = refresh_token
-        self.token: str = authorisation_token
+        self.access_token: str = access_token
 
     def is_expired(self) -> bool:
         """

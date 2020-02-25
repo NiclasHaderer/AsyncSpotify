@@ -1,0 +1,3 @@
+"""
+The spotify api endpoints
+"""
