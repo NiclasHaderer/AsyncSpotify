@@ -3,6 +3,7 @@ A file with a wrapper functions
 """
 import async_spotify
 from ..spotify_errors import SpotifyError
+from functools import wraps
 
 
 def get_url(url: str):
@@ -19,6 +20,7 @@ def get_url(url: str):
         :return:
         """
 
+        @wraps(function)
         async def wrapper(*args, **kwargs):
             """
             The wrapper that wraps the function to get the function arguments
