@@ -5,7 +5,7 @@ Handle the requests to the albums endpoint
 from typing import List
 
 import async_spotify
-from async_spotify.api.decorators import get_url
+from ..decorators import get_url
 
 
 class Albums:
