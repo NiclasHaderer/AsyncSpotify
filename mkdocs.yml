@@ -1,8 +1,16 @@
 site_name: "Async Spotify"
+site_description: "Async wrapper in python for the spotify api"
+site_url: "https://github.com/HuiiBuh/AsyncSpotify"
+repo_url: "https://github.com/HuiiBuh/AsyncSpotify"
+repo_name: "HuiiBuh/AsyncSpotify"
 
 nav:
+  - Overview: "index.md"
   - Reference:
-      - preferences.py: "reference/preferences.md"
+      - Preferences: "reference/preferences.md"
+      - Albums: "reference/albums.md"
+      - Artists: "reference/artists.md"
+
 
 theme:
   name: "material"

@@ -17,7 +17,7 @@ from urllib.parse import urlencode
 from aiohttp import ClientSession, TCPConnector, ClientTimeout
 
 from .endpoints.albums import Albums
-from .endpoints.artist import Artist
+from .endpoints.artists import Artist
 
 from .status_codes import STATUS_CODES
 from .urls import URLS
