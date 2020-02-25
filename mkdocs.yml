@@ -7,6 +7,9 @@ nav:
 theme:
   name: "material"
 
+extra_css:
+  - custom.css
+
 plugins:
   - search
   - mkdocstrings:

@@ -18,8 +18,8 @@
     <option name="requirementsPath" value="" />
   </component>
   <component name="PyDocumentationSettings">
-    <option name="format" value="REST" />
-    <option name="myDocStringFormat" value="reStructuredText" />
+    <option name="format" value="GOOGLE" />
+    <option name="myDocStringFormat" value="Google" />
     <option name="renderExternalDocumentation" value="true" />
   </component>
 </module>
