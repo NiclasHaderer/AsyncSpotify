@@ -1,3 +1,7 @@
+"""
+Preferences for the spotify api
+"""
+
 import os
 from typing import List
 
