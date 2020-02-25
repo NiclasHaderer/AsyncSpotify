@@ -2,17 +2,17 @@
 A file with a wrapper functions
 """
 import async_spotify
-from async_spotify.spotify_errors import SpotifyError
+from ..spotify_errors import SpotifyError
 
 
-async def get_url(url: str):
+def get_url(url: str):
     """
     Wrap a get function
     :param url: The url that should be called
     :return: The executable function
     """
 
-    async def outer_wrapper(function):
+    def outer_wrapper(function):
         """
         Return the wrapper function so the wrapper function can be called
         :param function: The function that should be called
