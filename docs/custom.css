@@ -2,8 +2,12 @@
     width: 100%;
 }
 
-
 div.autodoc {
     padding-left: 25px;
     border-left: 4px solid rgba(230, 230, 230);
+}
+
+table.codehilitetable {
+    overflow: auto !important;
+    max-height: 40vh !important;
 }
