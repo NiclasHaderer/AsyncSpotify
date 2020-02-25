@@ -10,7 +10,7 @@ nav:
       - Preferences: "reference/preferences.md"
       - Albums: "reference/albums.md"
       - Artists: "reference/artists.md"
-
+  - Licence: "licence.md"
 
 theme:
   name: "material"

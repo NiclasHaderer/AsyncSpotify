@@ -5,6 +5,8 @@ Handle the requests to the albums endpoint
 from typing import List
 
 import async_spotify
+from async_spotify.api.decorators import get_url
+from async_spotify.api.urls import URLS
 
 
 class Albums:
@@ -22,6 +24,7 @@ class Albums:
 
         self.api_object = api_object  # type: async_spotify.API
 
+    @get_url(URLS.ALBUM.ONE)
     async def get_album(self, album_id: str, **kwargs) -> dict:
         """
         Get the album with the specific spotify album id
