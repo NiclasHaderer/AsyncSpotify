@@ -1,0 +1,1 @@
+::: async_spotify.spotify_errors

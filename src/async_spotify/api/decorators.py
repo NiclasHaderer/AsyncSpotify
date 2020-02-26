@@ -9,24 +9,36 @@ from functools import wraps
 def get_url(url: str):
     """
     Wrap a get function
-    :param url: The url that should be called
-    :return: The executable function
+
+    Args:
+        url: The url that should be called
+
+    Returns:
+        The executable function
     """
 
     def outer_wrapper(function):
         """
         Return the wrapper function so the wrapper function can be called
-        :param function: The function that should be called
-        :return:
+
+        Args:
+            function: The function that should be called
+
+        Returns:
+            The wrapped function
         """
 
         @wraps(function)
         async def wrapper(*args, **kwargs):
             """
             The wrapper that wraps the function to get the function arguments
-            :param args: The args of the function
-            :param kwargs: The keyword args of the function
-            :return: The result of the function
+
+            Args:
+                args: The args of the function
+                kwargs: The keyword args of the function
+
+            Returns:
+                The result of the function
             """
 
             api = args[0].api_object  # type: async_spotify.API
