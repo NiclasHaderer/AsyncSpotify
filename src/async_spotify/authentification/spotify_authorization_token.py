@@ -13,8 +13,10 @@ class SpotifyAuthorisationToken:
     def __init__(self, refresh_token: str, activation_time: int, access_token: str = None):
         """
         Generate a new authorisation token
-        :param refresh_token: The refresh token that was given to the application
-        :param access_token: The token that will be used to make request
+
+        Args:
+            refresh_token: The refresh token that was given to the application
+            access_token: The token that will be used to make request
         """
         self.activation_time: int = activation_time
         self.refresh_token: str = refresh_token
@@ -23,7 +25,9 @@ class SpotifyAuthorisationToken:
     def is_expired(self) -> bool:
         """
         Checks if the api token has expired
-        :return: bool
+
+        Returns:
+            Is the token expired
         """
         current_time: int = int(time.time())
 

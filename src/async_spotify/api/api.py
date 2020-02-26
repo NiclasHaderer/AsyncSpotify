@@ -37,9 +37,9 @@ class API:
     def __init__(self, preferences: Preferences, hold_authentication=False):
         """
         Create a new api class
-        :param preferences: The preferences object fully filled with information
-        :param hold_authentication: Should the api keep the authentication im memory and refresh it automatically
-        (default = False)
+        Args:
+            preferences: The preferences object fully filled with information
+            hold_authentication: Should the api keep the authentication im memory and refresh it automatically
         """
 
         # Check if the preferences are valid
@@ -62,9 +62,13 @@ class API:
         In general this only has to be called once after you create a new API object.
         You can however call this method if you want ot update the client settings (more requests, ...)
         This will however close all ongoing requests.
-        :param request_timeout: How long should be waited for a request (default 30s) (None for no limit)
-        :param request_limit: How many requests should be allowed (default 500)
-        :return: None
+
+        Args:
+            request_timeout: How long should be waited for a request (default 30s) (None for no limit)
+            request_limit: How many requests should be allowed (default 500)
+
+        Returns:
+            None
         """
 
         if self.session:
@@ -78,7 +82,9 @@ class API:
         """
         Close the current client session. You have to create a new one to connect again to spotify.
         This method should always be called before you end your program
-        :return: None
+
+        Returns:
+            None
         """
 
         if self.session:
@@ -87,9 +93,13 @@ class API:
     def build_authorization_url(self, show_dialog=True, state: str = None) -> str:
         """
         Builds the URL for the authorisation
-        :param state: State of the authorization
-        :param show_dialog: Should the spotify auth dialog be shown
-        :return: The encoded url
+
+        Args:
+            state: State of the authorization
+            show_dialog: Should the spotify auth dialog be shown
+
+        Returns:
+            The encoded url which can be used to authorize a new or existing user
         """
 
         params = {
@@ -110,8 +120,12 @@ class API:
         """
         Open the url in browser
         Only for testing purposes or the usage of this library in a desktop app
-        :param show_dialogue: Should the spotify auth dialog be shown
-        :return: None
+
+        Args:
+            show_dialogue: Should the spotify auth dialog be shown
+
+        Returns:
+            None
         """
 
         # Open url in a new window of the default browser, if possible
@@ -124,29 +138,36 @@ class API:
         which is necessary to request the refresh_token and the oauth_token.
         The token that is returned by this function has to be passed to API.refresh_token(code, reauthorize=False)
         to get the refresh_token and the oauth_token.
-        This will only work if the user has at least once accepted the scopes your app is requesting.
-        I would recommend that you take a look at the source code of this function before you use it and that you are
-        familiar with the authorization mechanism of spotify.
-        This method is intended for automated testing. You have to decide if you want to use it in you production
-        environment.
-        :param cookie_file_location: The absolute path to the cookie file with all the active cookies in you browser
-        when you visit
-        https://open.spotify.com. The format is the same one used by curl.
-        Take a look at this post if you wat to know the format of the cookies in the file:
-        https://stackoverflow.com/questions/7181785/send-cookies-with-curl.
-        To download the cookies you can use this extension. I don't know who wrote it and it is not open source so
-        download and use it with care.
-        https://chrome.google.com/webstore/detail/cookiestxt/njabckikapfpffapmjgojcnbfjonfjfg
-        :param callback_server_port: The port the callback server will use to display the callback of the spotify api
-        :param callback_server_url: The url the callback server will listen for callbacks for. Don't forget to add the
-        url http://localhost:1111/test/api/callback to the allowed urls in the panel of you spotify app
-        (developer.spotify.com)
 
-        :raises SpotifyError if the command was not successful
-        :raises UnicodeDecodeError if the returned string could not be decoded
-        :raises JSONDecodeError if the returned and decoded string is not a valid json
+        Note:
+            This will only work if the user has at least once accepted the scopes your app is requesting.
+            I would recommend that you take a look at the source code of this function before you use it and that you are
+            familiar with the authorization mechanism of spotify.
 
-        :return: The spotify code that can be used to get a refresh_token and a oauth_token
+        Important:
+            This method is intended for automated testing. You have to decide if you want to use it in you production
+            environment.
+
+        Args:
+            cookie_file_location: The absolute path to the cookie file with all the active cookies in you browser
+                when you visit [https://open.spotify.com](https://open.spotify.com). The format is the same one used by curl.
+                Take a look at this post if you wat to know the format of the cookies in the file:
+                https://stackoverflow.com/questions/7181785/send-cookies-with-curl.
+                To download the cookies you can use this extension. I don't know who wrote it and it is not open source so
+                download and use it with care.
+                https://chrome.google.com/webstore/detail/cookiestxt/njabckikapfpffapmjgojcnbfjonfjfg
+            callback_server_port: The port the callback server will use to display the callback of the spotify api
+            callback_server_url: The url the callback server will listen for callbacks for. Don't forget to add the
+                url http://localhost:1111/test/api/callback to the allowed urls in the panel of you spotify app
+                (developer.spotify.com)
+
+        Raises:
+            SpotifyError: if the command was not successful
+            UnicodeDecodeError: if the returned string could not be decoded
+            JSONDecodeError: if the returned and decoded string is not a valid json
+
+        Returns:
+            The spotify code that can be used to get a refresh_token and a oauth_token
         """
 
         # Build the auth url
@@ -168,15 +189,19 @@ class API:
     def _curl_spotify_code(webserver_process: Process, url: str, cookie_file_location: str) -> str:
         """
         Curl the spotify code from the earlier created webserver
-        :param webserver_process: The independent process that has been started to serve as callback server for spotify
-        :param url: The url of the spotify authorization
-        :param cookie_file_location: The location of the cookie file
 
-        :raises SpotifyError if the command was not successful
-        :raises UnicodeDecodeError if the returned string could not be decoded
-        :raises JSONDecodeError if the returned and decoded string is not a valid json
+        Args:
+            webserver_process: The independent process that has been started to serve as callback server for spotify
+            url: The url of the spotify authorization
+            cookie_file_location: The location of the cookie file
 
-        :return: The code returned by spotify
+        Raises
+            SpotifyError: if the command was not successful
+            UnicodeDecodeError: if the returned string could not be decoded
+            JSONDecodeError: if the returned and decoded string is not a valid json
+
+        Returns:
+            The code returned by spotify
         """
 
         # Curl the code from spotify
@@ -212,12 +237,16 @@ class API:
         """
         Refresh the auth token with the refresh token or get a new auth token and refresh token with the code returned
         by the spotify auth flow
-        :param passed_auth_token_object: The refresh token or the code returned by the spotify auth flow
-        :param reauthorize: Do want to reauthorize a expiring SpotifyAuthorisationToken or get a new one with the
-        spotify code. Set to false and add the code="your_code_here" if you want to get the SpotifyAuthorisationToken
-        for the first time
-        :param code: The code returned by spotify and the OAuth
-        :return: The SpotifyAuthorisationToken
+
+        Args:
+            passed_auth_token_object: The refresh token or the code returned by the spotify auth flow
+            reauthorize: Do want to reauthorize a expiring SpotifyAuthorisationToken or get a new one with the
+                spotify code. Set to false and add the code="your_code_here" if you want to get the SpotifyAuthorisationToken
+                for the first time
+            code: The code returned by spotify and the OAuth
+
+        Returns:
+            The SpotifyAuthorisationToken
         """
 
         grant_type: str = "refresh_token"
@@ -268,10 +297,13 @@ class API:
     def request_ok(status_code: int) -> Tuple[bool, str]:
         """
         Check if the returned status code is ok
-        :param status_code: The status code that should be checked
-        :return:
-                [0] Is the response a success code
-                [1] What does the response code mean
+
+        Args:
+            status_code: The status code that should be checked
+
+        Returns:
+            [0] Is the response a success status code <br/>
+            [1] What does the response code mean
         """
 
         if status_code in STATUS_CODES["OK"]:

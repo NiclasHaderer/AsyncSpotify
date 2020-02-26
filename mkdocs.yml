@@ -7,9 +7,15 @@ repo_name: "HuiiBuh/AsyncSpotify"
 nav:
   - Overview: "index.md"
   - Reference:
-      - Preferences: "reference/preferences.md"
       - Albums: "reference/albums.md"
+      - Api: "reference/api.md"
       - Artists: "reference/artists.md"
+      - Authenticication: "reference/authentification.md"
+      - Decorators: "reference/decorators.md"
+      - Preferences: "reference/preferences.md"
+      - Spotify Errors: "reference/spotify_errors.md"
+      - Status Codes: "reference/status_codes.md"
+      - URLs: "reference/urls.md"
   - Licence: "licence.md"
 
 theme:
