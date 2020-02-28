@@ -11,15 +11,14 @@ import webbrowser
 from json import JSONDecodeError
 from multiprocessing import Process
 from subprocess import CompletedProcess
-from typing import Tuple
 from urllib.parse import urlencode
 
 from aiohttp import ClientSession, TCPConnector, ClientTimeout
 
+from .api_request_maker import ApiRequestHandler
 from .endpoints.albums import Albums
-from .endpoints.artists import Artist
-
-from .status_codes import STATUS_CODES
+from .endpoints.artists import Artists
+from .response_status import ResponseStatus
 from .urls import URLS
 from ..authentification.callback_server import create_callback_server
 from ..authentification.spotify_authorization_token import SpotifyAuthorisationToken
@@ -32,6 +31,9 @@ class API:
     The main api class which will be used to authenticate and connect to the spotify api.
     Use this class to authenticate and connect to the spotify api.
     """
+
+    albums: Albums = Albums()
+    artists: Artists = Artists()
 
     # noinspection PyTypeChecker
     def __init__(self, preferences: Preferences, hold_authentication=False):
@@ -48,13 +50,12 @@ class API:
 
         # Set the preferences
         self.preferences: Preferences = preferences
-        self.hold_authentication: bool = hold_authentication
         self.session: ClientSession = None
+
+        self.hold_authentication: bool = hold_authentication
         self.spotify_authorisation_token: SpotifyAuthorisationToken = None
 
-        # Add all the api endpoints
-        self.album: Albums = Albums(self)
-        self.artist: Artist = Artist(self)
+        self.api_request_handler: ApiRequestHandler = ApiRequestHandler(self)
 
     async def create_new_client(self, request_timeout: int = 30, request_limit: int = 500) -> None:
         """
@@ -271,14 +272,14 @@ class API:
             raise SpotifyError("You have to create a new session with API.create_new_client() to connect to spotify")
 
         async with self.session.post(url=URLS.REFRESH, data=body, headers=header) as response:
-            response_ok = self.request_ok(response.status)
+            response_status = ResponseStatus(response.status)
             response_text: str = await response.text()
 
         response_text: dict = json.loads(response_text)
 
         # The response was not ok
-        if not response_ok[0]:
-            raise SpotifyError(response_ok[1] + "\n" + str(response_text))
+        if not response_status.success:
+            raise SpotifyError(response_status.message + "\n" + str(response_text))
 
         if "refresh_token" not in response_text:
             refresh_token = passed_auth_token_object.refresh_token
@@ -293,29 +294,28 @@ class API:
 
         return spotify_authorisation_token
 
-    @staticmethod
-    def request_ok(status_code: int) -> Tuple[bool, str]:
+    def get_header(self, auth_token: SpotifyAuthorisationToken = None) -> json:
         """
-        Check if the returned status code is ok
+        Build the spotify header used to authenticate the user for the spotify api
 
         Args:
-            status_code: The status code that should be checked
+            auth_token: Optional argument. If you store the auth token in memory (api.hold_authentification = True)
+                you can skip this.
 
-        Returns:
-            [0] Is the response a success status code <br/>
-            [1] What does the response code mean
+        Returns: The header as json
+
         """
 
-        if status_code in STATUS_CODES["OK"]:
-            return True, STATUS_CODES["OK"][status_code][0]
+        if auth_token:
+            return {
+                "Authorization": f"Bearer {auth_token.access_token}",
+                "Content-Type": "application/json"
+            }
 
-        if status_code in STATUS_CODES["REDIRECT"]:
-            return False, STATUS_CODES["REDIRECT"][status_code][0]
+        if self.hold_authentication and not self.spotify_authorisation_token:
+            raise SpotifyError("You don't have a spotify auth token stored in memory")
 
-        if status_code in STATUS_CODES["CLIENT_ERROR"]:
-            return False, STATUS_CODES["CLIENT_ERROR"][status_code][0]
-
-        if status_code in STATUS_CODES["SERVER_ERROR"]:
-            return False, STATUS_CODES["SERVER_ERROR"][status_code][0]
-
-        return False, "Unknown response code"
+        return {
+            "Authorization": f"Bearer {self.spotify_authorisation_token.access_token}",
+            "Content-Type": "application/json"
+        }

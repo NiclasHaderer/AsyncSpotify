@@ -100,8 +100,8 @@ class TestAuth():
 
     # Test different response codes
     def test_response_type(self, api: API):
-        assert api.request_ok(200)[0]
-        assert False is api.request_ok(300)[0]
-        assert False is api.request_ok(400)[0]
-        assert False is api.request_ok(500)[0]
-        assert False is api.request_ok(600)[0]
+        assert api.get_status(200)[0]
+        assert False is api.get_status(300)[0]
+        assert False is api.get_status(400)[0]
+        assert False is api.get_status(500)[0]
+        assert False is api.get_status(600)[0]
