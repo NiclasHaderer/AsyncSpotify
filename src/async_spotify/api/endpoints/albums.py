@@ -4,8 +4,8 @@ Handle the requests to the albums endpoint
 
 from typing import List
 
-import async_spotify
-from async_spotify.api.decorators import get_url
+from async_spotify import SpotifyAuthorisationToken
+from async_spotify.api.decorators import make_request
 from async_spotify.api.urls import URLS
 
 
@@ -14,22 +14,14 @@ class Albums:
     Wraps the spotify album functions
     """
 
-    def __init__(self, api_object):
-        """
-        Create a new spotify album query class which handles the queries concerning albums
-
-        Args:
-            api_object: The api object the class is assigned to
-        """
-
-        self.api_object = api_object  # type: async_spotify.API
-
-    @get_url(URLS.ALBUM.ONE)
-    async def get_album(self, album_id: str, **kwargs) -> dict:
+    @staticmethod
+    @make_request(URLS.ALBUM.ONE, method="GET")
+    async def get_album(album_id: str, auth_token: SpotifyAuthorisationToken = None, **kwargs) -> dict:
         """
         Get the album with the specific spotify album id
 
         Args:
+            auth_token: The auth token if you set the api class not to keep the token in memory
             album_id: The album id of the album you want to get
             kwargs: Optional arguments as keyword args
 
@@ -41,9 +33,10 @@ class Albums:
         """
 
         required_args = {"id": album_id}
-        return {**required_args, **kwargs}
+        return {**required_args, **kwargs}, auth_token
 
-    async def get_album_tracks(self, album_id: str) -> dict:
+    @staticmethod
+    async def get_album_tracks(album_id: str) -> dict:
         """
         Get the tracks of an album
 

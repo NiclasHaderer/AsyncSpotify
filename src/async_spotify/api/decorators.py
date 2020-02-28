@@ -1,16 +1,20 @@
 """
 A file with a wrapper functions
 """
-import async_spotify
-from ..spotify_errors import SpotifyError
 from functools import wraps
 
+from .api_request_maker import ApiRequestHandler
+from .. import SpotifyAuthorisationToken
 
-def get_url(url: str):
+api_request_handler = ApiRequestHandler()
+
+
+def make_request(url: str, method: str):
     """
     Wrap a get function
 
     Args:
+        method: The method that should be used to make the request
         url: The url that should be called
 
     Returns:
@@ -41,22 +45,21 @@ def get_url(url: str):
                 The result of the function
             """
 
-            api = args[0].api_object  # type: async_spotify.API
-            query_params: dict = function(*args, **kwargs)
+            # Get the args from the original api function
+            return_values = function(*args, **kwargs)[0]
+            query_params = return_values[0]
+            auth_token: SpotifyAuthorisationToken = return_values[1]
 
-            async with api.session.get(url, params=query_params) as response:
-                response_code = api.request_ok(response.status)
-                response_json: dict = await response.json()
+            if method == "GET":
+                response: dict = await api_request_handler.get_request(url, query_params, auth_token)
 
-            if not response_code[0]:
-                raise SpotifyError(response_json)
+            if method == "PUT":
+                response: dict = await api_request_handler.put_request(url, query_params, auth_token)
 
-            return response_json
+            return response
 
         return wrapper
 
     return outer_wrapper
 
-# TODO add optional arg auth_token: SpotifyAuthToken
-# TODO save auth
-# TODO add the header retrieval
+# TODO save auth if token expired
