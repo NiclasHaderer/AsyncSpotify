@@ -19,15 +19,15 @@ class ResponseStatus:
             message = STATUS_CODES["OK"][status_code]
 
         elif status_code in STATUS_CODES["REDIRECT"]:
-            success = True
+            success = False
             message = STATUS_CODES["REDIRECT"][status_code]
 
         elif status_code in STATUS_CODES["CLIENT_ERROR"]:
-            success = True
+            success = False
             message = STATUS_CODES["CLIENT_ERROR"][status_code]
 
         elif status_code in STATUS_CODES["SERVER_ERROR"]:
-            success = True
+            success = False
             message = STATUS_CODES["SERVER_ERROR"][status_code]
         else:
             success = False

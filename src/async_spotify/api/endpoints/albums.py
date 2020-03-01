@@ -4,9 +4,9 @@ Handle the requests to the albums endpoint
 
 from typing import List
 
-from async_spotify import SpotifyAuthorisationToken
-from async_spotify.api.decorators import make_request
-from async_spotify.api.urls import URLS
+from .decorators import make_request
+from .urls import URLS
+from ...authentification.spotify_authorization_token import SpotifyAuthorisationToken
 
 
 class Albums:
