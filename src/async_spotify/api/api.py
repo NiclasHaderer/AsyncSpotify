@@ -18,8 +18,8 @@ from aiohttp import ClientSession, TCPConnector, ClientTimeout
 from .api_request_maker import ApiRequestHandler
 from .endpoints.albums import Albums
 from .endpoints.artists import Artists
+from .endpoints.urls import URLS
 from .response_status import ResponseStatus
-from .urls import URLS
 from ..authentification.callback_server import create_callback_server
 from ..authentification.spotify_authorization_token import SpotifyAuthorisationToken
 from ..preferences import Preferences

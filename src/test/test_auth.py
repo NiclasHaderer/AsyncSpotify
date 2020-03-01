@@ -4,11 +4,23 @@ import time
 import pytest
 
 from async_spotify import SpotifyAuthorisationToken, API, SpotifyError
+from async_spotify.api.response_status import ResponseStatus
 from async_spotify.preferences import Preferences
-from conftest import PassTestData
+from conftest import TestDataTransfer
 
 
-class TestAuth():
+class TestAuth:
+
+    @pytest.mark.asyncio
+    async def test_setup_test(self):
+        spotify_code = await TestDataTransfer.api.get_code_with_cookie(
+            os.environ.get("cookie_file_path", "/home/niclas/IdeaProjects/AsyncSpotify/src/private/cookies.txt"))
+
+        TestDataTransfer.spotify_code = spotify_code
+        await TestDataTransfer.api.create_new_client()
+
+        auth_token = await TestDataTransfer.api.refresh_token(reauthorize=False, code=spotify_code)
+        TestDataTransfer.auth_token = auth_token
 
     # Load preferences
     def test_load_secret_preferences(self):
@@ -45,8 +57,8 @@ class TestAuth():
             API(p)
 
     # Test the generation of the auth url
-    def test_auth_url(self, api: API):
-        url = api.build_authorization_url(show_dialog=False, state="TestState")
+    def test_auth_url(self, py_api: API):
+        url = py_api.build_authorization_url(show_dialog=False, state="TestState")
         assert ("show_dialog=False" in url and "state=TestState" in url)
 
     # Test the expiration token
@@ -71,37 +83,35 @@ class TestAuth():
 
     # Get the code from spotify
     @pytest.mark.asyncio
-    async def test_code_retrieval(self, api: API):
-        spotify_code = await api.get_code_with_cookie(
+    async def test_code_retrieval(self, py_api: API):
+        spotify_code = await py_api.get_code_with_cookie(
             os.environ.get("cookie_file_path", "/home/niclas/IdeaProjects/AsyncSpotify/src/private/cookies.txt"))
 
-        PassTestData.spotify_code = spotify_code
+        TestDataTransfer.spotify_code = spotify_code
         assert spotify_code != ""
 
     # Get the auth token
     @pytest.mark.asyncio
-    async def test_get_auth_code(self, api: API):
-        await api.create_new_client()
+    async def test_get_auth_code(self, py_api: API):
+        await py_api.create_new_client()
 
-        auth_token: SpotifyAuthorisationToken = await api.refresh_token(code=PassTestData.spotify_code,
-                                                                        reauthorize=False)
-        PassTestData.auth_token = auth_token
+        auth_token: SpotifyAuthorisationToken = await py_api.refresh_token(code=TestDataTransfer.spotify_code,
+                                                                           reauthorize=False)
         assert auth_token is not None and not auth_token.is_expired()
 
     # Refresh the auth token
     @pytest.mark.asyncio
-    async def test_refresh_auth_code(self, api):
-        await api.create_new_client()
+    async def test_refresh_auth_code(self, py_api):
+        await py_api.create_new_client()
+        auth_token: SpotifyAuthorisationToken = await py_api.refresh_token(TestDataTransfer.auth_token)
 
-        auth_token: SpotifyAuthorisationToken = await api.refresh_token(PassTestData.auth_token)
-        PassTestData.auth_token = auth_token
-
+        TestDataTransfer.auth_token = auth_token
         assert auth_token and not auth_token.is_expired()
 
     # Test different response codes
-    def test_response_type(self, api: API):
-        assert api.get_status(200)[0]
-        assert False is api.get_status(300)[0]
-        assert False is api.get_status(400)[0]
-        assert False is api.get_status(500)[0]
-        assert False is api.get_status(600)[0]
+    def test_response_type(self):
+        assert ResponseStatus(200).success
+        assert False is ResponseStatus(300).success
+        assert False is ResponseStatus(400).success
+        assert False is ResponseStatus(500).success
+        assert False is ResponseStatus(600).success

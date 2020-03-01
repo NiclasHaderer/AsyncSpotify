@@ -3,8 +3,8 @@ A file with a wrapper functions
 """
 from functools import wraps
 
-from .api_request_maker import ApiRequestHandler
-from .. import SpotifyAuthorisationToken
+from ..api_request_maker import ApiRequestHandler
+from ...authentification.spotify_authorization_token import SpotifyAuthorisationToken
 
 api_request_handler = ApiRequestHandler()
 

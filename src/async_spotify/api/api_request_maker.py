@@ -28,7 +28,7 @@ class Singleton(type):
             cls._instance = super().__call__(api)
 
         if api:
-            cls._instance.api = api
+            cls._instance.py_api = api
 
         return cls._instance
 
