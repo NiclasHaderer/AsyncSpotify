@@ -5,30 +5,30 @@ Preferences for the spotify api
 import os
 from typing import List
 
-"""
-Scopes available:
-ugc-image-upload 
-user-read-playback-state 
-user-read-email 
-playlist-read-collaborative 
-user-modify-playback-state 
-user-read-private 
-playlist-modify-public 
-user-library-modify 
-user-top-read 
-user-read-currently-playing 
-playlist-read-private 
-user-follow-read app-remote-control 
-user-read-recently-played 
-playlist-modify-private 
-user-follow-modify 
-user-library-read
-"""
-
 
 class Preferences:
     """
     A Class with only the application information in it
+
+    Note:
+        __Scopes available:__
+
+        ugc-image-upload
+        user-read-playback-state
+        user-read-email
+        playlist-read-collaborative
+        user-modify-playback-state
+        user-read-private
+        playlist-modify-public
+        user-library-modify
+        user-top-read
+        user-read-currently-playing
+        playlist-read-private
+        user-follow-read app-remote-control
+        user-read-recently-played
+        playlist-modify-private
+        user-follow-modify
+        user-library-read
     """
 
     def __init__(self, application_id: str = None, application_secret: str = None, scopes: List[str] = None,

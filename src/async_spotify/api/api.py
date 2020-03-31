@@ -2,15 +2,11 @@
 The main api class which will be used to authenticate and connect to the spotify api
 """
 
-import asyncio
 import base64
 import json
-import subprocess
 import time
 import webbrowser
-from json import JSONDecodeError
-from multiprocessing import Process
-from subprocess import CompletedProcess
+from urllib import parse
 from urllib.parse import urlencode
 
 from aiohttp import ClientSession, TCPConnector, ClientTimeout
@@ -20,8 +16,8 @@ from .endpoints.albums import Albums
 from .endpoints.artists import Artists
 from .endpoints.urls import URLS
 from .response_status import ResponseStatus
-from ..authentification.callback_server import create_callback_server
 from ..authentification.spotify_authorization_token import SpotifyAuthorisationToken
+from ..authentification.spotify_cookies import SpotifyCookies
 from ..preferences import Preferences
 from ..spotify_errors import SpotifyError
 
@@ -132,8 +128,7 @@ class API:
         # Open url in a new window of the default browser, if possible
         webbrowser.open_new(self.build_authorization_url(show_dialogue))
 
-    async def get_code_with_cookie(self, cookie_file_location: str, callback_server_port: int = 1234,
-                                   callback_server_url: str = "/test/api/callback") -> str:
+    async def get_code_with_cookie(self, cookies: SpotifyCookies) -> str:
         """
         This function takes care of the user interaction that is normally necessary to get the first code from spotify
         which is necessary to request the refresh_token and the oauth_token.
@@ -142,99 +137,59 @@ class API:
 
         Note:
             This will only work if the user has at least once accepted the scopes your app is requesting.
-            I would recommend that you take a look at the source code of this function before you use it and that you are
-            familiar with the authorization mechanism of spotify.
+            I would recommend that you take a look at the source code of this function before you use it and that you
+            are familiar with the authorization mechanism of spotify.
 
         Important:
             This method is intended for automated testing. You have to decide if you want to use it in you production
             environment.
 
         Args:
-            cookie_file_location: The absolute path to the cookie file with all the active cookies in you browser
-                when you visit [https://open.spotify.com](https://open.spotify.com). The format is the same one used by curl.
-                Take a look at this post if you wat to know the format of the cookies in the file:
-                https://stackoverflow.com/questions/7181785/send-cookies-with-curl.
-                To download the cookies you can use this extension. I don't know who wrote it and it is not open source so
-                download and use it with care.
-                https://chrome.google.com/webstore/detail/cookiestxt/njabckikapfpffapmjgojcnbfjonfjfg
-            callback_server_port: The port the callback server will use to display the callback of the spotify api
-            callback_server_url: The url the callback server will listen for callbacks for. Don't forget to add the
-                url http://localhost:1111/test/api/callback to the allowed urls in the panel of you spotify app
-                (developer.spotify.com)
+            cookies: The cookies of the spotify account. Every property of the class has to be filled in.
 
         Raises:
-            SpotifyError: if the command was not successful
-            UnicodeDecodeError: if the returned string could not be decoded
-            JSONDecodeError: if the returned and decoded string is not a valid json
+            SpotifyError: An error occurred during the code retrial
 
         Returns:
-            The spotify code that can be used to get a refresh_token and a oauth_token
+            The spotify code which can be used to get a refresh_token and a oauth_token
         """
 
         # Build the auth url
         url = self.build_authorization_url(show_dialog=False)
 
-        # Create a webserver that runs in another process
-        webserver_process: Process = create_callback_server(callback_server_port, callback_server_url)
+        # Check if the cookie file is valid
+        if not cookies.validate():
+            raise SpotifyError('The cookies are not complete')
 
-        # Give the server some time to start
-        await asyncio.sleep(3)
+        # Convert the class to a dict
+        cookie_dict: dict = cookies.__dict__
 
-        return_code = self._curl_spotify_code(webserver_process, url, cookie_file_location)
+        # Make an api request to spotify
+        async with ClientSession(cookies=cookie_dict, requote_redirect_url=False) as session:
+            async with session.get(url, allow_redirects=False) as resp:
+                # Get the headers
+                headers = resp.headers
 
-        # Stop the webserver thread
-        webserver_process.kill()
-        return return_code
+                # Check if the request should have been redirected
+                if 'location' not in headers:
+                    raise SpotifyError('There was no redirect in in the spotify response. Has the user accepted the '
+                                       'scopes once before or has the cookie not the right values?')
 
-    @staticmethod
-    def _curl_spotify_code(webserver_process: Process, url: str, cookie_file_location: str) -> str:
-        """
-        Curl the spotify code from the earlier created webserver
+                # Get the redirect url
+                location: str = headers['location']
 
-        Args:
-            webserver_process: The independent process that has been started to serve as callback server for spotify
-            url: The url of the spotify authorization
-            cookie_file_location: The location of the cookie file
+                # Parse the url
+                local_url = parse.urlparse(location)
+                query = parse.parse_qs(local_url.query)
 
-        Raises
-            SpotifyError: if the command was not successful
-            UnicodeDecodeError: if the returned string could not be decoded
-            JSONDecodeError: if the returned and decoded string is not a valid json
+                # Check if code is the redirect url
+                if 'code' not in query:
+                    raise SpotifyError('There was no code parameter in the redirect url')
 
-        Returns:
-            The code returned by spotify
-        """
-
-        # Curl the code from spotify
-        response: CompletedProcess = subprocess.run(['curl', '-L', '--cookie', f'{cookie_file_location}', f"{url}"],
-                                                    stdout=subprocess.PIPE, stderr=subprocess.PIPE)
-
-        # Check if the return code is correct (otherwise raise exception)
-        if response.returncode != 0:
-            raise SpotifyError(response.stderr)
-
-        # Decode the returned byte string
-        try:
-            curl_str: str = response.stdout.decode()
-        except UnicodeDecodeError:
-            webserver_process.kill()
-            raise SpotifyError("The returned code could not be decoded." + response.stderr.decode())
-
-        # Get the decoded json code
-        try:
-            # TODO logging
-            return_value: str = json.loads(curl_str)["code"]
-        except JSONDecodeError or KeyError:
-            # TODO logging
-            webserver_process.kill()
-            raise SpotifyError("The returned code could not be parsed as a json. Is the cookie file the right one?"
-                               + response.stderr.decode())
-
-        return return_value
+                return str(query['code'])
 
     async def refresh_token(self, passed_auth_token_object: SpotifyAuthorisationToken = None,
-                            reauthorize: bool = True,
-                            code: str = None) -> SpotifyAuthorisationToken:
+                            reauthorize: bool = True, code: str = None) -> SpotifyAuthorisationToken:
         """
         Refresh the auth token with the refresh token or get a new auth token and refresh token with the code returned
         by the spotify auth flow
@@ -242,8 +197,8 @@ class API:
         Args:
             passed_auth_token_object: The refresh token or the code returned by the spotify auth flow
             reauthorize: Do want to reauthorize a expiring SpotifyAuthorisationToken or get a new one with the
-                spotify code. Set to false and add the code="your_code_here" if you want to get the SpotifyAuthorisationToken
-                for the first time
+                spotify code. Set to false and add the code="your_code_here" if you want to get the
+                SpotifyAuthorisationToken for the first time
             code: The code returned by spotify and the OAuth
 
         Returns:
@@ -303,7 +258,6 @@ class API:
                 you can skip this.
 
         Returns: The header as json
-
         """
 
         if auth_token:
