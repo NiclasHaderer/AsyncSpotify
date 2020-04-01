@@ -24,14 +24,14 @@ jobs:
     - name: Setup python packages
       run: pip install -r requirements.dev.txt && pip install -r requirements.txt
     - name: Save cookie file
-      run: echo "${{ secrets.cookies }}" > cookies.txt
+      run: echo "${{ secrets.cookies }}" > /home/runner/work/AsyncSpotify/AsyncSpotify/cookies.json && cat /home/runner/work/AsyncSpotify/AsyncSpotify/cookies.json
     - name: Generate coverage report
       env:
         application_id: ${{ secrets.application_id }}
         application_secret: ${{ secrets.application_secret }}
         scopes: "ugc-image-upload user-read-playback-state user-read-email playlist-read-collaborative user-modify-playback-state user-read-private playlist-modify-public user-library-modify user-top-read user-read-currently-playing playlist-read-private user-follow-read app-remote-control user-read-recently-played playlist-modify-private user-follow-modify user-library-read"
         redirect_url: "http://localhost:1234/test/api/callback"
-        cookie_file_path: "/home/runner/work/AsyncSpotify/AsyncSpotify/cookies.txt"
+        cookie_file_path: "/home/runner/work/AsyncSpotify/AsyncSpotify/cookies.json"
       run: pytest -s --cov=async_spotify src/test --cov-report=xml
     - name: Upload coverage to Codecov
       uses: codecov/codecov-action@v1.0.5
