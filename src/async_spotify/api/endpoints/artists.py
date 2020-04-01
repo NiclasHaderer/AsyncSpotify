@@ -8,6 +8,9 @@ class Artists:
     Wraps the spotify artist functions
     """
 
+    def __init__(self, api):  # :type async_spotify.API
+        self.api = api  # :type async_spotify.API
+
     def get_artist(self, artist_id: str):
         """
         Get the artist by id
