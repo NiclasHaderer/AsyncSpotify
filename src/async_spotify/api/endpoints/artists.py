@@ -19,10 +19,8 @@ class Artists:
             artist_id: The artist id
 
         Note:
-            [https://developer.spotify.com/documentation/web-api/reference/artists/get-artist/](https://developer.spotify.com/documentation/web-api/reference/artists/get-artist/)
+            https://developer.spotify.com/documentation/web-api/reference/artists/get-artist/
 
         Returns:
             The json associated with the artist
         """
-
-        pass

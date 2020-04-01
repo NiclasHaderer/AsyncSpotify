@@ -10,6 +10,9 @@ from ..authentification.spotify_authorization_token import SpotifyAuthorisationT
 from ..spotify_errors import SpotifyError, TokenExpired, RageLimitExceeded
 
 
+# TODO multiple sessions for more than 500 requests
+# TODO Round robin scheduling ???
+
 class ApiRequestHandler:
     """
     The request handler that makes the calls to the spotify api.
