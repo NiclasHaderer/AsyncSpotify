@@ -132,7 +132,7 @@ class Preferences:
         try:
             with open(os.path.join(secrets_dir, name), 'r') as secret_file:
                 return secret_file.read().strip()
-        except IOError as _:
+        except IOError:
             return default
 
     def __eq__(self, other):
