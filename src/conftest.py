@@ -41,6 +41,7 @@ def prepare_test_data():
         location = os.environ.get("cookie_file_path",
                                   "/home/niclas/IdeaProjects/AsyncSpotify/examples/private/cookies.json")
         with open(location) as file:
+            print(file.read())
             _cookie = json.load(file)
         TestDataTransfer.cookies = SpotifyCookies(_cookie['sp_t'], _cookie['sp_dc'], _cookie['sp_key'])
 
