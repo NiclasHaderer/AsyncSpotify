@@ -1,37 +1,68 @@
+import json
+import os
+
 import pytest
 
-from async_spotify import Preferences, API, SpotifyAuthorisationToken
-
-scopes = ["ugc-image-upload", "user-read-playback-state", "user-read-email", "playlist-read-collaborative",
-          "user-modify-playback-state", "user-read-private", "playlist-modify-public", "user-library-modify",
-          "user-top-read", "user-read-currently-playing", "playlist-read-private", "user-follow-read",
-          "app-remote-control", "user-read-recently-played", "playlist-modify-private", "user-follow-modify",
-          "user-library-read"]
+from async_spotify import Preferences, API, SpotifyCookies
 
 
 class TestDataTransfer:
+    """
+    Class which transfers test data
+    """
+    cookies: SpotifyCookies = None
     preferences: Preferences = None
     api: API = None
-    spotify_code: str = None
-    auth_token: SpotifyAuthorisationToken = None
 
 
 @pytest.fixture(scope='session')
-def py_api():
-    # Get the preferences
-    pref = Preferences()
-    pref.load_from_env()
+def api():
+    """
+    Returns: The api
+    """
 
-    # Create the api
-    api = API(pref)
+    preferences = Preferences()
+    preferences.load_from_env()
+
+    api = API(preferences)
     return api
 
 
-# Load the preferences in memory and store them
-pref = Preferences()
-pref.load_from_env()
-TestDataTransfer.preferences = pref
+def prepare_test_data():
+    """
+    Create the test data
+    """
 
-# Load the api in memory and store it
-api = API(pref)
-TestDataTransfer.api = api
+    def add_cookie():
+        """
+        Add the cookie parameter
+        """
+
+        location = os.environ.get("cookie_file_path",
+                                  "/home/niclas/IdeaProjects/AsyncSpotify/examples/private/cookies.json")
+        with open(location) as file:
+            _cookie = json.load(file)
+        TestDataTransfer.cookies = SpotifyCookies(_cookie['sp_t'], _cookie['sp_dc'], _cookie['sp_key'])
+
+    def add_preferences():
+        """
+        Add preferences parameter
+        """
+        preferences = Preferences()
+        preferences.load_from_env()
+        TestDataTransfer.preferences = preferences
+
+    def add_api():
+        """
+        Add api parameter
+        """
+        preferences = Preferences()
+        preferences.load_from_env()
+        TestDataTransfer.api = API(preferences, True)
+
+    add_cookie()
+    add_preferences()
+    add_api()
+
+
+prepare_test_data()

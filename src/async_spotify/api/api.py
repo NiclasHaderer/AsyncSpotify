@@ -9,7 +9,7 @@ import webbrowser
 from urllib import parse
 from urllib.parse import urlencode
 
-from aiohttp import ClientSession, TCPConnector, ClientTimeout
+from aiohttp import ClientSession
 
 from .api_request_maker import ApiRequestHandler
 from .endpoints.albums import Albums
@@ -28,9 +28,6 @@ class API:
     Use this class to authenticate and connect to the spotify api.
     """
 
-    albums: Albums = Albums()
-    artists: Artists = Artists()
-
     # noinspection PyTypeChecker
     def __init__(self, preferences: Preferences, hold_authentication=False):
         """
@@ -46,12 +43,14 @@ class API:
 
         # Set the preferences
         self.preferences: Preferences = preferences
-        self.session: ClientSession = None
 
         self.hold_authentication: bool = hold_authentication
         self.spotify_authorisation_token: SpotifyAuthorisationToken = None
 
         self.api_request_handler: ApiRequestHandler = ApiRequestHandler(self)
+
+        self.albums = Albums(self)
+        self.artist = Artists(self)
 
     async def create_new_client(self, request_timeout: int = 30, request_limit: int = 500) -> None:
         """
@@ -68,12 +67,7 @@ class API:
             None
         """
 
-        if self.session:
-            await self.session.close()
-
-        timeout = ClientTimeout(total=request_timeout)
-        connector = TCPConnector(limit=request_limit, enable_cleanup_closed=True)
-        self.session = ClientSession(connector=connector, timeout=timeout)
+        await self.api_request_handler.create_new_client(request_timeout, request_limit)
 
     async def close_client(self) -> None:
         """
@@ -84,8 +78,9 @@ class API:
             None
         """
 
-        if self.session:
-            await self.session.close()
+        if self.api_request_handler:
+            await self.api_request_handler.close_client()
+            self.api_request_handler = None
 
     def build_authorization_url(self, show_dialog=True, state: str = None) -> str:
         """
@@ -148,7 +143,7 @@ class API:
             cookies: The cookies of the spotify account. Every property of the class has to be filled in.
 
         Raises:
-            SpotifyError: An error occurred during the code retrial
+            SpotifyError: An error occurred during the code retrieval
 
         Returns:
             The spotify code which can be used to get a refresh_token and a oauth_token
@@ -169,107 +164,127 @@ class API:
             async with session.get(url, allow_redirects=False) as resp:
                 # Get the headers
                 headers = resp.headers
+            await session.close()
 
-                # Check if the request should have been redirected
-                if 'location' not in headers:
-                    raise SpotifyError('There was no redirect in in the spotify response. Has the user accepted the '
-                                       'scopes once before or has the cookie not the right values?')
+        # Check if the request should have been redirected
+        if 'location' not in headers:
+            raise SpotifyError('There was no redirect in in the spotify response. Has the user accepted the '
+                               'scopes once before or has the cookie not the right values?')
 
-                # Get the redirect url
-                location: str = headers['location']
+        # Get the redirect url
+        location: str = headers['location']
 
-                # Parse the url
-                local_url = parse.urlparse(location)
-                query = parse.parse_qs(local_url.query)
+        # Parse the url
+        local_url = parse.urlparse(location)
+        query = parse.parse_qs(local_url.query)
 
-                # Check if code is the redirect url
-                if 'code' not in query:
-                    raise SpotifyError('There was no code parameter in the redirect url')
+        # Check if code is the redirect url
+        if 'code' not in query:
+            raise SpotifyError('There was no code parameter in the redirect url')
 
-                return str(query['code'])
+        return query['code'][0]
 
-    async def refresh_token(self, passed_auth_token_object: SpotifyAuthorisationToken = None,
-                            reauthorize: bool = True, code: str = None) -> SpotifyAuthorisationToken:
+    async def get_auth_token_with_code(self, code: str) -> SpotifyAuthorisationToken:
         """
-        Refresh the auth token with the refresh token or get a new auth token and refresh token with the code returned
-        by the spotify auth flow
+        Get the auth token with the code returned by the oauth process.
 
         Args:
-            passed_auth_token_object: The refresh token or the code returned by the spotify auth flow
-            reauthorize: Do want to reauthorize a expiring SpotifyAuthorisationToken or get a new one with the
-                spotify code. Set to false and add the code="your_code_here" if you want to get the
-                SpotifyAuthorisationToken for the first time
-            code: The code returned by spotify and the OAuth
+            code: The code returned by spotify in the oauth process
+
+        Note:
+            https://developer.spotify.com/documentation/general/guides/authorization-guide/#authorization-code-flow
+
+        Raises:
+            SpotifyError: If the request to the refresh api point was not successful
 
         Returns:
-            The SpotifyAuthorisationToken
+            A valid SpotifyAuthorisationToken
+
         """
 
-        grant_type: str = "refresh_token"
-        if not reauthorize:
-            grant_type = "authorization_code"
-
         body: dict = {
-            "grant_type": grant_type,
+            'grant_type': 'authorization_code',
+            'code': code,
+            'redirect_uri': self.preferences.redirect_url
         }
 
-        if reauthorize:
-            body["refresh_token"] = passed_auth_token_object.refresh_token
-        else:
-            body["code"] = code
-            body["redirect_uri"] = self.preferences.redirect_url
+        response_json: dict = await self._make_auth_api_request(body)
 
-        base_64: base64 = base64.b64encode(
-            f"{self.preferences.application_id}:{self.preferences.application_secret}".encode("ascii"))
-        header: dict = {'Authorization': f'Basic {base_64.decode("ascii")}'}
+        refresh_token: str = response_json['refresh_token']
+        access_token: str = response_json['access_token']
 
-        if not self.session:
-            raise SpotifyError("You have to create a new session with API.create_new_client() to connect to spotify")
-
-        async with self.session.post(url=URLS.REFRESH, data=body, headers=header) as response:
-            response_status = ResponseStatus(response.status)
-            response_text: str = await response.text()
-
-        response_text: dict = json.loads(response_text)
-
-        # The response was not ok
-        if not response_status.success:
-            raise SpotifyError(response_status.message + "\n" + str(response_text))
-
-        if "refresh_token" not in response_text:
-            refresh_token = passed_auth_token_object.refresh_token
-        else:
-            refresh_token = response_text["refresh_token"]
         spotify_authorisation_token = SpotifyAuthorisationToken(refresh_token=refresh_token,
                                                                 activation_time=int(time.time()),
-                                                                access_token=response_text["access_token"])
+                                                                access_token=access_token)
         # Keep the auth token in memory
         if self.hold_authentication:
             self.spotify_authorisation_token = spotify_authorisation_token
 
         return spotify_authorisation_token
 
-    def get_header(self, auth_token: SpotifyAuthorisationToken = None) -> json:
+    async def refresh_token(self, auth_token: SpotifyAuthorisationToken = None) -> SpotifyAuthorisationToken:
         """
-        Build the spotify header used to authenticate the user for the spotify api
+        Refresh the auth token with the refresh token or get a new auth token and refresh token with the code returned
+        by the spotify auth flow.
 
         Args:
-            auth_token: Optional argument. If you store the auth token in memory (api.hold_authentification = True)
-                you can skip this.
+            auth_token: The refresh token or the code returned by the spotify auth flow. Leave empty if you enabled
+                hold_authentication. Then the internal token will be used.
 
-        Returns: The header as json
+        Note:
+            https://developer.spotify.com/documentation/general/guides/authorization-guide/#authorization-code-flow
+
+        Returns:
+            The SpotifyAuthorisationToken
         """
 
-        if auth_token:
-            return {
-                "Authorization": f"Bearer {auth_token.access_token}",
-                "Content-Type": "application/json"
-            }
+        # Check if the internal auth token should be used
+        if not auth_token and self.hold_authentication:
+            auth_token = self.spotify_authorisation_token
 
-        if self.hold_authentication and not self.spotify_authorisation_token:
-            raise SpotifyError("You don't have a spotify auth token stored in memory")
-
-        return {
-            "Authorization": f"Bearer {self.spotify_authorisation_token.access_token}",
-            "Content-Type": "application/json"
+        body: dict = {
+            'grant_type': 'refresh_token',
+            'refresh_token': auth_token.refresh_token
         }
+
+        response_json: dict = await self._make_auth_api_request(body)
+
+        refresh_token = auth_token.refresh_token
+        access_token = response_json['access_token']
+        spotify_authorisation_token = SpotifyAuthorisationToken(refresh_token=refresh_token,
+                                                                activation_time=int(time.time()),
+                                                                access_token=access_token)
+        # Keep the auth token in memory
+        if self.hold_authentication:
+            self.spotify_authorisation_token = spotify_authorisation_token
+
+        return spotify_authorisation_token
+
+    async def _make_auth_api_request(self, body: dict) -> dict:
+        """
+        Make an api request to the refresh endpoint
+
+        Args:
+            body: The body of the request
+
+        Returns:
+            The access token and the refresh token if the grant_type was code
+        """
+
+        # Build the header of the request
+        base_64: base64 = base64.b64encode(
+            f'{self.preferences.application_id}:{self.preferences.application_secret}'.encode('ascii'))
+        header: dict = {'Authorization': f'Basic {base_64.decode("ascii")}'}
+
+        # Make the request to the api
+        async with ClientSession() as session:
+            async with session.post(url=URLS.REFRESH, data=body, headers=header) as response:
+                response_status = ResponseStatus(response.status)
+                response_text: str = await response.text()
+            await session.close()
+
+        # The response was not ok
+        if not response_status.success:
+            raise SpotifyError(response_status.message + '\n' + str(response_text))
+
+        return json.loads(response_text)

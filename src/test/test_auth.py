@@ -1,5 +1,5 @@
-import os
 import time
+from urllib.parse import urlencode
 
 import pytest
 
@@ -10,18 +10,6 @@ from conftest import TestDataTransfer
 
 
 class TestAuth:
-
-    @pytest.mark.asyncio
-    async def test_setup_test(self):
-        spotify_code = await TestDataTransfer.api.get_code_with_cookie(
-            os.environ.get("cookie_file_path", "/home/niclas/IdeaProjects/AsyncSpotify/src/private/cookies.txt"))
-
-        TestDataTransfer.spotify_code = spotify_code
-        await TestDataTransfer.api.create_new_client()
-
-        auth_token = await TestDataTransfer.api.refresh_token(reauthorize=False, code=spotify_code)
-        TestDataTransfer.auth_token = auth_token
-
     # Load preferences
     def test_load_secret_preferences(self):
         preferences = Preferences()
@@ -52,14 +40,17 @@ class TestAuth:
         assert preferences == loaded_preferences
 
     def test_load_wrong_preferences(self):
-        p = Preferences()
+        preferences = Preferences()
         with pytest.raises(SpotifyError):
-            API(p)
+            API(preferences)
 
     # Test the generation of the auth url
-    def test_auth_url(self, py_api: API):
-        url = py_api.build_authorization_url(show_dialog=False, state="TestState")
-        assert ("show_dialog=False" in url and "state=TestState" in url)
+    def test_auth_url(self, api: API):
+        url = api.build_authorization_url(show_dialog=False, state="TestState")
+        assert ("show_dialog=False" in url and
+                "state=TestState" in url and
+                TestDataTransfer.preferences.application_id in url and
+                urlencode({"redirect_uri": TestDataTransfer.preferences.redirect_url}) in url)
 
     # Test the expiration token
     def test_not_expired_token(self):
@@ -71,41 +62,36 @@ class TestAuth:
         token = SpotifyAuthorisationToken("some random string", int(time.time()) - 3401, "Another random string")
         assert token.is_expired()
 
-    # Test the retrial of the code with wrong params
+    # Test the retrieval of the code with wrong params
     @pytest.mark.asyncio
     async def test_wrong_code_url(self):
         preferences = Preferences("test", "test", ["test"], "test")
         api = API(preferences)
 
         with pytest.raises(SpotifyError):
-            await api.get_code_with_cookie(
-                os.environ.get("cookie_file_path", "/home/niclas/IdeaProjects/AsyncSpotify/src/private/cookies.txt"))
+            await api.get_code_with_cookie(TestDataTransfer.cookies)
 
     # Get the code from spotify
     @pytest.mark.asyncio
-    async def test_code_retrieval(self, py_api: API):
-        spotify_code = await py_api.get_code_with_cookie(
-            os.environ.get("cookie_file_path", "/home/niclas/IdeaProjects/AsyncSpotify/src/private/cookies.txt"))
-
-        TestDataTransfer.spotify_code = spotify_code
-        assert spotify_code != ""
+    async def test_code_retrieval(self, api: API):
+        code = await api.get_code_with_cookie(TestDataTransfer.cookies)
+        assert code != ""
 
     # Get the auth token
     @pytest.mark.asyncio
-    async def test_get_auth_code(self, py_api: API):
-        await py_api.create_new_client()
+    async def test_get_auth_code(self, api: API):
+        code = await api.get_code_with_cookie(TestDataTransfer.cookies)
+        auth_token: SpotifyAuthorisationToken = await api.get_auth_token_with_code(code)
 
-        auth_token: SpotifyAuthorisationToken = await py_api.refresh_token(code=TestDataTransfer.spotify_code,
-                                                                           reauthorize=False)
         assert auth_token is not None and not auth_token.is_expired()
 
     # Refresh the auth token
     @pytest.mark.asyncio
-    async def test_refresh_auth_code(self, py_api):
-        await py_api.create_new_client()
-        auth_token: SpotifyAuthorisationToken = await py_api.refresh_token(TestDataTransfer.auth_token)
+    async def test_refresh_auth_code(self, api: API):
+        code = await api.get_code_with_cookie(TestDataTransfer.cookies)
+        auth_token: SpotifyAuthorisationToken = await api.get_auth_token_with_code(code)
+        auth_token = await api.refresh_token(auth_token)
 
-        TestDataTransfer.auth_token = auth_token
         assert auth_token and not auth_token.is_expired()
 
     # Test different response codes
