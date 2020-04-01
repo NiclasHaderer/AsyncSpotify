@@ -166,6 +166,9 @@ class API:
                 headers = resp.headers
             await session.close()
 
+        print(resp.headers)
+        print(resp.url)
+
         # Check if the request should have been redirected
         if 'location' not in headers:
             raise SpotifyError('There was no redirect in in the spotify response. Has the user accepted the '
