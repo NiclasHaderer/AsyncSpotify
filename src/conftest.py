@@ -1,3 +1,7 @@
+"""
+Conftest file
+"""
+
 import json
 import os
 
@@ -41,8 +45,9 @@ def prepare_test_data():
         location = os.environ.get("cookie_file_path",
                                   "/home/niclas/IdeaProjects/AsyncSpotify/examples/private/cookies.json")
         with open(location) as file:
-            _cookie = json.load(file)
-        TestDataTransfer.cookies = SpotifyCookies(_cookie['sp_t'], _cookie['sp_dc'], _cookie['sp_key'])
+            cookie_text = file.read()
+            cookie_json = json.loads(cookie_text)
+        TestDataTransfer.cookies = SpotifyCookies(cookie_json['sp_t'], cookie_json['sp_dc'], cookie_json['sp_key'])
 
     def add_preferences():
         """
