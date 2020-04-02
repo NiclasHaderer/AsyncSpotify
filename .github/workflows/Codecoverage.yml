@@ -34,12 +34,8 @@ jobs:
         redirect_url: "http://localhost:1234/test/api/callback"
         cookie_file_path: "/home/runner/work/AsyncSpotify/AsyncSpotify/cookies.json"
       run: pytest -s --cov=async_spotify src/test --cov-report=xml
-      
-    - name: Upload coverage to Codecov
-      uses: codecov/codecov-action@v1.0.5
+
+    - name: Run codacy-coverage-reporter
+      uses: mrfyda/codacy-coverage-reporter-action@master
       with:
-        token: ${{ secrets.CODECOV_TOKEN }}
-        file: ./coverage.xml
-        flags: unittests
-        name: codecov-spotify-api
-        fail_ci_if_error: true
+        project-token: ${{ secrets.codacy_project_token }}

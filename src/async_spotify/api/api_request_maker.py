@@ -1,13 +1,13 @@
 """
 The api request handler singleton
 """
-from typing import Optional
+from typing import Optional, List, Tuple
 
 from aiohttp import ClientTimeout, TCPConnector, ClientSession
 
 from .response_status import ResponseStatus
 from ..authentification.spotify_authorization_token import SpotifyAuthorisationToken
-from ..spotify_errors import SpotifyError, TokenExpired, RageLimitExceeded
+from ..spotify_errors import SpotifyError, TokenExpired, RateLimitExceeded
 
 
 # TODO multiple sessions for more than 500 requests
@@ -76,33 +76,61 @@ class ApiRequestHandler:
         Returns: The spotify api response
         """
 
-        method = method.lower()
-
         if not self.client_session:
             raise SpotifyError('You have to create a new client with create_new_client'
-                               ' before you can make requests to the spotify api. ')
+                               ' before you can make requests to the spotify api.')
 
-        header = self.get_header(auth_token)
+        params: List[Tuple[str, str]] = self.format_params(query_params)
+        headers = self.get_headers(auth_token)
 
-        async with self.client_session.request(method, url, params=query_params, headers=header) as response:
+        async with self.client_session.request(method, url, params=params, headers=headers) as response:
             response_status = ResponseStatus(response.status)
-            response_json: dict = await response.json()
+            response_json: dict = {}
+            response_text: str = ""
+            if response_status.success:
+                response_json = await response.json()
+            else:
+                response_text = await response.text()
 
         # Expired
         if response_status.code == 401:
-            raise TokenExpired(response_status.message, " ", response_json)
+            raise TokenExpired(response_status.message, " ", response_text)
 
-        # Rage limit exceeded
+        # Rate limit exceeded
         if response_status.code == 429:
-            raise RageLimitExceeded(response_status.message, " ", response_json)
+            raise RateLimitExceeded(response_status.message, " ", response_text)
 
+        # TODO check if exception should be thrown if the album id or other things are invalid
         # Check if the response was a success
         if not response_status.success:
-            raise SpotifyError(response_status.message, " ", response_json)
+            raise SpotifyError(response_status.message, " ", response_text)
 
         return response_json
 
-    def get_header(self, auth_token: SpotifyAuthorisationToken) -> dict:
+    @staticmethod
+    def format_params(query_params: dict) -> List[Tuple[str, str]]:
+        """
+        Converts the query dict into the aiohttp conform Type
+
+        Args:
+            query_params: The query params
+
+        Returns: The aiohttp conform object
+
+        """
+
+        return_params: List[Tuple[str, str]] = []
+
+        for key in list(query_params.keys()):
+            if isinstance(query_params[key], str):
+                query_params[key] = [query_params[key]]
+
+            for value in query_params[key]:
+                return_params.append((key, value))
+
+        return return_params
+
+    def get_headers(self, auth_token: SpotifyAuthorisationToken) -> dict:
         """
         Build the spotify header used to authenticate the user for the spotify api
 
