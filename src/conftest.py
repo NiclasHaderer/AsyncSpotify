@@ -19,10 +19,10 @@ class TestDataTransfer:
     api: API = None
 
 
-@pytest.fixture(scope='session')
+@pytest.fixture()
 def api():
     """
-    Returns: The api
+    Returns: The an api instance
     """
 
     preferences = Preferences()
@@ -30,6 +30,28 @@ def api():
 
     api = API(preferences)
     return api
+
+
+@pytest.fixture()
+@pytest.mark.asyncio
+async def prepared_api():
+    """
+    Returns: A ready to go api client
+    """
+
+    preferences = Preferences()
+    preferences.load_from_env()
+
+    api = API(preferences, hold_authentication=True)
+
+    code = await api.get_code_with_cookie(TestDataTransfer.cookies)
+    await api.get_auth_token_with_code(code)
+
+    await api.create_new_client()
+
+    yield api
+
+    await api.close_client()
 
 
 def prepare_test_data():
@@ -63,7 +85,7 @@ def prepare_test_data():
         """
         preferences = Preferences()
         preferences.load_from_env()
-        TestDataTransfer.api = API(preferences, True)
+        TestDataTransfer.api = API(preferences, hold_authentication=True)
 
     add_cookie()
     add_preferences()

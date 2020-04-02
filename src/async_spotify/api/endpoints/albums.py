@@ -72,7 +72,7 @@ class Albums:
             kwargs: Optional arguments as keyword args
 
         Note:
-            [https://developer.spotify.com/documentation/web-api/reference/albums/get-several-albums/](https://developer.spotify.com/documentation/web-api/reference/albums/get-several-albums/)
+            https://developer.spotify.com/documentation/web-api/reference/albums/get-several-albums/
 
         Returns:
             All the albums you queried
