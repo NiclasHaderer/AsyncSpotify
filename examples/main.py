@@ -22,16 +22,12 @@ async def main():
 
     api = API(preferences, True)
     code = await api.get_code_with_cookie(cookies)
-    print(code)
 
     auth_token: SpotifyAuthorisationToken = await api.get_auth_token_with_code(code)
-    print(auth_token.__dict__)
 
     auth_token: SpotifyAuthorisationToken = await api.refresh_token()
-    print(auth_token.__dict__)
 
     auth_token: SpotifyAuthorisationToken = await api.refresh_token()
-    print(auth_token.__dict__)
 
     await api.create_new_client()
     album = await api.albums.get_album('03dlqdFWY9gwJxGl3AREVy')

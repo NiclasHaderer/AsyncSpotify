@@ -1,3 +1,7 @@
+"""
+Wraps the status code of a response to give some additional context
+"""
+
 from .status_codes import STATUS_CODES
 
 
@@ -14,25 +18,28 @@ class ResponseStatus:
             status_code: A valid http status code
         """
 
+        self.moved = False
+        self.success = False
+        self.error = False
+
         if status_code in STATUS_CODES["OK"]:
-            success = True
-            message = STATUS_CODES["OK"][status_code]
+            self.success = True
+            message: str = STATUS_CODES["OK"][status_code][0]
 
         elif status_code in STATUS_CODES["REDIRECT"]:
-            success = False
-            message = STATUS_CODES["REDIRECT"][status_code]
+            self.moved = True
+            message: str = STATUS_CODES["REDIRECT"][status_code][0]
 
         elif status_code in STATUS_CODES["CLIENT_ERROR"]:
-            success = False
-            message = STATUS_CODES["CLIENT_ERROR"][status_code]
+            self.error = True
+            message: str = STATUS_CODES["CLIENT_ERROR"][status_code][0]
 
         elif status_code in STATUS_CODES["SERVER_ERROR"]:
-            success = False
-            message = STATUS_CODES["SERVER_ERROR"][status_code]
+            self.error = True
+            message = STATUS_CODES["SERVER_ERROR"][status_code][0]
         else:
-            success = False
-            message = "Unknown response code"
+            self.error = True
+            message: str = "Unknown response code"
 
         self.code: int = status_code
-        self.success: bool = success
         self.message: str = message

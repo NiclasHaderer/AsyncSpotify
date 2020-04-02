@@ -21,7 +21,7 @@ class TokenExpired(Exception):
     """
 
 
-class RageLimitExceeded(Exception):
+class RateLimitExceeded(Exception):
     """
     Custom rate limit exceeded exception
     """
