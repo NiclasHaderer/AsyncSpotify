@@ -1,15 +1,25 @@
+"""
+Test the authentification
+"""
+
 import time
 from urllib.parse import urlencode
 
 import pytest
 
-from async_spotify import SpotifyAuthorisationToken, API, SpotifyError
+from async_spotify import SpotifyAuthorisationToken, API, SpotifyError, SpotifyCookies
 from async_spotify.api.response_status import ResponseStatus
 from async_spotify.preferences import Preferences
 from conftest import TestDataTransfer
 
 
 class TestAuth:
+
+    # Test cookie class
+    def test_cookie(self):
+        cookies = SpotifyCookies("hallo", "welt")
+        assert False is cookies.validate()
+
     # Load preferences
     def test_load_secret_preferences(self):
         preferences = Preferences()
@@ -29,7 +39,8 @@ class TestAuth:
         original_data = Preferences()
         original_data.load_from_env()
 
-        preferences = Preferences("test", "test", ["test", "test"], "test")
+        preferences = Preferences("save-preferences", "save-preferences", ["save-preferences", "save-preferences"],
+                                  "save-preferences")
         preferences.save_preferences_to_evn()
 
         loaded_preferences = Preferences()
@@ -54,18 +65,19 @@ class TestAuth:
 
     # Test the expiration token
     def test_not_expired_token(self):
-        token = SpotifyAuthorisationToken("some random string", int(time.time()), "Another random string")
+        token = SpotifyAuthorisationToken("expired token", int(time.time()), "expired token")
         assert False is token.is_expired()
 
     # Test the expiration token
     def test_expired_token(self):
-        token = SpotifyAuthorisationToken("some random string", int(time.time()) - 3401, "Another random string")
+        token = SpotifyAuthorisationToken("not expired token", int(time.time()) - 3401, "not expired token")
         assert token.is_expired()
 
     # Test the retrieval of the code with wrong params
     @pytest.mark.asyncio
     async def test_wrong_code_url(self):
-        preferences = Preferences("test", "test", ["test"], "test")
+        preferences = Preferences("test-with-wrong-code", "test-with-wrong-code", ["test-with-wrong-code"],
+                                  "test-with-wrong-code")
         api = API(preferences)
 
         with pytest.raises(SpotifyError):
@@ -77,12 +89,36 @@ class TestAuth:
         code = await api.get_code_with_cookie(TestDataTransfer.cookies)
         assert code != ""
 
+    # Get the code from spotify with an empty cookie
+    @pytest.mark.asyncio
+    async def test_code_retrieval_invalid_cookie(self, api: API):
+        with pytest.raises(SpotifyError):
+            await api.get_code_with_cookie(SpotifyCookies())
+
+    # Get the code from spotify with an invalid cookie
+    @pytest.mark.asyncio
+    async def test_code_retrieval_invalid_cookie(self, api: API):
+        with pytest.raises(SpotifyError):
+            await api.get_code_with_cookie(SpotifyCookies("1", "2", "3"))
+
+    # Get the auth token from spotify with an invalid code
+    @pytest.mark.asyncio
+    async def test_code_retrieval_invalid_cookie(self, api: API):
+        with pytest.raises(SpotifyError):
+            await api.get_auth_token_with_code('a_code_wich_will_not_work')
+
     # Get the auth token
     @pytest.mark.asyncio
     async def test_get_auth_code(self, api: API):
         code = await api.get_code_with_cookie(TestDataTransfer.cookies)
         auth_token: SpotifyAuthorisationToken = await api.get_auth_token_with_code(code)
 
+        assert auth_token is not None and not auth_token.is_expired()
+
+    # Get refreshed auth token with internal token
+    @pytest.mark.asyncio
+    async def test_get_refresh_with_internal_auth(self, prepared_api: API):
+        auth_token: SpotifyAuthorisationToken = await prepared_api.refresh_token()
         assert auth_token is not None and not auth_token.is_expired()
 
     # Refresh the auth token

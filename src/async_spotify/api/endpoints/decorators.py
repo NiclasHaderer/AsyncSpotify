@@ -2,7 +2,7 @@
 A file with a wrapper functions
 """
 from functools import wraps
-from typing import Tuple
+from typing import Tuple, List
 
 from .objects import DecoratorInformationObject
 from ..api_request_maker import ApiRequestHandler
