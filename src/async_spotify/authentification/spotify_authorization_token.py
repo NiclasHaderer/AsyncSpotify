@@ -2,6 +2,14 @@
 This file contains the Spotify AuthorisationToken
 """
 
+# ##################################################################################################
+#  Copyright (c) 2020. HuiiBuh                                                                     #
+#  This file (spotify_authorization_token.py) is part of AsyncSpotify which is released under MIT. #
+#  You are not allowed to use this code or this file for another project without                   #
+#  linking to the original source.                                                                 #
+# ##################################################################################################
+
+
 import time
 
 

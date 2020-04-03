@@ -2,6 +2,13 @@
 Preferences for the spotify api
 """
 
+# ##################################################################################################
+#  Copyright (c) 2020. HuiiBuh                                                                     #
+#  This file (preferences.py) is part of AsyncSpotify which is released under MIT.                 #
+#  You are not allowed to use this code or this file for another project without                   #
+#  linking to the original source.                                                                 #
+# ##################################################################################################
+
 import os
 from typing import List
 
@@ -11,7 +18,8 @@ class Preferences:
     A Class with only the application information in it
 
     Note:
-        __Scopes available:__
+
+        Scopes available
 
         ugc-image-upload
         user-read-playback-state
@@ -93,6 +101,7 @@ class Preferences:
         Returns:
             None
         """
+
         if self.application_id:
             os.environ["application_id"] = self.application_id
         if self.application_secret:
@@ -135,7 +144,7 @@ class Preferences:
         except IOError:
             return default
 
-    def __eq__(self, other):
+    def __eq__(self, other) -> bool:
         """
         Support for equal assertion
 

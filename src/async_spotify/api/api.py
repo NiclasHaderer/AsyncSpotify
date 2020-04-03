@@ -2,6 +2,13 @@
 The main api class which will be used to authenticate and connect to the spotify api
 """
 
+# ##################################################################################################
+#  Copyright (c) 2020. HuiiBuh                                                                     #
+#  This file (api.py) is part of AsyncSpotify which is released under MIT.                         #
+#  You are not allowed to use this code or this file for another project without                   #
+#  linking to the original source.                                                                 #
+# ##################################################################################################
+
 import base64
 import json
 import time
@@ -10,7 +17,7 @@ from urllib import parse
 from urllib.parse import urlencode
 
 from aiohttp import ClientSession
-from multidict import CIMultiDictProxy
+from multidict import CIMultiDictProxy, MultiDict
 
 from .api_request_maker import ApiRequestHandler
 from .endpoints.albums import Albums
@@ -81,7 +88,7 @@ class API:
 
         await self.api_request_handler.close_client()
 
-    def build_authorization_url(self, show_dialog=True, state: str = None) -> str:
+    def build_authorization_url(self, show_dialog: bool = True, state: str = None) -> str:
         """
         Builds the URL for the authorisation
 
@@ -122,11 +129,11 @@ class API:
         # Open url in a new window of the default browser, if possible
         webbrowser.open_new(self.build_authorization_url(show_dialogue))
 
-    async def get_code_with_cookie(self, cookies: SpotifyCookies, max_hops: int = 10) -> str:
+    async def get_code_with_cookie(self, cookies: SpotifyCookies, callback_server: bool = False) -> str:
         """
-        This function takes care of the user interaction that is normally necessary to get the first code from spotify
+        This function takes care of the user interaction that is normally required to get the code from spotify
         which is necessary to request the refresh_token and the oauth_token.
-        The token that is returned by this function has to be passed to API.refresh_token(code, reauthorize=False)
+        The token which is returned by this function has to be passed to API.get_auth_token_with_code(code)
         to get the refresh_token and the oauth_token.
 
         Note:
@@ -140,12 +147,13 @@ class API:
 
         Args:
             cookies: The cookies of the spotify account. Every property of the class has to be filled in.
-            max_hops: How many redirects should the request follow to get the code
+            callback_server: Is there a callback server running, or is there no callback server. If you set the
+                callback_server arg to false (default) you are not allowed to redirect the request!
 
         Raises:
             SpotifyError: If the cookie is not valid
-            SpotifyError: If to many redirects happen
-            SpotifyError: If no redirect happens and no code could be found
+            SpotifyError: If there is a redirect between you and spotify
+            SpotifyError: If there is an unknown error
 
         Returns:
             The spotify code which can be used to get a refresh_token and a oauth_token
@@ -161,64 +169,71 @@ class API:
         # Convert the class to a dict
         cookie_dict: dict = cookies.__dict__
 
-        # Make an api request to spotify
-        async with ClientSession(cookies=cookie_dict) as session:
-            async with session.get(url, allow_redirects=False) as resp:
-                # Get the headers
-                headers: CIMultiDictProxy[str] = resp.headers
-
-                # Check if the response is valid
-                response_status = ResponseStatus(resp.status)
-                if response_status.error:
-                    raise SpotifyError(response_status.message, ' ', await resp.text())
-
-            await session.close()
-
-        # Extract the code from the redirect header
-        code = self._get_code_with_location_header(headers)
-        if not code:
-            # Track the code by increasing the hops
-            code = await self._track_request_to_code(cookie_dict, url, 2, max_hops)
+        if not callback_server:
+            code = await self._track_request_without_callback(cookie_dict, url)
+        else:
+            code = await self._track_request_with_callback_server(cookie_dict, url)
 
         return code
 
-    async def _track_request_to_code(self, cookie_dict: dict, url: str, hops: int, max_hops: int) -> str:
+    @staticmethod
+    async def _track_request_with_callback_server(cookie_dict: dict, url: str):
         """
-        Recursively increase the hops until you hit the max_hops bound or get the code argument from the redirect header
+        Gets the code with the redirect to the callback server
 
         Args:
             cookie_dict: The cookie dict used for authentification
             url: The url of the spotify request
-            hops: The current hop trie
-            max_hops: The maximal hops you want to do
 
         Raises:
-            SpotifyError: If to many redirects have happened
+            SpotifyError: If there is a redirect between you and spotify
+            SpotifyError: If there is an unknown error
 
         Returns: The code of spotify
-
         """
-
-        if hops > max_hops:
-            raise SpotifyError('To many redirects while the request tried to get the code.')
-
-        # Make an api request to spotify
         async with ClientSession(cookies=cookie_dict) as session:
-            async with session.get(url, max_redirects=hops) as resp:
-                # Get the headers
-                headers: CIMultiDictProxy[str] = resp.headers
-
-                # Check if the response is valid
-                response_status = ResponseStatus(resp.status)
-                if response_status.error:
-                    raise SpotifyError(response_status.message, ' ', await resp.text())
-
+            async with session.get(url) as resp:
+                pass
             await session.close()
 
         # Get the code from the redirect
-        code = self._get_code_with_location_header(headers)
+        query: MultiDict[str] = resp.url.query
+        if 'code' not in query:
+            raise SpotifyError('No code could be found.')
+
+        return query['code']
+
+    async def _track_request_without_callback(self, cookie_dict: dict, url: str) -> str:
+        """
+        Make a request to the spotify api without redirects. No callback server needed.
+
+        Args:
+            cookie_dict: The cookie dict used for authentification
+            url: The url of the spotify request
+
+        Raises:
+            SpotifyError: If there is a redirect between you and spotify
+            SpotifyError: If there is an unknown error
+
+        Returns: The code of spotify
+        """
+
+        # Make an api request to spotify
+        async with ClientSession(cookies=cookie_dict) as session:
+            async with session.get(url, allow_redirects=False) as resp:
+                pass
+            await session.close()
+
+        # Get the code from the redirect
+        code = self._get_code_with_location_header(resp.headers)
+
+        # Check if the response is valid
+        response_status = ResponseStatus(resp.status)
+
+        if not code and response_status.moved:
+            raise SpotifyError('It looks like you have some redirect between you and spotify. This is not supported.')
         if not code:
-            code = self._track_request_to_code(cookie_dict, url, hops + 1, max_hops)
+            raise SpotifyError('There was an error in the code retrieval ')
 
         return code
 
@@ -258,7 +273,7 @@ class API:
             code: The code returned by spotify in the oauth process
 
         Note:
-            https://developer.spotify.com/documentation/general/guides/authorization-guide/#authorization-code-flow
+            [https://developer.spotify.com/documentation/general/guides/authorization-guide/#authorization-code-flow](https://developer.spotify.com/documentation/general/guides/authorization-guide/#authorization-code-flow)
 
         Raises:
             SpotifyError: If the request to the refresh api point was not successful

@@ -10,12 +10,9 @@ nav:
       - Albums: "reference/albums.md"
       - Api: "reference/api.md"
       - Artists: "reference/artists.md"
-      - Authenticication: "reference/authentification.md"
-      - Decorators: "reference/decorators.md"
       - Preferences: "reference/preferences.md"
       - Spotify Errors: "reference/spotify_errors.md"
       - Status Codes: "reference/status_codes.md"
-      - URLs: "reference/urls.md"
   - Licence: "licence.md"
 
 theme:
@@ -24,8 +21,23 @@ theme:
 extra_css:
   - custom.css
 
+
+markdown_extensions:
+  - admonition
+  - codehilite:
+      guess_lang: false
+  - pymdownx.superfences
+  - pymdownx.emoji
+  - toc:
+      permalink: true
+
 plugins:
   - search
   - mkdocstrings:
+      default_handler: python
+      handlers:
+        python:
+          rendering:
+            show_source: true
       watch:
         - src/async_spotify

@@ -5,7 +5,7 @@ pass
 import asyncio
 import json
 
-from async_spotify import Preferences, API, SpotifyCookies, SpotifyAuthorisationToken
+from async_spotify import Preferences, API, SpotifyCookies
 
 
 async def main():
@@ -22,13 +22,7 @@ async def main():
 
     api = API(preferences, True)
     code = await api.get_code_with_cookie(cookies)
-
-    auth_token: SpotifyAuthorisationToken = await api.get_auth_token_with_code(code)
-
-    auth_token: SpotifyAuthorisationToken = await api.refresh_token()
-
-    auth_token: SpotifyAuthorisationToken = await api.refresh_token()
-
+    await api.get_auth_token_with_code(code)
     await api.create_new_client()
     album = await api.albums.get_album('03dlqdFWY9gwJxGl3AREVy')
     print(album)

@@ -31,8 +31,9 @@ jobs:
         application_id: ${{ secrets.application_id }}
         application_secret: ${{ secrets.application_secret }}
         scopes: "ugc-image-upload user-read-playback-state user-read-email playlist-read-collaborative user-modify-playback-state user-read-private playlist-modify-public user-library-modify user-top-read user-read-currently-playing playlist-read-private user-follow-read app-remote-control user-read-recently-played playlist-modify-private user-follow-modify user-library-read"
-        redirect_url: "http://localhost:1234/test/api/callback"
+        redirect_url: "http://localhost:1234"
         cookie_file_path: "/home/runner/work/AsyncSpotify/AsyncSpotify/cookies.json"
+        github_action: "True"
       run: pytest -s --cov=async_spotify src/test --cov-report=xml
 
     - name: Run codacy-coverage-reporter

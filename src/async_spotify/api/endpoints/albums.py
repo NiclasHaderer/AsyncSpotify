@@ -2,6 +2,13 @@
 Handle the requests to the albums endpoint
 """
 
+# ##################################################################################################
+#  Copyright (c) 2020. HuiiBuh                                                                     #
+#  This file (albums.py) is part of AsyncSpotify which is released under MIT.                      #
+#  You are not allowed to use this code or this file for another project without                   #
+#  linking to the original source.                                                                 #
+# ##################################################################################################
+
 from typing import List
 
 from .decorators import make_request
