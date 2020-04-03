@@ -2,6 +2,13 @@
 A collection of http response codes and their meaning (copied from python requests)
 """
 
+# ##################################################################################################
+#  Copyright (c) 2020. HuiiBuh                                                                     #
+#  This file (status_codes.py) is part of AsyncSpotify which is released under MIT.                #
+#  You are not allowed to use this code or this file for another project without                   #
+#  linking to the original source.                                                                 #
+# ##################################################################################################
+
 STATUS_CODES = {
 
     # Informational.

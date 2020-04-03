@@ -1,8 +1,15 @@
 """
 A file with a wrapper functions
 """
+# ##################################################################################################
+#  Copyright (c) 2020. HuiiBuh                                                                     #
+#  This file (decorators.py) is part of AsyncSpotify which is released under MIT.                  #
+#  You are not allowed to use this code or this file for another project without                   #
+#  linking to the original source.                                                                 #
+# ##################################################################################################
+
 from functools import wraps
-from typing import Tuple, List
+from typing import Tuple
 
 from .objects import DecoratorInformationObject
 from ..api_request_maker import ApiRequestHandler

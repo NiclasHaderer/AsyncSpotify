@@ -2,6 +2,13 @@
 Conftest file
 """
 
+# ##################################################################################################
+#  Copyright (c) 2020. HuiiBuh                                                                     #
+#  This file (conftest.py) is part of AsyncSpotify which is released under MIT.                    #
+#  You are not allowed to use this code or this file for another project without                   #
+#  linking to the original source.                                                                 #
+# ##################################################################################################
+import asyncio
 import json
 import os
 
@@ -44,7 +51,7 @@ async def prepared_api():
 
     api = API(preferences, hold_authentication=True)
 
-    code = await api.get_code_with_cookie(TestDataTransfer.cookies)
+    code = await api.get_code_with_cookie(TestDataTransfer.cookies, callback_server=True)
     await api.get_auth_token_with_code(code)
 
     await api.create_new_client()

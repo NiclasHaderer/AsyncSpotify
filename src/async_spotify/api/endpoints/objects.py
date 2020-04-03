@@ -1,6 +1,14 @@
 """
 File with useful objects
 """
+# ##################################################################################################
+#  Copyright (c) 2020. HuiiBuh                                                                     #
+#  This file (objects.py) is part of AsyncSpotify which is released under MIT.                     #
+#  You are not allowed to use this code or this file for another project without                   #
+#  linking to the original source.                                                                 #
+# ##################################################################################################
+
+
 from ..api_request_maker import ApiRequestHandler
 from ...authentification.spotify_authorization_token import SpotifyAuthorisationToken
 
