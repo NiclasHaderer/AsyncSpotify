@@ -8,7 +8,6 @@ Test the authentification
 #  linking to the original source.                                                                 #
 # ##################################################################################################
 
-import os
 import time
 from urllib.parse import urlencode
 
@@ -141,16 +140,8 @@ class TestAuth(SetupServer):
     # Get the code without server callback
     @pytest.mark.asyncio
     async def test_get_code_without_callback(self, api: API):
-        github_action = os.environ.get('github_action', None)
-        if github_action:
-            with pytest.raises(SpotifyError):
-                code = await api.get_code_with_cookie(TestDataTransfer.cookies)
-                # TODO
-                print(code)
-                # TODO
-        else:
-            code = await api.get_code_with_cookie(TestDataTransfer.cookies)
-            assert code != ""
+        code = await api.get_code_with_cookie(TestDataTransfer.cookies)
+        assert code != ""
 
     # Test different response codes
     def test_response_type(self):
