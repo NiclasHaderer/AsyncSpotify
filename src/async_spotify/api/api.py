@@ -224,6 +224,11 @@ class API:
                 pass
             await session.close()
 
+        # TODO
+        print('RESPONSE_TEXT: ', await resp.text())
+        print('RESPONSE_HEADER: ', resp.headers)
+        # TODO
+
         # Get the code from the redirect
         code = self._get_code_with_location_header(resp.headers)
 
@@ -231,9 +236,14 @@ class API:
         response_status = ResponseStatus(resp.status)
 
         if not code and response_status.moved:
-            raise SpotifyError('It looks like you have some redirect between you and spotify. This is not supported.')
+            raise SpotifyError('It looks like you have some redirect between you and spotify. This is not supported.'
+                               ''
+                               f'{await resp.text()}')
         if not code:
-            raise SpotifyError('There was an error in the code retrieval ')
+            raise SpotifyError('The collection of the code did not work. Did the user already agree to the scopes of '
+                               'your app?'
+                               ''
+                               f'{await resp.text()}')
 
         return code
 

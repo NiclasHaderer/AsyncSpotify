@@ -144,7 +144,10 @@ class TestAuth(SetupServer):
         github_action = os.environ.get('github_action', None)
         if github_action:
             with pytest.raises(SpotifyError):
-                await api.get_code_with_cookie(TestDataTransfer.cookies)
+                code = await api.get_code_with_cookie(TestDataTransfer.cookies)
+                # TODO
+                print(code)
+                # TODO
         else:
             code = await api.get_code_with_cookie(TestDataTransfer.cookies)
             assert code != ""

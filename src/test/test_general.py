@@ -33,16 +33,16 @@ class TestGeneral(SetupServer):
         await api.close_client()
 
     @pytest.mark.asyncio
-    async def test_invalid_album_id(self, prepared_api: API):
-        with pytest.raises(SpotifyError):
-            await prepared_api.albums.get_album('somerandomstring')
-
-    @pytest.mark.asyncio
     async def test_no_auth_token(self, api: API):
         await api.create_new_client()
         with pytest.raises(SpotifyError):
             await api.albums.get_album('somerandomstring')
         await api.close_client()
+
+    @pytest.mark.asyncio
+    async def test_invalid_album_id(self, prepared_api: API):
+        with pytest.raises(SpotifyError):
+            await prepared_api.albums.get_album('somerandomstring')
 
     @pytest.mark.asyncio
     async def test_rate_limit(self, prepared_api: API):

@@ -37,3 +37,6 @@ class SpotifyCookies:
         if self.sp_t and self.sp_dc and self.sp_key:
             return True
         return False
+
+    # TODO load from file
+    # TODO load from env
