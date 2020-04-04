@@ -10,6 +10,11 @@
 + Run the test with `pytest --cov=async_spotify src/test`
 
 ## Docs
+
 ```bash
 PYTHONPATH=src mkdocs serve
 ```
+
+## Credits
+
++ [shreddd](https://gist.github.com/shreddd/b7991ab491384e3c3331) for the simple redirect server which is very useful for testing.
