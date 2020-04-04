@@ -36,7 +36,11 @@ jobs:
         github_action: "True"
       run: pytest -s --cov=async_spotify src/test --cov-report=xml
 
-    - name: Run codacy-coverage-reporter
-      uses: mrfyda/codacy-coverage-reporter-action@master
+    - name: Upload coverage to Codecov
+      uses: codecov/codecov-action@v1.0.5
       with:
-        project-token: ${{ secrets.codacy_project_token }}
+        token: ${{ secrets.codecov_token }}
+        file: ./coverage.xml
+        flags: unittests
+        name: codecov-spotify-api
+        fail_ci_if_error: true
