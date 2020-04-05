@@ -24,12 +24,12 @@ async def main():
 
     code = await api.get_code_with_cookie(cookies)
     await api.get_auth_token_with_code(code)
-    await api.create_new_client()
+    await api.create_new_client(request_limit=1500)
     album1 = await api.albums.get_album('03dlqdFWY9gwJxGl3AREVy')
     print(album1)
 
     try:
-        album2 = await api.albums.get_album('aösldjf')
+        await api.albums.get_album('aösldjf')
     except SpotifyAPIError as error:
         print(error.get_json())
 
