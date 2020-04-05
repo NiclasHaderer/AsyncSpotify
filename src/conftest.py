@@ -71,12 +71,10 @@ def prepare_test_data():
         Add the cookie parameter
         """
 
-        location = os.environ.get("cookie_file_path",
-                                  "/home/niclas/IdeaProjects/AsyncSpotify/examples/private/cookies.json")
-        with open(location) as file:
-            cookie_text = file.read()
-            cookie_json = json.loads(cookie_text)
-        TestDataTransfer.cookies = SpotifyCookies(cookie_json['sp_t'], cookie_json['sp_dc'], cookie_json['sp_key'])
+        cookies = SpotifyCookies()
+        cookies.load_from_file(os.environ.get("cookie_file_path",
+                                              "/home/niclas/IdeaProjects/AsyncSpotify/examples/private/cookies.json"))
+        TestDataTransfer.cookies = cookies
 
     def add_preferences():
         """

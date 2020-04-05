@@ -13,11 +13,13 @@ import base64
 import json
 import time
 import webbrowser
+from types import SimpleNamespace
+from typing import Optional, List
 from urllib import parse
 from urllib.parse import urlencode
 
-from aiohttp import ClientSession
-from multidict import CIMultiDictProxy, MultiDict
+from aiohttp import ClientSession, TraceConfig, TraceRequestRedirectParams, ClientConnectorError
+from multidict import MultiDict
 
 from .api_request_maker import ApiRequestHandler
 from .endpoints.albums import Albums
@@ -203,7 +205,8 @@ class API:
 
         return query['code']
 
-    async def _track_request_without_callback(self, cookie_dict: dict, url: str) -> str:
+    @staticmethod
+    async def _track_request_without_callback(cookie_dict: dict, url: str) -> str:
         """
         Make a request to the spotify api without redirects. No callback server needed.
 
@@ -218,62 +221,53 @@ class API:
         Returns: The code of spotify
         """
 
-        # Make an api request to spotify
-        async with ClientSession(cookies=cookie_dict) as session:
-            async with session.get(url, allow_redirects=False) as resp:
-                pass
+        code: Optional[str] = None
+
+        async def redirect(_: ClientSession, __: SimpleNamespace, trace_request: TraceRequestRedirectParams) -> None:
+            """
+            Handler the redirect event aiohttp is firing
+            Args:
+                _: ClientSession
+                __: SimpleNamespace
+                trace_request: The current redirect request response
+            """
+
+            # Get the redirect url
+            location: Optional[str] = trace_request.response.headers.get('location')
+
+            # Parse the url
+            local_url = parse.urlparse(location)
+            query = parse.parse_qs(local_url.query)
+
+            # Check if code is the redirect url
+            _code: Optional[List[str]] = query.get('code')
+
+            if _code:
+                nonlocal code
+                code = _code[0]
+
+        # Create a callback every time there is a redirect
+        trace_config = TraceConfig()
+        trace_config.on_request_redirect.append(redirect)
+
+        try:
+            # Make an api request to spotify
+            async with ClientSession(cookies=cookie_dict, trace_configs=[trace_config]) as session:
+                async with session.get(url) as resp:
+                    response_text = await resp.text()
             await session.close()
+        except ClientConnectorError:
+            """
+            Ignore the error in case no callback server is running
+            """
 
-        # TODO
-        print('RESPONSE_TEXT: ', await resp.text())
-        print('RESPONSE_HEADER: ', resp.headers)
-        # TODO
-
-        # Get the code from the redirect
-        code = self._get_code_with_location_header(resp.headers)
-
-        # Check if the response is valid
-        response_status = ResponseStatus(resp.status)
-
-        if not code and response_status.moved:
-            raise SpotifyError('It looks like you have some redirect between you and spotify. This is not supported.'
-                               ''
-                               f'{await resp.text()}')
         if not code:
             raise SpotifyError('The collection of the code did not work. Did the user already agree to the scopes of '
                                'your app?'
                                ''
-                               f'{await resp.text()}')
+                               f'{response_text}')
 
         return code
-
-    @staticmethod
-    def _get_code_with_location_header(headers: CIMultiDictProxy[str]) -> str:
-        """
-        Get the code by using the location header
-
-        Args:
-            headers: The headers of the request
-
-        Returns:
-            The code or an empty string
-        """
-
-        if 'location' not in headers:
-            raise SpotifyError('There was no redirect in in the spotify response. Has the user accepted the '
-                               'scopes once before or has the cookie not the right values?')
-
-        # Get the redirect url
-        location: str = headers['location']
-
-        # Parse the url
-        local_url = parse.urlparse(location)
-        query = parse.parse_qs(local_url.query)
-
-        # Check if code is the redirect url
-        if 'code' in query:
-            return query['code'][0]
-        return ""
 
     async def get_auth_token_with_code(self, code: str) -> SpotifyAuthorisationToken:
         """
