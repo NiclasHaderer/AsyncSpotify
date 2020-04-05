@@ -16,12 +16,6 @@ class SpotifyError(Exception):
     """
 
 
-class SpotifyAuthError(Exception):
-    """
-    Custom auth error message
-    """
-
-
 class TokenExpired(Exception):
     """
     Custom token expired message
@@ -32,3 +26,29 @@ class RateLimitExceeded(Exception):
     """
     Custom rate limit exceeded exception
     """
+
+
+class SpotifyAPIError(Exception):
+    """
+    Custom api error message
+    """
+
+    def __init__(self, message: dict):
+        self.message: dict = message
+
+    def __str__(self):
+        return str(self.message)
+
+    def get_json(self) -> dict:
+        """
+        Get the the api response which was an error as dict
+        """
+        return self.message
+
+
+# '{
+#   "error": {
+#     "status": 429,
+#     "message": "API rate limit exceeded"
+#   }
+# }'

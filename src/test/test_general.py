@@ -14,7 +14,7 @@ import asyncio
 import pytest
 
 from async_spotify import API, SpotifyError
-from async_spotify.spotify_errors import RateLimitExceeded
+from async_spotify.spotify_errors import RateLimitExceeded, SpotifyAPIError
 from helpers import SetupServer
 
 
@@ -29,7 +29,7 @@ class TestGeneral(SetupServer):
     async def test_renew_session(self, api: API):
         await api.create_new_client()
         await api.create_new_client()
-        assert api.api_request_handler.client_session is not None
+        assert api.api_request_handler.client_session_list is not None
         await api.close_client()
 
     @pytest.mark.asyncio
@@ -41,7 +41,7 @@ class TestGeneral(SetupServer):
 
     @pytest.mark.asyncio
     async def test_invalid_album_id(self, prepared_api: API):
-        with pytest.raises(SpotifyError):
+        with pytest.raises(SpotifyAPIError):
             await prepared_api.albums.get_album('somerandomstring')
 
     @pytest.mark.asyncio

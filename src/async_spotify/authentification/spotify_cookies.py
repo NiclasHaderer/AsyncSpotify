@@ -9,6 +9,8 @@ Class which describes a spotify cookie which is necessary to authenticate a user
 #  linking to the original source.                                                                 #
 # ##################################################################################################
 
+import json
+
 
 class SpotifyCookies:
     """
@@ -38,5 +40,16 @@ class SpotifyCookies:
             return True
         return False
 
-    # TODO load from file
-    # TODO load from env
+    def load_from_file(self, file_path: str) -> None:
+        """
+        Load the cookies from a file
+
+        Args:
+            file_path: The cookie file path
+        """
+        with open(file_path) as file:
+            file_json: dict = json.load(file)
+
+        self.sp_t = file_json['sp_t']
+        self.sp_dc = file_json['sp_dc']
+        self.sp_key = file_json['sp_key']

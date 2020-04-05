@@ -1,6 +1,7 @@
 """
 The api request handler singleton
 """
+
 # ##################################################################################################
 #  Copyright (c) 2020. HuiiBuh                                                                     #
 #  This file (api_request_maker.py) is part of AsyncSpotify which is released under MIT.           #
@@ -8,13 +9,16 @@ The api request handler singleton
 #  linking to the original source.                                                                 #
 # ##################################################################################################
 
-from typing import Optional, List, Tuple
+import json
+import math
+from collections import deque
+from typing import Optional, List, Tuple, Deque
 
-from aiohttp import ClientTimeout, TCPConnector, ClientSession
+from aiohttp import ClientTimeout, TCPConnector, ClientSession, DummyCookieJar, ContentTypeError
 
 from .response_status import ResponseStatus
 from ..authentification.spotify_authorization_token import SpotifyAuthorisationToken
-from ..spotify_errors import SpotifyError, TokenExpired, RateLimitExceeded
+from ..spotify_errors import SpotifyError, TokenExpired, RateLimitExceeded, SpotifyAPIError
 
 
 # TODO multiple sessions for more than 500 requests
@@ -35,7 +39,7 @@ class ApiRequestHandler:
             api: The main api class
         """
         self.api = api  # :type async_spotify.API
-        self.client_session: Optional[ClientSession] = None
+        self.client_session_list: Optional[Deque[ClientSession]] = deque([])
 
     async def create_new_client(self, request_timeout: int, request_limit: int) -> None:
         """
@@ -49,25 +53,28 @@ class ApiRequestHandler:
             None
         """
 
-        if self.client_session:
-            await self.client_session.close()
+        if self.client_session_list:
+            await self.close_client()
 
-        timeout = ClientTimeout(total=request_timeout)
-        connector = TCPConnector(limit=request_limit, enable_cleanup_closed=True)
-        self.client_session = ClientSession(connector=connector, timeout=timeout)
+        client_instance_number: int = math.ceil(request_limit / 500)
+
+        for instance in range(client_instance_number):
+            timeout = ClientTimeout(total=request_timeout)
+            connector = TCPConnector(limit=request_limit, enable_cleanup_closed=True)
+            client_session = ClientSession(connector=connector, timeout=timeout, cookie_jar=DummyCookieJar())
+
+            self.client_session_list.append(client_session)
 
     async def close_client(self) -> None:
         """
         Close the current client session. You have to create a new one to connect again to spotify.
         This method should always be called before you end your program
-
-        Returns:
-            None
         """
 
-        if self.client_session:
-            await self.client_session.close()
-            self.client_session = None
+        for client in self.client_session_list:
+            await client.close()
+
+        self.client_session_list: Deque = deque([])
 
     async def make_request(self, method: str, url: str, query_params: dict,
                            auth_token: SpotifyAuthorisationToken) -> dict:
@@ -83,34 +90,40 @@ class ApiRequestHandler:
         Returns: The spotify api response
         """
 
-        if not self.client_session:
+        if not self.client_session_list:
             raise SpotifyError('You have to create a new client with create_new_client'
                                ' before you can make requests to the spotify api.')
 
         params: List[Tuple[str, str]] = self.format_params(query_params)
         headers = self.get_headers(auth_token)
 
-        async with self.client_session.request(method, url, params=params, headers=headers) as response:
+        # Rotate the list
+        self.client_session_list.rotate(1)
+
+        # Get the first of the rotated list
+        client: ClientSession = self.client_session_list[0]
+
+        # Make the api response
+        async with client.request(method, url, params=params, headers=headers) as response:
             response_status = ResponseStatus(response.status)
-            response_json: dict = {}
-            response_text: str = ""
-            if response_status.success:
-                response_json = await response.json()
-            else:
-                response_text = await response.text()
+
+            # Handle the parsing of the rate limit exceeded response which does not work for some reason
+            try:
+                response_json: dict = await response.json()
+            except ContentTypeError:
+                response_json: dict = json.loads(await response.text())
 
         # Expired
         if response_status.code == 401:
-            raise TokenExpired(response_status.message, " ", response_text)
+            raise TokenExpired(response_status.message, " ", response_json)
 
         # Rate limit exceeded
         if response_status.code == 429:
-            raise RateLimitExceeded(response_status.message, " ", response_text)
+            raise RateLimitExceeded(response_status.message, " ", response_json)
 
-        # TODO check if exception should be thrown if the album id or other things are invalid
         # Check if the response was a success
         if not response_status.success:
-            raise SpotifyError(response_status.message, " ", response_text)
+            raise SpotifyAPIError(response_json)
 
         return response_json
 
