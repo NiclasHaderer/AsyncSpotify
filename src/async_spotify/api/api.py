@@ -150,7 +150,7 @@ class API:
         Args:
             cookies: The cookies of the spotify account. Every property of the class has to be filled in.
             callback_server: Is there a callback server running, or is there no callback server. If you set the
-                callback_server arg to false (default) you are not allowed to redirect the request!
+                callback_server arg to false (default)!
 
         Raises:
             SpotifyError: If the cookie is not valid
