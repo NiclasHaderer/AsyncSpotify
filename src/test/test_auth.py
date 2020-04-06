@@ -17,29 +17,28 @@ from async_spotify import SpotifyAuthorisationToken, API, SpotifyError, SpotifyC
 from async_spotify.api.response_status import ResponseStatus
 from async_spotify.preferences import Preferences
 from conftest import TestDataTransfer
-from helpers import SetupServer
 
 
-class TestAuth(SetupServer):
+class TestAuth:
 
     # Test cookie class
     def test_cookie(self):
         cookies = SpotifyCookies("hallo", "welt")
-        assert False is cookies.validate()
+        assert False is cookies.valid
 
     # Load preferences
     def test_load_secret_preferences(self):
         preferences = Preferences()
         preferences.load_from_docker_secret()
 
-        assert False is preferences.validate()
+        assert False is preferences.valid
 
     # Load the preferences from os
     def test_load_os_preferences(self):
         preferences = Preferences()
         preferences.load_from_env()
 
-        assert preferences.validate()
+        assert preferences.valid
 
     # Test preference saving to os env
     def test_save_preferences_to_env(self):
@@ -88,25 +87,25 @@ class TestAuth(SetupServer):
         api = API(preferences)
 
         with pytest.raises(SpotifyError):
-            await api.get_code_with_cookie(TestDataTransfer.cookies, callback_server=True)
+            await api.get_code_with_cookie(TestDataTransfer.cookies)
 
     # Get the code from spotify
     @pytest.mark.asyncio
     async def test_code_retrieval(self, api: API):
-        code = await api.get_code_with_cookie(TestDataTransfer.cookies, callback_server=True)
+        code = await api.get_code_with_cookie(TestDataTransfer.cookies)
         assert code != ""
 
     # Get the code from spotify with an empty cookie
     @pytest.mark.asyncio
     async def test_code_retrieval_empty_cookie(self, api: API):
         with pytest.raises(SpotifyError):
-            await api.get_code_with_cookie(SpotifyCookies(), callback_server=True)
+            await api.get_code_with_cookie(SpotifyCookies())
 
     # Get the code from spotify with an invalid cookie
     @pytest.mark.asyncio
     async def test_code_retrieval_invalid_cookie(self, api: API):
         with pytest.raises(SpotifyError):
-            await api.get_code_with_cookie(SpotifyCookies("1", "2", "3"), callback_server=True)
+            await api.get_code_with_cookie(SpotifyCookies("1", "2", "3"))
 
     # Get the auth token from spotify with an invalid code
     @pytest.mark.asyncio
@@ -117,7 +116,7 @@ class TestAuth(SetupServer):
     # Get the auth token
     @pytest.mark.asyncio
     async def test_get_auth_code(self, api: API):
-        code = await api.get_code_with_cookie(TestDataTransfer.cookies, callback_server=True)
+        code = await api.get_code_with_cookie(TestDataTransfer.cookies)
         auth_token: SpotifyAuthorisationToken = await api.get_auth_token_with_code(code)
 
         assert auth_token is not None and not auth_token.is_expired()
@@ -131,7 +130,7 @@ class TestAuth(SetupServer):
     # Refresh the auth token
     @pytest.mark.asyncio
     async def test_refresh_auth_code(self, api: API):
-        code = await api.get_code_with_cookie(TestDataTransfer.cookies, callback_server=True)
+        code = await api.get_code_with_cookie(TestDataTransfer.cookies)
         auth_token: SpotifyAuthorisationToken = await api.get_auth_token_with_code(code)
         auth_token = await api.refresh_token(auth_token)
 

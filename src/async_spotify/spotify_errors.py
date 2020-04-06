@@ -46,9 +46,8 @@ class SpotifyAPIError(Exception):
         return self.message
 
 
-# '{
-#   "error": {
-#     "status": 429,
-#     "message": "API rate limit exceeded"
-#   }
-# }'
+try:
+    raise SpotifyAPIError({'a': 'b'})
+except SpotifyAPIError as e:
+    e.get_json()
+    str(e)

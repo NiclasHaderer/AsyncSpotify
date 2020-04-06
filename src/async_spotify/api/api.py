@@ -13,13 +13,13 @@ import base64
 import json
 import time
 import webbrowser
+from copy import deepcopy
 from types import SimpleNamespace
 from typing import Optional, List
 from urllib import parse
 from urllib.parse import urlencode
 
 from aiohttp import ClientSession, TraceConfig, TraceRequestRedirectParams, ClientConnectorError
-from multidict import MultiDict
 
 from .api_request_maker import ApiRequestHandler
 from .endpoints.albums import Albums
@@ -32,35 +32,37 @@ from ..preferences import Preferences
 from ..spotify_errors import SpotifyError
 
 
+# TODO pydantic: auth token, cookies
+
 class API:
     """
     The main api class which will be used to authenticate and connect to the spotify api.
     Use this class to authenticate and connect to the spotify api.
     """
 
-    # noinspection PyTypeChecker
     def __init__(self, preferences: Preferences, hold_authentication=False):
         """
         Create a new api class
+
         Args:
             preferences: The preferences object fully filled with information
             hold_authentication: Should the api keep the authentication im memory and refresh it automatically
         """
 
         # Check if the preferences are valid
-        if not preferences.validate():
+        if not preferences.valid:
             raise SpotifyError("The preferences of your app are not correct")
 
         # Set the preferences
         self.preferences: Preferences = preferences
 
-        self.hold_authentication: bool = hold_authentication
-        self.spotify_authorisation_token: SpotifyAuthorisationToken = None
+        self._hold_authentication: bool = hold_authentication
+        self._spotify_authorisation_token: SpotifyAuthorisationToken = SpotifyAuthorisationToken()
 
-        self.api_request_handler: ApiRequestHandler = ApiRequestHandler(self)
+        self._api_request_handler: ApiRequestHandler = ApiRequestHandler(self._spotify_authorisation_token)
 
-        self.albums = Albums(self)
-        self.artist = Artists(self)
+        self.albums = Albums(self._api_request_handler)
+        self.artist = Artists(self._api_request_handler)
 
     async def create_new_client(self, request_timeout: int = 30, request_limit: int = 500) -> None:
         """
@@ -72,23 +74,17 @@ class API:
         Args:
             request_timeout: How long should be waited for a request (default 30s) (None for no limit)
             request_limit: How many requests should be allowed (default 500)
-
-        Returns:
-            None
         """
 
-        await self.api_request_handler.create_new_client(request_timeout, request_limit)
+        await self._api_request_handler.create_new_client(request_timeout, request_limit)
 
     async def close_client(self) -> None:
         """
         Close the current client session. You have to create a new one to connect again to spotify.
         This method should always be called before you end your program
-
-        Returns:
-            None
         """
 
-        await self.api_request_handler.close_client()
+        await self._api_request_handler.close_client()
 
     def build_authorization_url(self, show_dialog: bool = True, state: str = None) -> str:
         """
@@ -123,20 +119,18 @@ class API:
 
         Args:
             show_dialogue: Should the spotify auth dialog be shown
-
-        Returns:
-            None
         """
 
         # Open url in a new window of the default browser, if possible
         webbrowser.open_new(self.build_authorization_url(show_dialogue))
 
-    async def get_code_with_cookie(self, cookies: SpotifyCookies, callback_server: bool = False) -> str:
+    async def get_code_with_cookie(self, cookies: SpotifyCookies) -> str:
         """
         This function takes care of the user interaction that is normally required to get the code from spotify
         which is necessary to request the refresh_token and the oauth_token.
         The token which is returned by this function has to be passed to API.get_auth_token_with_code(code)
         to get the refresh_token and the oauth_token.
+        The big advantage is that you don't have to run a callback server to get the code
 
         Note:
             This will only work if the user has at least once accepted the scopes your app is requesting.
@@ -149,8 +143,6 @@ class API:
 
         Args:
             cookies: The cookies of the spotify account. Every property of the class has to be filled in.
-            callback_server: Is there a callback server running, or is there no callback server. If you set the
-                callback_server arg to false (default)!
 
         Raises:
             SpotifyError: If the cookie is not valid
@@ -165,45 +157,13 @@ class API:
         url = self.build_authorization_url(show_dialog=False)
 
         # Check if the cookie file is valid
-        if not cookies.validate():
+        if not cookies.valid:
             raise SpotifyError('The cookies are not complete')
 
         # Convert the class to a dict
         cookie_dict: dict = cookies.__dict__
 
-        if not callback_server:
-            code = await self._track_request_without_callback(cookie_dict, url)
-        else:
-            code = await self._track_request_with_callback_server(cookie_dict, url)
-
-        return code
-
-    @staticmethod
-    async def _track_request_with_callback_server(cookie_dict: dict, url: str):
-        """
-        Gets the code with the redirect to the callback server
-
-        Args:
-            cookie_dict: The cookie dict used for authentification
-            url: The url of the spotify request
-
-        Raises:
-            SpotifyError: If there is a redirect between you and spotify
-            SpotifyError: If there is an unknown error
-
-        Returns: The code of spotify
-        """
-        async with ClientSession(cookies=cookie_dict) as session:
-            async with session.get(url) as resp:
-                pass
-            await session.close()
-
-        # Get the code from the redirect
-        query: MultiDict[str] = resp.url.query
-        if 'code' not in query:
-            raise SpotifyError('No code could be found.')
-
-        return query['code']
+        return await self._track_request_without_callback(cookie_dict, url)
 
     @staticmethod
     async def _track_request_without_callback(cookie_dict: dict, url: str) -> str:
@@ -226,6 +186,7 @@ class API:
         async def redirect(_: ClientSession, __: SimpleNamespace, trace_request: TraceRequestRedirectParams) -> None:
             """
             Handler the redirect event aiohttp is firing
+
             Args:
                 _: ClientSession
                 __: SimpleNamespace
@@ -237,7 +198,7 @@ class API:
 
             # Parse the url
             local_url = parse.urlparse(location)
-            query = parse.parse_qs(local_url.query)
+            query: dict = parse.parse_qs(local_url.query)
 
             # Check if code is the redirect url
             _code: Optional[List[str]] = query.get('code')
@@ -257,9 +218,8 @@ class API:
                     response_text = await resp.text()
             await session.close()
         except ClientConnectorError:
-            """
-            Ignore the error in case no callback server is running
-            """
+            # Ignore the error in case no callback server is running
+            pass
 
         if not code:
             raise SpotifyError('The collection of the code did not work. Did the user already agree to the scopes of '
@@ -298,14 +258,11 @@ class API:
         refresh_token: str = response_json['refresh_token']
         access_token: str = response_json['access_token']
 
-        spotify_authorisation_token = SpotifyAuthorisationToken(refresh_token=refresh_token,
-                                                                activation_time=int(time.time()),
-                                                                access_token=access_token)
-        # Keep the auth token in memory
-        if self.hold_authentication:
-            self.spotify_authorisation_token = spotify_authorisation_token
+        self._spotify_authorisation_token.refresh_token = refresh_token
+        self._spotify_authorisation_token.activation_time = int(time.time())
+        self._spotify_authorisation_token.access_token = access_token
 
-        return spotify_authorisation_token
+        return deepcopy(self._spotify_authorisation_token)
 
     async def refresh_token(self, auth_token: SpotifyAuthorisationToken = None) -> SpotifyAuthorisationToken:
         """
@@ -324,8 +281,8 @@ class API:
         """
 
         # Check if the internal auth token should be used
-        if not auth_token and self.hold_authentication:
-            auth_token = self.spotify_authorisation_token
+        if not auth_token and self._hold_authentication:
+            auth_token = self._spotify_authorisation_token
 
         body: dict = {
             'grant_type': 'refresh_token',
@@ -336,14 +293,13 @@ class API:
 
         refresh_token = auth_token.refresh_token
         access_token = response_json['access_token']
-        spotify_authorisation_token = SpotifyAuthorisationToken(refresh_token=refresh_token,
-                                                                activation_time=int(time.time()),
-                                                                access_token=access_token)
-        # Keep the auth token in memory
-        if self.hold_authentication:
-            self.spotify_authorisation_token = spotify_authorisation_token
 
-        return spotify_authorisation_token
+        # Keep the auth token in memory
+        self._spotify_authorisation_token.refresh_token = refresh_token
+        self._spotify_authorisation_token.activation_time = int(time.time())
+        self._spotify_authorisation_token.access_token = access_token
+
+        return deepcopy(self._spotify_authorisation_token)
 
     async def _make_auth_api_request(self, body: dict) -> dict:
         """
@@ -373,3 +329,50 @@ class API:
             raise SpotifyError(response_status.message + '\n' + str(response_text))
 
         return json.loads(response_text)
+
+    @property
+    def spotify_authorization_token(self) -> SpotifyAuthorisationToken:
+        """
+        Returns:
+            The SpotifyAuthorisationToken of the api class
+        """
+
+        return self._spotify_authorisation_token
+
+    @spotify_authorization_token.setter
+    def spotify_authorization_token(self, spotify_authorization_token: SpotifyAuthorisationToken) -> None:
+        """
+        Update the spotify auth token
+
+        Args:
+            spotify_authorization_token: The spotify auth token
+        """
+
+        self._spotify_authorisation_token.refresh_token = spotify_authorization_token.refresh_token
+        self._spotify_authorisation_token.access_token = spotify_authorization_token.access_token
+        self._spotify_authorisation_token.activation_time = spotify_authorization_token.activation_time
+
+    @property
+    def hold_authentication(self):
+        """
+        Returns:
+            The hold_authentication parameter of the api class
+        """
+
+        return self._hold_authentication
+
+    @hold_authentication.setter
+    def hold_authentication(self, hold_authentication: bool) -> None:
+        """
+        Set the hold_authentication param
+
+        Args:
+            hold_authentication: Should internal auth token be used for authentication
+        """
+
+        self._hold_authentication = hold_authentication
+
+        if not hold_authentication:
+            self._spotify_authorisation_token.activation_time = None
+            self._spotify_authorisation_token.access_token = None
+            self._spotify_authorisation_token.refresh_token = None

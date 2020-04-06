@@ -11,22 +11,17 @@ Handle the requests to the albums endpoint
 
 from typing import List
 
-from .decorators import make_request
-from .objects import DecoratorInformationObject
+from .endpoint import Endpoint
 from .urls import URLS
 from ...authentification.spotify_authorization_token import SpotifyAuthorisationToken
 
 
-class Albums:
+class Albums(Endpoint):
     """
     Wraps the spotify album functions
     """
 
-    def __init__(self, api):  # :type async_spotify.API
-        self.api = api  # :type async_spotify.API
-
-    @make_request(method="GET", url=URLS.ALBUM.ONE)
-    async def get_album(self, album_id: str, auth_token: SpotifyAuthorisationToken = None, **kwargs):
+    async def get_one(self, album_id: str, auth_token: SpotifyAuthorisationToken = None, **kwargs):
         """
         Get the album with the specific spotify album id
 
@@ -44,10 +39,13 @@ class Albums:
 
         required_args = {"id": album_id}
         args = {**required_args, **kwargs}
-        return DecoratorInformationObject(args, auth_token, self.api.api_request_handler)
 
-    @make_request(method="GET", url=URLS.ALBUM.TRACKS)
-    async def get_album_tracks(self, album_id: str, auth_token: SpotifyAuthorisationToken = None, **kwargs):
+        url, args = self.add_url_params(URLS.ALBUM.ONE, args)
+        response = await self.api_request_handler.make_request('GET', url, args, auth_token)
+
+        return response
+
+    async def get_tracks(self, album_id: str, auth_token: SpotifyAuthorisationToken = None, **kwargs):
         """
         Get the tracks of an album
 
@@ -65,11 +63,14 @@ class Albums:
 
         required_args = {"id": album_id}
         args = {**required_args, **kwargs}
-        return DecoratorInformationObject(args, auth_token, self.api.api_request_handler)
 
-    @make_request(method="GET", url=URLS.ALBUM.MULTIPLE)
-    async def get_multiple_albums(self, album_id_list: List[str], auth_token: SpotifyAuthorisationToken = None,
-                                  **kwargs):
+        url, args = self.add_url_params(URLS.ALBUM.TRACKS, args)
+        response = await self.api_request_handler.make_request('GET', url, args, auth_token)
+
+        return response
+
+    async def get_multiple(self, album_id_list: List[str], auth_token: SpotifyAuthorisationToken = None,
+                           **kwargs):
         """
         Get All the albums specified in the album_id_list
 
@@ -87,4 +88,8 @@ class Albums:
 
         required_args = {"ids": album_id_list}
         args = {**required_args, **kwargs}
-        return DecoratorInformationObject(args, auth_token, self.api.api_request_handler)
+
+        url, args = self.add_url_params(URLS.ALBUM.MULTIPLE, args)
+        response = await self.api_request_handler.make_request('GET', url, args, auth_token)
+
+        return response
