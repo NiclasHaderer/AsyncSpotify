@@ -8,13 +8,12 @@ Conftest file
 #  You are not allowed to use this code or this file for another project without                   #
 #  linking to the original source.                                                                 #
 # ##################################################################################################
-import asyncio
-import json
+
 import os
 
 import pytest
 
-from async_spotify import Preferences, API, SpotifyCookies
+from async_spotify import Preferences, SpotifyApiClient, SpotifyCookies
 
 
 class TestDataTransfer:
@@ -23,7 +22,7 @@ class TestDataTransfer:
     """
     cookies: SpotifyCookies = None
     preferences: Preferences = None
-    api: API = None
+    api: SpotifyApiClient = None
 
 
 @pytest.fixture()
@@ -35,7 +34,7 @@ def api():
     preferences = Preferences()
     preferences.load_from_env()
 
-    api = API(preferences)
+    api = SpotifyApiClient(preferences)
     return api
 
 
@@ -49,7 +48,7 @@ async def prepared_api():
     preferences = Preferences()
     preferences.load_from_env()
 
-    api = API(preferences, hold_authentication=True)
+    api = SpotifyApiClient(preferences, hold_authentication=True)
 
     code = await api.get_code_with_cookie(TestDataTransfer.cookies)
     await api.get_auth_token_with_code(code)
@@ -90,7 +89,7 @@ def prepare_test_data():
         """
         preferences = Preferences()
         preferences.load_from_env()
-        TestDataTransfer.api = API(preferences, hold_authentication=True)
+        TestDataTransfer.api = SpotifyApiClient(preferences, hold_authentication=True)
 
     add_cookie()
     add_preferences()

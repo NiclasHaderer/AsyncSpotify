@@ -12,7 +12,7 @@ Abstract class which has to be extended by a endpoint
 from abc import ABC
 from typing import Tuple
 
-from ..api_request_maker import ApiRequestHandler
+from async_spotify.api._api_request_maker import ApiRequestHandler
 
 
 class Endpoint(ABC):

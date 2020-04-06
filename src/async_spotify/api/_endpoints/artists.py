@@ -9,7 +9,7 @@ Handle the requests to the artist endpoint
 #  linking to the original source.                                                                 #
 # ##################################################################################################
 
-from async_spotify.api.endpoints.endpoint import Endpoint
+from async_spotify.api._endpoints.endpoint import Endpoint
 
 
 class Artists(Endpoint):

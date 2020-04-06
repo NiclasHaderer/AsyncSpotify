@@ -4,7 +4,7 @@ pass
 
 import asyncio
 
-from async_spotify import Preferences, API, SpotifyCookies, SpotifyAuthorisationToken
+from async_spotify import Preferences, SpotifyApiClient, SpotifyCookies, SpotifyAuthorisationToken
 from async_spotify.spotify_errors import SpotifyAPIError
 
 
@@ -19,7 +19,7 @@ async def main():
     cookies = SpotifyCookies()
     cookies.load_from_file('/home/niclas/IdeaProjects/AsyncSpotify/examples/private/cookies.json')
 
-    api = API(preferences, True)
+    api = SpotifyApiClient(preferences, True)
 
     code = await api.get_code_with_cookie(cookies)
     await api.get_auth_token_with_code(code)

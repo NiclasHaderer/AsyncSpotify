@@ -1,1 +1,1 @@
-::: async_spotify.api.endpoints.artists
+::: async_spotify.api._endpoints.artists

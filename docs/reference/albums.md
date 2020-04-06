@@ -1,1 +1,1 @@
-::: async_spotify.api.endpoints.albums
+::: async_spotify.api._endpoints.albums

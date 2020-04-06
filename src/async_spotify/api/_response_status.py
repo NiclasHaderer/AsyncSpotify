@@ -9,7 +9,7 @@ Wraps the status code of a response to give some additional context
 #  linking to the original source.                                                                 #
 # ##################################################################################################
 
-from .status_codes import STATUS_CODES
+from ._status_codes import STATUS_CODES
 
 
 class ResponseStatus:

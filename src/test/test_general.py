@@ -13,13 +13,13 @@ import asyncio
 
 import pytest
 
-from async_spotify import API, SpotifyError, SpotifyAuthorisationToken
+from async_spotify import SpotifyApiClient, SpotifyError, SpotifyAuthorisationToken
 from async_spotify.spotify_errors import RateLimitExceeded, SpotifyAPIError
 
 
 class TestGeneral:
 
-    def test_get_hold_authentication(self, api: API):
+    def test_get_hold_authentication(self, api: SpotifyApiClient):
         api.hold_authentication = False
         assert False is api.hold_authentication
 
@@ -37,20 +37,20 @@ class TestGeneral:
             assert str(d) == str(e)
 
     @pytest.mark.asyncio
-    async def test_no_session(self, prepared_api: API):
+    async def test_no_session(self, prepared_api: SpotifyApiClient):
         await prepared_api.close_client()
         with pytest.raises(SpotifyError):
             await prepared_api.albums.get_one('03dlqdFWY9gwJxGl3AREVy')
 
     @pytest.mark.asyncio
-    async def test_renew_session(self, prepared_api: API):
+    async def test_renew_session(self, prepared_api: SpotifyApiClient):
         await prepared_api.create_new_client()
         await prepared_api.create_new_client()
         assert prepared_api._api_request_handler.client_session_list is not None
         await prepared_api.close_client()
 
     @pytest.mark.asyncio
-    async def test_remove_authentication(self, prepared_api: API):
+    async def test_remove_authentication(self, prepared_api: SpotifyApiClient):
         prepared_api.hold_authentication = False
         await prepared_api.create_new_client()
         with pytest.raises(SpotifyError):
@@ -58,19 +58,19 @@ class TestGeneral:
         await prepared_api.close_client()
 
     @pytest.mark.asyncio
-    async def test_unauthenticated_api(self, api: API):
+    async def test_unauthenticated_api(self, api: SpotifyApiClient):
         await api.create_new_client()
         with pytest.raises(SpotifyError):
             await api.albums.get_one('03dlqdFWY9gwJxGl3AREVy')
         await api.close_client()
 
     @pytest.mark.asyncio
-    async def test_invalid_album_id(self, prepared_api: API):
+    async def test_invalid_album_id(self, prepared_api: SpotifyApiClient):
         with pytest.raises(SpotifyAPIError):
             await prepared_api.albums.get_one('somerandomstring')
 
     @pytest.mark.asyncio
-    async def test_rate_limit(self, prepared_api: API):
+    async def test_rate_limit(self, prepared_api: SpotifyApiClient):
         await prepared_api.create_new_client(request_timeout=5, request_limit=1000)
 
         album_id = '03dlqdFWY9gwJxGl3AREVy'

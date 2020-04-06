@@ -13,9 +13,9 @@ from urllib.parse import urlencode
 
 import pytest
 
-from async_spotify import SpotifyAuthorisationToken, API, SpotifyError, SpotifyCookies
-from async_spotify.api.response_status import ResponseStatus
-from async_spotify.preferences import Preferences
+from async_spotify import SpotifyAuthorisationToken, SpotifyApiClient, SpotifyError, SpotifyCookies
+from async_spotify.api._response_status import ResponseStatus
+from async_spotify.api.preferences import Preferences
 from conftest import TestDataTransfer
 
 
@@ -59,10 +59,10 @@ class TestAuth:
     def test_load_wrong_preferences(self):
         preferences = Preferences()
         with pytest.raises(SpotifyError):
-            API(preferences)
+            SpotifyApiClient(preferences)
 
     # Test the generation of the auth url
-    def test_auth_url(self, api: API):
+    def test_auth_url(self, api: SpotifyApiClient):
         url = api.build_authorization_url(show_dialog=False, state="TestState")
         assert ("show_dialog=False" in url and
                 "state=TestState" in url and
@@ -84,38 +84,38 @@ class TestAuth:
     async def test_wrong_code_url(self):
         preferences = Preferences("test-with-wrong-code", "test-with-wrong-code", ["test-with-wrong-code"],
                                   "test-with-wrong-code")
-        api = API(preferences)
+        api = SpotifyApiClient(preferences)
 
         with pytest.raises(SpotifyError):
             await api.get_code_with_cookie(TestDataTransfer.cookies)
 
     # Get the code from spotify
     @pytest.mark.asyncio
-    async def test_code_retrieval(self, api: API):
+    async def test_code_retrieval(self, api: SpotifyApiClient):
         code = await api.get_code_with_cookie(TestDataTransfer.cookies)
         assert code != ""
 
     # Get the code from spotify with an empty cookie
     @pytest.mark.asyncio
-    async def test_code_retrieval_empty_cookie(self, api: API):
+    async def test_code_retrieval_empty_cookie(self, api: SpotifyApiClient):
         with pytest.raises(SpotifyError):
             await api.get_code_with_cookie(SpotifyCookies())
 
     # Get the code from spotify with an invalid cookie
     @pytest.mark.asyncio
-    async def test_code_retrieval_invalid_cookie(self, api: API):
+    async def test_code_retrieval_invalid_cookie(self, api: SpotifyApiClient):
         with pytest.raises(SpotifyError):
             await api.get_code_with_cookie(SpotifyCookies("1", "2", "3"))
 
     # Get the auth token from spotify with an invalid code
     @pytest.mark.asyncio
-    async def test_code_retrieval_invalid_code(self, api: API):
+    async def test_code_retrieval_invalid_code(self, api: SpotifyApiClient):
         with pytest.raises(SpotifyError):
             await api.get_auth_token_with_code('a_code_which_will_not_work')
 
     # Get the auth token
     @pytest.mark.asyncio
-    async def test_get_auth_code(self, api: API):
+    async def test_get_auth_code(self, api: SpotifyApiClient):
         code = await api.get_code_with_cookie(TestDataTransfer.cookies)
         auth_token: SpotifyAuthorisationToken = await api.get_auth_token_with_code(code)
 
@@ -123,13 +123,13 @@ class TestAuth:
 
     # Get refreshed auth token with internal token
     @pytest.mark.asyncio
-    async def test_get_refresh_with_internal_auth(self, prepared_api: API):
+    async def test_get_refresh_with_internal_auth(self, prepared_api: SpotifyApiClient):
         auth_token: SpotifyAuthorisationToken = await prepared_api.refresh_token()
         assert auth_token is not None and not auth_token.is_expired()
 
     # Refresh the auth token
     @pytest.mark.asyncio
-    async def test_refresh_auth_code(self, api: API):
+    async def test_refresh_auth_code(self, api: SpotifyApiClient):
         code = await api.get_code_with_cookie(TestDataTransfer.cookies)
         auth_token: SpotifyAuthorisationToken = await api.get_auth_token_with_code(code)
         auth_token = await api.refresh_token(auth_token)
@@ -138,7 +138,7 @@ class TestAuth:
 
     # Get the code without server callback
     @pytest.mark.asyncio
-    async def test_get_code_without_callback(self, api: API):
+    async def test_get_code_without_callback(self, api: SpotifyApiClient):
         code = await api.get_code_with_cookie(TestDataTransfer.cookies)
         assert code != ""
 
