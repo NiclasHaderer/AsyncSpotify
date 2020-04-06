@@ -4,7 +4,7 @@ The main api class which will be used to authenticate and connect to the spotify
 
 # ##################################################################################################
 #  Copyright (c) 2020. HuiiBuh                                                                     #
-#  This file (api.py) is part of AsyncSpotify which is released under MIT.                         #
+#  This file (spotify_api_client.py) is part of AsyncSpotify which is released under MIT.          #
 #  You are not allowed to use this code or this file for another project without                   #
 #  linking to the original source.                                                                 #
 # ##################################################################################################
@@ -21,26 +21,27 @@ from urllib.parse import urlencode
 
 from aiohttp import ClientSession, TraceConfig, TraceRequestRedirectParams, ClientConnectorError
 
-from .api_request_maker import ApiRequestHandler
-from .endpoints.albums import Albums
-from .endpoints.artists import Artists
-from .endpoints.urls import URLS
-from .response_status import ResponseStatus
+from ._api_request_maker import ApiRequestHandler
+from ._endpoints.albums import Albums
+from ._endpoints.artists import Artists
+from ._endpoints.urls import URLS
+from ._response_status import ResponseStatus
+from .preferences import Preferences
 from ..authentification.spotify_authorization_token import SpotifyAuthorisationToken
 from ..authentification.spotify_cookies import SpotifyCookies
-from ..preferences import Preferences
 from ..spotify_errors import SpotifyError
 
 
 # TODO pydantic: auth token, cookies
 
-class API:
+class SpotifyApiClient:
     """
     The main api class which will be used to authenticate and connect to the spotify api.
     Use this class to authenticate and connect to the spotify api.
     """
 
-    def __init__(self, preferences: Preferences, hold_authentication=False):
+    def __init__(self, preferences: Preferences, hold_authentication=False,
+                 spotify_authorisation_token: SpotifyAuthorisationToken = None):
         """
         Create a new api class
 
@@ -58,6 +59,8 @@ class API:
 
         self._hold_authentication: bool = hold_authentication
         self._spotify_authorisation_token: SpotifyAuthorisationToken = SpotifyAuthorisationToken()
+        if spotify_authorisation_token:
+            self.spotify_authorization_token = spotify_authorisation_token
 
         self._api_request_handler: ApiRequestHandler = ApiRequestHandler(self._spotify_authorisation_token)
 

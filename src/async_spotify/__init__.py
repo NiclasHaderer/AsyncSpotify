@@ -9,8 +9,8 @@ Asynchronous spotify api wrapper
 #  linking to the original source.                                                                 #
 # ##################################################################################################
 
-from .api.api import API
+from .api.preferences import Preferences
+from .api.spotify_api_client import SpotifyApiClient
 from .authentification.spotify_authorization_token import SpotifyAuthorisationToken
 from .authentification.spotify_cookies import SpotifyCookies
-from .preferences import Preferences
 from .spotify_errors import SpotifyError, RateLimitExceeded, TokenExpired

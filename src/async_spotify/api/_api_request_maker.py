@@ -4,7 +4,7 @@ The api request handler singleton
 
 # ##################################################################################################
 #  Copyright (c) 2020. HuiiBuh                                                                     #
-#  This file (api_request_maker.py) is part of AsyncSpotify which is released under MIT.           #
+#  This file (_api_request_maker.py) is part of AsyncSpotify which is released under MIT.          #
 #  You are not allowed to use this code or this file for another project without                   #
 #  linking to the original source.                                                                 #
 # ##################################################################################################
@@ -16,9 +16,9 @@ from typing import Optional, List, Tuple, Deque
 
 from aiohttp import ClientTimeout, TCPConnector, ClientSession, DummyCookieJar, ContentTypeError
 
-from .response_status import ResponseStatus
-from ..authentification.spotify_authorization_token import SpotifyAuthorisationToken
-from ..spotify_errors import SpotifyError, TokenExpired, RateLimitExceeded, SpotifyAPIError
+from ._response_status import ResponseStatus
+from async_spotify.authentification.spotify_authorization_token import SpotifyAuthorisationToken
+from async_spotify.spotify_errors import SpotifyError, TokenExpired, RateLimitExceeded, SpotifyAPIError
 
 
 class ApiRequestHandler:
@@ -36,7 +36,7 @@ class ApiRequestHandler:
             spotify_authorisation_token: The auth token of the api class
         """
 
-        self._spotify_authorisation_token: SpotifyAuthorisationToken = spotify_authorisation_token
+        self.spotify_authorisation_token: SpotifyAuthorisationToken = spotify_authorisation_token
         self.client_session_list: Optional[Deque[ClientSession]] = deque([])
 
     async def create_new_client(self, request_timeout: int, request_limit: int) -> None:
@@ -156,8 +156,8 @@ class ApiRequestHandler:
 
         if not auth_token:
 
-            if self._spotify_authorisation_token.valid:
-                auth_token = self._spotify_authorisation_token
+            if self.spotify_authorisation_token.valid:
+                auth_token = self.spotify_authorisation_token
             else:
                 raise SpotifyError(
                     'You have to provide a valid auth token or set the option hold_authentication to true '
