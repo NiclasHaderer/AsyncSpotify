@@ -9,7 +9,6 @@ This file contains the Spotify AuthorisationToken
 #  linking to the original source.                                                                 #
 # ##################################################################################################
 
-
 import time
 
 
@@ -18,7 +17,7 @@ class SpotifyAuthorisationToken:
     Class that has the Authorisation Token
     """
 
-    def __init__(self, refresh_token: str, activation_time: int, access_token: str = None):
+    def __init__(self, refresh_token: str = None, activation_time: int = None, access_token: str = None):
         """
         Generate a new authorisation token
 
@@ -26,6 +25,7 @@ class SpotifyAuthorisationToken:
             refresh_token: The refresh token that was given to the application
             access_token: The token that will be used to make request
         """
+
         self.activation_time: int = activation_time
         self.refresh_token: str = refresh_token
         self.access_token: str = access_token
@@ -37,6 +37,7 @@ class SpotifyAuthorisationToken:
         Returns:
             Is the token expired
         """
+
         current_time: int = int(time.time())
 
         # Check if token is valid (3600 would be correct, but a bit of time padding is always nice)
@@ -44,3 +45,28 @@ class SpotifyAuthorisationToken:
             return True
 
         return False
+
+    @property
+    def valid(self) -> bool:
+        """
+        Validate that the token is not partially empty
+
+        Returns:
+            Is the token valid
+        """
+
+        if self.access_token and self.refresh_token and self.activation_time:
+            return True
+        return False
+
+    def __eq__(self, other) -> bool:
+        """
+        Support for equal assertion
+
+        Arguments:
+            other: The other object the comparison is made to
+
+        Returns:
+            Is the content of the objects equal
+        """
+        return self.__dict__ == other.__dict__

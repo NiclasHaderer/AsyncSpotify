@@ -27,15 +27,16 @@ class ApiRequestHandler:
     This class is a singleton.
     """
 
-    def __init__(self, api=None):  # :type async_spotify.API
+    def __init__(self, spotify_authorisation_token: SpotifyAuthorisationToken):
         """
         Create a new ApiRequestHandler class. The api class should be at least once passed to the constructor of this
         class. Otherwise it will not work.
 
         Args:
-            api: The main api class
+            spotify_authorisation_token: The auth token of the api class
         """
-        self.api = api  # :type async_spotify.API
+
+        self._spotify_authorisation_token: SpotifyAuthorisationToken = spotify_authorisation_token
         self.client_session_list: Optional[Deque[ClientSession]] = deque([])
 
     async def create_new_client(self, request_timeout: int, request_limit: int) -> None:
@@ -45,9 +46,6 @@ class ApiRequestHandler:
         Args:
             request_timeout: The timout which should be used for making requests
             request_limit: The maximal number of requests per session
-
-        Returns:
-            None
         """
 
         if self.client_session_list:
@@ -55,7 +53,7 @@ class ApiRequestHandler:
 
         client_instance_number: int = math.ceil(request_limit / 500)
 
-        for instance in range(client_instance_number):
+        for _ in range(client_instance_number):
             timeout = ClientTimeout(total=request_timeout)
             connector = TCPConnector(limit=request_limit, enable_cleanup_closed=True)
             client_session = ClientSession(connector=connector, timeout=timeout, cookie_jar=DummyCookieJar())
@@ -133,7 +131,6 @@ class ApiRequestHandler:
             query_params: The query params
 
         Returns: The aiohttp conform object
-
         """
 
         return_params: List[Tuple[str, str]] = []
@@ -157,12 +154,14 @@ class ApiRequestHandler:
         Returns: The header as json
         """
 
-        if self.api.hold_authentication and not auth_token:
-            auth_token = self.api.spotify_authorisation_token
-
         if not auth_token:
-            raise SpotifyError('You have to provide a valid auth token or set the option hold_authentication to true '
-                               'and call the get_auth_token_with_code or refresh_token method at leas once')
+
+            if self._spotify_authorisation_token.valid:
+                auth_token = self._spotify_authorisation_token
+            else:
+                raise SpotifyError(
+                    'You have to provide a valid auth token or set the option hold_authentication to true '
+                    'and call the get_auth_token_with_code or refresh_token method at leas once')
 
         return {
             'Authorization': f'Bearer {auth_token.access_token}',

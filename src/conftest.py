@@ -51,7 +51,7 @@ async def prepared_api():
 
     api = API(preferences, hold_authentication=True)
 
-    code = await api.get_code_with_cookie(TestDataTransfer.cookies, callback_server=True)
+    code = await api.get_code_with_cookie(TestDataTransfer.cookies)
     await api.get_auth_token_with_code(code)
 
     await api.create_new_client()

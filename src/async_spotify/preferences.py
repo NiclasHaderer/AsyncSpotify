@@ -111,7 +111,8 @@ class Preferences:
         if self.redirect_url:
             os.environ["redirect_url"] = self.redirect_url
 
-    def validate(self) -> bool:
+    @property
+    def valid(self) -> bool:
         """
         Validate if the preferences can be used. This will only check if the values of the preferences are not empty.
 

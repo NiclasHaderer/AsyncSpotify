@@ -30,7 +30,8 @@ class SpotifyCookies:
         self.sp_dc: str = sp_dc
         self.sp_key: str = sp_key
 
-    def validate(self) -> bool:
+    @property
+    def valid(self) -> bool:
         """
         Check if all values are set correctly
         Returns:

@@ -2,7 +2,6 @@
 Handle the requests to the artist endpoint
 """
 
-
 # ##################################################################################################
 #  Copyright (c) 2020. HuiiBuh                                                                     #
 #  This file (artists.py) is part of AsyncSpotify which is released under MIT.                     #
@@ -10,14 +9,13 @@ Handle the requests to the artist endpoint
 #  linking to the original source.                                                                 #
 # ##################################################################################################
 
+from async_spotify.api.endpoints.endpoint import Endpoint
 
-class Artists:
+
+class Artists(Endpoint):
     """
     Wraps the spotify artist functions
     """
-
-    def __init__(self, api):  # :type async_spotify.API
-        self.api = api  # :type async_spotify.API
 
     def get_artist(self, artist_id: str):
         """
