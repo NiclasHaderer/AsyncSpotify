@@ -95,7 +95,7 @@ class Browse(Endpoint):
         required_args = {"category_id": category_id}
         args = {**required_args, **kwargs}
 
-        url, args = self.add_url_params(URLS.BROWSE.CATEGORY, args)
+        url, args = self._add_url_params(URLS.BROWSE.CATEGORY, args)
         response = await self.api_request_handler.make_request('GET', url, args, auth_token)
 
         return response
@@ -120,7 +120,7 @@ class Browse(Endpoint):
         required_args = {"category_id": category_id}
         args = {**required_args, **kwargs}
 
-        url, args = self.add_url_params(URLS.BROWSE.CATEGORY_PLAYLIST, args)
+        url, args = self._add_url_params(URLS.BROWSE.CATEGORY_PLAYLIST, args)
         response = await self.api_request_handler.make_request('GET', url, args, auth_token)
 
         return response

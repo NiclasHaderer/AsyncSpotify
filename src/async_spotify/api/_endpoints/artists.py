@@ -40,7 +40,7 @@ class Artists(Endpoint):
         required_args = {"id": artist_id}
         args = {**required_args, **kwargs}
 
-        url, args = self.add_url_params(URLS.ARTIST.ONE, args)
+        url, args = self._add_url_params(URLS.ARTIST.ONE, args)
         response = await self.api_request_handler.make_request('GET', url, args, auth_token)
 
         return response
@@ -64,7 +64,7 @@ class Artists(Endpoint):
         required_args = {"id": artist_id}
         args = {**required_args, **kwargs}
 
-        url, args = self.add_url_params(URLS.ARTIST.ALBUM, args)
+        url, args = self._add_url_params(URLS.ARTIST.ALBUM, args)
         response = await self.api_request_handler.make_request('GET', url, args, auth_token)
 
         return response
@@ -90,7 +90,7 @@ class Artists(Endpoint):
         required_args = {"id": artist_id, "country": country}
         args = {**required_args, **kwargs}
 
-        url, args = self.add_url_params(URLS.ARTIST.TOP_TRACKS, args)
+        url, args = self._add_url_params(URLS.ARTIST.TOP_TRACKS, args)
         response = await self.api_request_handler.make_request('GET', url, args, auth_token)
 
         return response
@@ -115,7 +115,7 @@ class Artists(Endpoint):
         required_args = {"id": artist_id}
         args = {**required_args, **kwargs}
 
-        url, args = self.add_url_params(URLS.ARTIST.SIMILAR_ARTISTS, args)
+        url, args = self._add_url_params(URLS.ARTIST.SIMILAR_ARTISTS, args)
         response = await self.api_request_handler.make_request('GET', url, args, auth_token)
 
         return response
@@ -140,7 +140,7 @@ class Artists(Endpoint):
         required_args = {"ids": artist_id_list}
         args = {**required_args, **kwargs}
 
-        url, args = self.add_url_params(URLS.ARTIST.SEVERAL, args)
+        url, args = self._add_url_params(URLS.ARTIST.SEVERAL, args)
         response = await self.api_request_handler.make_request('GET', url, args, auth_token)
 
         return response

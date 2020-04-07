@@ -36,7 +36,7 @@ class Episodes(Endpoint):
         required_args = {"id": episode_id}
         args = {**required_args, **kwargs}
 
-        url, args = self.add_url_params(URLS.EPISODES.ONE, args)
+        url, args = self._add_url_params(URLS.EPISODES.ONE, args)
         response = await self.api_request_handler.make_request('GET', url, args, auth_token)
 
         return response

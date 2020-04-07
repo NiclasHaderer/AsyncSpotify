@@ -77,12 +77,13 @@ class URLS:
         URLs concerning the user library
         """
 
-        SAVED_ALBUM: str = BASE_URL + "/me/albums/contains"
-        SAVED_TRACK: str = BASE_URL + "/me/tracks/contains"
-        USER_ALBUMS: str = BASE_URL + "/me/albums"
-        USER_TRACKS: str = BASE_URL + "/me/tracks"
-        REMOVE_SAVE_ALBUM: str = BASE_URL + "/me/albums?ids={ids}"
-        REMOVE_TRACK: str = BASE_URL + "/me/albums/contains"
+        CONTAINS_ALBUM: str = BASE_URL + "/me/albums/contains"
+        CONTAINS_TRACK: str = BASE_URL + "/me/tracks/contains"
+        CONTAINS_SHOWS: str = BASE_URL + "/me/shows/contains"
+
+        ALBUMS: str = BASE_URL + "/me/albums"
+        TRACKS: str = BASE_URL + "/me/tracks"
+        SHOWS: str = BASE_URL + "/me/shows"
 
     class PERSONALIZATION:
         """
