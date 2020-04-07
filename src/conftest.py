@@ -10,6 +10,7 @@ Conftest file
 # ##################################################################################################
 
 import os
+from typing import List
 
 import pytest
 
@@ -23,6 +24,7 @@ class TestDataTransfer:
     cookies: SpotifyCookies = None
     preferences: Preferences = None
     api: SpotifyApiClient = None
+    scopes: List[str] = None
 
 
 @pytest.fixture()
@@ -33,6 +35,7 @@ def api():
 
     preferences = Preferences()
     preferences.load_from_env()
+    preferences.scopes = TestDataTransfer.scopes
 
     api = SpotifyApiClient(preferences)
     return api
@@ -47,6 +50,7 @@ async def prepared_api():
 
     preferences = Preferences()
     preferences.load_from_env()
+    preferences.scopes = TestDataTransfer.scopes
 
     api = SpotifyApiClient(preferences, hold_authentication=True)
 
@@ -65,6 +69,18 @@ def prepare_test_data():
     Create the test data
     """
 
+    def add_scopes():
+        """
+        Add scopes to the TestDataTransfer class
+        """
+
+        scopes = ["ugc-image-upload", "user-read-playback-state", "user-read-email", "playlist-read-collaborative",
+                  "user-modify-playback-state", "user-read-private", "playlist-modify-public",
+                  "user-library-modify", "user-top-read", "user-read-currently-playing", "playlist-read-private",
+                  "user-follow-read app-remote-control", "user-read-recently-played", "playlist-modify-private",
+                  "user-follow-modify", "user-library-read"]
+        TestDataTransfer.scopes = scopes
+
     def add_cookie():
         """
         Add the cookie parameter
@@ -81,6 +97,7 @@ def prepare_test_data():
         """
         preferences = Preferences()
         preferences.load_from_env()
+        preferences.scopes = TestDataTransfer.scopes
         TestDataTransfer.preferences = preferences
 
     def add_api():
@@ -89,8 +106,11 @@ def prepare_test_data():
         """
         preferences = Preferences()
         preferences.load_from_env()
+        preferences.scopes = TestDataTransfer.scopes
+
         TestDataTransfer.api = SpotifyApiClient(preferences, hold_authentication=True)
 
+    add_scopes()
     add_cookie()
     add_preferences()
     add_api()

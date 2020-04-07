@@ -45,19 +45,28 @@ class URLS:
         URLs concerning the browsing of artists and categories
         """
 
+        GENRE_SEEDS: str = BASE_URL + "/recommendations/available-genre-seeds"
         CATEGORY: str = BASE_URL + "/browse/categories/{category_id}"
         CATEGORY_PLAYLIST: str = BASE_URL + "/browse/categories/{category_id}/playlists"
         CATEGORY_LIST: str = BASE_URL + "/browse/categories"
-        PLAYLISTS: str = BASE_URL + "/browse/featured-playlists"
+        FEATURED_PLAYLISTS: str = BASE_URL + "/browse/featured-playlists"
         RELEASES: str = BASE_URL + "/browse/new-releases"
         RECOMMENDATIONS: str = BASE_URL + "/recommendations"
+
+    class EPISODES:
+        """
+        URLs concerning episodes
+        """
+
+        ONE: str = BASE_URL + "/episodes/{id}"
+        MULTIPLE: str = BASE_URL + "/episodes"
 
     class FOLLOW:
         """
         URLs concerning the follow endpoint
         """
 
-        CONTAINS_ARTIST: str = BASE_URL + "/me/following/contains"
+        CONTAINS: str = BASE_URL + "/me/following/contains"
         CONTAINS_PLAYLIST: str = BASE_URL + "/playlists/{playlist_id}/followers/contains"
         HUMAN: str = BASE_URL + "/me/following"
         PLAYLIST: str = BASE_URL + "/playlists/{playlist_id}/followers"

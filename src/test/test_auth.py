@@ -26,6 +26,12 @@ class TestAuth:
         cookies = SpotifyCookies("hallo", "welt")
         assert False is cookies.valid
 
+    def test_pass_authentication(self):
+        client = SpotifyApiClient(TestDataTransfer.preferences,
+                                  spotify_authorisation_token=SpotifyAuthorisationToken(refresh_token='1'))
+
+        assert client.spotify_authorization_token.refresh_token is '1'
+
     # Load preferences
     def test_load_secret_preferences(self):
         preferences = Preferences()

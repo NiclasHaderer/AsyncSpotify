@@ -13,7 +13,7 @@ import json
 import math
 from collections import deque
 from json import JSONDecodeError
-from typing import Optional, List, Tuple, Deque
+from typing import Optional, List, Tuple, Deque, Union
 
 from aiohttp import ClientTimeout, TCPConnector, ClientSession, DummyCookieJar
 
@@ -73,7 +73,7 @@ class ApiRequestHandler:
         self.client_session_list: Deque = deque([])
 
     async def make_request(self, method: str, url: str, query_params: dict,
-                           auth_token: SpotifyAuthorisationToken) -> dict:
+                           auth_token: SpotifyAuthorisationToken, body: dict = None) -> Union[dict, List[bool], None]:
         """
         Make a request to the spotify api
 
@@ -82,6 +82,7 @@ class ApiRequestHandler:
             url: The url the request is going to
             query_params: URL query params for the request
             auth_token: The auth token (None if the in memory token should be used)
+            body: Add a body to the request
 
         Returns: The spotify api response
         """
@@ -100,19 +101,21 @@ class ApiRequestHandler:
         client: ClientSession = self.client_session_list[0]
 
         # Make the api response
-        async with client.request(method, url, params=params, headers=headers) as response:
+        async with client.request(method, url, params=params, headers=headers, data=body) as response:
             response_status = ResponseStatus(response.status)
 
             # Handle the parsing of the rate limit exceeded response which does not work for some reason
-            response_text = await response.text()
+            response_text: str = await response.text()
+            response_json: dict = {}
+
             try:
                 response_json: dict = json.loads(response_text)
             except JSONDecodeError:
-                raise SpotifyAPIError({'error': 'Could not decode json'})
+                pass
 
         # Expired
         if response_status.code == 401:
-            raise TokenExpired(response_status.message, " ", response_json)
+            raise TokenExpired(response_json)
 
         # Rate limit exceeded
         if response_status.code == 429:
@@ -122,7 +125,10 @@ class ApiRequestHandler:
         if not response_status.success:
             raise SpotifyAPIError(response_json)
 
-        return response_json
+        if response_json:
+            return response_json
+
+        response_text
 
     @staticmethod
     def format_params(query_params: dict) -> List[Tuple[str, str]]:
