@@ -12,13 +12,14 @@ The api request handler singleton
 import json
 import math
 from collections import deque
+from json import JSONDecodeError
 from typing import Optional, List, Tuple, Deque
 
-from aiohttp import ClientTimeout, TCPConnector, ClientSession, DummyCookieJar, ContentTypeError
+from aiohttp import ClientTimeout, TCPConnector, ClientSession, DummyCookieJar
 
-from ._response_status import ResponseStatus
 from async_spotify.authentification.spotify_authorization_token import SpotifyAuthorisationToken
 from async_spotify.spotify_errors import SpotifyError, TokenExpired, RateLimitExceeded, SpotifyAPIError
+from ._response_status import ResponseStatus
 
 
 class ApiRequestHandler:
@@ -103,10 +104,11 @@ class ApiRequestHandler:
             response_status = ResponseStatus(response.status)
 
             # Handle the parsing of the rate limit exceeded response which does not work for some reason
+            response_text = await response.text()
             try:
-                response_json: dict = await response.json()
-            except ContentTypeError:
-                response_json: dict = json.loads(await response.text())
+                response_json: dict = json.loads(response_text)
+            except JSONDecodeError:
+                raise SpotifyAPIError({'error': 'Could not decode json'})
 
         # Expired
         if response_status.code == 401:
@@ -136,6 +138,7 @@ class ApiRequestHandler:
         return_params: List[Tuple[str, str]] = []
 
         for key in list(query_params.keys()):
+            temp = query_params[key]
             if isinstance(query_params[key], str):
                 query_params[key] = [query_params[key]]
 

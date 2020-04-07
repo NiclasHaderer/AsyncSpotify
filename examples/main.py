@@ -4,8 +4,8 @@ pass
 
 import asyncio
 
-from async_spotify import Preferences, SpotifyApiClient, SpotifyCookies, SpotifyAuthorisationToken
-from async_spotify.spotify_errors import SpotifyAPIError
+from async_spotify import Preferences, SpotifyApiClient, SpotifyCookies
+from async_spotify.typing import TAlbums, TAritst, TArtistAlbums, TTrackList
 
 
 async def main():
@@ -24,17 +24,15 @@ async def main():
     code = await api.get_code_with_cookie(cookies)
     await api.get_auth_token_with_code(code)
 
-    t = api.spotify_authorization_token
-    api.spotify_authorization_token = SpotifyAuthorisationToken(t.refresh_token, 1234, t.access_token)
-
     await api.create_new_client(request_limit=1500)
-    album1 = await api.albums.get_one('03dlqdFWY9gwJxGl3AREVy')
-    print(album1)
+    album1 = await api.albums.get_one('03dlqdFWY9gwJxGl3AREVy', market='DE')
+    album_tracks = await api.albums.get_tracks('03dlqdFWY9gwJxGl3AREVy')
+    album2: TAlbums = await api.albums.get_multiple(['03dlqdFWY9gwJxGl3AREVy', '3T1SXuvijYFbbsoIXxyhRI'])
 
-    try:
-        await api.albums.get_one('aösldjf')
-    except SpotifyAPIError as error:
-        print(error.get_json())
+    artist: TAritst = await api.artist.get_one('1YEGETLT2p8k97LIo3deHL')
+    artist_a: TArtistAlbums = await api.artist.album_list('1YEGETLT2p8k97LIo3deHL')
+    artist_top: TTrackList = await api.artist.top_tracks('1YEGETLT2p8k97LIo3deHL', 'DE')
+    artist_several: TTrackList = await api.artist.several(['1YEGETLT2p8k97LIo3deHL', '7dGJo4pcD2V6oG8kP0tJRR'])
 
     await api.close_client()
 

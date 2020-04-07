@@ -37,8 +37,8 @@ class URLS:
         ONE: str = BASE_URL + "/artists/{id}"
         ALBUM: str = BASE_URL + "/artists/{id}/albums"
         TOP_TRACKS: str = BASE_URL + "/artists/{id}/top-tracks"
-        RELATE_ARTISTS: str = BASE_URL + "/artists/{id}/related-artists"
-        MULTIPLE: str = BASE_URL + "/artists/{id}/artists"
+        SIMILAR_ARTISTS: str = BASE_URL + "/artists/{id}/related-artists"
+        SEVERAL: str = BASE_URL + "/artists/"
 
     class BROWSE:
         """
