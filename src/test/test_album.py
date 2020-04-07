@@ -19,7 +19,7 @@ class TestAlbum:
     @pytest.mark.asyncio
     async def test_single_album(self, prepared_api: SpotifyApiClient):
         album_id: str = '03dlqdFWY9gwJxGl3AREVy'
-        album = await prepared_api.albums.get_one(album_id)
+        album = await prepared_api.albums.get_one(album_id, market='DE')
         assert isinstance(album, dict) and album is not {}
 
     @pytest.mark.asyncio

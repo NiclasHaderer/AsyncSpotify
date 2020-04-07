@@ -14,6 +14,7 @@ from typing import List
 from .endpoint import Endpoint
 from .urls import URLS
 from ...authentification.spotify_authorization_token import SpotifyAuthorisationToken
+from ...typing import TAlbum, TAlbums, TTracks
 
 
 class Albums(Endpoint):
@@ -21,7 +22,7 @@ class Albums(Endpoint):
     Wraps the spotify album functions
     """
 
-    async def get_one(self, album_id: str, auth_token: SpotifyAuthorisationToken = None, **kwargs):
+    async def get_one(self, album_id: str, auth_token: SpotifyAuthorisationToken = None, **kwargs) -> TAlbum:
         """
         Get the album with the specific spotify album id
 
@@ -31,7 +32,7 @@ class Albums(Endpoint):
             kwargs: Optional arguments as keyword args
 
         Note:
-            https://developer.spotify.com/documentation/web-api/reference/albums/get-album/
+            [https://developer.spotify.com/documentation/web-api/reference/albums/get-album/](https://developer.spotify.com/documentation/web-api/reference/albums/get-album/)
 
         Returns:
             The album json
@@ -43,9 +44,9 @@ class Albums(Endpoint):
         url, args = self.add_url_params(URLS.ALBUM.ONE, args)
         response = await self.api_request_handler.make_request('GET', url, args, auth_token)
 
-        return response
+        return TAlbum(**response)
 
-    async def get_tracks(self, album_id: str, auth_token: SpotifyAuthorisationToken = None, **kwargs):
+    async def get_tracks(self, album_id: str, auth_token: SpotifyAuthorisationToken = None, **kwargs) -> TTracks:
         """
         Get the tracks of an album
 
@@ -67,10 +68,10 @@ class Albums(Endpoint):
         url, args = self.add_url_params(URLS.ALBUM.TRACKS, args)
         response = await self.api_request_handler.make_request('GET', url, args, auth_token)
 
-        return response
+        return TTracks(**response)
 
     async def get_multiple(self, album_id_list: List[str], auth_token: SpotifyAuthorisationToken = None,
-                           **kwargs):
+                           **kwargs) -> TAlbums:
         """
         Get All the albums specified in the album_id_list
 
@@ -92,4 +93,4 @@ class Albums(Endpoint):
         url, args = self.add_url_params(URLS.ALBUM.MULTIPLE, args)
         response = await self.api_request_handler.make_request('GET', url, args, auth_token)
 
-        return response
+        return TAlbums(**response)
