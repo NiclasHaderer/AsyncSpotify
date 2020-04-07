@@ -40,7 +40,7 @@ class Albums(Endpoint):
         required_args = {"id": album_id}
         args = {**required_args, **kwargs}
 
-        url, args = self.add_url_params(URLS.ALBUM.ONE, args)
+        url, args = self._add_url_params(URLS.ALBUM.ONE, args)
         response = await self.api_request_handler.make_request('GET', url, args, auth_token)
 
         return response
@@ -64,7 +64,7 @@ class Albums(Endpoint):
         required_args = {"id": album_id}
         args = {**required_args, **kwargs}
 
-        url, args = self.add_url_params(URLS.ALBUM.TRACKS, args)
+        url, args = self._add_url_params(URLS.ALBUM.TRACKS, args)
         response = await self.api_request_handler.make_request('GET', url, args, auth_token)
 
         return response
@@ -89,7 +89,7 @@ class Albums(Endpoint):
         required_args = {"ids": album_id_list}
         args = {**required_args, **kwargs}
 
-        url, args = self.add_url_params(URLS.ALBUM.MULTIPLE, args)
+        url, args = self._add_url_params(URLS.ALBUM.MULTIPLE, args)
         response = await self.api_request_handler.make_request('GET', url, args, auth_token)
 
         return response

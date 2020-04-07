@@ -29,7 +29,7 @@ class Endpoint(ABC):
         self.api_request_handler: ApiRequestHandler = api_request_handler
 
     @staticmethod
-    def add_url_params(url_string: str, map_object: dict) -> Tuple[str, dict]:
+    def _add_url_params(url_string: str, map_object: dict) -> Tuple[str, dict]:
         """
         Formats a string with the map keys and returns the formatted string and the map without the used keys
 

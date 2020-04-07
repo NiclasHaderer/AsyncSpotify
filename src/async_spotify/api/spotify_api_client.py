@@ -27,6 +27,7 @@ from ._endpoints.artists import Artists
 from ._endpoints.browse import Browse
 from ._endpoints.episodes import Episodes
 from ._endpoints.follow import Follow
+from ._endpoints.library import Library
 from ._endpoints.urls import URLS
 from ._response_status import ResponseStatus
 from .preferences import Preferences
@@ -72,6 +73,7 @@ class SpotifyApiClient:
         self.browse: Browse = Browse(self._api_request_handler)
         self.episodes: Episodes = Episodes(self._api_request_handler)
         self.follow: Follow = Follow(self._api_request_handler)
+        self.library: Library = Library(self._api_request_handler)
 
     async def create_new_client(self, request_timeout: int = 30, request_limit: int = 500) -> None:
         """

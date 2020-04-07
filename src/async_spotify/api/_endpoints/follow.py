@@ -53,7 +53,7 @@ class Follow(Endpoint):
         """
 
         required_args = {"playlist_id": playlist_id, "ids": spotify_user_id_list}
-        url, args = self.add_url_params(URLS.FOLLOW.CONTAINS_PLAYLIST, required_args)
+        url, args = self._add_url_params(URLS.FOLLOW.CONTAINS_PLAYLIST, required_args)
         response = await self.api_request_handler.make_request('GET', url, args, auth_token)
         return response
 
@@ -91,7 +91,7 @@ class Follow(Endpoint):
         """
 
         required_args = {'playlist_id': playlist_id}
-        url, _ = self.add_url_params(URLS.FOLLOW.PLAYLIST, required_args)
+        url, _ = self._add_url_params(URLS.FOLLOW.PLAYLIST, required_args)
         body: dict = {
             "public": public
         }
@@ -116,7 +116,7 @@ class Follow(Endpoint):
         required_args = {'type': follow_type}
         args = {**required_args, **kwargs}
 
-        url, args = self.add_url_params(URLS.FOLLOW.HUMAN, args)
+        url, args = self._add_url_params(URLS.FOLLOW.HUMAN, args)
 
         response = await self.api_request_handler.make_request('GET', url, args, auth_token)
         return response
@@ -153,7 +153,7 @@ class Follow(Endpoint):
         """
 
         required_args = {"playlist_id": playlist_id}
-        url, _ = self.add_url_params(URLS.FOLLOW.PLAYLIST, required_args)
+        url, _ = self._add_url_params(URLS.FOLLOW.PLAYLIST, required_args)
         response = await self.api_request_handler.make_request('DELETE', url, required_args,
                                                                auth_token)
         return response

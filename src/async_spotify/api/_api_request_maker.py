@@ -73,7 +73,8 @@ class ApiRequestHandler:
         self.client_session_list: Deque = deque([])
 
     async def make_request(self, method: str, url: str, query_params: dict,
-                           auth_token: SpotifyAuthorisationToken, body: dict = None) -> Union[dict, List[bool], None]:
+                           auth_token: SpotifyAuthorisationToken, body: dict = None) -> \
+            Union[dict, List[bool], None, bool]:
         """
         Make a request to the spotify api
 
@@ -145,7 +146,7 @@ class ApiRequestHandler:
 
         for key in list(query_params.keys()):
             temp = query_params[key]
-            if isinstance(query_params[key], str):
+            if not isinstance(query_params[key], List):
                 query_params[key] = [query_params[key]]
 
             for value in query_params[key]:
