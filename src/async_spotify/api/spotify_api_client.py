@@ -24,6 +24,9 @@ from aiohttp import ClientSession, TraceConfig, TraceRequestRedirectParams, Clie
 from ._api_request_maker import ApiRequestHandler
 from ._endpoints.albums import Albums
 from ._endpoints.artists import Artists
+from ._endpoints.browse import Browse
+from ._endpoints.episodes import Episodes
+from ._endpoints.follow import Follow
 from ._endpoints.urls import URLS
 from ._response_status import ResponseStatus
 from .preferences import Preferences
@@ -64,8 +67,11 @@ class SpotifyApiClient:
 
         self._api_request_handler: ApiRequestHandler = ApiRequestHandler(self._spotify_authorisation_token)
 
-        self.albums = Albums(self._api_request_handler)
-        self.artist = Artists(self._api_request_handler)
+        self.albums: Albums = Albums(self._api_request_handler)
+        self.artist: Artists = Artists(self._api_request_handler)
+        self.browse: Browse = Browse(self._api_request_handler)
+        self.episodes: Episodes = Episodes(self._api_request_handler)
+        self.follow: Follow = Follow(self._api_request_handler)
 
     async def create_new_client(self, request_timeout: int = 30, request_limit: int = 500) -> None:
         """

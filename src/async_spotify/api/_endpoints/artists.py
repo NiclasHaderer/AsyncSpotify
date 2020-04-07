@@ -1,18 +1,19 @@
 """
 Handle the requests to the artist endpoint
 """
-from typing import List
 
-from .endpoint import Endpoint
-from .urls import URLS
 # ##################################################################################################
 #  Copyright (c) 2020. HuiiBuh                                                                     #
 #  This file (artists.py) is part of AsyncSpotify which is released under MIT.                     #
 #  You are not allowed to use this code or this file for another project without                   #
 #  linking to the original source.                                                                 #
 # ##################################################################################################
+
+from typing import List
+
+from .endpoint import Endpoint
+from .urls import URLS
 from ...authentification.spotify_authorization_token import SpotifyAuthorisationToken
-from ...typing.t_objects import TAritst, TArtistAlbums, TTrackList, TArtistList
 
 
 class Artists(Endpoint):
@@ -20,7 +21,7 @@ class Artists(Endpoint):
     Wraps the spotify artist functions
     """
 
-    async def get_one(self, artist_id: str, auth_token: SpotifyAuthorisationToken = None, **kwargs):
+    async def get_one(self, artist_id: str, auth_token: SpotifyAuthorisationToken = None, **kwargs) -> dict:
         """
         Get an Artist
 
@@ -42,9 +43,9 @@ class Artists(Endpoint):
         url, args = self.add_url_params(URLS.ARTIST.ONE, args)
         response = await self.api_request_handler.make_request('GET', url, args, auth_token)
 
-        return TAritst(**response)
+        return response
 
-    async def album_list(self, artist_id: str, auth_token: SpotifyAuthorisationToken = None, **kwargs):
+    async def album_list(self, artist_id: str, auth_token: SpotifyAuthorisationToken = None, **kwargs) -> dict:
         """
         Get Spotify catalog information about an artist’s albums.
 
@@ -66,9 +67,10 @@ class Artists(Endpoint):
         url, args = self.add_url_params(URLS.ARTIST.ALBUM, args)
         response = await self.api_request_handler.make_request('GET', url, args, auth_token)
 
-        return TArtistAlbums(**response)
+        return response
 
-    async def top_tracks(self, artist_id: str, country: str, auth_token: SpotifyAuthorisationToken = None, **kwargs):
+    async def top_tracks(self, artist_id: str, country: str, auth_token: SpotifyAuthorisationToken = None,
+                         **kwargs) -> dict:
         """
         Get Spotify catalog information about an artist’s top tracks by country.
 
@@ -91,9 +93,9 @@ class Artists(Endpoint):
         url, args = self.add_url_params(URLS.ARTIST.TOP_TRACKS, args)
         response = await self.api_request_handler.make_request('GET', url, args, auth_token)
 
-        return TTrackList(**response)
+        return response
 
-    async def similar(self, artist_id: str, auth_token: SpotifyAuthorisationToken = None, **kwargs):
+    async def similar(self, artist_id: str, auth_token: SpotifyAuthorisationToken = None, **kwargs) -> dict:
         """
         Get Spotify catalog information about artists similar to a given artist. Similarity is based on analysis of the
         Spotify community’s listening history.
@@ -116,9 +118,10 @@ class Artists(Endpoint):
         url, args = self.add_url_params(URLS.ARTIST.SIMILAR_ARTISTS, args)
         response = await self.api_request_handler.make_request('GET', url, args, auth_token)
 
-        return TAritst(**response)
+        return response
 
-    async def several(self, artist_id_list: List[str], auth_token: SpotifyAuthorisationToken = None, **kwargs):
+    async def several(self, artist_id_list: List[str], auth_token: SpotifyAuthorisationToken = None,
+                      **kwargs) -> dict:
         """
         Get Spotify catalog information for several artists based on their Spotify IDs.
 
@@ -140,4 +143,4 @@ class Artists(Endpoint):
         url, args = self.add_url_params(URLS.ARTIST.SEVERAL, args)
         response = await self.api_request_handler.make_request('GET', url, args, auth_token)
 
-        return TArtistList(**response)
+        return response
