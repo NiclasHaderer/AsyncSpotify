@@ -18,7 +18,7 @@ from ...authentification.spotify_authorization_token import SpotifyAuthorisation
 
 class Artists(Endpoint):
     """
-    Wraps the spotify artist functions
+    Wraps the spotify artist endpoint
     """
 
     async def get_one(self, artist_id: str, auth_token: SpotifyAuthorisationToken = None, **kwargs) -> dict:
@@ -30,7 +30,7 @@ class Artists(Endpoint):
             auth_token: The auth token if you set the api class not to keep the token in memory
             kwargs: Optional arguments as keyword args
 
-        Note:
+        Notes:
             [https://developer.spotify.com/documentation/web-api/reference/artists/get-artist/](https://developer.spotify.com/documentation/web-api/reference/artists/get-artist/)
 
         Returns:
@@ -54,7 +54,7 @@ class Artists(Endpoint):
             auth_token: The auth token if you set the api class not to keep the token in memory
             kwargs: Optional arguments as keyword args
 
-        Note:
+        Notes:
             [https://developer.spotify.com/documentation/web-api/reference/artists/get-artists-albums/](https://developer.spotify.com/documentation/web-api/reference/artists/get-artists-albums/)
 
         Returns:
@@ -80,7 +80,7 @@ class Artists(Endpoint):
             auth_token: The auth token if you set the api class not to keep the token in memory
             kwargs: Optional arguments as keyword args
 
-        Note:
+        Notes:
             [https://developer.spotify.com/documentation/web-api/reference/artists/get-artists-top-tracks/](https://developer.spotify.com/documentation/web-api/reference/artists/get-artists-top-tracks/)
 
         Returns:
@@ -105,7 +105,7 @@ class Artists(Endpoint):
             auth_token: The auth token if you set the api class not to keep the token in memory
             kwargs: Optional arguments as keyword args
 
-        Note:
+        Notes:
             [https://developer.spotify.com/documentation/web-api/reference/artists/get-artists-top-tracks/](https://developer.spotify.com/documentation/web-api/reference/artists/get-artists-top-tracks/)
 
         Returns:
@@ -130,7 +130,7 @@ class Artists(Endpoint):
             auth_token: The auth token if you set the api class not to keep the token in memory
             kwargs: Optional arguments as keyword args
 
-        Note:
+        Notes:
             [https://developer.spotify.com/documentation/web-api/reference/artists/get-several-artists/](https://developer.spotify.com/documentation/web-api/reference/artists/get-several-artists/)
 
         Returns:

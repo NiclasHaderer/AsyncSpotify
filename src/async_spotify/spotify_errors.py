@@ -31,6 +31,7 @@ class RateLimitExceeded(Exception):
 class SpotifyAPIError(Exception):
     """
     Custom api error message
+    This exception gets throws if the spotify api returns an *non success* return code
     """
 
     def __init__(self, message: dict):

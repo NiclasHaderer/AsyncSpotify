@@ -1,0 +1,13 @@
+::: async_spotify.api._endpoints.albums
+::: async_spotify.api._endpoints.artists
+::: async_spotify.api._endpoints.browse
+::: async_spotify.api._endpoints.episodes
+::: async_spotify.api._endpoints.follow
+::: async_spotify.api._endpoints.library
+::: async_spotify.api._endpoints.personalization
+::: async_spotify.api._endpoints.player
+::: async_spotify.api._endpoints.playlist
+::: async_spotify.api._endpoints.profile
+::: async_spotify.api._endpoints.search
+::: async_spotify.api._endpoints.shows
+::: async_spotify.api._endpoints.tracks

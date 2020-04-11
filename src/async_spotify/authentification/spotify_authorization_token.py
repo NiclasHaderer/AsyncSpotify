@@ -63,7 +63,7 @@ class SpotifyAuthorisationToken:
         """
         Support for equal assertion
 
-        Arguments:
+        Args:
             other: The other object the comparison is made to
 
         Returns:

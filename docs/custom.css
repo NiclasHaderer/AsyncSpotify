@@ -1,4 +1,3 @@
-
 div.doc-contents:not(.first) {
     padding-left: 25px;
     border-left: 4px solid rgba(230, 230, 230);
@@ -35,6 +34,10 @@ td p {
 
 .md-typeset__table {
     width: 100%;
+}
+
+.md-typeset__table > table {
+    display: table !important;
 }
 
 table.codehilitetable {

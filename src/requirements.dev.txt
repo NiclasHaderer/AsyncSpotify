@@ -4,7 +4,7 @@ pytest-cov==2.8.1
 pytest-asyncio==0.10.0
 
 # Documentation
-mkdocstrings==0.10.1
-mkdocs-material==4.6.3
+mkdocstrings==0.10.2
+mkdocs-material==5.0.0
 datamodel-code-generator==0.4.6
 genson==1.1.0

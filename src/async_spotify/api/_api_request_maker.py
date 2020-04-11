@@ -72,7 +72,7 @@ class ApiRequestHandler:
 
         self.client_session_list: Deque = deque([])
 
-    async def make_request(self, method: str, url: str, query_params: dict,
+    async def make_request(self, method: str, url: str, query_params: Optional[dict],
                            auth_token: SpotifyAuthorisationToken, body: dict = None) -> \
             Union[dict, List[bool], None, bool]:
         """
@@ -92,8 +92,8 @@ class ApiRequestHandler:
             raise SpotifyError('You have to create a new client with create_new_client'
                                ' before you can make requests to the spotify api.')
 
-        params: List[Tuple[str, str]] = self.format_params(query_params)
-        headers = self.get_headers(auth_token)
+        params: List[Tuple[str, str]] = self._format_params(query_params)
+        headers = self._get_headers(auth_token)
 
         # Rotate the list
         self.client_session_list.rotate(1)
@@ -126,13 +126,10 @@ class ApiRequestHandler:
         if not response_status.success:
             raise SpotifyAPIError(response_json)
 
-        if response_json:
-            return response_json
-
-        response_text
+        return response_json
 
     @staticmethod
-    def format_params(query_params: dict) -> List[Tuple[str, str]]:
+    def _format_params(query_params: dict) -> List[Tuple[str, str]]:
         """
         Converts the query dict into the aiohttp conform Type
 
@@ -154,7 +151,7 @@ class ApiRequestHandler:
 
         return return_params
 
-    def get_headers(self, auth_token: SpotifyAuthorisationToken) -> dict:
+    def _get_headers(self, auth_token: SpotifyAuthorisationToken) -> dict:
         """
         Build the spotify header used to authenticate the user for the spotify api
 

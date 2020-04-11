@@ -6,17 +6,24 @@ repo_name: "HuiiBuh/AsyncSpotify"
 
 nav:
   - Overview: "index.md"
-  - Reference:
-      - Albums: "reference/albums.md"
-      - Api: "reference/api.md"
-      - Artists: "reference/artists.md"
-      - Preferences: "reference/preferences.md"
-      - Spotify Errors: "reference/spotify_errors.md"
-      - Status Codes: "reference/status_codes.md"
+  - Examples: "examples.md"
+  - Public API:
+      - SpotifyApiClient: "public_api/spotify_api_client.md"
+      - Preferences: "public_api/preferences.md"
+      - Spotify Errors: "public_api/spotify_errors.md"
+      - Endpoints: "public_api/endpoints.md"
+      - Authorization Token: "public_api/authorization_token.md"
+
   - Licence: "licence.md"
 
 theme:
   name: "material"
+  language: en
+
+  icon:
+    logo: fontawesome/brands/spotify
+    repo: fontawesome/brands/github
+  favicon: https://upload.wikimedia.org/wikipedia/commons/9/9b/Font_Awesome_5_brands_spotify.svg
 
 extra_css:
   - custom.css

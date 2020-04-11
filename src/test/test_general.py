@@ -68,12 +68,3 @@ class TestGeneral:
     async def test_invalid_album_id(self, prepared_api: SpotifyApiClient):
         with pytest.raises(SpotifyAPIError):
             await prepared_api.albums.get_one('somerandomstring')
-
-    @pytest.mark.asyncio
-    async def test_rate_limit(self, prepared_api: SpotifyApiClient):
-        await prepared_api.create_new_client(request_timeout=5, request_limit=1000)
-
-        album_id = '03dlqdFWY9gwJxGl3AREVy'
-        with pytest.raises(RateLimitExceeded):
-            await asyncio.gather(*[prepared_api.albums.get_one(album_id) for _ in range(1000)])
-        await asyncio.sleep(5)

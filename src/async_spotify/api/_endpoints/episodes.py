@@ -24,6 +24,9 @@ class Episodes(Endpoint):
         """
         Get an Episode
 
+        Notes:
+            [https://developer.spotify.com/documentation/web-api/reference/episodes/get-an-episode/](https://developer.spotify.com/documentation/web-api/reference/episodes/get-an-episode/)
+
         Args:
             episode_id: The id of the episode
             auth_token: The auth token if you set the api class not to keep the token in memory
@@ -45,6 +48,9 @@ class Episodes(Endpoint):
                            **kwargs) -> dict:
         """
         Get Several Episodes
+
+        Notes:
+            [https://developer.spotify.com/documentation/web-api/reference/episodes/get-several-episodes/](https://developer.spotify.com/documentation/web-api/reference/episodes/get-several-episodes/)
 
         Args:
             episode_ids: A list of episode ids
