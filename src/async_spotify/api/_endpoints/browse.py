@@ -27,7 +27,7 @@ class Browse(Endpoint):
             auth_token: The auth token if you set the api class not to keep the token in memory
             kwargs: Optional arguments as keyword args
 
-        Note:
+        Notes:
             [https://developer.spotify.com/console/get-new-releases/](https://developer.spotify.com/console/get-new-releases/)
 
         Returns:
@@ -46,7 +46,7 @@ class Browse(Endpoint):
             auth_token: The auth token if you set the api class not to keep the token in memory
             kwargs: Optional arguments as keyword args
 
-        Note:
+        Notes:
             [https://developer.spotify.com/console/get-featured-playlists/](https://developer.spotify.com/console/get-featured-playlists/)
 
         Returns:
@@ -57,7 +57,7 @@ class Browse(Endpoint):
         response = await self.api_request_handler.make_request('GET', URLS.BROWSE.FEATURED_PLAYLISTS, args, auth_token)
         return response
 
-    async def categories(self, auth_token: SpotifyAuthorisationToken = None, **kwargs):
+    async def categories(self, auth_token: SpotifyAuthorisationToken = None, **kwargs) -> dict:
         """
         Get a List of Browse Categories
 
@@ -65,7 +65,7 @@ class Browse(Endpoint):
             auth_token: The auth token if you set the api class not to keep the token in memory
             kwargs: Optional arguments as keyword args
 
-        Note:
+        Notes:
             [https://developer.spotify.com/console/get-browse-categories/](https://developer.spotify.com/console/get-browse-categories/)
 
         Returns:
@@ -85,7 +85,7 @@ class Browse(Endpoint):
             auth_token: The auth token if you set the api class not to keep the token in memory
             kwargs: Optional arguments as keyword args
 
-        Note:
+        Notes:
             [https://developer.spotify.com/console/get-browse-category/](https://developer.spotify.com/console/get-browse-category/)
 
         Returns:
@@ -110,7 +110,7 @@ class Browse(Endpoint):
             auth_token: The auth token if you set the api class not to keep the token in memory
             kwargs: Optional arguments as keyword args
 
-        Note:
+        Notes:
             [https://developer.spotify.com/console/get-category-playlists/](https://developer.spotify.com/console/get-category-playlists/)
 
         Returns:
@@ -132,7 +132,7 @@ class Browse(Endpoint):
             auth_token: The auth token if you set the api class not to keep the token in memory
             kwargs: Optional arguments as keyword args
 
-        Note:
+        Notes:
             [https://developer.spotify.com/console/get-recommendations/](https://developer.spotify.com/console/get-recommendations/)
 
         Returns:
@@ -150,12 +150,11 @@ class Browse(Endpoint):
         Args:
             auth_token: The auth token if you set the api class not to keep the token in memory
 
-        Note:
+        Notes:
             [https://developer.spotify.com/console/get-available-genre-seeds/](https://developer.spotify.com/console/get-available-genre-seeds/)
 
         Returns:
             List of Genres
         """
 
-        response = await self.api_request_handler.make_request('GET', URLS.BROWSE.GENRE_SEEDS, {}, auth_token)
-        return response
+        return await self.api_request_handler.make_request('GET', URLS.BROWSE.GENRE_SEEDS, {}, auth_token)

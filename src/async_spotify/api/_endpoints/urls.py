@@ -18,6 +18,7 @@ class URLS:
     """
 
     AUTHORIZE: str = "https://accounts.spotify.com/authorize"
+
     REFRESH: str = "https://accounts.spotify.com/api/token"
 
     class ALBUM:
@@ -97,9 +98,9 @@ class URLS:
         URLs concerning the player
         """
 
+        PLAYER: str = BASE_URL + "/me/player"
         QUEUE: str = BASE_URL + "/me/player/queue"
         DEVICES: str = BASE_URL + "/me/player/devices"
-        PLAYBACK: str = BASE_URL + "/me/player"
         RECENTLY: str = BASE_URL + "/me/player/recently-played"
         PLAYING: str = BASE_URL + "/me/player/currently-playing"
 
@@ -111,8 +112,6 @@ class URLS:
         PREVIOUS: str = BASE_URL + "/me/player/previous"
         PLAY: str = BASE_URL + "/me/player/play"
         SHUFFLE: str = BASE_URL + "/me/player/shuffle"
-
-        TRANSFER: str = BASE_URL + "/me/player"
 
     class PLAYLIST:
         """

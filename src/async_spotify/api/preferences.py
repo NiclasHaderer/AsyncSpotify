@@ -17,10 +17,9 @@ class Preferences:
     """
     A Class with only the application information in it
 
-    Note:
-
-        Scopes available
-
+    Notes:
+        __Scopes available:__
+        ```
         ugc-image-upload
         user-read-playback-state
         user-read-email
@@ -37,6 +36,7 @@ class Preferences:
         playlist-modify-private
         user-follow-modify
         user-library-read
+        ```
     """
 
     def __init__(self, application_id: str = None, application_secret: str = None, scopes: List[str] = None,
@@ -61,9 +61,6 @@ class Preferences:
 
         Important:
             Scopes has to be a string separated by ' '
-
-        Returns:
-            None
         """
 
         self.application_id = os.environ.get("application_id", self.application_id)
@@ -80,9 +77,6 @@ class Preferences:
 
         Important:
             Scopes has to be a string separated by ' '
-
-        Returns:
-            None
         """
         self.application_id = self._get_docker_secret('application_id', self.application_id)
         self.application_secret = self._get_docker_secret('application_secret', self.application_secret)
@@ -95,11 +89,8 @@ class Preferences:
         """
         Takes the preferences saved in the object and saves them as os environment variables
 
-        Note:
+        Notes:
             This will however not be permanent but only last for one session
-
-        Returns:
-            None
         """
 
         if self.application_id:
@@ -129,7 +120,7 @@ class Preferences:
         """
         Read the docker secret and return it
 
-        Arguments:
+        Args:
             name: The name of the docker secret
             default: The default value if no secret is found
             secrets_dir: The directory where the secrets are stored
@@ -149,7 +140,7 @@ class Preferences:
         """
         Support for equal assertion
 
-        Arguments:
+        Args:
             other: The other object the comparison is made to
 
         Returns:

@@ -18,7 +18,7 @@ from ...authentification.spotify_authorization_token import SpotifyAuthorisation
 
 class Albums(Endpoint):
     """
-    Wraps the spotify album functions
+    Wraps the spotify album endpoint
     """
 
     async def get_one(self, album_id: str, auth_token: SpotifyAuthorisationToken = None, **kwargs) -> dict:
@@ -30,7 +30,7 @@ class Albums(Endpoint):
             auth_token: The auth token if you set the api class not to keep the token in memory
             kwargs: Optional arguments as keyword args
 
-        Note:
+        Notes:
             [https://developer.spotify.com/documentation/web-api/reference/albums/get-album/](https://developer.spotify.com/documentation/web-api/reference/albums/get-album/)
 
         Returns:
@@ -54,7 +54,7 @@ class Albums(Endpoint):
             auth_token: The auth token if you set the api class not to keep the token in memory
             kwargs: Optional arguments as keyword args
 
-        Note:
+        Notes:
             https://developer.spotify.com/documentation/web-api/reference/albums/get-albums-tracks/
 
         Returns:
@@ -79,7 +79,7 @@ class Albums(Endpoint):
             auth_token: The auth token if you set the api class not to keep the token in memory
             kwargs: Optional arguments as keyword args
 
-        Note:
+        Notes:
             https://developer.spotify.com/documentation/web-api/reference/albums/get-several-albums/
 
         Returns:

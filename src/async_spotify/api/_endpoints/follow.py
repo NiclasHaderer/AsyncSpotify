@@ -25,6 +25,9 @@ class Follow(Endpoint):
         """
         Check to see if the current user is following one or more artists or other Spotify users.
 
+        Notes:
+            [https://developer.spotify.com/documentation/web-api/reference/follow/check-current-user-follows/](https://developer.spotify.com/documentation/web-api/reference/follow/check-current-user-follows/)
+
         Args:
             follow_type: The follow type (user or artist)
             id_list: A comma-separated list of the artist or the user Spotify IDs to check.
@@ -42,6 +45,9 @@ class Follow(Endpoint):
                                     auth_token: SpotifyAuthorisationToken = None) -> List[bool]:
         """
         Check to see if one or more Spotify users are following a specified playlist.
+
+        Notes:
+            [https://developer.spotify.com/documentation/web-api/reference/follow/check-user-following-playlist/](https://developer.spotify.com/documentation/web-api/reference/follow/check-user-following-playlist/)
 
         Args:
             playlist_id: The id of the playlist
@@ -62,6 +68,9 @@ class Follow(Endpoint):
         """
         Check to see if the current user is following one or more artists or other Spotify users.
 
+        Notes:
+            [https://developer.spotify.com/documentation/web-api/reference/follow/follow-artists-users/](https://developer.spotify.com/documentation/web-api/reference/follow/follow-artists-users/)
+
         Args:
             follow_type: The follow type (user or artist)
             spotify_user_id_list: A comma-separated list of the artist or the user Spotify IDs
@@ -79,6 +88,9 @@ class Follow(Endpoint):
                               auth_token: SpotifyAuthorisationToken = None) -> None:
         """
         Add the current user as a follower of a playlist.
+
+        Notes:
+            [https://developer.spotify.com/documentation/web-api/reference/follow/follow-playlist/](https://developer.spotify.com/documentation/web-api/reference/follow/follow-playlist/)
 
         Args:
             playlist_id: The playlist id
@@ -104,6 +116,9 @@ class Follow(Endpoint):
         """
         Add the current user as a follower of a playlist.
 
+        Notes:
+            [https://developer.spotify.com/documentation/web-api/reference/follow/get-followed/](https://developer.spotify.com/documentation/web-api/reference/follow/get-followed/)
+
         Args:
             follow_type: The ID type: currently artist
             auth_token: The auth token if you set the api class not to keep the token in memory
@@ -126,6 +141,9 @@ class Follow(Endpoint):
         """
         Unfollow Artists or Users
 
+        Notes:
+            [https://developer.spotify.com/documentation/web-api/reference/follow/unfollow-artists-users/](https://developer.spotify.com/documentation/web-api/reference/follow/unfollow-artists-users/)
+
         Args:
             follow_type: The follow type (user or artist)
             spotify_user_id_list: A comma-separated list of the artist or the user Spotify IDs
@@ -143,6 +161,9 @@ class Follow(Endpoint):
                                 auth_token: SpotifyAuthorisationToken = None) -> None:
         """
         Unfollow a Playlist
+
+        Notes:
+            [https://developer.spotify.com/documentation/web-api/reference/follow/unfollow-playlist/](https://developer.spotify.com/documentation/web-api/reference/follow/unfollow-playlist/)
 
         Args:
             playlist_id: The playlist id

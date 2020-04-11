@@ -28,6 +28,7 @@ from ._endpoints.browse import Browse
 from ._endpoints.episodes import Episodes
 from ._endpoints.follow import Follow
 from ._endpoints.library import Library
+from ._endpoints.personalization import Personalization
 from ._endpoints.urls import URLS
 from ._response_status import ResponseStatus
 from .preferences import Preferences
@@ -37,6 +38,7 @@ from ..spotify_errors import SpotifyError
 
 
 # TODO pydantic: auth token, cookies
+# TODO next and previouse
 
 class SpotifyApiClient:
     """
@@ -69,11 +71,33 @@ class SpotifyApiClient:
         self._api_request_handler: ApiRequestHandler = ApiRequestHandler(self._spotify_authorisation_token)
 
         self.albums: Albums = Albums(self._api_request_handler)
+        """
+        An instance of the albums Albums. Use this to access the Albums api
+        """
         self.artist: Artists = Artists(self._api_request_handler)
+        """
+        An instance of the Artists class. Use this to access the Artists api
+        """
         self.browse: Browse = Browse(self._api_request_handler)
+        """
+        An instance of the Browse class. Use this to Browse the albums api
+        """
         self.episodes: Episodes = Episodes(self._api_request_handler)
+        """
+        An instance of the Episodes class. Use this to access the Episodes api
+        """
         self.follow: Follow = Follow(self._api_request_handler)
+        """
+        An instance of the Follow class. Use this to access the Follow api
+        """
         self.library: Library = Library(self._api_request_handler)
+        """
+        An instance of the Library class. Use this to access the Library api
+        """
+        self.personalization: Personalization = Personalization(self._api_request_handler)
+        """
+        An instance of the Personalization class. Use this to access the Personalization api
+        """
 
     async def create_new_client(self, request_timeout: int = 30, request_limit: int = 500) -> None:
         """
@@ -143,7 +167,7 @@ class SpotifyApiClient:
         to get the refresh_token and the oauth_token.
         The big advantage is that you don't have to run a callback server to get the code
 
-        Note:
+        Notes:
             This will only work if the user has at least once accepted the scopes your app is requesting.
             I would recommend that you take a look at the source code of this function before you use it and that you
             are familiar with the authorization mechanism of spotify.
@@ -247,7 +271,7 @@ class SpotifyApiClient:
         Args:
             code: The code returned by spotify in the oauth process
 
-        Note:
+        Notes:
             [https://developer.spotify.com/documentation/general/guides/authorization-guide/#authorization-code-flow](https://developer.spotify.com/documentation/general/guides/authorization-guide/#authorization-code-flow)
 
         Raises:
@@ -284,7 +308,7 @@ class SpotifyApiClient:
             auth_token: The refresh token or the code returned by the spotify auth flow. Leave empty if you enabled
                 hold_authentication. Then the internal token will be used.
 
-        Note:
+        Notes:
             https://developer.spotify.com/documentation/general/guides/authorization-guide/#authorization-code-flow
 
         Returns:
@@ -364,10 +388,10 @@ class SpotifyApiClient:
         self._spotify_authorisation_token.activation_time = spotify_authorization_token.activation_time
 
     @property
-    def hold_authentication(self):
+    def hold_authentication(self) -> bool:
         """
         Returns:
-            The hold_authentication parameter of the api class
+            The hold_authentication property of the spotify api client class
         """
 
         return self._hold_authentication
