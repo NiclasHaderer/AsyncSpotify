@@ -20,7 +20,7 @@ class Player(Endpoint):
     Player endpoint
     """
 
-    async def get_devices(self, auth_token: SpotifyAuthorisationToken = None) -> dict:
+    async def devices(self, auth_token: SpotifyAuthorisationToken = None) -> dict:
         """
         Get information about a user’s available devices.
 
@@ -36,7 +36,7 @@ class Player(Endpoint):
 
         return await self.api_request_handler.make_request('GET', URLS.PLAYER.DEVICES, {}, auth_token)
 
-    async def add_queue(self, auth_token: SpotifyAuthorisationToken = None, **kwargs) -> dict:
+    async def queue(self, auth_token: SpotifyAuthorisationToken = None, **kwargs) -> dict:
         """
         Get information about the user’s current playback state, including track or episode, progress,
         and active device.
@@ -52,7 +52,7 @@ class Player(Endpoint):
             The top tracks and artists
         """
 
-        return await self.api_request_handler.make_request('GET', URLS.PLAYER.QUEUE, kwargs, auth_token)
+        return await self.api_request_handler.make_request('GET', URLS.PLAYER.PLAYER, kwargs, auth_token)
 
     async def recent_tracks(self, auth_token: SpotifyAuthorisationToken = None, **kwargs) -> dict:
         """
@@ -100,7 +100,7 @@ class Player(Endpoint):
             kwargs: Optional arguments as keyword args
         """
 
-        return await self.api_request_handler.make_request('PUT', URLS.PLAYER.PAUSE, kwargs, auth_token)
+        await self.api_request_handler.make_request('PUT', URLS.PLAYER.PAUSE, kwargs, auth_token)
 
     async def seek(self, position_ms: int, auth_token: SpotifyAuthorisationToken = None, **kwargs) -> None:
         """
@@ -117,7 +117,7 @@ class Player(Endpoint):
         """
 
         args = {**{'position_ms': position_ms}, **kwargs}
-        return await self.api_request_handler.make_request('PUT', URLS.PLAYER.PAUSE, args, auth_token)
+        await self.api_request_handler.make_request('PUT', URLS.PLAYER.SEEK, args, auth_token)
 
     async def repeat(self, state: str, auth_token: SpotifyAuthorisationToken = None, **kwargs) -> None:
         """
@@ -136,7 +136,7 @@ class Player(Endpoint):
         """
 
         args = {**{'state': state}, **kwargs}
-        return await self.api_request_handler.make_request('PUT', URLS.PLAYER.REPEAT, args, auth_token)
+        await self.api_request_handler.make_request('PUT', URLS.PLAYER.REPEAT, args, auth_token)
 
     async def volume(self, volume_percent: int, auth_token: SpotifyAuthorisationToken = None, **kwargs) -> None:
         """
@@ -152,7 +152,7 @@ class Player(Endpoint):
         """
 
         args = {**{'volume_percent': volume_percent}, **kwargs}
-        return await self.api_request_handler.make_request('PUT', URLS.PLAYER.VOLUME, args, auth_token)
+        await self.api_request_handler.make_request('PUT', URLS.PLAYER.VOLUME, args, auth_token)
 
     async def next(self, auth_token: SpotifyAuthorisationToken = None, **kwargs) -> None:
         """
@@ -166,7 +166,7 @@ class Player(Endpoint):
             kwargs: Optional arguments as keyword args
         """
 
-        return await self.api_request_handler.make_request('PUT', URLS.PLAYER.NEXT, kwargs, auth_token)
+        await self.api_request_handler.make_request('POST', URLS.PLAYER.NEXT, kwargs, auth_token)
 
     async def previous(self, auth_token: SpotifyAuthorisationToken = None, **kwargs) -> None:
         """
@@ -180,7 +180,7 @@ class Player(Endpoint):
             kwargs: Optional arguments as keyword args
         """
 
-        return await self.api_request_handler.make_request('PUT', URLS.PLAYER.PREVIOUS, kwargs, auth_token)
+        await self.api_request_handler.make_request('POST', URLS.PLAYER.PREVIOUS, kwargs, auth_token)
 
     async def play(self, auth_token: SpotifyAuthorisationToken = None, **kwargs) -> None:
         """
@@ -194,10 +194,9 @@ class Player(Endpoint):
             kwargs: Optional arguments as keyword args
         """
 
-        return await self.api_request_handler.make_request('PUT', URLS.PLAYER.PLAY, kwargs, auth_token)
+        await self.api_request_handler.make_request('PUT', URLS.PLAYER.PLAY, kwargs, auth_token)
 
-    # TODO shuffle mode, on, off, toggle
-    async def shuffle(self, auth_token: SpotifyAuthorisationToken = None, **kwargs) -> None:
+    async def shuffle(self, shuffle_on: bool, auth_token: SpotifyAuthorisationToken = None, **kwargs) -> None:
         """
         Toggle shuffle on or off for user’s playback.
 
@@ -205,13 +204,16 @@ class Player(Endpoint):
             [https://developer.spotify.com/documentation/web-api/reference/player/toggle-shuffle-for-users-playback/](https://developer.spotify.com/documentation/web-api/reference/player/toggle-shuffle-for-users-playback/)
 
         Args:
+            shuffle_on: The state of the shuffle
             auth_token: The auth token if you set the api class not to keep the token in memory
             kwargs: Optional arguments as keyword args
         """
 
-        return await self.api_request_handler.make_request('PUT', URLS.PLAYER.SHUFFLE, kwargs, auth_token)
+        args = {**{'state': shuffle_on}, **kwargs}
 
-    async def transfer(self, device_id_list: List[str], play: bool = False,
+        await self.api_request_handler.make_request('PUT', URLS.PLAYER.SHUFFLE, args, auth_token)
+
+    async def transfer(self, device_id: List[str], play: bool = False,
                        auth_token: SpotifyAuthorisationToken = None) -> None:
         """
         Transfer playback to a new device and determine if it should start playing.
@@ -219,20 +221,15 @@ class Player(Endpoint):
         Notes:
             [https://developer.spotify.com/documentation/web-api/reference/player/transfer-a-users-playback/](https://developer.spotify.com/documentation/web-api/reference/player/transfer-a-users-playback/)
 
-        Important:
-            Although an array is accepted, only a single device_id is currently supported.
-            Supplying more than one will return 400 Bad Request
-
         Args:
             play: ensure playback happens on new device
-            device_id_list: A SINGLE device ID in a list. Perhaps later more options will be make available by spotify.
-                (See important for more information)
+            device_id: A SINGLE device ID
             auth_token: The auth token if you set the api class not to keep the token in memory
         """
 
         body = {
-            "device_ids": device_id_list,
-            "play": play
+            "device_ids": device_id,
+            "state": play
         }
 
-        return await self.api_request_handler.make_request('PUT', URLS.PLAYER.PLAYER, {}, auth_token, body=body)
+        await self.api_request_handler.make_request('PUT', URLS.PLAYER.PLAYER, {}, auth_token, body=body)

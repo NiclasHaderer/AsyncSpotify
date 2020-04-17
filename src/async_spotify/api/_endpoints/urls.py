@@ -147,7 +147,7 @@ class URLS:
         SEVERAL: str = BASE_URL + "/tracks"
         ONE: str = BASE_URL + "/tracks/{id}"
 
-    class PROFILE:
+    class USER:
         """
         URLs concerning a spotify user profile
         """

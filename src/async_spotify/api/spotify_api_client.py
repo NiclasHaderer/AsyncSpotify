@@ -29,7 +29,10 @@ from ._endpoints.episodes import Episodes
 from ._endpoints.follow import Follow
 from ._endpoints.library import Library
 from ._endpoints.personalization import Personalization
+from ._endpoints.player import Player
+from ._endpoints.playlist import Playlist
 from ._endpoints.urls import URLS
+from ._endpoints.user import User
 from ._response_status import ResponseStatus
 from .preferences import Preferences
 from ..authentification.spotify_authorization_token import SpotifyAuthorisationToken
@@ -37,8 +40,7 @@ from ..authentification.spotify_cookies import SpotifyCookies
 from ..spotify_errors import SpotifyError
 
 
-# TODO pydantic: auth token, cookies
-# TODO next and previouse
+# TODO next and previous
 
 class SpotifyApiClient:
     """
@@ -71,33 +73,25 @@ class SpotifyApiClient:
         self._api_request_handler: ApiRequestHandler = ApiRequestHandler(self._spotify_authorisation_token)
 
         self.albums: Albums = Albums(self._api_request_handler)
-        """
-        An instance of the albums Albums. Use this to access the Albums api
-        """
+        """ An instance of the albums Albums. Use this to access the Albums api """
         self.artist: Artists = Artists(self._api_request_handler)
-        """
-        An instance of the Artists class. Use this to access the Artists api
-        """
+        """ An instance of the Artists class. Use this to access the Artists api """
         self.browse: Browse = Browse(self._api_request_handler)
-        """
-        An instance of the Browse class. Use this to Browse the albums api
-        """
+        """ An instance of the Browse class. Use this to Browse the Browse api """
         self.episodes: Episodes = Episodes(self._api_request_handler)
-        """
-        An instance of the Episodes class. Use this to access the Episodes api
-        """
+        """ An instance of the Episodes class. Use this to access the Episodes api """
         self.follow: Follow = Follow(self._api_request_handler)
-        """
-        An instance of the Follow class. Use this to access the Follow api
-        """
+        """ An instance of the Follow class. Use this to access the Follow api """
         self.library: Library = Library(self._api_request_handler)
-        """
-        An instance of the Library class. Use this to access the Library api
-        """
+        """ An instance of the Library class. Use this to access the Library api """
         self.personalization: Personalization = Personalization(self._api_request_handler)
-        """
-        An instance of the Personalization class. Use this to access the Personalization api
-        """
+        """ An instance of the Personalization class. Use this to access the Personalization api """
+        self.player: Player = Player(self._api_request_handler)
+        """ An instance of the Player class. Use this to access the Player api """
+        self.playlist: Playlist = Playlist(self._api_request_handler)
+        """ An instance of the Playlist class. Use this to access the Playlist api """
+        self.user: User = User(self._api_request_handler)
+        """ An instance of the User class. Use this to access the User api """
 
     async def create_new_client(self, request_timeout: int = 30, request_limit: int = 500) -> None:
         """

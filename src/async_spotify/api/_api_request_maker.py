@@ -8,7 +8,6 @@ The api request handler singleton
 #  You are not allowed to use this code or this file for another project without                   #
 #  linking to the original source.                                                                 #
 # ##################################################################################################
-
 import json
 import math
 from collections import deque
@@ -95,6 +94,11 @@ class ApiRequestHandler:
         params: List[Tuple[str, str]] = self._format_params(query_params)
         headers = self._get_headers(auth_token)
 
+        if body and isinstance(body, dict):
+            body = json.dumps(body)
+        elif body:
+            headers['Content-Type'] = 'image/jpeg'
+
         # Rotate the list
         self.client_session_list.rotate(1)
 
@@ -120,10 +124,17 @@ class ApiRequestHandler:
 
         # Rate limit exceeded
         if response_status.code == 429:
-            raise RateLimitExceeded(response_status.message, " ", response_json)
+            raise RateLimitExceeded(response_json)
 
         # Check if the response was a success
         if not response_status.success:
+            if not response_json:
+                response_json = {
+                    'error': {
+                        'status': response_status.code
+                    }
+                }
+
             raise SpotifyAPIError(response_json)
 
         return response_json
@@ -142,12 +153,11 @@ class ApiRequestHandler:
         return_params: List[Tuple[str, str]] = []
 
         for key in list(query_params.keys()):
-            temp = query_params[key]
             if not isinstance(query_params[key], List):
-                query_params[key] = [query_params[key]]
+                query_params[key] = [str(query_params[key])]
 
             for value in query_params[key]:
-                return_params.append((key, value))
+                return_params.append((key, str(value)))
 
         return return_params
 
