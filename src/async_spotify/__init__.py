@@ -9,6 +9,12 @@ Asynchronous spotify api wrapper
 #  linking to the original source.                                                                 #
 # ##################################################################################################
 
+
+__title__ = 'async_spotify'
+__author__ = 'HuiiBuh'
+__version__ = '0.1'
+__license__ = 'MIT'
+
 from .api.preferences import Preferences
 from .api.spotify_api_client import SpotifyApiClient
 from .authentification.spotify_authorization_token import SpotifyAuthorisationToken

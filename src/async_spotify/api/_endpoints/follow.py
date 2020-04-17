@@ -81,8 +81,7 @@ class Follow(Endpoint):
         """
 
         required_args = {"type": follow_type, "ids": spotify_user_id_list}
-        response = await self.api_request_handler.make_request('PUT', URLS.FOLLOW.HUMAN, required_args, auth_token)
-        return response
+        await self.api_request_handler.make_request('PUT', URLS.FOLLOW.HUMAN, required_args, auth_token)
 
     async def follow_playlist(self, playlist_id: str, public=True,
                               auth_token: SpotifyAuthorisationToken = None) -> None:
@@ -108,8 +107,7 @@ class Follow(Endpoint):
             "public": public
         }
 
-        response = await self.api_request_handler.make_request('PUT', url, {}, auth_token, body)
-        return response
+        await self.api_request_handler.make_request('PUT', url, {}, auth_token, body)
 
     async def get_follow_artist(self, follow_type: str = 'artist',
                                 auth_token: SpotifyAuthorisationToken = None, **kwargs) -> dict:
@@ -154,11 +152,9 @@ class Follow(Endpoint):
         """
 
         required_args = {"type": follow_type, "ids": spotify_user_id_list}
-        response = await self.api_request_handler.make_request('DELETE', URLS.FOLLOW.HUMAN, required_args, auth_token)
-        return response
+        await self.api_request_handler.make_request('DELETE', URLS.FOLLOW.HUMAN, required_args, auth_token)
 
-    async def unfollow_playlist(self, playlist_id: str,
-                                auth_token: SpotifyAuthorisationToken = None) -> None:
+    async def unfollow_playlist(self, playlist_id: str, auth_token: SpotifyAuthorisationToken = None) -> None:
         """
         Unfollow a Playlist
 
@@ -175,6 +171,5 @@ class Follow(Endpoint):
 
         required_args = {"playlist_id": playlist_id}
         url, _ = self._add_url_params(URLS.FOLLOW.PLAYLIST, required_args)
-        response = await self.api_request_handler.make_request('DELETE', url, required_args,
-                                                               auth_token)
-        return response
+        await self.api_request_handler.make_request('DELETE', url, required_args,
+                                                    auth_token)

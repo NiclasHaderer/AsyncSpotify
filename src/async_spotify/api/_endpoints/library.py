@@ -131,8 +131,8 @@ class Library(Endpoint):
             auth_token: The auth token if you set the api class not to keep the token in memory
         """
 
-        return await self.api_request_handler.make_request('DELETE', URLS.LIBRARY.ALBUMS,
-                                                           {'ids': album_id_list}, auth_token)
+        await self.api_request_handler.make_request('DELETE', URLS.LIBRARY.ALBUMS,
+                                                    {'ids': album_id_list}, auth_token)
 
     async def remove_shows(self, show_id_list: List[str], auth_token: SpotifyAuthorisationToken = None,
                            **kwargs) -> None:
@@ -148,8 +148,8 @@ class Library(Endpoint):
             kwargs: Optional arguments as keyword args
         """
 
-        return await self.api_request_handler.make_request('DELETE', URLS.LIBRARY.SHOWS,
-                                                           {**{'ids': show_id_list}, **kwargs}, auth_token)
+        await self.api_request_handler.make_request('DELETE', URLS.LIBRARY.SHOWS,
+                                                    {**{'ids': show_id_list}, **kwargs}, auth_token)
 
     async def remove_tracks(self, track_id_list: List[str], auth_token: SpotifyAuthorisationToken = None) -> None:
         """
@@ -163,8 +163,8 @@ class Library(Endpoint):
             auth_token: The auth token if you set the api class not to keep the token in memory
         """
 
-        return await self.api_request_handler.make_request('DELETE', URLS.LIBRARY.TRACKS,
-                                                           {'ids': track_id_list}, auth_token)
+        await self.api_request_handler.make_request('DELETE', URLS.LIBRARY.TRACKS,
+                                                    {'ids': track_id_list}, auth_token)
 
     async def add_album(self, album_id_list: List[str], auth_token: SpotifyAuthorisationToken = None) -> None:
         """
@@ -178,8 +178,8 @@ class Library(Endpoint):
             auth_token: The auth token if you set the api class not to keep the token in memory
         """
 
-        return await self.api_request_handler.make_request('PUT', URLS.LIBRARY.ALBUMS,
-                                                           {**{'ids': album_id_list}}, auth_token)
+        await self.api_request_handler.make_request('PUT', URLS.LIBRARY.ALBUMS,
+                                                    {**{'ids': album_id_list}}, auth_token)
 
     async def add_shows(self, show_id_list: List[str], auth_token: SpotifyAuthorisationToken = None) -> None:
         """
@@ -193,8 +193,8 @@ class Library(Endpoint):
             auth_token: The auth token if you set the api class not to keep the token in memory
         """
 
-        return await self.api_request_handler.make_request('PUT', URLS.LIBRARY.SHOWS,
-                                                           {**{'ids': show_id_list}}, auth_token)
+        await self.api_request_handler.make_request('PUT', URLS.LIBRARY.SHOWS,
+                                                    {**{'ids': show_id_list}}, auth_token)
 
     async def add_tracks(self, track_id_list: List[str], auth_token: SpotifyAuthorisationToken = None) -> None:
         """
@@ -208,5 +208,5 @@ class Library(Endpoint):
             auth_token: The auth token if you set the api class not to keep the token in memory
         """
 
-        return await self.api_request_handler.make_request('PUT', URLS.LIBRARY.TRACKS,
-                                                           {**{'ids': track_id_list}}, auth_token)
+        await self.api_request_handler.make_request('PUT', URLS.LIBRARY.TRACKS,
+                                                    {**{'ids': track_id_list}}, auth_token)
