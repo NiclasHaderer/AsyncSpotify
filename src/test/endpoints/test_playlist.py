@@ -30,7 +30,7 @@ class TestPlaylist:
         playlist_id = playlist['id']
 
         uris: List[str] = ['spotify:track:7FIWs0pqAYbP91WWM0vlTQ', 'spotify:track:40YbWniIEmqy6s58fYXLUh']
-        songs = await prepared_api.playlist.add_tracks(playlist_id, uris)
+        songs = await prepared_api.playlist.add_tracks(playlist_id, uris, position=0)
         assert songs is None
 
         details = await prepared_api.playlist.change_details(playlist_id, name='test_playlist_x')
@@ -49,6 +49,14 @@ class TestPlaylist:
 
         tracks = await prepared_api.playlist.get_tracks(playlist_id)
         assert isinstance(tracks, dict)
+
+        reorder = {
+            "range_start": 0,
+            "range_length": 1,
+            "insert_before": 1
+        }
+
+        await prepared_api.playlist.reorder(playlist_id, reorder)
 
         replace = await prepared_api.playlist.replace_tracks(playlist_id, ['spotify:track:3kW5Rq9AIL0QQuYTSKNkQw'])
         assert replace is None

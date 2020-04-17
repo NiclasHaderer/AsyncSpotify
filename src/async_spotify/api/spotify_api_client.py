@@ -31,6 +31,9 @@ from ._endpoints.library import Library
 from ._endpoints.personalization import Personalization
 from ._endpoints.player import Player
 from ._endpoints.playlist import Playlist
+from ._endpoints.search import Search
+from ._endpoints.shows import Show
+from ._endpoints.tracks import Track
 from ._endpoints.urls import URLS
 from ._endpoints.user import User
 from ._response_status import ResponseStatus
@@ -90,6 +93,12 @@ class SpotifyApiClient:
         """ An instance of the Player class. Use this to access the Player api """
         self.playlist: Playlist = Playlist(self._api_request_handler)
         """ An instance of the Playlist class. Use this to access the Playlist api """
+        self.search: Search = Search(self._api_request_handler)
+        """ An instance of the Search class. Use this to access the Search api """
+        self.shows: Show = Show(self._api_request_handler)
+        """ An instance of the Show class. Use this to access the Show api """
+        self.track: Track = Track(self._api_request_handler)
+        """ An instance of the Track class. Use this to access the Track api """
         self.user: User = User(self._api_request_handler)
         """ An instance of the User class. Use this to access the User api """
 
