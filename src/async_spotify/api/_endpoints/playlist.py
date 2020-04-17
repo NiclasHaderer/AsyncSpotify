@@ -40,7 +40,8 @@ class Playlist(Endpoint):
         body = {
             'uris': spotify_uris
         }
-        if position:
+
+        if position is not None:
             body['position'] = position
 
         url, _ = self._add_url_params(URLS.PLAYLIST.ADD_TRACKS, {'playlist_id': playlist_id})
