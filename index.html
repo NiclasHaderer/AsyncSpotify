@@ -131,18 +131,18 @@
     </label>
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
-<a class="md-nav__link" href="#tests">
-    Tests
+<a class="md-nav__link" href="#example">
+    Example
   </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="#docs">
-    Docs
+<a class="md-nav__link" href="#run-tests">
+    Run tests
   </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="#credits">
-    Credits
+<a class="md-nav__link" href="#generate-docs">
+    Generate Docs
   </a>
 </li>
 </ul>
@@ -219,18 +219,18 @@
     </label>
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
-<a class="md-nav__link" href="#tests">
-    Tests
+<a class="md-nav__link" href="#example">
+    Example
   </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="#docs">
-    Docs
+<a class="md-nav__link" href="#run-tests">
+    Run tests
   </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="#credits">
-    Credits
+<a class="md-nav__link" href="#generate-docs">
+    Generate Docs
   </a>
 </li>
 </ul>
@@ -247,18 +247,36 @@
 <p><img alt="Unit Tests" src="https://github.com/HuiiBuh/AsyncSpotify/workflows/Unit%20Tests/badge.svg"/>
 <a href="https://app.codacy.com/manual/nhaderer1/AsyncSpotify?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=HuiiBuh/AsyncSpotify&amp;utm_campaign=Badge_Grade_Dashboard"><img alt="Codacy Badge" src="https://api.codacy.com/project/badge/Grade/65dd7dbb2b4b4efcb3fc365f2d3f1684"/></a>
 <a href="https://codecov.io/gh/HuiiBuh/AsyncSpotify"><img alt="codecov" src="https://codecov.io/gh/HuiiBuh/AsyncSpotify/branch/master/graph/badge.svg?token=0oC3x1chKb"/></a></p>
-<h2 id="tests">Tests<a class="headerlink" href="#tests" title="Permanent link">¶</a></h2>
+<h2 id="example">Example<a class="headerlink" href="#example" title="Permanent link">¶</a></h2>
+<div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">async_spotify</span> <span class="kn">import</span> <span class="n">Preferences</span><span class="p">,</span> <span class="n">SpotifyApiClient</span><span class="p">,</span> <span class="n">SpotifyAuthorisationToken</span>
+
+<span class="c1"># Create a preferences object and load the preferences from env variables</span>
+<span class="n">preferences</span> <span class="o">=</span> <span class="n">Preferences</span><span class="p">()</span>
+<span class="n">preferences</span><span class="o">.</span><span class="n">load_from_env</span><span class="p">()</span>
+
+<span class="c1"># Create a new Api client and pass the preferences</span>
+<span class="n">api</span> <span class="o">=</span> <span class="n">SpotifyApiClient</span><span class="p">(</span><span class="n">preferences</span><span class="p">,</span> <span class="n">hold_authentication</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+
+<span class="c1"># Get the auth token with your code</span>
+<span class="n">code</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">"Your Spotify Code"</span>
+<span class="n">auth_token</span><span class="p">:</span> <span class="n">SpotifyAuthorisationToken</span> <span class="o">=</span> <span class="k">await</span> <span class="n">api</span><span class="o">.</span><span class="n">get_auth_token_with_code</span><span class="p">(</span><span class="n">code</span><span class="p">)</span>
+
+<span class="c1"># Create a new client</span>
+<span class="k">await</span> <span class="n">api</span><span class="o">.</span><span class="n">create_new_client</span><span class="p">(</span><span class="n">request_limit</span><span class="o">=</span><span class="mi">1500</span><span class="p">)</span>
+
+<span class="c1"># Start making queries with the internally saved token</span>
+<span class="n">album_tracks</span><span class="p">:</span> <span class="nb">dict</span> <span class="o">=</span> <span class="k">await</span> <span class="n">api</span><span class="o">.</span><span class="n">albums</span><span class="o">.</span><span class="n">get_tracks</span><span class="p">(</span><span class="s1">'03dlqdFWY9gwJxGl3AREVy'</span><span class="p">)</span>
+
+<span class="c1"># If you pass a valid auth_token this auth_token will be used for making the requests</span>
+<span class="n">album_tracks</span><span class="p">:</span> <span class="nb">dict</span> <span class="o">=</span> <span class="k">await</span> <span class="n">api</span><span class="o">.</span><span class="n">albums</span><span class="o">.</span><span class="n">get_tracks</span><span class="p">(</span><span class="s1">'03dlqdFWY9gwJxGl3AREVy'</span><span class="p">,</span> <span class="n">auth_token</span><span class="p">)</span>
+</code></pre></div>
+<h2 id="run-tests">Run tests<a class="headerlink" href="#run-tests" title="Permanent link">¶</a></h2>
 <ul>
 <li>Install the requirements.dev.txt</li>
 <li>Run the test with <code>pytest --cov=async_spotify src/test</code></li>
 </ul>
-<h2 id="docs">Docs<a class="headerlink" href="#docs" title="Permanent link">¶</a></h2>
-<div class="highlight"><pre><span></span><code><span class="nv">PYTHONPATH</span><span class="o">=</span>src mkdocs serve
-</code></pre></div>
-<h2 id="credits">Credits<a class="headerlink" href="#credits" title="Permanent link">¶</a></h2>
-<ul>
-<li><a href="https://gist.github.com/shreddd/b7991ab491384e3c3331">shreddd</a> for the simple redirect server which is very useful for testing.</li>
-</ul>
+<h2 id="generate-docs">Generate Docs<a class="headerlink" href="#generate-docs" title="Permanent link">¶</a></h2>
+<p>To generate the docs run <code>PYTHONPATH=src mkdocs serve</code></p>
 </article>
 </div>
 </div>
