@@ -49,5 +49,5 @@ class TestFollow:
 
     @pytest.mark.asyncio
     async def test_get_artist(self, prepared_api: SpotifyApiClient):
-        follow_artist = await prepared_api.follow.get_follow_artist()
+        follow_artist = await prepared_api.follow.get_followed_artist()
         assert isinstance(follow_artist, dict) and follow_artist

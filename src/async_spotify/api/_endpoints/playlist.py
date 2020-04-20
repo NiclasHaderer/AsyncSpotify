@@ -100,7 +100,7 @@ class Playlist(Endpoint):
 
         return await self.api_request_handler.make_request('GET', URLS.PLAYLIST.ME, kwargs, auth_token)
 
-    async def user_get_all(self, user_id: str, auth_token: SpotifyAuthorisationToken = None, **kwargs) -> dict:
+    async def get_user_all(self, user_id: str, auth_token: SpotifyAuthorisationToken = None, **kwargs) -> dict:
         """
         Get a list of the playlists owned or followed by a Spotify user.
 
@@ -194,8 +194,8 @@ class Playlist(Endpoint):
 
         await self.api_request_handler.make_request('DELETE', url, {}, auth_token, body=spotify_uris)
 
-    async def reorder(self, playlist_id: str, position_dict: Dict[str, Union[int, str]], snapshot_id: str = None,
-                      auth_token: SpotifyAuthorisationToken = None) -> dict:
+    async def reorder_tracks(self, playlist_id: str, position_dict: Dict[str, Union[int, str]], snapshot_id: str = None,
+                             auth_token: SpotifyAuthorisationToken = None) -> dict:
         """
         Reorder an item or a group of items in a playlist.
 

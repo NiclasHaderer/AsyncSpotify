@@ -32,10 +32,10 @@ class TestShow:
 
     @pytest.mark.asyncio
     async def test_several(self, prepared_api: SpotifyApiClient):
-        track = await prepared_api.track.several(['7FIWs0pqAYbP91WWM0vlTQ', '7lQ8MOhq6IN2w8EYcFNSUk'])
+        track = await prepared_api.track.get_several(['7FIWs0pqAYbP91WWM0vlTQ', '7lQ8MOhq6IN2w8EYcFNSUk'])
         assert isinstance(track, dict)
 
     @pytest.mark.asyncio
     async def test_one(self, prepared_api: SpotifyApiClient):
-        track = await prepared_api.track.one('7FIWs0pqAYbP91WWM0vlTQ')
+        track = await prepared_api.track.get_one('7FIWs0pqAYbP91WWM0vlTQ')
         assert isinstance(track, dict)

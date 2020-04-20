@@ -19,7 +19,7 @@ class Browse(Endpoint):
     The browser endpoint of the api
     """
 
-    async def new_releases(self, auth_token: SpotifyAuthorisationToken = None, **kwargs) -> dict:
+    async def get_new_releases(self, auth_token: SpotifyAuthorisationToken = None, **kwargs) -> dict:
         """
         Get a List of New Releases
 
@@ -38,7 +38,7 @@ class Browse(Endpoint):
         response = await self.api_request_handler.make_request('GET', URLS.BROWSE.RELEASES, args, auth_token)
         return response
 
-    async def featured_playlists(self, auth_token: SpotifyAuthorisationToken = None, **kwargs) -> dict:
+    async def get_featured_playlists(self, auth_token: SpotifyAuthorisationToken = None, **kwargs) -> dict:
         """
         Get a List of Featured Playlists
 
@@ -57,7 +57,7 @@ class Browse(Endpoint):
         response = await self.api_request_handler.make_request('GET', URLS.BROWSE.FEATURED_PLAYLISTS, args, auth_token)
         return response
 
-    async def categories(self, auth_token: SpotifyAuthorisationToken = None, **kwargs) -> dict:
+    async def get_categories(self, auth_token: SpotifyAuthorisationToken = None, **kwargs) -> dict:
         """
         Get a List of Browse Categories
 
@@ -76,7 +76,7 @@ class Browse(Endpoint):
         response = await self.api_request_handler.make_request('GET', URLS.BROWSE.CATEGORY_LIST, args, auth_token)
         return response
 
-    async def single_category(self, category_id: str, auth_token: SpotifyAuthorisationToken = None, **kwargs) -> dict:
+    async def get_single_category(self, category_id: str, auth_token: SpotifyAuthorisationToken = None, **kwargs) -> dict:
         """
         Get a Single Browse Category
 
@@ -100,8 +100,8 @@ class Browse(Endpoint):
 
         return response
 
-    async def category_playlists(self, category_id: str, auth_token: SpotifyAuthorisationToken = None,
-                                 **kwargs) -> dict:
+    async def get_category_playlists(self, category_id: str, auth_token: SpotifyAuthorisationToken = None,
+                                     **kwargs) -> dict:
         """
         Get a Category's playlists
 
@@ -125,7 +125,7 @@ class Browse(Endpoint):
 
         return response
 
-    async def recommendation_by_seed(self, auth_token: SpotifyAuthorisationToken = None, **kwargs) -> dict:
+    async def get_recommendation_by_seed(self, auth_token: SpotifyAuthorisationToken = None, **kwargs) -> dict:
         """
         Get Recommendations Based on Seeds
         Args:
@@ -143,7 +143,7 @@ class Browse(Endpoint):
         response = await self.api_request_handler.make_request('GET', URLS.BROWSE.RECOMMENDATIONS, args, auth_token)
         return response
 
-    async def genre_seeds(self, auth_token: SpotifyAuthorisationToken = None) -> dict:
+    async def get_genre_seeds(self, auth_token: SpotifyAuthorisationToken = None) -> dict:
         """
         Get Available Genre Seeds
 
