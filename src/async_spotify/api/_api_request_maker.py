@@ -16,8 +16,8 @@ from typing import Optional, List, Tuple, Deque, Union
 
 from aiohttp import ClientTimeout, TCPConnector, ClientSession, DummyCookieJar
 
-from async_spotify._error_message import ErrorMessage
 from ._response_status import ResponseStatus
+from .._error_message import ErrorMessage
 from ..authentification.spotify_authorization_token import SpotifyAuthorisationToken
 from ..spotify_errors import SpotifyError, TokenExpired, RateLimitExceeded, SpotifyAPIError
 

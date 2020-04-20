@@ -1,0 +1,8 @@
+# Tests
+pytest==5.4.1
+pytest-cov==2.8.1
+pytest-asyncio==0.10.0
+
+# Documentation
+mkdocstrings==0.10.3
+mkdocs-material==5.1.1
