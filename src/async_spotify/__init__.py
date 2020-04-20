@@ -18,5 +18,5 @@ __license__ = 'MIT'
 from .api.preferences import Preferences
 from .api.spotify_api_client import SpotifyApiClient
 from .authentification.spotify_authorization_token import SpotifyAuthorisationToken
-from .authentification.spotify_cookies import SpotifyCookies
-from .spotify_errors import SpotifyError, RateLimitExceeded, TokenExpired
+from .authentification.spotify_cookies import SpotifyCookie
+from .spotify_errors import SpotifyError, RateLimitExceeded, TokenExpired, SpotifyAPIError, SpotifyBaseError

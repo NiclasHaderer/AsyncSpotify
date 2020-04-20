@@ -16,9 +16,10 @@ from typing import Optional, List, Tuple, Deque, Union
 
 from aiohttp import ClientTimeout, TCPConnector, ClientSession, DummyCookieJar
 
-from async_spotify.authentification.spotify_authorization_token import SpotifyAuthorisationToken
-from async_spotify.spotify_errors import SpotifyError, TokenExpired, RateLimitExceeded, SpotifyAPIError
+from async_spotify._error_message import ErrorMessage
 from ._response_status import ResponseStatus
+from ..authentification.spotify_authorization_token import SpotifyAuthorisationToken
+from ..spotify_errors import SpotifyError, TokenExpired, RateLimitExceeded, SpotifyAPIError
 
 
 class ApiRequestHandler:
@@ -88,12 +89,14 @@ class ApiRequestHandler:
         """
 
         if not self.client_session_list:
-            raise SpotifyError('You have to create a new client with create_new_client'
-                               ' before you can make requests to the spotify api.')
+            message = 'You have to create a new client with create_new_client ' \
+                      'before you can make requests to the spotify api.'
+            raise SpotifyError(ErrorMessage(message=message).__dict__)
 
         params: List[Tuple[str, str]] = self._format_params(query_params)
         headers = self._get_headers(auth_token)
 
+        # Check if the body should be a json or an image
         if body and isinstance(body, dict):
             body = json.dumps(body)
         elif body:
@@ -128,13 +131,6 @@ class ApiRequestHandler:
 
         # Check if the response was a success
         if not response_status.success:
-            if not response_json:
-                response_json = {
-                    'error': {
-                        'status': response_status.code
-                    }
-                }
-
             raise SpotifyAPIError(response_json)
 
         return response_json
@@ -176,11 +172,11 @@ class ApiRequestHandler:
             if self.spotify_authorisation_token.valid:
                 auth_token = self.spotify_authorisation_token
             else:
-                raise SpotifyError(
-                    'You have to provide a valid auth token or set the option hold_authentication to true '
-                    'and call the get_auth_token_with_code or refresh_token method at leas once')
+                message = 'You have to provide a valid auth token or set the option hold_authentication to true and ' \
+                          'call the get_auth_token_with_code or refresh_token method at leas once'
+                raise SpotifyError(ErrorMessage(message=message).__dict__)
 
-        return {
-            'Authorization': f'Bearer {auth_token.access_token}',
-            'Content-Type': 'application/json'
-        }
+            return {
+                'Authorization': f'Bearer {auth_token.access_token}',
+                'Content-Type': 'application/json'
+            }

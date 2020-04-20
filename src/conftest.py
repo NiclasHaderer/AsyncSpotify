@@ -14,14 +14,14 @@ from typing import List
 
 import pytest
 
-from async_spotify import Preferences, SpotifyApiClient, SpotifyCookies
+from async_spotify import Preferences, SpotifyApiClient, SpotifyCookie
 
 
 class TestDataTransfer:
     """
     Class which transfers test data
     """
-    cookies: SpotifyCookies = None
+    cookies: SpotifyCookie = None
     preferences: Preferences = None
     api: SpotifyApiClient = None
     scopes: List[str] = None
@@ -86,7 +86,7 @@ def prepare_test_data():
         Add the cookie parameter
         """
 
-        cookies = SpotifyCookies()
+        cookies = SpotifyCookie()
         cookies.load_from_file(os.environ.get("cookie_file_path",
                                               "/home/niclas/IdeaProjects/AsyncSpotify/examples/private/cookies.json"))
         TestDataTransfer.cookies = cookies

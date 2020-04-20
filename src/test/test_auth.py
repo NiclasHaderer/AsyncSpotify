@@ -13,7 +13,7 @@ from urllib.parse import urlencode
 
 import pytest
 
-from async_spotify import SpotifyAuthorisationToken, SpotifyApiClient, SpotifyError, SpotifyCookies
+from async_spotify import SpotifyAuthorisationToken, SpotifyApiClient, SpotifyError, SpotifyCookie
 from async_spotify.api._response_status import ResponseStatus
 from async_spotify.api.preferences import Preferences
 from conftest import TestDataTransfer
@@ -23,7 +23,7 @@ class TestAuth:
 
     # Test cookie class
     def test_cookie(self):
-        cookies = SpotifyCookies("hallo", "welt")
+        cookies = SpotifyCookie("hallo", "welt")
         assert False is cookies.valid
 
     def test_pass_authentication(self):
@@ -105,13 +105,13 @@ class TestAuth:
     @pytest.mark.asyncio
     async def test_code_retrieval_empty_cookie(self, api: SpotifyApiClient):
         with pytest.raises(SpotifyError):
-            await api.get_code_with_cookie(SpotifyCookies())
+            await api.get_code_with_cookie(SpotifyCookie())
 
     # Get the code from spotify with an invalid cookie
     @pytest.mark.asyncio
     async def test_code_retrieval_invalid_cookie(self, api: SpotifyApiClient):
         with pytest.raises(SpotifyError):
-            await api.get_code_with_cookie(SpotifyCookies("1", "2", "3"))
+            await api.get_code_with_cookie(SpotifyCookie("1", "2", "3"))
 
     # Get the auth token from spotify with an invalid code
     @pytest.mark.asyncio

@@ -10,28 +10,9 @@ File with all the errors possible
 #  linking to the original source.                                                                 #
 # ##################################################################################################
 
-class SpotifyError(Exception):
+class SpotifyBaseError(Exception):
     """
-    Custom error message
-    """
-
-
-class TokenExpired(Exception):
-    """
-    Custom token expired message
-    """
-
-
-class RateLimitExceeded(Exception):
-    """
-    Custom rate limit exceeded exception
-    """
-
-
-class SpotifyAPIError(Exception):
-    """
-    Custom api error message
-    This exception gets throws if the spotify api returns an *non success* return code
+    The base Error for all spotify exceptions
     """
 
     def __init__(self, message: dict):
@@ -47,8 +28,28 @@ class SpotifyAPIError(Exception):
         return self.message
 
 
-try:
-    raise SpotifyAPIError({'a': 'b'})
-except SpotifyAPIError as e:
-    e.get_json()
-    str(e)
+class SpotifyError(SpotifyBaseError):
+    """
+    Custom error message
+    """
+
+
+class TokenExpired(SpotifyBaseError):
+    """
+    Custom token expired message
+    """
+
+
+class RateLimitExceeded(SpotifyBaseError):
+    """
+    Custom rate limit exceeded exception
+    """
+
+
+class SpotifyAPIError(SpotifyBaseError):
+    """
+    Custom api error message
+    This exception gets throws if the spotify api returns an *non success* return code
+    """
+
+

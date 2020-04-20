@@ -6,15 +6,19 @@ repo_name: "HuiiBuh/AsyncSpotify"
 
 nav:
   - Overview: "index.md"
-  - Examples: "examples.md"
+  - Examples: "EXAMPLES.md"
   - Public API:
-      - SpotifyApiClient: "public_api/spotify_api_client.md"
+      - Spotify Api Client: "public_api/spotify_api_client.md"
       - Preferences: "public_api/preferences.md"
+      - Authentification: "public_api/authentification.md"
       - Spotify Errors: "public_api/spotify_errors.md"
       - Endpoints: "public_api/endpoints.md"
-      - Authorization Token: "public_api/authorization_token.md"
-
-  - Licence: "licence.md"
+  - Private API:
+      - Request Handler: "private_api/request_handler.md"
+      - Status Classes: "private_api/status_classes.md"
+      - URLS: "private_api/url.md"
+  - Run Tests: "TEST.md"
+  - Licence: "LICENCE.md"
 
 theme:
   name: "material"
@@ -27,7 +31,6 @@ theme:
 
 extra_css:
   - custom.css
-
 
 markdown_extensions:
   - admonition

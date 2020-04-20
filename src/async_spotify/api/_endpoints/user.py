@@ -30,7 +30,7 @@ class User(Endpoint):
 
         return await self.api_request_handler.make_request('GET', URLS.USER.ME, {}, auth_token)
 
-    async def get_one(self, user_id: str, auth_token: SpotifyAuthorisationToken = None):
+    async def get_one(self, user_id: str, auth_token: SpotifyAuthorisationToken = None) -> dict:
         """
         Get detailed profile information about a user (including the current user’s username).
 

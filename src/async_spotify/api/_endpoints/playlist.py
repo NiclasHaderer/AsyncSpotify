@@ -195,9 +195,12 @@ class Playlist(Endpoint):
         await self.api_request_handler.make_request('DELETE', url, {}, auth_token, body=spotify_uris)
 
     async def reorder(self, playlist_id: str, position_dict: Dict[str, Union[int, str]], snapshot_id: str = None,
-                      auth_token: SpotifyAuthorisationToken = None):
+                      auth_token: SpotifyAuthorisationToken = None) -> dict:
         """
         Reorder an item or a group of items in a playlist.
+
+        Notes:
+            [https://developer.spotify.com/documentation/web-api/reference/playlists/reorder-playlists-tracks/](https://developer.spotify.com/documentation/web-api/reference/playlists/reorder-playlists-tracks/)
 
         Args:
             playlist_id: The playlist id
