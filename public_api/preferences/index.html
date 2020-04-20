@@ -8,9 +8,9 @@
 <meta content="Async wrapper in python for the spotify api" name="description"/>
 <link href="https://github.com/HuiiBuh/AsyncSpotify/public_api/preferences/" rel="canonical"/>
 <link href="https://upload.wikimedia.org/wikipedia/commons/9/9b/Font_Awesome_5_brands_spotify.svg" rel="shortcut icon"/>
-<meta content="mkdocs-1.1, mkdocs-material-5.0.0" name="generator"/>
+<meta content="mkdocs-1.1, mkdocs-material-5.1.1" name="generator"/>
 <title>Preferences - Async Spotify</title>
-<link href="../../assets/stylesheets/main.c3000690.min.css" rel="stylesheet"/>
+<link href="../../assets/stylesheets/main.a676eddb.min.css" rel="stylesheet"/>
 <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
 <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700%7CRoboto+Mono&amp;display=fallback" rel="stylesheet"/>
 <style>body,input{font-family:"Roboto",-apple-system,BlinkMacSystemFont,Helvetica,Arial,sans-serif}code,kbd,pre{font-family:"Roboto Mono",SFMono-Regular,Consolas,Menlo,monospace}</style>
@@ -21,9 +21,6 @@
 <input autocomplete="off" class="md-toggle" data-md-toggle="search" id="__search" type="checkbox"/>
 <label class="md-overlay" for="__drawer"></label>
 <div data-md-component="skip">
-<a class="md-skip" href="#async_spotify.api.preferences">
-          Skip to content
-        </a>
 </div>
 <div data-md-component="announce">
 </div>
@@ -117,7 +114,7 @@
     </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../examples/" title="Examples">
+<a class="md-nav__link" href="../../EXAMPLES/" title="Examples">
       Examples
     </a>
 </li>
@@ -138,75 +135,20 @@
       </label>
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
-<a class="md-nav__link" href="../spotify_api_client/" title="SpotifyApiClient">
-      SpotifyApiClient
+<a class="md-nav__link" href="../spotify_api_client/" title="Spotify Api Client">
+      Spotify Api Client
     </a>
 </li>
 <li class="md-nav__item md-nav__item--active">
 <input class="md-nav__toggle md-toggle" data-md-toggle="toc" id="__toc" type="checkbox"/>
-<label class="md-nav__link md-nav__link--active" for="__toc">
-        Preferences
-        <span class="md-nav__icon md-icon">
-<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M3,9H17V7H3V9M3,13H17V11H3V13M3,17H17V15H3V17M19,17H21V15H19V17M19,7V9H21V7H19M19,13H21V11H19V13Z"></path></svg>
-</span>
-</label>
 <a class="md-nav__link md-nav__link--active" href="./" title="Preferences">
       Preferences
     </a>
-<nav aria-label="Table of contents" class="md-nav md-nav--secondary">
-<label class="md-nav__title" for="__toc">
-<span class="md-nav__icon md-icon">
-<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M20,11V13H8L13.5,18.5L12.08,19.92L4.16,12L12.08,4.08L13.5,5.5L8,11H20Z"></path></svg>
-</span>
-      Table of contents
-    </label>
-<ul class="md-nav__list" data-md-scrollfix="">
-<li class="md-nav__item">
-<a class="md-nav__link" href="#async_spotify.api.preferences">
-    async_spotify.api.preferences
-  </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="#async_spotify.api.preferences.Preferences">
-    Preferences
-  </a>
-<nav aria-label="Preferences" class="md-nav">
-<ul class="md-nav__list">
-<li class="md-nav__item">
-<a class="md-nav__link" href="#async_spotify.api.preferences.Preferences.valid">
-    valid
-  </a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#async_spotify.api.preferences.Preferences.__eq__">
-    __eq__()
-  </a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#async_spotify.api.preferences.Preferences.__init__">
-    __init__()
-  </a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#async_spotify.api.preferences.Preferences.load_from_docker_secret">
-    load_from_docker_secret()
-  </a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#async_spotify.api.preferences.Preferences.load_from_env">
-    load_from_env()
-  </a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#async_spotify.api.preferences.Preferences.save_preferences_to_evn">
-    save_preferences_to_evn()
-  </a>
-</li>
-</ul>
-</nav>
-</li>
-</ul>
-</nav>
+<a class="md-nav__link" href="../authentification/" title="Authentification">
+      Authentification
+    </a>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="../spotify_errors/" title="Spotify Errors">
@@ -218,78 +160,52 @@
       Endpoints
     </a>
 </li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="../authorization_token/" title="Authorization Token">
-      Authorization Token
-    </a>
-</li>
 </ul>
 </nav>
 </li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="../../licence/" title="Licence">
-      Licence
-    </a>
-</li>
-</ul>
-</nav>
-</div>
-</div>
-</div>
-<div class="md-sidebar md-sidebar--secondary" data-md-component="toc">
-<div class="md-sidebar__scrollwrap">
-<div class="md-sidebar__inner">
-<nav aria-label="Table of contents" class="md-nav md-nav--secondary">
-<label class="md-nav__title" for="__toc">
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" data-md-toggle="nav-4" id="nav-4" type="checkbox"/>
+<label class="md-nav__link" for="nav-4">
+      Private API
+      <span class="md-nav__icon md-icon">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M8.59,16.58L13.17,12L8.59,7.41L10,6L16,12L10,18L8.59,16.58Z"></path></svg>
+</span>
+</label>
+<nav aria-label="Private API" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="nav-4">
 <span class="md-nav__icon md-icon">
 <svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M20,11V13H8L13.5,18.5L12.08,19.92L4.16,12L12.08,4.08L13.5,5.5L8,11H20Z"></path></svg>
 </span>
-      Table of contents
-    </label>
+        Private API
+      </label>
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
-<a class="md-nav__link" href="#async_spotify.api.preferences">
-    async_spotify.api.preferences
-  </a>
+<a class="md-nav__link" href="../../private_api/request_handler/" title="Request Handler">
+      Request Handler
+    </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="#async_spotify.api.preferences.Preferences">
-    Preferences
-  </a>
-<nav aria-label="Preferences" class="md-nav">
-<ul class="md-nav__list">
-<li class="md-nav__item">
-<a class="md-nav__link" href="#async_spotify.api.preferences.Preferences.valid">
-    valid
-  </a>
+<a class="md-nav__link" href="../../private_api/status_classes/" title="Status Classes">
+      Status Classes
+    </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="#async_spotify.api.preferences.Preferences.__eq__">
-    __eq__()
-  </a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#async_spotify.api.preferences.Preferences.__init__">
-    __init__()
-  </a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#async_spotify.api.preferences.Preferences.load_from_docker_secret">
-    load_from_docker_secret()
-  </a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#async_spotify.api.preferences.Preferences.load_from_env">
-    load_from_env()
-  </a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#async_spotify.api.preferences.Preferences.save_preferences_to_evn">
-    save_preferences_to_evn()
-  </a>
+<a class="md-nav__link" href="../../private_api/url/" title="URLS">
+      URLS
+    </a>
 </li>
 </ul>
 </nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../TEST.md" title="Run Tests">
+      Run Tests
+    </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../LICENCE/" title="Licence">
+      Licence
+    </a>
 </li>
 </ul>
 </nav>
@@ -302,446 +218,6 @@
 <svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M20.71,7.04C21.1,6.65 21.1,6 20.71,5.63L18.37,3.29C18,2.9 17.35,2.9 16.96,3.29L15.12,5.12L18.87,8.87M3,17.25V21H6.75L17.81,9.93L14.06,6.18L3,17.25Z"></path></svg>
 </a>
 <h1>Preferences</h1>
-<div class="doc doc-object doc-module">
-<h2 class="hidden-toc" href="#async_spotify.api.preferences" id="async_spotify.api.preferences" style="visibility: hidden; width: 0; height: 0;">
-<a class="headerlink" href="#async_spotify.api.preferences" title="Permanent link">¶</a></h2>
-<div class="doc doc-contents first">
-<p>Preferences for the spotify api</p>
-<div class="doc doc-children">
-<div class="doc doc-object doc-class">
-<h2 class="doc doc-heading" id="async_spotify.api.preferences.Preferences">
-<code>Preferences</code>
-<a class="headerlink" href="#async_spotify.api.preferences.Preferences" title="Permanent link">¶</a></h2>
-<div class="doc doc-contents">
-<p>A Class with only the application information in it</p>
-<div class="admonition notes">
-<p class="admonition-title">Notes</p>
-<p><strong>Scopes available:</strong>
-<div class="highlight">
-<pre><span></span><code>ugc-image-upload
-user-read-playback-state
-user-read-email
-playlist-read-collaborative
-user-modify-playback-state
-user-read-private
-playlist-modify-public
-user-library-modify
-user-top-read
-user-read-currently-playing
-playlist-read-private
-user-follow-read app-remote-control
-user-read-recently-played
-playlist-modify-private
-user-follow-modify
-user-library-read
-</code></pre>
-</div>
-</p>
-</div>
-<div class="doc doc-children">
-<div class="doc doc-object doc-attribute">
-<h3 class="doc doc-heading" id="async_spotify.api.preferences.Preferences.valid">
-<code class="highlight">
-valid: <span class="nb">bool</span> </code>
-<span class="doc doc-properties">
-<small class="doc doc-property doc-property-property"><code>property</code></small>
-<small class="doc doc-property doc-property-readonly"><code>readonly</code></small>
-</span>
-<a class="headerlink" href="#async_spotify.api.preferences.Preferences.valid" title="Permanent link">¶</a></h3>
-<div class="doc doc-contents">
-<p>Validate if the preferences can be used. This will only check if the values of the preferences are not empty.</p>
-<p><strong>Returns:</strong></p>
-<table>
-<thead>
-<tr>
-<th>Type</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><code>bool</code></td>
-<td>
-<p>Are the preferences valid</p>
-</td>
-</tr>
-</tbody>
-</table>
-</div>
-</div>
-<div class="doc doc-object doc-method">
-<h3 class="doc doc-heading" id="async_spotify.api.preferences.Preferences.__eq__">
-<code class="highlight language-python">
-__eq__<span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">other</span><span class="p">)</span> </code>
-<span class="doc doc-properties">
-<small class="doc doc-property doc-property-special"><code>special</code></small>
-</span>
-<a class="headerlink" href="#async_spotify.api.preferences.Preferences.__eq__" title="Permanent link">¶</a></h3>
-<div class="doc doc-contents">
-<p>Support for equal assertion</p>
-<p><strong>Parameters:</strong></p>
-<table>
-<thead>
-<tr>
-<th>Name</th>
-<th>Type</th>
-<th>Description</th>
-<th>Default</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><code>other</code></td>
-<td><code></code></td>
-<td>
-<p>The other object the comparison is made to</p>
-</td>
-<td><em>required</em></td>
-</tr>
-</tbody>
-</table>
-<p><strong>Returns:</strong></p>
-<table>
-<thead>
-<tr>
-<th>Type</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><code>bool</code></td>
-<td>
-<p>Is the content of the objects equal</p>
-</td>
-</tr>
-</tbody>
-</table>
-<details class="quote">
-<summary>Source code in <code>async_spotify/api/preferences.py</code></summary>
-<table class="highlighttable">
-<tr>
-<td class="linenos">
-<div class="linenodiv">
-<pre><span></span>139
-140
-141
-142
-143
-144
-145
-146
-147
-148
-149</pre>
-</div>
-</td>
-<td class="code">
-<div class="highlight">
-<pre><span></span><code><span class="k">def</span> <span class="fm">__eq__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">other</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">bool</span><span class="p">:</span>
-    <span class="sd">"""</span>
-<span class="sd">    Support for equal assertion</span>
-
-<span class="sd">    Args:</span>
-<span class="sd">        other: The other object the comparison is made to</span>
-
-<span class="sd">    Returns:</span>
-<span class="sd">        Is the content of the objects equal</span>
-<span class="sd">    """</span>
-    <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="vm">__dict__</span> <span class="o">==</span> <span class="n">other</span><span class="o">.</span><span class="vm">__dict__</span>
-</code></pre>
-</div>
-</td>
-</tr>
-</table>
-</details>
-</div>
-</div>
-<div class="doc doc-object doc-method">
-<h3 class="doc doc-heading" id="async_spotify.api.preferences.Preferences.__init__">
-<code class="highlight language-python">
-__init__<span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">application_id</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">application_secret</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">scopes</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">redirect_url</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span> </code>
-<span class="doc doc-properties">
-<small class="doc doc-property doc-property-special"><code>special</code></small>
-</span>
-<a class="headerlink" href="#async_spotify.api.preferences.Preferences.__init__" title="Permanent link">¶</a></h3>
-<div class="doc doc-contents">
-<p>Create a new Spotify Preferences Object</p>
-<p><strong>Parameters:</strong></p>
-<table>
-<thead>
-<tr>
-<th>Name</th>
-<th>Type</th>
-<th>Description</th>
-<th>Default</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><code>application_id</code></td>
-<td><code>str</code></td>
-<td>
-<p>The id of the application (Has to be set to use the object)</p>
-</td>
-<td><code>None</code></td>
-</tr>
-<tr>
-<td><code>application_secret</code></td>
-<td><code>str</code></td>
-<td>
-<p>The secret of the application (Has to be set to use the object)</p>
-</td>
-<td><code>None</code></td>
-</tr>
-<tr>
-<td><code>scopes</code></td>
-<td><code>List[str]</code></td>
-<td>
-<p>The spotify scopes you app will request</p>
-</td>
-<td><code>None</code></td>
-</tr>
-<tr>
-<td><code>redirect_url</code></td>
-<td><code>str</code></td>
-<td>
-<p>The redirect url spotify will referee the user after authentication</p>
-</td>
-<td><code>None</code></td>
-</tr>
-</tbody>
-</table>
-<details class="quote">
-<summary>Source code in <code>async_spotify/api/preferences.py</code></summary>
-<table class="highlighttable">
-<tr>
-<td class="linenos">
-<div class="linenodiv">
-<pre><span></span>42
-43
-44
-45
-46
-47
-48
-49
-50
-51
-52
-53
-54
-55
-56</pre>
-</div>
-</td>
-<td class="code">
-<div class="highlight">
-<pre><span></span><code><span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">application_id</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> <span class="n">application_secret</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> <span class="n">scopes</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
-             <span class="n">redirect_url</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="kc">None</span><span class="p">):</span>
-    <span class="sd">"""</span>
-<span class="sd">    Create a new Spotify Preferences Object</span>
-
-<span class="sd">    Args:</span>
-<span class="sd">        application_id: The id of the application (Has to be set to use the object)</span>
-<span class="sd">        application_secret: The secret of the application (Has to be set to use the object)</span>
-<span class="sd">        scopes: The spotify scopes you app will request</span>
-<span class="sd">        redirect_url: The redirect url spotify will referee the user after authentication</span>
-<span class="sd">    """</span>
-    <span class="bp">self</span><span class="o">.</span><span class="n">application_id</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="n">application_id</span>
-    <span class="bp">self</span><span class="o">.</span><span class="n">application_secret</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="n">application_secret</span>
-    <span class="bp">self</span><span class="o">.</span><span class="n">scopes</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="n">scopes</span>
-    <span class="bp">self</span><span class="o">.</span><span class="n">redirect_url</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="n">redirect_url</span>
-</code></pre>
-</div>
-</td>
-</tr>
-</table>
-</details>
-</div>
-</div>
-<div class="doc doc-object doc-method">
-<h3 class="doc doc-heading" id="async_spotify.api.preferences.Preferences.load_from_docker_secret">
-<code class="highlight language-python">
-load_from_docker_secret<span class="p">(</span><span class="bp">self</span><span class="p">)</span> </code>
-<a class="headerlink" href="#async_spotify.api.preferences.Preferences.load_from_docker_secret" title="Permanent link">¶</a></h3>
-<div class="doc doc-contents">
-<p>Loads the Preferences from docker secret.
-The variable names have to be the same as the property name.</p>
-<div class="admonition important">
-<p class="admonition-title">Important</p>
-<p>Scopes has to be a string separated by ' '</p>
-</div>
-<details class="quote">
-<summary>Source code in <code>async_spotify/api/preferences.py</code></summary>
-<table class="highlighttable">
-<tr>
-<td class="linenos">
-<div class="linenodiv">
-<pre><span></span>73
-74
-75
-76
-77
-78
-79
-80
-81
-82
-83
-84
-85
-86</pre>
-</div>
-</td>
-<td class="code">
-<div class="highlight">
-<pre><span></span><code><span class="k">def</span> <span class="nf">load_from_docker_secret</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
-    <span class="sd">"""</span>
-<span class="sd">    Loads the Preferences from docker secret.</span>
-<span class="sd">    The variable names have to be the same as the property name.</span>
-
-<span class="sd">    Important:</span>
-<span class="sd">        Scopes has to be a string separated by ' '</span>
-<span class="sd">    """</span>
-    <span class="bp">self</span><span class="o">.</span><span class="n">application_id</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_get_docker_secret</span><span class="p">(</span><span class="s1">'application_id'</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">application_id</span><span class="p">)</span>
-    <span class="bp">self</span><span class="o">.</span><span class="n">application_secret</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_get_docker_secret</span><span class="p">(</span><span class="s1">'application_secret'</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">application_secret</span><span class="p">)</span>
-    <span class="bp">self</span><span class="o">.</span><span class="n">redirect_url</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_get_docker_secret</span><span class="p">(</span><span class="s1">'redirect_url'</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">redirect_url</span><span class="p">)</span>
-
-    <span class="n">scopes</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_get_docker_secret</span><span class="p">(</span><span class="s1">'scopes'</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">scopes</span><span class="p">)</span>
-    <span class="bp">self</span><span class="o">.</span><span class="n">scopes</span> <span class="o">=</span> <span class="n">scopes</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">" "</span><span class="p">)</span> <span class="k">if</span> <span class="n">scopes</span> <span class="ow">and</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">scopes</span><span class="p">,</span> <span class="nb">list</span><span class="p">)</span> <span class="k">else</span> <span class="bp">self</span><span class="o">.</span><span class="n">scopes</span>
-</code></pre>
-</div>
-</td>
-</tr>
-</table>
-</details>
-</div>
-</div>
-<div class="doc doc-object doc-method">
-<h3 class="doc doc-heading" id="async_spotify.api.preferences.Preferences.load_from_env">
-<code class="highlight language-python">
-load_from_env<span class="p">(</span><span class="bp">self</span><span class="p">)</span> </code>
-<a class="headerlink" href="#async_spotify.api.preferences.Preferences.load_from_env" title="Permanent link">¶</a></h3>
-<div class="doc doc-contents">
-<p>Load the Preferences from the environment. The variable names have to be the same as the property name.</p>
-<div class="admonition important">
-<p class="admonition-title">Important</p>
-<p>Scopes has to be a string separated by ' '</p>
-</div>
-<details class="quote">
-<summary>Source code in <code>async_spotify/api/preferences.py</code></summary>
-<table class="highlighttable">
-<tr>
-<td class="linenos">
-<div class="linenodiv">
-<pre><span></span>58
-59
-60
-61
-62
-63
-64
-65
-66
-67
-68
-69
-70
-71</pre>
-</div>
-</td>
-<td class="code">
-<div class="highlight">
-<pre><span></span><code><span class="k">def</span> <span class="nf">load_from_env</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
-    <span class="sd">"""</span>
-<span class="sd">    Load the Preferences from the environment. The variable names have to be the same as the property name.</span>
-
-<span class="sd">    Important:</span>
-<span class="sd">        Scopes has to be a string separated by ' '</span>
-<span class="sd">    """</span>
-
-    <span class="bp">self</span><span class="o">.</span><span class="n">application_id</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">environ</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">"application_id"</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">application_id</span><span class="p">)</span>
-    <span class="bp">self</span><span class="o">.</span><span class="n">application_secret</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">environ</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">"application_secret"</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">application_secret</span><span class="p">)</span>
-    <span class="bp">self</span><span class="o">.</span><span class="n">redirect_url</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">environ</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">"redirect_url"</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">redirect_url</span><span class="p">)</span>
-
-    <span class="n">scopes</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">environ</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">"scopes"</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">scopes</span><span class="p">)</span>
-    <span class="bp">self</span><span class="o">.</span><span class="n">scopes</span> <span class="o">=</span> <span class="n">scopes</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">" "</span><span class="p">)</span> <span class="k">if</span> <span class="n">scopes</span> <span class="k">else</span> <span class="bp">self</span><span class="o">.</span><span class="n">scopes</span>
-</code></pre>
-</div>
-</td>
-</tr>
-</table>
-</details>
-</div>
-</div>
-<div class="doc doc-object doc-method">
-<h3 class="doc doc-heading" id="async_spotify.api.preferences.Preferences.save_preferences_to_evn">
-<code class="highlight language-python">
-save_preferences_to_evn<span class="p">(</span><span class="bp">self</span><span class="p">)</span> </code>
-<a class="headerlink" href="#async_spotify.api.preferences.Preferences.save_preferences_to_evn" title="Permanent link">¶</a></h3>
-<div class="doc doc-contents">
-<p>Takes the preferences saved in the object and saves them as os environment variables</p>
-<div class="admonition notes">
-<p class="admonition-title">Notes</p>
-<p>This will however not be permanent but only last for one session</p>
-</div>
-<details class="quote">
-<summary>Source code in <code>async_spotify/api/preferences.py</code></summary>
-<table class="highlighttable">
-<tr>
-<td class="linenos">
-<div class="linenodiv">
-<pre><span></span> 88
- 89
- 90
- 91
- 92
- 93
- 94
- 95
- 96
- 97
- 98
- 99
-100
-101
-102
-103</pre>
-</div>
-</td>
-<td class="code">
-<div class="highlight">
-<pre><span></span><code><span class="k">def</span> <span class="nf">save_preferences_to_evn</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
-    <span class="sd">"""</span>
-<span class="sd">    Takes the preferences saved in the object and saves them as os environment variables</span>
-
-<span class="sd">    Notes:</span>
-<span class="sd">        This will however not be permanent but only last for one session</span>
-<span class="sd">    """</span>
-
-    <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">application_id</span><span class="p">:</span>
-        <span class="n">os</span><span class="o">.</span><span class="n">environ</span><span class="p">[</span><span class="s2">"application_id"</span><span class="p">]</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">application_id</span>
-    <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">application_secret</span><span class="p">:</span>
-        <span class="n">os</span><span class="o">.</span><span class="n">environ</span><span class="p">[</span><span class="s2">"application_secret"</span><span class="p">]</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">application_secret</span>
-    <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">scopes</span><span class="p">:</span>
-        <span class="n">os</span><span class="o">.</span><span class="n">environ</span><span class="p">[</span><span class="s2">"scopes"</span><span class="p">]</span> <span class="o">=</span> <span class="s2">" "</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">scopes</span><span class="p">)</span>
-    <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">redirect_url</span><span class="p">:</span>
-        <span class="n">os</span><span class="o">.</span><span class="n">environ</span><span class="p">[</span><span class="s2">"redirect_url"</span><span class="p">]</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">redirect_url</span>
-</code></pre>
-</div>
-</td>
-</tr>
-</table>
-</details>
-</div>
-</div>
-</div>
-</div>
-</div>
-</div>
-</div>
-</div>
 </article>
 </div>
 </div>
@@ -749,7 +225,7 @@ save_preferences_to_evn<span class="p">(</span><span class="bp">self</span><span
 <footer class="md-footer">
 <div class="md-footer-nav">
 <nav aria-label="Footer" class="md-footer-nav__inner md-grid">
-<a class="md-footer-nav__link md-footer-nav__link--prev" href="../spotify_api_client/" rel="prev" title="SpotifyApiClient">
+<a class="md-footer-nav__link md-footer-nav__link--prev" href="../spotify_api_client/" rel="prev" title="Spotify Api Client">
 <div class="md-footer-nav__button md-icon">
 <svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M20,11V13H8L13.5,18.5L12.08,19.92L4.16,12L12.08,4.08L13.5,5.5L8,11H20Z"></path></svg>
 </div>
@@ -758,17 +234,17 @@ save_preferences_to_evn<span class="p">(</span><span class="bp">self</span><span
 <span class="md-footer-nav__direction">
                   Previous
                 </span>
-                SpotifyApiClient
+                Spotify Api Client
               </div>
 </div>
 </a>
-<a class="md-footer-nav__link md-footer-nav__link--next" href="../spotify_errors/" rel="next" title="Spotify Errors">
+<a class="md-footer-nav__link md-footer-nav__link--next" href="../authentification/" rel="next" title="Authentification">
 <div class="md-footer-nav__title">
 <div class="md-ellipsis">
 <span class="md-footer-nav__direction">
                   Next
                 </span>
-                Spotify Errors
+                Authentification
               </div>
 </div>
 <div class="md-footer-nav__button md-icon">
@@ -790,14 +266,14 @@ save_preferences_to_evn<span class="p">(</span><span class="bp">self</span><span
 </div>
 </footer>
 </div>
-<script src="../../assets/javascripts/vendor.f45d2d8d.min.js"></script>
-<script src="../../assets/javascripts/bundle.74d0b805.min.js"></script><script id="__lang" type="application/json">{"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents"}</script>
+<script src="../../assets/javascripts/vendor.c51dfa35.min.js"></script>
+<script src="../../assets/javascripts/bundle.eaaa3931.min.js"></script><script id="__lang" type="application/json">{"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents"}</script>
 <script>
         app = initialize({
           base: "../..",
           features: [],
           search: Object.assign({
-            worker: "../../assets/javascripts/worker/search.7f7c8775.min.js"
+            worker: "../../assets/javascripts/worker/search.58d22e8e.min.js"
           }, typeof search !== "undefined" && search)
         })
       </script>

@@ -1,35 +1,47 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"><url>
      <loc>https://github.com/HuiiBuh/AsyncSpotify/</loc>
-     <lastmod>2020-04-17</lastmod>
+     <lastmod>2020-04-20</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
-     <loc>https://github.com/HuiiBuh/AsyncSpotify/examples/</loc>
-     <lastmod>2020-04-17</lastmod>
+     <loc>https://github.com/HuiiBuh/AsyncSpotify/EXAMPLES/</loc>
+     <lastmod>2020-04-20</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://github.com/HuiiBuh/AsyncSpotify/public_api/spotify_api_client/</loc>
-     <lastmod>2020-04-17</lastmod>
+     <lastmod>2020-04-20</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://github.com/HuiiBuh/AsyncSpotify/public_api/preferences/</loc>
-     <lastmod>2020-04-17</lastmod>
+     <lastmod>2020-04-20</lastmod>
+     <changefreq>daily</changefreq>
+    </url><url>
+     <loc>https://github.com/HuiiBuh/AsyncSpotify/public_api/authentification/</loc>
+     <lastmod>2020-04-20</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://github.com/HuiiBuh/AsyncSpotify/public_api/spotify_errors/</loc>
-     <lastmod>2020-04-17</lastmod>
+     <lastmod>2020-04-20</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://github.com/HuiiBuh/AsyncSpotify/public_api/endpoints/</loc>
-     <lastmod>2020-04-17</lastmod>
+     <lastmod>2020-04-20</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
-     <loc>https://github.com/HuiiBuh/AsyncSpotify/public_api/authorization_token/</loc>
-     <lastmod>2020-04-17</lastmod>
+     <loc>https://github.com/HuiiBuh/AsyncSpotify/private_api/request_handler/</loc>
+     <lastmod>2020-04-20</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
-     <loc>https://github.com/HuiiBuh/AsyncSpotify/licence/</loc>
-     <lastmod>2020-04-17</lastmod>
+     <loc>https://github.com/HuiiBuh/AsyncSpotify/private_api/status_classes/</loc>
+     <lastmod>2020-04-20</lastmod>
+     <changefreq>daily</changefreq>
+    </url><url>
+     <loc>https://github.com/HuiiBuh/AsyncSpotify/private_api/url/</loc>
+     <lastmod>2020-04-20</lastmod>
+     <changefreq>daily</changefreq>
+    </url><url>
+     <loc>https://github.com/HuiiBuh/AsyncSpotify/LICENCE/</loc>
+     <lastmod>2020-04-20</lastmod>
      <changefreq>daily</changefreq>
     </url>
 </urlset>

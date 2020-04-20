@@ -6,15 +6,15 @@
 <meta charset="utf-8"/>
 <meta content="width=device-width,initial-scale=1" name="viewport"/>
 <meta content="Async wrapper in python for the spotify api" name="description"/>
-<link href="https://github.com/HuiiBuh/AsyncSpotify/examples/" rel="canonical"/>
+<link href="https://github.com/HuiiBuh/AsyncSpotify/private_api/request_handler/" rel="canonical"/>
 <link href="https://upload.wikimedia.org/wikipedia/commons/9/9b/Font_Awesome_5_brands_spotify.svg" rel="shortcut icon"/>
-<meta content="mkdocs-1.1, mkdocs-material-5.0.0" name="generator"/>
-<title>Examples - Async Spotify</title>
-<link href="../assets/stylesheets/main.c3000690.min.css" rel="stylesheet"/>
+<meta content="mkdocs-1.1, mkdocs-material-5.1.1" name="generator"/>
+<title>Request Handler - Async Spotify</title>
+<link href="../../assets/stylesheets/main.a676eddb.min.css" rel="stylesheet"/>
 <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
 <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700%7CRoboto+Mono&amp;display=fallback" rel="stylesheet"/>
 <style>body,input{font-family:"Roboto",-apple-system,BlinkMacSystemFont,Helvetica,Arial,sans-serif}code,kbd,pre{font-family:"Roboto Mono",SFMono-Regular,Consolas,Menlo,monospace}</style>
-<link href="../custom.css" rel="stylesheet"/>
+<link href="../../custom.css" rel="stylesheet"/>
 </head>
 <body dir="ltr">
 <input autocomplete="off" class="md-toggle" data-md-toggle="drawer" id="__drawer" type="checkbox"/>
@@ -39,7 +39,7 @@
           </span>
 <span class="md-header-nav__topic md-ellipsis">
             
-              Examples
+              Request Handler
             
           </span>
 </div>
@@ -109,13 +109,12 @@
 </div>
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
-<a class="md-nav__link" href=".." title="Overview">
+<a class="md-nav__link" href="../.." title="Overview">
       Overview
     </a>
 </li>
-<li class="md-nav__item md-nav__item--active">
-<input class="md-nav__toggle md-toggle" data-md-toggle="toc" id="__toc" type="checkbox"/>
-<a class="md-nav__link md-nav__link--active" href="./" title="Examples">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../EXAMPLES/" title="Examples">
       Examples
     </a>
 </li>
@@ -136,35 +135,75 @@
       </label>
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
-<a class="md-nav__link" href="../public_api/spotify_api_client/" title="SpotifyApiClient">
-      SpotifyApiClient
+<a class="md-nav__link" href="../../public_api/spotify_api_client/" title="Spotify Api Client">
+      Spotify Api Client
     </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../public_api/preferences/" title="Preferences">
+<a class="md-nav__link" href="../../public_api/preferences/" title="Preferences">
       Preferences
     </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../public_api/spotify_errors/" title="Spotify Errors">
+<a class="md-nav__link" href="../../public_api/authentification/" title="Authentification">
+      Authentification
+    </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../public_api/spotify_errors/" title="Spotify Errors">
       Spotify Errors
     </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../public_api/endpoints/" title="Endpoints">
+<a class="md-nav__link" href="../../public_api/endpoints/" title="Endpoints">
       Endpoints
     </a>
 </li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--active md-nav__item--nested">
+<input checked="" class="md-nav__toggle md-toggle" data-md-toggle="nav-4" id="nav-4" type="checkbox"/>
+<label class="md-nav__link" for="nav-4">
+      Private API
+      <span class="md-nav__icon md-icon">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M8.59,16.58L13.17,12L8.59,7.41L10,6L16,12L10,18L8.59,16.58Z"></path></svg>
+</span>
+</label>
+<nav aria-label="Private API" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="nav-4">
+<span class="md-nav__icon md-icon">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M20,11V13H8L13.5,18.5L12.08,19.92L4.16,12L12.08,4.08L13.5,5.5L8,11H20Z"></path></svg>
+</span>
+        Private API
+      </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item md-nav__item--active">
+<input class="md-nav__toggle md-toggle" data-md-toggle="toc" id="__toc" type="checkbox"/>
+<a class="md-nav__link md-nav__link--active" href="./" title="Request Handler">
+      Request Handler
+    </a>
+</li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../public_api/authorization_token/" title="Authorization Token">
-      Authorization Token
+<a class="md-nav__link" href="../status_classes/" title="Status Classes">
+      Status Classes
+    </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../url/" title="URLS">
+      URLS
     </a>
 </li>
 </ul>
 </nav>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../licence/" title="Licence">
+<a class="md-nav__link" href="../../TEST.md" title="Run Tests">
+      Run Tests
+    </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../LICENCE/" title="Licence">
       Licence
     </a>
 </li>
@@ -175,10 +214,10 @@
 </div>
 <div class="md-content">
 <article class="md-content__inner md-typeset">
-<a class="md-content__button md-icon" href="https://github.com/HuiiBuh/AsyncSpotify/edit/master/docs/examples.md" title="Edit this page">
+<a class="md-content__button md-icon" href="https://github.com/HuiiBuh/AsyncSpotify/edit/master/docs/private_api/request_handler.md" title="Edit this page">
 <svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M20.71,7.04C21.1,6.65 21.1,6 20.71,5.63L18.37,3.29C18,2.9 17.35,2.9 16.96,3.29L15.12,5.12L18.87,8.87M3,17.25V21H6.75L17.81,9.93L14.06,6.18L3,17.25Z"></path></svg>
 </a>
-<h1>Examples</h1>
+<h1>Request Handler</h1>
 </article>
 </div>
 </div>
@@ -186,7 +225,7 @@
 <footer class="md-footer">
 <div class="md-footer-nav">
 <nav aria-label="Footer" class="md-footer-nav__inner md-grid">
-<a class="md-footer-nav__link md-footer-nav__link--prev" href=".." rel="prev" title="Overview">
+<a class="md-footer-nav__link md-footer-nav__link--prev" href="../../public_api/endpoints/" rel="prev" title="Endpoints">
 <div class="md-footer-nav__button md-icon">
 <svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M20,11V13H8L13.5,18.5L12.08,19.92L4.16,12L12.08,4.08L13.5,5.5L8,11H20Z"></path></svg>
 </div>
@@ -195,17 +234,17 @@
 <span class="md-footer-nav__direction">
                   Previous
                 </span>
-                Overview
+                Endpoints
               </div>
 </div>
 </a>
-<a class="md-footer-nav__link md-footer-nav__link--next" href="../public_api/spotify_api_client/" rel="next" title="SpotifyApiClient">
+<a class="md-footer-nav__link md-footer-nav__link--next" href="../status_classes/" rel="next" title="Status Classes">
 <div class="md-footer-nav__title">
 <div class="md-ellipsis">
 <span class="md-footer-nav__direction">
                   Next
                 </span>
-                SpotifyApiClient
+                Status Classes
               </div>
 </div>
 <div class="md-footer-nav__button md-icon">
@@ -227,14 +266,14 @@
 </div>
 </footer>
 </div>
-<script src="../assets/javascripts/vendor.f45d2d8d.min.js"></script>
-<script src="../assets/javascripts/bundle.74d0b805.min.js"></script><script id="__lang" type="application/json">{"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents"}</script>
+<script src="../../assets/javascripts/vendor.c51dfa35.min.js"></script>
+<script src="../../assets/javascripts/bundle.eaaa3931.min.js"></script><script id="__lang" type="application/json">{"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents"}</script>
 <script>
         app = initialize({
-          base: "..",
+          base: "../..",
           features: [],
           search: Object.assign({
-            worker: "../assets/javascripts/worker/search.7f7c8775.min.js"
+            worker: "../../assets/javascripts/worker/search.58d22e8e.min.js"
           }, typeof search !== "undefined" && search)
         })
       </script>

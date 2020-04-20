@@ -8,9 +8,9 @@
 <meta content="Async wrapper in python for the spotify api" name="description"/>
 <link href="https://github.com/HuiiBuh/AsyncSpotify/public_api/spotify_errors/" rel="canonical"/>
 <link href="https://upload.wikimedia.org/wikipedia/commons/9/9b/Font_Awesome_5_brands_spotify.svg" rel="shortcut icon"/>
-<meta content="mkdocs-1.1, mkdocs-material-5.0.0" name="generator"/>
+<meta content="mkdocs-1.1, mkdocs-material-5.1.1" name="generator"/>
 <title>Spotify Errors - Async Spotify</title>
-<link href="../../assets/stylesheets/main.c3000690.min.css" rel="stylesheet"/>
+<link href="../../assets/stylesheets/main.a676eddb.min.css" rel="stylesheet"/>
 <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
 <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700%7CRoboto+Mono&amp;display=fallback" rel="stylesheet"/>
 <style>body,input{font-family:"Roboto",-apple-system,BlinkMacSystemFont,Helvetica,Arial,sans-serif}code,kbd,pre{font-family:"Roboto Mono",SFMono-Regular,Consolas,Menlo,monospace}</style>
@@ -21,9 +21,6 @@
 <input autocomplete="off" class="md-toggle" data-md-toggle="search" id="__search" type="checkbox"/>
 <label class="md-overlay" for="__drawer"></label>
 <div data-md-component="skip">
-<a class="md-skip" href="#async_spotify.spotify_errors">
-          Skip to content
-        </a>
 </div>
 <div data-md-component="announce">
 </div>
@@ -117,7 +114,7 @@
     </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../examples/" title="Examples">
+<a class="md-nav__link" href="../../EXAMPLES/" title="Examples">
       Examples
     </a>
 </li>
@@ -138,8 +135,8 @@
       </label>
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
-<a class="md-nav__link" href="../spotify_api_client/" title="SpotifyApiClient">
-      SpotifyApiClient
+<a class="md-nav__link" href="../spotify_api_client/" title="Spotify Api Client">
+      Spotify Api Client
     </a>
 </li>
 <li class="md-nav__item">
@@ -147,129 +144,68 @@
       Preferences
     </a>
 </li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../authentification/" title="Authentification">
+      Authentification
+    </a>
+</li>
 <li class="md-nav__item md-nav__item--active">
 <input class="md-nav__toggle md-toggle" data-md-toggle="toc" id="__toc" type="checkbox"/>
-<label class="md-nav__link md-nav__link--active" for="__toc">
-        Spotify Errors
-        <span class="md-nav__icon md-icon">
-<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M3,9H17V7H3V9M3,13H17V11H3V13M3,17H17V15H3V17M19,17H21V15H19V17M19,7V9H21V7H19M19,13H21V11H19V13Z"></path></svg>
-</span>
-</label>
 <a class="md-nav__link md-nav__link--active" href="./" title="Spotify Errors">
       Spotify Errors
     </a>
-<nav aria-label="Table of contents" class="md-nav md-nav--secondary">
-<label class="md-nav__title" for="__toc">
-<span class="md-nav__icon md-icon">
-<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M20,11V13H8L13.5,18.5L12.08,19.92L4.16,12L12.08,4.08L13.5,5.5L8,11H20Z"></path></svg>
-</span>
-      Table of contents
-    </label>
-<ul class="md-nav__list" data-md-scrollfix="">
-<li class="md-nav__item">
-<a class="md-nav__link" href="#async_spotify.spotify_errors">
-    async_spotify.spotify_errors
-  </a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#async_spotify.spotify_errors.RateLimitExceeded">
-    RateLimitExceeded
-  </a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#async_spotify.spotify_errors.SpotifyAPIError">
-    SpotifyAPIError
-  </a>
-<nav aria-label="SpotifyAPIError" class="md-nav">
-<ul class="md-nav__list">
-<li class="md-nav__item">
-<a class="md-nav__link" href="#async_spotify.spotify_errors.SpotifyAPIError.get_json">
-    get_json()
-  </a>
-</li>
-</ul>
-</nav>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#async_spotify.spotify_errors.SpotifyError">
-    SpotifyError
-  </a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#async_spotify.spotify_errors.TokenExpired">
-    TokenExpired
-  </a>
-</li>
-</ul>
-</nav>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="../endpoints/" title="Endpoints">
       Endpoints
     </a>
 </li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="../authorization_token/" title="Authorization Token">
-      Authorization Token
-    </a>
-</li>
 </ul>
 </nav>
 </li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="../../licence/" title="Licence">
-      Licence
-    </a>
-</li>
-</ul>
-</nav>
-</div>
-</div>
-</div>
-<div class="md-sidebar md-sidebar--secondary" data-md-component="toc">
-<div class="md-sidebar__scrollwrap">
-<div class="md-sidebar__inner">
-<nav aria-label="Table of contents" class="md-nav md-nav--secondary">
-<label class="md-nav__title" for="__toc">
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" data-md-toggle="nav-4" id="nav-4" type="checkbox"/>
+<label class="md-nav__link" for="nav-4">
+      Private API
+      <span class="md-nav__icon md-icon">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M8.59,16.58L13.17,12L8.59,7.41L10,6L16,12L10,18L8.59,16.58Z"></path></svg>
+</span>
+</label>
+<nav aria-label="Private API" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="nav-4">
 <span class="md-nav__icon md-icon">
 <svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M20,11V13H8L13.5,18.5L12.08,19.92L4.16,12L12.08,4.08L13.5,5.5L8,11H20Z"></path></svg>
 </span>
-      Table of contents
-    </label>
+        Private API
+      </label>
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
-<a class="md-nav__link" href="#async_spotify.spotify_errors">
-    async_spotify.spotify_errors
-  </a>
+<a class="md-nav__link" href="../../private_api/request_handler/" title="Request Handler">
+      Request Handler
+    </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="#async_spotify.spotify_errors.RateLimitExceeded">
-    RateLimitExceeded
-  </a>
+<a class="md-nav__link" href="../../private_api/status_classes/" title="Status Classes">
+      Status Classes
+    </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="#async_spotify.spotify_errors.SpotifyAPIError">
-    SpotifyAPIError
-  </a>
-<nav aria-label="SpotifyAPIError" class="md-nav">
-<ul class="md-nav__list">
-<li class="md-nav__item">
-<a class="md-nav__link" href="#async_spotify.spotify_errors.SpotifyAPIError.get_json">
-    get_json()
-  </a>
+<a class="md-nav__link" href="../../private_api/url/" title="URLS">
+      URLS
+    </a>
 </li>
 </ul>
 </nav>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="#async_spotify.spotify_errors.SpotifyError">
-    SpotifyError
-  </a>
+<a class="md-nav__link" href="../../TEST.md" title="Run Tests">
+      Run Tests
+    </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="#async_spotify.spotify_errors.TokenExpired">
-    TokenExpired
-  </a>
+<a class="md-nav__link" href="../../LICENCE/" title="Licence">
+      Licence
+    </a>
 </li>
 </ul>
 </nav>
@@ -282,85 +218,6 @@
 <svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M20.71,7.04C21.1,6.65 21.1,6 20.71,5.63L18.37,3.29C18,2.9 17.35,2.9 16.96,3.29L15.12,5.12L18.87,8.87M3,17.25V21H6.75L17.81,9.93L14.06,6.18L3,17.25Z"></path></svg>
 </a>
 <h1>Spotify Errors</h1>
-<div class="doc doc-object doc-module">
-<h2 class="hidden-toc" href="#async_spotify.spotify_errors" id="async_spotify.spotify_errors" style="visibility: hidden; width: 0; height: 0;">
-<a class="headerlink" href="#async_spotify.spotify_errors" title="Permanent link">¶</a></h2>
-<div class="doc doc-contents first">
-<p>File with all the errors possible</p>
-<div class="doc doc-children">
-<div class="doc doc-object doc-class">
-<h2 class="doc doc-heading" id="async_spotify.spotify_errors.RateLimitExceeded">
-<code>RateLimitExceeded</code>
-<a class="headerlink" href="#async_spotify.spotify_errors.RateLimitExceeded" title="Permanent link">¶</a></h2>
-<div class="doc doc-contents">
-<p>Custom rate limit exceeded exception</p>
-</div>
-</div>
-<div class="doc doc-object doc-class">
-<h2 class="doc doc-heading" id="async_spotify.spotify_errors.SpotifyAPIError">
-<code>SpotifyAPIError</code>
-<a class="headerlink" href="#async_spotify.spotify_errors.SpotifyAPIError" title="Permanent link">¶</a></h2>
-<div class="doc doc-contents">
-<p>Custom api error message
-This exception gets throws if the spotify api returns an <em>non success</em> return code</p>
-<div class="doc doc-children">
-<div class="doc doc-object doc-method">
-<h3 class="doc doc-heading" id="async_spotify.spotify_errors.SpotifyAPIError.get_json">
-<code class="highlight language-python">
-get_json<span class="p">(</span><span class="bp">self</span><span class="p">)</span> </code>
-<a class="headerlink" href="#async_spotify.spotify_errors.SpotifyAPIError.get_json" title="Permanent link">¶</a></h3>
-<div class="doc doc-contents">
-<p>Get the the api response which was an error as dict</p>
-<details class="quote">
-<summary>Source code in <code>async_spotify/spotify_errors.py</code></summary>
-<table class="highlighttable">
-<tr>
-<td class="linenos">
-<div class="linenodiv">
-<pre><span></span>43
-44
-45
-46
-47</pre>
-</div>
-</td>
-<td class="code">
-<div class="highlight">
-<pre><span></span><code><span class="k">def</span> <span class="nf">get_json</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">dict</span><span class="p">:</span>
-    <span class="sd">"""</span>
-<span class="sd">    Get the the api response which was an error as dict</span>
-<span class="sd">    """</span>
-    <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">message</span>
-</code></pre>
-</div>
-</td>
-</tr>
-</table>
-</details>
-</div>
-</div>
-</div>
-</div>
-</div>
-<div class="doc doc-object doc-class">
-<h2 class="doc doc-heading" id="async_spotify.spotify_errors.SpotifyError">
-<code>SpotifyError</code>
-<a class="headerlink" href="#async_spotify.spotify_errors.SpotifyError" title="Permanent link">¶</a></h2>
-<div class="doc doc-contents">
-<p>Custom error message</p>
-</div>
-</div>
-<div class="doc doc-object doc-class">
-<h2 class="doc doc-heading" id="async_spotify.spotify_errors.TokenExpired">
-<code>TokenExpired</code>
-<a class="headerlink" href="#async_spotify.spotify_errors.TokenExpired" title="Permanent link">¶</a></h2>
-<div class="doc doc-contents">
-<p>Custom token expired message</p>
-</div>
-</div>
-</div>
-</div>
-</div>
 </article>
 </div>
 </div>
@@ -368,7 +225,7 @@ get_json<span class="p">(</span><span class="bp">self</span><span class="p">)</s
 <footer class="md-footer">
 <div class="md-footer-nav">
 <nav aria-label="Footer" class="md-footer-nav__inner md-grid">
-<a class="md-footer-nav__link md-footer-nav__link--prev" href="../preferences/" rel="prev" title="Preferences">
+<a class="md-footer-nav__link md-footer-nav__link--prev" href="../authentification/" rel="prev" title="Authentification">
 <div class="md-footer-nav__button md-icon">
 <svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M20,11V13H8L13.5,18.5L12.08,19.92L4.16,12L12.08,4.08L13.5,5.5L8,11H20Z"></path></svg>
 </div>
@@ -377,7 +234,7 @@ get_json<span class="p">(</span><span class="bp">self</span><span class="p">)</s
 <span class="md-footer-nav__direction">
                   Previous
                 </span>
-                Preferences
+                Authentification
               </div>
 </div>
 </a>
@@ -409,14 +266,14 @@ get_json<span class="p">(</span><span class="bp">self</span><span class="p">)</s
 </div>
 </footer>
 </div>
-<script src="../../assets/javascripts/vendor.f45d2d8d.min.js"></script>
-<script src="../../assets/javascripts/bundle.74d0b805.min.js"></script><script id="__lang" type="application/json">{"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents"}</script>
+<script src="../../assets/javascripts/vendor.c51dfa35.min.js"></script>
+<script src="../../assets/javascripts/bundle.eaaa3931.min.js"></script><script id="__lang" type="application/json">{"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents"}</script>
 <script>
         app = initialize({
           base: "../..",
           features: [],
           search: Object.assign({
-            worker: "../../assets/javascripts/worker/search.7f7c8775.min.js"
+            worker: "../../assets/javascripts/worker/search.58d22e8e.min.js"
           }, typeof search !== "undefined" && search)
         })
       </script>

@@ -8,9 +8,9 @@
 <meta content="Async wrapper in python for the spotify api" name="description"/>
 <link href="https://github.com/HuiiBuh/AsyncSpotify/" rel="canonical"/>
 <link href="https://upload.wikimedia.org/wikipedia/commons/9/9b/Font_Awesome_5_brands_spotify.svg" rel="shortcut icon"/>
-<meta content="mkdocs-1.1, mkdocs-material-5.0.0" name="generator"/>
+<meta content="mkdocs-1.1, mkdocs-material-5.1.1" name="generator"/>
 <title>Async Spotify</title>
-<link href="assets/stylesheets/main.c3000690.min.css" rel="stylesheet"/>
+<link href="assets/stylesheets/main.a676eddb.min.css" rel="stylesheet"/>
 <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
 <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700%7CRoboto+Mono&amp;display=fallback" rel="stylesheet"/>
 <style>body,input{font-family:"Roboto",-apple-system,BlinkMacSystemFont,Helvetica,Arial,sans-serif}code,kbd,pre{font-family:"Roboto Mono",SFMono-Regular,Consolas,Menlo,monospace}</style>
@@ -131,6 +131,11 @@
     </label>
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
+<a class="md-nav__link" href="#why-should-you-use-this-library">
+    Why should you use this library
+  </a>
+</li>
+<li class="md-nav__item">
 <a class="md-nav__link" href="#example">
     Example
   </a>
@@ -140,16 +145,11 @@
     Run tests
   </a>
 </li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#generate-docs">
-    Generate Docs
-  </a>
-</li>
 </ul>
 </nav>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="examples/" title="Examples">
+<a class="md-nav__link" href="EXAMPLES/" title="Examples">
       Examples
     </a>
 </li>
@@ -170,13 +170,18 @@
       </label>
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
-<a class="md-nav__link" href="public_api/spotify_api_client/" title="SpotifyApiClient">
-      SpotifyApiClient
+<a class="md-nav__link" href="public_api/spotify_api_client/" title="Spotify Api Client">
+      Spotify Api Client
     </a>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="public_api/preferences/" title="Preferences">
       Preferences
+    </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="public_api/authentification/" title="Authentification">
+      Authentification
     </a>
 </li>
 <li class="md-nav__item">
@@ -189,16 +194,50 @@
       Endpoints
     </a>
 </li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" data-md-toggle="nav-4" id="nav-4" type="checkbox"/>
+<label class="md-nav__link" for="nav-4">
+      Private API
+      <span class="md-nav__icon md-icon">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M8.59,16.58L13.17,12L8.59,7.41L10,6L16,12L10,18L8.59,16.58Z"></path></svg>
+</span>
+</label>
+<nav aria-label="Private API" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="nav-4">
+<span class="md-nav__icon md-icon">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M20,11V13H8L13.5,18.5L12.08,19.92L4.16,12L12.08,4.08L13.5,5.5L8,11H20Z"></path></svg>
+</span>
+        Private API
+      </label>
+<ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
-<a class="md-nav__link" href="public_api/authorization_token/" title="Authorization Token">
-      Authorization Token
+<a class="md-nav__link" href="private_api/request_handler/" title="Request Handler">
+      Request Handler
+    </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="private_api/status_classes/" title="Status Classes">
+      Status Classes
+    </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="private_api/url/" title="URLS">
+      URLS
     </a>
 </li>
 </ul>
 </nav>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="licence/" title="Licence">
+<a class="md-nav__link" href="TEST.md" title="Run Tests">
+      Run Tests
+    </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="LICENCE/" title="Licence">
       Licence
     </a>
 </li>
@@ -219,6 +258,11 @@
     </label>
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
+<a class="md-nav__link" href="#why-should-you-use-this-library">
+    Why should you use this library
+  </a>
+</li>
+<li class="md-nav__item">
 <a class="md-nav__link" href="#example">
     Example
   </a>
@@ -226,11 +270,6 @@
 <li class="md-nav__item">
 <a class="md-nav__link" href="#run-tests">
     Run tests
-  </a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#generate-docs">
-    Generate Docs
   </a>
 </li>
 </ul>
@@ -247,7 +286,19 @@
 <p><img alt="Unit Tests" src="https://github.com/HuiiBuh/AsyncSpotify/workflows/Unit%20Tests/badge.svg"/>
 <a href="https://app.codacy.com/manual/nhaderer1/AsyncSpotify?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=HuiiBuh/AsyncSpotify&amp;utm_campaign=Badge_Grade_Dashboard"><img alt="Codacy Badge" src="https://api.codacy.com/project/badge/Grade/65dd7dbb2b4b4efcb3fc365f2d3f1684"/></a>
 <a href="https://codecov.io/gh/HuiiBuh/AsyncSpotify"><img alt="codecov" src="https://codecov.io/gh/HuiiBuh/AsyncSpotify/branch/master/graph/badge.svg?token=0oC3x1chKb"/></a></p>
+<p><a href="https://huiibuh.github.io/AsyncSpotify/">Documentation</a></p>
+<h2 id="why-should-you-use-this-library">Why should you use this library<a class="headerlink" href="#why-should-you-use-this-library" title="Permanent link">¶</a></h2>
+<ul>
+<li>99% Code coverage</li>
+<li>Completely async</li>
+<li>Scales up to (theoretically) unlimited requests per second (this depends mostly on the spotify request limit)</li>
+<li>Customize the timeout, maximal simultaneous request</li>
+<li>Throws custom errors so you can catch a Token expiration or a rate limit violation easily</li>
+<li>Gets rid of the client credential workflow if you provide spotify cookies</li>
+<li>Good for automated testing</li>
+</ul>
 <h2 id="example">Example<a class="headerlink" href="#example" title="Permanent link">¶</a></h2>
+<p>For more in depth examples take a look <a href="EXAMPLES/">here</a>.</p>
 <div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">async_spotify</span> <span class="kn">import</span> <span class="n">Preferences</span><span class="p">,</span> <span class="n">SpotifyApiClient</span><span class="p">,</span> <span class="n">SpotifyAuthorisationToken</span>
 
 <span class="c1"># Create a preferences object and load the preferences from env variables</span>
@@ -271,12 +322,7 @@
 <span class="n">album_tracks</span><span class="p">:</span> <span class="nb">dict</span> <span class="o">=</span> <span class="k">await</span> <span class="n">api</span><span class="o">.</span><span class="n">albums</span><span class="o">.</span><span class="n">get_tracks</span><span class="p">(</span><span class="s1">'03dlqdFWY9gwJxGl3AREVy'</span><span class="p">,</span> <span class="n">auth_token</span><span class="p">)</span>
 </code></pre></div>
 <h2 id="run-tests">Run tests<a class="headerlink" href="#run-tests" title="Permanent link">¶</a></h2>
-<ul>
-<li>Install the requirements.dev.txt</li>
-<li>Run the test with <code>pytest --cov=async_spotify src/test</code></li>
-</ul>
-<h2 id="generate-docs">Generate Docs<a class="headerlink" href="#generate-docs" title="Permanent link">¶</a></h2>
-<p>To generate the docs run <code>PYTHONPATH=src mkdocs serve</code></p>
+<p>See <a href="STUFF/">here</a>.</p>
 </article>
 </div>
 </div>
@@ -284,7 +330,7 @@
 <footer class="md-footer">
 <div class="md-footer-nav">
 <nav aria-label="Footer" class="md-footer-nav__inner md-grid">
-<a class="md-footer-nav__link md-footer-nav__link--next" href="examples/" rel="next" title="Examples">
+<a class="md-footer-nav__link md-footer-nav__link--next" href="EXAMPLES/" rel="next" title="Examples">
 <div class="md-footer-nav__title">
 <div class="md-ellipsis">
 <span class="md-footer-nav__direction">
@@ -312,14 +358,14 @@
 </div>
 </footer>
 </div>
-<script src="assets/javascripts/vendor.f45d2d8d.min.js"></script>
-<script src="assets/javascripts/bundle.74d0b805.min.js"></script><script id="__lang" type="application/json">{"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents"}</script>
+<script src="assets/javascripts/vendor.c51dfa35.min.js"></script>
+<script src="assets/javascripts/bundle.eaaa3931.min.js"></script><script id="__lang" type="application/json">{"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents"}</script>
 <script>
         app = initialize({
           base: ".",
           features: [],
           search: Object.assign({
-            worker: "assets/javascripts/worker/search.7f7c8775.min.js"
+            worker: "assets/javascripts/worker/search.58d22e8e.min.js"
           }, typeof search !== "undefined" && search)
         })
       </script>
