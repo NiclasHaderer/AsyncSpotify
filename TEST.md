@@ -18,3 +18,10 @@ Go into the root directory of this project and run the following command
 ```bash
 pytest -s --cov=async_spotify src/test --cov-report=xml
 ```
+
+# Build and Publish
+
+```bash
+python3 setup.py sdist
+twine upload dist/*
+```

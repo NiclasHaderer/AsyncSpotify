@@ -1,25 +1,9 @@
-"""
-pass
-"""
-
 import asyncio
 
-from async_spotify import SpotifyApiClient
-
-
-async def make_requests(api: SpotifyApiClient):
-    """
-    pass
-    """
+from async_spotify import Preferences, SpotifyApiClient, SpotifyAuthorisationToken
 
 
 async def main():
-    """
-    pass
-    """
-
-    from async_spotify import Preferences, SpotifyApiClient, SpotifyAuthorisationToken
-
     # Create a preferences object and load the preferences from env variables
     preferences = Preferences()
     preferences.load_from_env()
@@ -32,7 +16,7 @@ async def main():
     auth_token: SpotifyAuthorisationToken = await api.get_auth_token_with_code(code)
 
     # Create a new client
-    await api.create_new_client(request_limit=1500)
+    await api.create_new_client(request_limit=1500, request_timeout=30)
 
     # Start making queries
     album_tracks: dict = await api.albums.get_tracks('03dlqdFWY9gwJxGl3AREVy')

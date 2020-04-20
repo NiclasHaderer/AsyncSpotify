@@ -21,7 +21,6 @@ from urllib.parse import urlencode
 
 from aiohttp import ClientSession, TraceConfig, TraceRequestRedirectParams, ClientConnectorError
 
-from async_spotify._error_message import ErrorMessage
 from ._api_request_maker import ApiRequestHandler
 from ._endpoints.albums import Albums
 from ._endpoints.artists import Artists
@@ -39,6 +38,7 @@ from ._endpoints.urls import URLS
 from ._endpoints.user import User
 from ._response_status import ResponseStatus
 from .preferences import Preferences
+from .._error_message import ErrorMessage
 from ..authentification.spotify_authorization_token import SpotifyAuthorisationToken
 from ..authentification.spotify_cookies import SpotifyCookie
 from ..spotify_errors import SpotifyError
@@ -69,37 +69,63 @@ class SpotifyApiClient:
 
         self._hold_authentication: bool = hold_authentication
         self._spotify_authorisation_token: SpotifyAuthorisationToken = SpotifyAuthorisationToken()
+
         if spotify_authorisation_token:
             self.spotify_authorization_token = spotify_authorisation_token
 
         self._api_request_handler: ApiRequestHandler = ApiRequestHandler(self._spotify_authorisation_token)
 
         self.albums: Albums = Albums(self._api_request_handler)
-        """ An instance of the albums Albums. Use this to access the Albums api """
+        """ An instance of the [`Albums`][async_spotify.api._endpoints.albums] class. Use this to access the 
+         Albums api """
+
         self.artist: Artists = Artists(self._api_request_handler)
-        """ An instance of the Artists class. Use this to access the Artists api """
+        """ An instance of the [`Artists`][async_spotify.api._endpoints.artists] class. Use this to access the 
+         Artists api """
+
         self.browse: Browse = Browse(self._api_request_handler)
-        """ An instance of the Browse class. Use this to Browse the Browse api """
+        """ An instance of the [`Browse`][async_spotify.api._endpoints.browse] class. Use this to Browse the 
+        Browse api """
+
         self.episodes: Episodes = Episodes(self._api_request_handler)
-        """ An instance of the Episodes class. Use this to access the Episodes api """
+        """ An instance of the [`Episodes`][async_spotify.api._endpoints.episodes] class. Use this to access the 
+         Episodes api """
+
         self.follow: Follow = Follow(self._api_request_handler)
-        """ An instance of the Follow class. Use this to access the Follow api """
+        """ An instance of the [`Follow`][async_spotify.api._endpoints.follow] class. Use this to access the 
+         Follow api """
+
         self.library: Library = Library(self._api_request_handler)
-        """ An instance of the Library class. Use this to access the Library api """
+        """ An instance of the [`Library`][async_spotify.api._endpoints.library] class. Use this to access the 
+         Library api """
+
         self.personalization: Personalization = Personalization(self._api_request_handler)
-        """ An instance of the Personalization class. Use this to access the Personalization api """
+        """ An instance of the [`Personalization`][async_spotify.api._endpoints.personalization] class. Use this to access the 
+         Personalization api """
+
         self.player: Player = Player(self._api_request_handler)
-        """ An instance of the Player class. Use this to access the Player api """
+        """ An instance of the [`Player`][async_spotify.api._endpoints.player] class. Use this to access the 
+         Player api """
+
         self.playlist: Playlist = Playlist(self._api_request_handler)
-        """ An instance of the Playlist class. Use this to access the Playlist api """
+        """ An instance of the [`Playlist`][async_spotify.api._endpoints.playlist] class. Use this to access the 
+         Playlist api """
+
         self.search: Search = Search(self._api_request_handler)
-        """ An instance of the Search class. Use this to access the Search api """
-        self.shows: Show = Show(self._api_request_handler)
-        """ An instance of the Show class. Use this to access the Show api """
+        """ An instance of the [`Search`][async_spotify.api._endpoints.search] class. Use this to access the 
+         Search api """
+
+        self.show: Show = Show(self._api_request_handler)
+        """ An instance of the [`Show`][async_spotify.api._endpoints.shows] class. Use this to access the 
+         Show api """
+
         self.track: Track = Track(self._api_request_handler)
-        """ An instance of the Track class. Use this to access the Track api """
+        """ An instance of the [`Track`][async_spotify.api._endpoints.tracks] class. Use this to access the 
+         Track api """
+
         self.user: User = User(self._api_request_handler)
-        """ An instance of the User class. Use this to access the User api """
+        """ An instance of the [`User`][async_spotify.api._endpoints.user] class. Use this to access the 
+         User api """
 
     async def create_new_client(self, request_timeout: int = 30, request_limit: int = 500) -> None:
         """

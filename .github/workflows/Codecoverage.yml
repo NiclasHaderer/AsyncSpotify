@@ -21,7 +21,7 @@ jobs:
         python-version: 3.8
         
     - name: Setup python packages
-      run: pip install -r src/requirements.dev.txt && pip install -r src/requirements.txt
+      run: pip install -r requirements.dev.txt && pip install -r requirements.txt
       
     - name: Save cookie file
       run: echo '${{ secrets.cookies }}' > cookies.json
