@@ -12,7 +12,7 @@ Class which describes a spotify cookie which is necessary to authenticate a user
 import json
 
 
-class SpotifyCookies:
+class SpotifyCookie:
     """
     Class which describes a valid spotify cookie
     """

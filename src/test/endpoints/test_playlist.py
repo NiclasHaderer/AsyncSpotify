@@ -56,7 +56,12 @@ class TestPlaylist:
             "insert_before": 1
         }
 
-        await prepared_api.playlist.reorder(playlist_id, reorder)
+        reorder_return = await prepared_api.playlist.reorder(playlist_id, reorder)
+        assert isinstance(reorder_return, dict)
+
+        snapshot_id = reorder_return['snapshot_id']
+        reorder_return = await prepared_api.playlist.reorder(playlist_id, reorder, snapshot_id)
+        assert isinstance(reorder_return, dict)
 
         replace = await prepared_api.playlist.replace_tracks(playlist_id, ['spotify:track:3kW5Rq9AIL0QQuYTSKNkQw'])
         assert replace is None

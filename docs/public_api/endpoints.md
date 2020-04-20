@@ -7,7 +7,7 @@
 ::: async_spotify.api._endpoints.personalization
 ::: async_spotify.api._endpoints.player
 ::: async_spotify.api._endpoints.playlist
-::: async_spotify.api._endpoints.profile
 ::: async_spotify.api._endpoints.search
 ::: async_spotify.api._endpoints.shows
 ::: async_spotify.api._endpoints.tracks
+::: async_spotify.api._endpoints.user

@@ -21,6 +21,7 @@ from urllib.parse import urlencode
 
 from aiohttp import ClientSession, TraceConfig, TraceRequestRedirectParams, ClientConnectorError
 
+from async_spotify._error_message import ErrorMessage
 from ._api_request_maker import ApiRequestHandler
 from ._endpoints.albums import Albums
 from ._endpoints.artists import Artists
@@ -39,11 +40,9 @@ from ._endpoints.user import User
 from ._response_status import ResponseStatus
 from .preferences import Preferences
 from ..authentification.spotify_authorization_token import SpotifyAuthorisationToken
-from ..authentification.spotify_cookies import SpotifyCookies
+from ..authentification.spotify_cookies import SpotifyCookie
 from ..spotify_errors import SpotifyError
 
-
-# TODO next and previous
 
 class SpotifyApiClient:
     """
@@ -63,7 +62,7 @@ class SpotifyApiClient:
 
         # Check if the preferences are valid
         if not preferences.valid:
-            raise SpotifyError("The preferences of your app are not correct")
+            raise SpotifyError(ErrorMessage(message="The preferences of your app are not correct").__dict__)
 
         # Set the preferences
         self.preferences: Preferences = preferences
@@ -162,7 +161,7 @@ class SpotifyApiClient:
         # Open url in a new window of the default browser, if possible
         webbrowser.open_new(self.build_authorization_url(show_dialogue))
 
-    async def get_code_with_cookie(self, cookies: SpotifyCookies) -> str:
+    async def get_code_with_cookie(self, cookies: SpotifyCookie) -> str:
         """
         This function takes care of the user interaction that is normally required to get the code from spotify
         which is necessary to request the refresh_token and the oauth_token.
@@ -196,7 +195,7 @@ class SpotifyApiClient:
 
         # Check if the cookie file is valid
         if not cookies.valid:
-            raise SpotifyError('The cookies are not complete')
+            raise SpotifyError(ErrorMessage(message='The cookies are not complete').__dict__)
 
         # Convert the class to a dict
         cookie_dict: dict = cookies.__dict__
@@ -260,10 +259,10 @@ class SpotifyApiClient:
             pass
 
         if not code:
-            raise SpotifyError('The collection of the code did not work. Did the user already agree to the scopes of '
-                               'your app?'
-                               ''
-                               f'{response_text}')
+            message = 'The collection of the code did not work. Did the user already agree to the scopes of '
+            f'your app? \n {response_text}'
+
+            raise SpotifyError(ErrorMessage(message=message).__dict__)
 
         return code
 
@@ -282,7 +281,6 @@ class SpotifyApiClient:
 
         Returns:
             A valid SpotifyAuthorisationToken
-
         """
 
         body: dict = {
@@ -364,9 +362,37 @@ class SpotifyApiClient:
 
         # The response was not ok
         if not response_status.success:
-            raise SpotifyError(response_status.message + '\n' + str(response_text))
+            raise SpotifyError(ErrorMessage(message=response_text).__dict__)
 
         return json.loads(response_text)
+
+    async def next(self, url: str, auth_token: SpotifyAuthorisationToken = None) -> dict:
+        """
+        Get the next 'page' of the response
+
+        Args:
+            url: The next url
+            auth_token: The auth token if you set the api class not to keep the token in memory
+
+        Returns:
+            The api response
+        """
+
+        return await self._api_request_handler.make_request('GET', url, {}, auth_token)
+
+    async def previous(self, url: str, auth_token: SpotifyAuthorisationToken = None) -> dict:
+        """
+        Get the next 'previous' of the response
+
+        Args:
+            url: The previous url
+            auth_token: The auth token if you set the api class not to keep the token in memory
+
+        Returns:
+            The api response
+        """
+
+        return await self._api_request_handler.make_request('GET', url, {}, auth_token)
 
     @property
     def spotify_authorization_token(self) -> SpotifyAuthorisationToken:

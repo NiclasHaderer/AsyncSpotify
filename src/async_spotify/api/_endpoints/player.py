@@ -54,6 +54,24 @@ class Player(Endpoint):
 
         return await self.api_request_handler.make_request('GET', URLS.PLAYER.PLAYER, kwargs, auth_token)
 
+    async def add_to_queue(self, spotify_id: str, auth_token: SpotifyAuthorisationToken = None) -> None:
+        """
+        Add a list of spotify ids to the currently playing queue
+
+        Notes:
+            [https://developer.spotify.com/documentation/web-api/reference/player/add-to-queue/](https://developer.spotify.com/documentation/web-api/reference/player/add-to-queue/)
+
+        Args:
+            spotify_id: A spotify id
+            auth_token: The auth token if you set the api class not to keep the token in memory
+        """
+
+        args: dict = {
+            'uri': spotify_id
+        }
+
+        await self.api_request_handler.make_request('POST', URLS.PLAYER.QUEUE, args, auth_token)
+
     async def recent_tracks(self, auth_token: SpotifyAuthorisationToken = None, **kwargs) -> dict:
         """
         Get the Current User's Recently Played Tracks

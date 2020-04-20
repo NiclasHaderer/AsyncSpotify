@@ -58,7 +58,7 @@ class Show(Endpoint):
         return await self.api_request_handler.make_request(
             'GET', URLS.SHOWS.SEVERAL, {**{'ids': show_id_list}, **kwargs}, auth_token)
 
-    async def episodes(self, show_id: str, auth_token: SpotifyAuthorisationToken = None, **kwargs):
+    async def episodes(self, show_id: str, auth_token: SpotifyAuthorisationToken = None, **kwargs) -> dict:
         """
         Get Spotify catalog information about an show’s episodes. Optional parameters can be used to limit the
         number of episodes returned.

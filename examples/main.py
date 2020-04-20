@@ -4,7 +4,7 @@ pass
 
 import asyncio
 
-from async_spotify import Preferences, SpotifyApiClient, SpotifyCookies
+from async_spotify import SpotifyApiClient
 
 
 async def make_requests(api: SpotifyApiClient):
@@ -13,28 +13,29 @@ async def make_requests(api: SpotifyApiClient):
     """
 
 
-
-
 async def main():
     """
     pass
     """
 
+    from async_spotify import Preferences, SpotifyApiClient, SpotifyAuthorisationToken
+
+    # Create a preferences object and load the preferences from env variables
     preferences = Preferences()
     preferences.load_from_env()
 
-    cookies = SpotifyCookies()
-    cookies.load_from_file('/home/niclas/IdeaProjects/AsyncSpotify/examples/private/cookies.json')
+    # Create a new Api client
+    api = SpotifyApiClient(preferences, hold_authentication=True)
 
-    api = SpotifyApiClient(preferences, True)
+    # Get the auth token with your code
+    code: str = "Your Spotify Code"
+    auth_token: SpotifyAuthorisationToken = await api.get_auth_token_with_code(code)
 
-    code = await api.get_code_with_cookie(cookies)
-    await api.get_auth_token_with_code(code)
+    # Create a new client
     await api.create_new_client(request_limit=1500)
 
-    await make_requests(api)
-
-    await api.close_client()
+    # Start making queries
+    album_tracks: dict = await api.albums.get_tracks('03dlqdFWY9gwJxGl3AREVy')
 
 
 if __name__ == '__main__':

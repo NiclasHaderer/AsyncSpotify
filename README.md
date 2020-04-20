@@ -4,17 +4,49 @@
 [![Codacy Badge](https://api.codacy.com/project/badge/Grade/65dd7dbb2b4b4efcb3fc365f2d3f1684)](https://app.codacy.com/manual/nhaderer1/AsyncSpotify?utm_source=github.com&utm_medium=referral&utm_content=HuiiBuh/AsyncSpotify&utm_campaign=Badge_Grade_Dashboard)
 [![codecov](https://codecov.io/gh/HuiiBuh/AsyncSpotify/branch/master/graph/badge.svg?token=0oC3x1chKb)](https://codecov.io/gh/HuiiBuh/AsyncSpotify)
 
-## Tests
+## Why should you use this library 
 
-+  Install the requirements.dev.txt
-+  Run the test with `pytest --cov=async_spotify src/test`
++ 99% Code coverage
++ Completely async
++ Scales up to (theoretically) unlimited requests per second (this depends mostly on the spotify request limit)
++ Customize the timeout, maximal simultaneous request
++ Throws custom errors so you can catch a Token expiration or a rate limit violation easily
++ Gets rid of the client credential workflow if you provide spotify cookies
+  + Good for automated testing
 
-## Docs
+## Example
 
-```bash
-PYTHONPATH=src mkdocs serve
+For more in depth examples take a look [here](EXAMPLES.md).
+
+```python
+from async_spotify import Preferences, SpotifyApiClient, SpotifyAuthorisationToken
+
+# Create a preferences object and load the preferences from env variables
+preferences = Preferences()
+preferences.load_from_env()
+
+# Create a new Api client and pass the preferences
+api = SpotifyApiClient(preferences, hold_authentication=True)
+
+# Get the auth token with your code
+code: str = "Your Spotify Code"
+auth_token: SpotifyAuthorisationToken = await api.get_auth_token_with_code(code)
+
+# Create a new client
+await api.create_new_client(request_limit=1500)
+
+# Start making queries with the internally saved token
+album_tracks: dict = await api.albums.get_tracks('03dlqdFWY9gwJxGl3AREVy')
+
+# If you pass a valid auth_token this auth_token will be used for making the requests
+album_tracks: dict = await api.albums.get_tracks('03dlqdFWY9gwJxGl3AREVy', auth_token)
 ```
 
-## Credits
+## Run tests
 
-+  [shreddd](https://gist.github.com/shreddd/b7991ab491384e3c3331) for the simple redirect server which is very useful for testing.
+See [here](TEST.md).
+
+## Generate Docs
+
+To generate the docs run `PYTHONPATH=src mkdocs serve`.  
+To publish the docs run `mkdocs gh-deploy`
