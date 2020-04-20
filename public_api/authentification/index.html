@@ -21,6 +21,9 @@
 <input autocomplete="off" class="md-toggle" data-md-toggle="search" id="__search" type="checkbox"/>
 <label class="md-overlay" for="__drawer"></label>
 <div data-md-component="skip">
+<a class="md-skip" href="#async_spotify.authentification.spotify_authorization_token">
+          Skip to content
+        </a>
 </div>
 <div data-md-component="announce">
 </div>
@@ -146,9 +149,88 @@
 </li>
 <li class="md-nav__item md-nav__item--active">
 <input class="md-nav__toggle md-toggle" data-md-toggle="toc" id="__toc" type="checkbox"/>
+<label class="md-nav__link md-nav__link--active" for="__toc">
+        Authentification
+        <span class="md-nav__icon md-icon">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M3,9H17V7H3V9M3,13H17V11H3V13M3,17H17V15H3V17M19,17H21V15H19V17M19,7V9H21V7H19M19,13H21V11H19V13Z"></path></svg>
+</span>
+</label>
 <a class="md-nav__link md-nav__link--active" href="./" title="Authentification">
       Authentification
     </a>
+<nav aria-label="Table of contents" class="md-nav md-nav--secondary">
+<label class="md-nav__title" for="__toc">
+<span class="md-nav__icon md-icon">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M20,11V13H8L13.5,18.5L12.08,19.92L4.16,12L12.08,4.08L13.5,5.5L8,11H20Z"></path></svg>
+</span>
+      Table of contents
+    </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#async_spotify.authentification.spotify_authorization_token">
+    async_spotify.authentification.spotify_authorization_token
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#async_spotify.authentification.spotify_authorization_token.SpotifyAuthorisationToken">
+    SpotifyAuthorisationToken
+  </a>
+<nav aria-label="SpotifyAuthorisationToken" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#async_spotify.authentification.spotify_authorization_token.SpotifyAuthorisationToken.valid">
+    valid
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#async_spotify.authentification.spotify_authorization_token.SpotifyAuthorisationToken.__eq__">
+    __eq__()
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#async_spotify.authentification.spotify_authorization_token.SpotifyAuthorisationToken.__init__">
+    __init__()
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#async_spotify.authentification.spotify_authorization_token.SpotifyAuthorisationToken.is_expired">
+    is_expired()
+  </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#async_spotify.authentification.spotify_cookies">
+    async_spotify.authentification.spotify_cookies
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#async_spotify.authentification.spotify_cookies.SpotifyCookie">
+    SpotifyCookie
+  </a>
+<nav aria-label="SpotifyCookie" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#async_spotify.authentification.spotify_cookies.SpotifyCookie.valid">
+    valid
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#async_spotify.authentification.spotify_cookies.SpotifyCookie.__init__">
+    __init__()
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#async_spotify.authentification.spotify_cookies.SpotifyCookie.load_from_file">
+    load_from_file()
+  </a>
+</li>
+</ul>
+</nav>
+</li>
+</ul>
+</nav>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="../spotify_errors/" title="Spotify Errors">
@@ -198,8 +280,8 @@
 </nav>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../TEST.md" title="Run Tests">
-      Run Tests
+<a class="md-nav__link" href="../../STUFF/" title="Tests">
+      Tests
     </a>
 </li>
 <li class="md-nav__item">
@@ -212,12 +294,589 @@
 </div>
 </div>
 </div>
+<div class="md-sidebar md-sidebar--secondary" data-md-component="toc">
+<div class="md-sidebar__scrollwrap">
+<div class="md-sidebar__inner">
+<nav aria-label="Table of contents" class="md-nav md-nav--secondary">
+<label class="md-nav__title" for="__toc">
+<span class="md-nav__icon md-icon">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M20,11V13H8L13.5,18.5L12.08,19.92L4.16,12L12.08,4.08L13.5,5.5L8,11H20Z"></path></svg>
+</span>
+      Table of contents
+    </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#async_spotify.authentification.spotify_authorization_token">
+    async_spotify.authentification.spotify_authorization_token
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#async_spotify.authentification.spotify_authorization_token.SpotifyAuthorisationToken">
+    SpotifyAuthorisationToken
+  </a>
+<nav aria-label="SpotifyAuthorisationToken" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#async_spotify.authentification.spotify_authorization_token.SpotifyAuthorisationToken.valid">
+    valid
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#async_spotify.authentification.spotify_authorization_token.SpotifyAuthorisationToken.__eq__">
+    __eq__()
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#async_spotify.authentification.spotify_authorization_token.SpotifyAuthorisationToken.__init__">
+    __init__()
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#async_spotify.authentification.spotify_authorization_token.SpotifyAuthorisationToken.is_expired">
+    is_expired()
+  </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#async_spotify.authentification.spotify_cookies">
+    async_spotify.authentification.spotify_cookies
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#async_spotify.authentification.spotify_cookies.SpotifyCookie">
+    SpotifyCookie
+  </a>
+<nav aria-label="SpotifyCookie" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#async_spotify.authentification.spotify_cookies.SpotifyCookie.valid">
+    valid
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#async_spotify.authentification.spotify_cookies.SpotifyCookie.__init__">
+    __init__()
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#async_spotify.authentification.spotify_cookies.SpotifyCookie.load_from_file">
+    load_from_file()
+  </a>
+</li>
+</ul>
+</nav>
+</li>
+</ul>
+</nav>
+</div>
+</div>
+</div>
 <div class="md-content">
 <article class="md-content__inner md-typeset">
 <a class="md-content__button md-icon" href="https://github.com/HuiiBuh/AsyncSpotify/edit/master/docs/public_api/authentification.md" title="Edit this page">
 <svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M20.71,7.04C21.1,6.65 21.1,6 20.71,5.63L18.37,3.29C18,2.9 17.35,2.9 16.96,3.29L15.12,5.12L18.87,8.87M3,17.25V21H6.75L17.81,9.93L14.06,6.18L3,17.25Z"></path></svg>
 </a>
 <h1>Authentification</h1>
+<div class="doc doc-object doc-module">
+<h2 class="hidden-toc" href="#async_spotify.authentification.spotify_authorization_token" id="async_spotify.authentification.spotify_authorization_token" style="visibility: hidden; width: 0; height: 0;">
+<a class="headerlink" href="#async_spotify.authentification.spotify_authorization_token" title="Permanent link">¶</a></h2>
+<div class="doc doc-contents first">
+<p>This file contains the Spotify AuthorisationToken</p>
+<div class="doc doc-children">
+<div class="doc doc-object doc-class">
+<h2 class="doc doc-heading" id="async_spotify.authentification.spotify_authorization_token.SpotifyAuthorisationToken">
+<code>SpotifyAuthorisationToken</code>
+<a class="headerlink" href="#async_spotify.authentification.spotify_authorization_token.SpotifyAuthorisationToken" title="Permanent link">¶</a></h2>
+<div class="doc doc-contents">
+<p>Class that has the Authorisation Token</p>
+<div class="doc doc-children">
+<div class="doc doc-object doc-attribute">
+<h3 class="doc doc-heading" id="async_spotify.authentification.spotify_authorization_token.SpotifyAuthorisationToken.valid">
+<code class="highlight">
+valid: <span class="nb">bool</span> </code>
+<span class="doc doc-properties">
+<small class="doc doc-property doc-property-property"><code>property</code></small>
+<small class="doc doc-property doc-property-readonly"><code>readonly</code></small>
+</span>
+<a class="headerlink" href="#async_spotify.authentification.spotify_authorization_token.SpotifyAuthorisationToken.valid" title="Permanent link">¶</a></h3>
+<div class="doc doc-contents">
+<p>Validate that the token is not partially empty</p>
+<p><strong>Returns:</strong></p>
+<table>
+<thead>
+<tr>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>bool</code></td>
+<td>
+<p>Is the token valid</p>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="doc doc-object doc-method">
+<h3 class="doc doc-heading" id="async_spotify.authentification.spotify_authorization_token.SpotifyAuthorisationToken.__eq__">
+<code class="highlight language-python">
+__eq__<span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">other</span><span class="p">)</span> </code>
+<span class="doc doc-properties">
+<small class="doc doc-property doc-property-special"><code>special</code></small>
+</span>
+<a class="headerlink" href="#async_spotify.authentification.spotify_authorization_token.SpotifyAuthorisationToken.__eq__" title="Permanent link">¶</a></h3>
+<div class="doc doc-contents">
+<p>Support for equal assertion</p>
+<p><strong>Parameters:</strong></p>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+<th>Default</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>other</code></td>
+<td><code></code></td>
+<td>
+<p>The other object the comparison is made to</p>
+</td>
+<td><em>required</em></td>
+</tr>
+</tbody>
+</table>
+<p><strong>Returns:</strong></p>
+<table>
+<thead>
+<tr>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>bool</code></td>
+<td>
+<p>Is the content of the objects equal</p>
+</td>
+</tr>
+</tbody>
+</table>
+<details class="quote">
+<summary>Source code in <code>async_spotify/authentification/spotify_authorization_token.py</code></summary>
+<table class="highlighttable">
+<tr>
+<td class="linenos">
+<div class="linenodiv">
+<pre><span></span>62
+63
+64
+65
+66
+67
+68
+69
+70
+71
+72</pre>
+</div>
+</td>
+<td class="code">
+<div class="highlight">
+<pre><span></span><code><span class="k">def</span> <span class="fm">__eq__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">other</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">bool</span><span class="p">:</span>
+    <span class="sd">"""</span>
+<span class="sd">    Support for equal assertion</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        other: The other object the comparison is made to</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">        Is the content of the objects equal</span>
+<span class="sd">    """</span>
+    <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="vm">__dict__</span> <span class="o">==</span> <span class="n">other</span><span class="o">.</span><span class="vm">__dict__</span>
+</code></pre>
+</div>
+</td>
+</tr>
+</table>
+</details>
+</div>
+</div>
+<div class="doc doc-object doc-method">
+<h3 class="doc doc-heading" id="async_spotify.authentification.spotify_authorization_token.SpotifyAuthorisationToken.__init__">
+<code class="highlight language-python">
+__init__<span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">refresh_token</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">activation_time</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">access_token</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span> </code>
+<span class="doc doc-properties">
+<small class="doc doc-property doc-property-special"><code>special</code></small>
+</span>
+<a class="headerlink" href="#async_spotify.authentification.spotify_authorization_token.SpotifyAuthorisationToken.__init__" title="Permanent link">¶</a></h3>
+<div class="doc doc-contents">
+<p>Generate a new authorisation token</p>
+<p><strong>Parameters:</strong></p>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+<th>Default</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>refresh_token</code></td>
+<td><code>str</code></td>
+<td>
+<p>The refresh token that was given to the application</p>
+</td>
+<td><code>None</code></td>
+</tr>
+<tr>
+<td><code>access_token</code></td>
+<td><code>str</code></td>
+<td>
+<p>The token that will be used to make request</p>
+</td>
+<td><code>None</code></td>
+</tr>
+</tbody>
+</table>
+<details class="quote">
+<summary>Source code in <code>async_spotify/authentification/spotify_authorization_token.py</code></summary>
+<table class="highlighttable">
+<tr>
+<td class="linenos">
+<div class="linenodiv">
+<pre><span></span>20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31</pre>
+</div>
+</td>
+<td class="code">
+<div class="highlight">
+<pre><span></span><code><span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">refresh_token</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> <span class="n">activation_time</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> <span class="n">access_token</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="kc">None</span><span class="p">):</span>
+    <span class="sd">"""</span>
+<span class="sd">    Generate a new authorisation token</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        refresh_token: The refresh token that was given to the application</span>
+<span class="sd">        access_token: The token that will be used to make request</span>
+<span class="sd">    """</span>
+
+    <span class="bp">self</span><span class="o">.</span><span class="n">activation_time</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="n">activation_time</span>
+    <span class="bp">self</span><span class="o">.</span><span class="n">refresh_token</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="n">refresh_token</span>
+    <span class="bp">self</span><span class="o">.</span><span class="n">access_token</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="n">access_token</span>
+</code></pre>
+</div>
+</td>
+</tr>
+</table>
+</details>
+</div>
+</div>
+<div class="doc doc-object doc-method">
+<h3 class="doc doc-heading" id="async_spotify.authentification.spotify_authorization_token.SpotifyAuthorisationToken.is_expired">
+<code class="highlight language-python">
+is_expired<span class="p">(</span><span class="bp">self</span><span class="p">)</span> </code>
+<a class="headerlink" href="#async_spotify.authentification.spotify_authorization_token.SpotifyAuthorisationToken.is_expired" title="Permanent link">¶</a></h3>
+<div class="doc doc-contents">
+<p>Checks if the api token has expired</p>
+<p><strong>Returns:</strong></p>
+<table>
+<thead>
+<tr>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>bool</code></td>
+<td>
+<p>Is the token expired</p>
+</td>
+</tr>
+</tbody>
+</table>
+<details class="quote">
+<summary>Source code in <code>async_spotify/authentification/spotify_authorization_token.py</code></summary>
+<table class="highlighttable">
+<tr>
+<td class="linenos">
+<div class="linenodiv">
+<pre><span></span>33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47</pre>
+</div>
+</td>
+<td class="code">
+<div class="highlight">
+<pre><span></span><code><span class="k">def</span> <span class="nf">is_expired</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">bool</span><span class="p">:</span>
+    <span class="sd">"""</span>
+<span class="sd">    Checks if the api token has expired</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">        Is the token expired</span>
+<span class="sd">    """</span>
+
+    <span class="n">current_time</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">())</span>
+
+    <span class="c1"># Check if token is valid (3600 would be correct, but a bit of time padding is always nice)</span>
+    <span class="k">if</span> <span class="n">current_time</span> <span class="o">-</span> <span class="bp">self</span><span class="o">.</span><span class="n">activation_time</span> <span class="o">&gt;</span> <span class="mi">3400</span><span class="p">:</span>
+        <span class="k">return</span> <span class="kc">True</span>
+
+    <span class="k">return</span> <span class="kc">False</span>
+</code></pre>
+</div>
+</td>
+</tr>
+</table>
+</details>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="doc doc-object doc-module">
+<h2 class="hidden-toc" href="#async_spotify.authentification.spotify_cookies" id="async_spotify.authentification.spotify_cookies" style="visibility: hidden; width: 0; height: 0;">
+<a class="headerlink" href="#async_spotify.authentification.spotify_cookies" title="Permanent link">¶</a></h2>
+<div class="doc doc-contents first">
+<p>Class which describes a spotify cookie which is necessary to authenticate a user</p>
+<div class="doc doc-children">
+<div class="doc doc-object doc-class">
+<h2 class="doc doc-heading" id="async_spotify.authentification.spotify_cookies.SpotifyCookie">
+<code>SpotifyCookie</code>
+<a class="headerlink" href="#async_spotify.authentification.spotify_cookies.SpotifyCookie" title="Permanent link">¶</a></h2>
+<div class="doc doc-contents">
+<p>Class which describes a valid spotify cookie</p>
+<div class="doc doc-children">
+<div class="doc doc-object doc-attribute">
+<h3 class="doc doc-heading" id="async_spotify.authentification.spotify_cookies.SpotifyCookie.valid">
+<code class="highlight">
+valid: <span class="nb">bool</span> </code>
+<span class="doc doc-properties">
+<small class="doc doc-property doc-property-property"><code>property</code></small>
+<small class="doc doc-property doc-property-readonly"><code>readonly</code></small>
+</span>
+<a class="headerlink" href="#async_spotify.authentification.spotify_cookies.SpotifyCookie.valid" title="Permanent link">¶</a></h3>
+<div class="doc doc-contents">
+<p>Check if all values are set correctly</p>
+<p><strong>Returns:</strong></p>
+<table>
+<thead>
+<tr>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>bool</code></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="doc doc-object doc-method">
+<h3 class="doc doc-heading" id="async_spotify.authentification.spotify_cookies.SpotifyCookie.__init__">
+<code class="highlight language-python">
+__init__<span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">sp_t</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">sp_dc</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">sp_key</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span> </code>
+<span class="doc doc-properties">
+<small class="doc doc-property doc-property-special"><code>special</code></small>
+</span>
+<a class="headerlink" href="#async_spotify.authentification.spotify_cookies.SpotifyCookie.__init__" title="Permanent link">¶</a></h3>
+<div class="doc doc-contents">
+<p>Create a new spotify cookie. All values have to be set if you want to use it</p>
+<p><strong>Parameters:</strong></p>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+<th>Default</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>sp_t</code></td>
+<td><code>str</code></td>
+<td>
+<p>The name of the spotify cookie (Use the raw value of the cookie as value of this)</p>
+</td>
+<td><code>None</code></td>
+</tr>
+<tr>
+<td><code>sp_dc</code></td>
+<td><code>str</code></td>
+<td>
+<p>The name of the spotify cookie (Use the raw value of the cookie as value of this)</p>
+</td>
+<td><code>None</code></td>
+</tr>
+<tr>
+<td><code>sp_key</code></td>
+<td><code>str</code></td>
+<td>
+<p>The name of the spotify cookie (Use the raw value of the cookie as value of this)</p>
+</td>
+<td><code>None</code></td>
+</tr>
+</tbody>
+</table>
+<details class="quote">
+<summary>Source code in <code>async_spotify/authentification/spotify_cookies.py</code></summary>
+<table class="highlighttable">
+<tr>
+<td class="linenos">
+<div class="linenodiv">
+<pre><span></span>20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31</pre>
+</div>
+</td>
+<td class="code">
+<div class="highlight">
+<pre><span></span><code><span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">sp_t</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> <span class="n">sp_dc</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> <span class="n">sp_key</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="kc">None</span><span class="p">):</span>
+    <span class="sd">"""</span>
+<span class="sd">    Create a new spotify cookie. All values have to be set if you want to use it</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        sp_t: The name of the spotify cookie (Use the raw value of the cookie as value of this)</span>
+<span class="sd">        sp_dc: The name of the spotify cookie (Use the raw value of the cookie as value of this)</span>
+<span class="sd">        sp_key: The name of the spotify cookie (Use the raw value of the cookie as value of this)</span>
+<span class="sd">    """</span>
+    <span class="bp">self</span><span class="o">.</span><span class="n">sp_t</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="n">sp_t</span>
+    <span class="bp">self</span><span class="o">.</span><span class="n">sp_dc</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="n">sp_dc</span>
+    <span class="bp">self</span><span class="o">.</span><span class="n">sp_key</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="n">sp_key</span>
+</code></pre>
+</div>
+</td>
+</tr>
+</table>
+</details>
+</div>
+</div>
+<div class="doc doc-object doc-method">
+<h3 class="doc doc-heading" id="async_spotify.authentification.spotify_cookies.SpotifyCookie.load_from_file">
+<code class="highlight language-python">
+load_from_file<span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">file_path</span><span class="p">)</span> </code>
+<a class="headerlink" href="#async_spotify.authentification.spotify_cookies.SpotifyCookie.load_from_file" title="Permanent link">¶</a></h3>
+<div class="doc doc-contents">
+<p>Load the cookies from a file</p>
+<p><strong>Parameters:</strong></p>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+<th>Default</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>file_path</code></td>
+<td><code>str</code></td>
+<td>
+<p>The cookie file path</p>
+</td>
+<td><em>required</em></td>
+</tr>
+</tbody>
+</table>
+<details class="quote">
+<summary>Source code in <code>async_spotify/authentification/spotify_cookies.py</code></summary>
+<table class="highlighttable">
+<tr>
+<td class="linenos">
+<div class="linenodiv">
+<pre><span></span>44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55
+56</pre>
+</div>
+</td>
+<td class="code">
+<div class="highlight">
+<pre><span></span><code><span class="k">def</span> <span class="nf">load_from_file</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">file_path</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+    <span class="sd">"""</span>
+<span class="sd">    Load the cookies from a file</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        file_path: The cookie file path</span>
+<span class="sd">    """</span>
+    <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">file_path</span><span class="p">)</span> <span class="k">as</span> <span class="n">file</span><span class="p">:</span>
+        <span class="n">file_json</span><span class="p">:</span> <span class="nb">dict</span> <span class="o">=</span> <span class="n">json</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="n">file</span><span class="p">)</span>
+
+    <span class="bp">self</span><span class="o">.</span><span class="n">sp_t</span> <span class="o">=</span> <span class="n">file_json</span><span class="p">[</span><span class="s1">'sp_t'</span><span class="p">]</span>
+    <span class="bp">self</span><span class="o">.</span><span class="n">sp_dc</span> <span class="o">=</span> <span class="n">file_json</span><span class="p">[</span><span class="s1">'sp_dc'</span><span class="p">]</span>
+    <span class="bp">self</span><span class="o">.</span><span class="n">sp_key</span> <span class="o">=</span> <span class="n">file_json</span><span class="p">[</span><span class="s1">'sp_key'</span><span class="p">]</span>
+</code></pre>
+</div>
+</td>
+</tr>
+</table>
+</details>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
 </article>
 </div>
 </div>
