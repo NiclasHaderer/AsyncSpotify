@@ -20,7 +20,7 @@ class Player(Endpoint):
     Player endpoint
     """
 
-    async def devices(self, auth_token: SpotifyAuthorisationToken = None) -> dict:
+    async def get_devices(self, auth_token: SpotifyAuthorisationToken = None) -> dict:
         """
         Get information about a user’s available devices.
 
@@ -36,7 +36,7 @@ class Player(Endpoint):
 
         return await self.api_request_handler.make_request('GET', URLS.PLAYER.DEVICES, {}, auth_token)
 
-    async def queue(self, auth_token: SpotifyAuthorisationToken = None, **kwargs) -> dict:
+    async def get_queue(self, auth_token: SpotifyAuthorisationToken = None, **kwargs) -> dict:
         """
         Get information about the user’s current playback state, including track or episode, progress,
         and active device.
@@ -72,7 +72,7 @@ class Player(Endpoint):
 
         await self.api_request_handler.make_request('POST', URLS.PLAYER.QUEUE, args, auth_token)
 
-    async def recent_tracks(self, auth_token: SpotifyAuthorisationToken = None, **kwargs) -> dict:
+    async def get_recent_tracks(self, auth_token: SpotifyAuthorisationToken = None, **kwargs) -> dict:
         """
         Get the Current User's Recently Played Tracks
 
@@ -89,7 +89,7 @@ class Player(Endpoint):
 
         return await self.api_request_handler.make_request('GET', URLS.PLAYER.RECENTLY, kwargs, auth_token)
 
-    async def current_track(self, auth_token: SpotifyAuthorisationToken = None, **kwargs) -> dict:
+    async def get_current_track(self, auth_token: SpotifyAuthorisationToken = None, **kwargs) -> dict:
         """
         Get the User's Currently Playing Track
 

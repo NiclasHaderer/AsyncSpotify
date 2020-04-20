@@ -45,7 +45,7 @@ class Artists(Endpoint):
 
         return response
 
-    async def album_list(self, artist_id: str, auth_token: SpotifyAuthorisationToken = None, **kwargs) -> dict:
+    async def get_album_list(self, artist_id: str, auth_token: SpotifyAuthorisationToken = None, **kwargs) -> dict:
         """
         Get Spotify catalog information about an artist’s albums.
 
@@ -69,8 +69,8 @@ class Artists(Endpoint):
 
         return response
 
-    async def top_tracks(self, artist_id: str, country: str, auth_token: SpotifyAuthorisationToken = None,
-                         **kwargs) -> dict:
+    async def get_top_tracks(self, artist_id: str, country: str, auth_token: SpotifyAuthorisationToken = None,
+                             **kwargs) -> dict:
         """
         Get Spotify catalog information about an artist’s top tracks by country.
 
@@ -95,7 +95,7 @@ class Artists(Endpoint):
 
         return response
 
-    async def similar(self, artist_id: str, auth_token: SpotifyAuthorisationToken = None, **kwargs) -> dict:
+    async def get_similar(self, artist_id: str, auth_token: SpotifyAuthorisationToken = None, **kwargs) -> dict:
         """
         Get Spotify catalog information about artists similar to a given artist. Similarity is based on analysis of the
         Spotify community’s listening history.
@@ -120,8 +120,8 @@ class Artists(Endpoint):
 
         return response
 
-    async def several(self, artist_id_list: List[str], auth_token: SpotifyAuthorisationToken = None,
-                      **kwargs) -> dict:
+    async def get_several(self, artist_id_list: List[str], auth_token: SpotifyAuthorisationToken = None,
+                          **kwargs) -> dict:
         """
         Get Spotify catalog information for several artists based on their Spotify IDs.
 

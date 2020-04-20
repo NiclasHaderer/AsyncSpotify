@@ -18,17 +18,17 @@ class TestPlayer:
 
     @pytest.mark.asyncio
     async def test_get_devices(self, prepared_api: SpotifyApiClient):
-        response: dict = await prepared_api.player.devices()
+        response: dict = await prepared_api.player.get_devices()
         assert isinstance(response, dict)
 
     @pytest.mark.asyncio
     async def test_get_queue(self, prepared_api: SpotifyApiClient):
-        response: dict = await prepared_api.player.queue()
+        response: dict = await prepared_api.player.get_queue()
         assert isinstance(response, dict)
 
     @pytest.mark.asyncio
     async def test_recent_tracks(self, prepared_api: SpotifyApiClient):
-        response: dict = await prepared_api.player.recent_tracks()
+        response: dict = await prepared_api.player.get_recent_tracks()
         assert isinstance(response, dict)
 
     @pytest.mark.asyncio
@@ -46,7 +46,7 @@ class TestPlayer:
 
     @pytest.mark.asyncio
     async def test_add_to_queue(self, prepared_api: SpotifyApiClient):
-        response: dict = await prepared_api.player.current_track()
+        response: dict = await prepared_api.player.get_current_track()
         assert isinstance(response, dict)
 
     @pytest.mark.asyncio
@@ -125,7 +125,7 @@ class TestPlayer:
 
     @pytest.mark.asyncio
     async def test_transfer(self, prepared_api: SpotifyApiClient):
-        devices: dict = await prepared_api.player.devices()
+        devices: dict = await prepared_api.player.get_devices()
 
         try:
             device_id = devices['devices'][0]['id']

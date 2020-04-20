@@ -285,8 +285,8 @@ class SpotifyApiClient:
             pass
 
         if not code:
-            message = 'The collection of the code did not work. Did the user already agree to the scopes of '
-            f'your app? \n {response_text}'
+            message = f'The collection of the code did not work. Did the user already agree to the scopes' \
+                      f' of your app? \n {response_text}'
 
             raise SpotifyError(ErrorMessage(message=message).__dict__)
 

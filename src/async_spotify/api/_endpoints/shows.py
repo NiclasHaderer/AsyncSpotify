@@ -20,7 +20,7 @@ class Show(Endpoint):
     Shows endpoint
     """
 
-    async def one(self, show_id: str, auth_token: SpotifyAuthorisationToken = None, **kwargs) -> dict:
+    async def get_one(self, show_id: str, auth_token: SpotifyAuthorisationToken = None, **kwargs) -> dict:
         """
         Get Spotify catalog information for a single show identified by its unique Spotify ID.
 
@@ -39,7 +39,7 @@ class Show(Endpoint):
         url, _ = self._add_url_params(URLS.SHOWS.ONE, {'id': show_id})
         return await self.api_request_handler.make_request('GET', url, {**kwargs}, auth_token)
 
-    async def several(self, show_id_list: List[str], auth_token: SpotifyAuthorisationToken = None, **kwargs) -> dict:
+    async def get_several(self, show_id_list: List[str], auth_token: SpotifyAuthorisationToken = None, **kwargs) -> dict:
         """
         Get Spotify catalog information for multiple shows based on their Spotify IDs.
 
@@ -58,7 +58,7 @@ class Show(Endpoint):
         return await self.api_request_handler.make_request(
             'GET', URLS.SHOWS.SEVERAL, {**{'ids': show_id_list}, **kwargs}, auth_token)
 
-    async def episodes(self, show_id: str, auth_token: SpotifyAuthorisationToken = None, **kwargs) -> dict:
+    async def get_episodes(self, show_id: str, auth_token: SpotifyAuthorisationToken = None, **kwargs) -> dict:
         """
         Get Spotify catalog information about an show’s episodes. Optional parameters can be used to limit the
         number of episodes returned.

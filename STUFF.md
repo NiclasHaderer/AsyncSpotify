@@ -19,9 +19,15 @@ Go into the root directory of this project and run the following command
 pytest -s --cov=async_spotify src/test --cov-report=xml
 ```
 
-# Build and Publish
+## Build and Publish
 
 ```bash
 python3 setup.py sdist
 twine upload dist/*
 ```
+
+## Generate Docs
+
+To generate the docs run `PYTHONPATH=src mkdocs serve`.  
+To publish the docs run `PYTHONPATH=src mkdocs gh-deploy`
+

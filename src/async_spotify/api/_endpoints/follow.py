@@ -109,10 +109,10 @@ class Follow(Endpoint):
 
         await self.api_request_handler.make_request('PUT', url, {}, auth_token, body)
 
-    async def get_follow_artist(self, follow_type: str = 'artist',
-                                auth_token: SpotifyAuthorisationToken = None, **kwargs) -> dict:
+    async def get_followed_artist(self, follow_type: str = 'artist',
+                                  auth_token: SpotifyAuthorisationToken = None, **kwargs) -> dict:
         """
-        Add the current user as a follower of a playlist.
+        Get the current user’s followed artists.
 
         Notes:
             [https://developer.spotify.com/documentation/web-api/reference/follow/get-followed/](https://developer.spotify.com/documentation/web-api/reference/follow/get-followed/)

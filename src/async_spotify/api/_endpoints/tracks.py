@@ -75,7 +75,7 @@ class Track(Endpoint):
         return await self.api_request_handler.make_request(
             'GET', URLS.TRACKS.MULTI_FEATURES, {'ids': track_id_list}, auth_token)
 
-    async def several(self, track_id_list: List[str], auth_token: SpotifyAuthorisationToken = None, **kwargs) -> dict:
+    async def get_several(self, track_id_list: List[str], auth_token: SpotifyAuthorisationToken = None, **kwargs) -> dict:
         """
         Get Spotify catalog information for multiple tracks based on their Spotify IDs.
 
@@ -94,7 +94,7 @@ class Track(Endpoint):
         return await self.api_request_handler.make_request(
             'GET', URLS.TRACKS.SEVERAL, {**{'ids': track_id_list}, **kwargs}, auth_token)
 
-    async def one(self, track_id: str, auth_token: SpotifyAuthorisationToken = None, **kwargs) -> dict:
+    async def get_one(self, track_id: str, auth_token: SpotifyAuthorisationToken = None, **kwargs) -> dict:
         """
         Get Spotify catalog information for a single track identified by its unique Spotify ID.
 

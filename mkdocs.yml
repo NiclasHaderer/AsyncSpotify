@@ -17,7 +17,7 @@ nav:
       - Request Handler: "private_api/request_handler.md"
       - Status Classes: "private_api/status_classes.md"
       - URLS: "private_api/url.md"
-  - Run Tests: "TEST.md"
+  - Tests: "STUFF.md"
   - Licence: "LICENCE.md"
 
 theme:

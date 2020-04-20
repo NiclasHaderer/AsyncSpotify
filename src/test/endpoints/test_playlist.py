@@ -38,7 +38,7 @@ class TestPlaylist:
 
         playlist_list = await prepared_api.playlist.current_get_all()
         assert isinstance(playlist_list, dict)
-        playlist_list_user = await prepared_api.playlist.user_get_all(user_id)
+        playlist_list_user = await prepared_api.playlist.get_user_all(user_id)
         assert isinstance(playlist_list_user, dict)
 
         playlist = await prepared_api.playlist.get_one(playlist_id)
@@ -56,11 +56,11 @@ class TestPlaylist:
             "insert_before": 1
         }
 
-        reorder_return = await prepared_api.playlist.reorder(playlist_id, reorder)
+        reorder_return = await prepared_api.playlist.reorder_tracks(playlist_id, reorder)
         assert isinstance(reorder_return, dict)
 
         snapshot_id = reorder_return['snapshot_id']
-        reorder_return = await prepared_api.playlist.reorder(playlist_id, reorder, snapshot_id)
+        reorder_return = await prepared_api.playlist.reorder_tracks(playlist_id, reorder, snapshot_id)
         assert isinstance(reorder_return, dict)
 
         replace = await prepared_api.playlist.replace_tracks(playlist_id, ['spotify:track:3kW5Rq9AIL0QQuYTSKNkQw'])
