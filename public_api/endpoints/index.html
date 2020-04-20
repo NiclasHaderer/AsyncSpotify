@@ -217,8 +217,8 @@
 <nav aria-label="Artists" class="md-nav">
 <ul class="md-nav__list">
 <li class="md-nav__item">
-<a class="md-nav__link" href="#async_spotify.api._endpoints.artists.Artists.album_list">
-    album_list()
+<a class="md-nav__link" href="#async_spotify.api._endpoints.artists.Artists.get_album_list">
+    get_album_list()
   </a>
 </li>
 <li class="md-nav__item">
@@ -227,18 +227,18 @@
   </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="#async_spotify.api._endpoints.artists.Artists.several">
-    several()
+<a class="md-nav__link" href="#async_spotify.api._endpoints.artists.Artists.get_several">
+    get_several()
   </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="#async_spotify.api._endpoints.artists.Artists.similar">
-    similar()
+<a class="md-nav__link" href="#async_spotify.api._endpoints.artists.Artists.get_similar">
+    get_similar()
   </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="#async_spotify.api._endpoints.artists.Artists.top_tracks">
-    top_tracks()
+<a class="md-nav__link" href="#async_spotify.api._endpoints.artists.Artists.get_top_tracks">
+    get_top_tracks()
   </a>
 </li>
 </ul>
@@ -256,38 +256,38 @@
 <nav aria-label="Browse" class="md-nav">
 <ul class="md-nav__list">
 <li class="md-nav__item">
-<a class="md-nav__link" href="#async_spotify.api._endpoints.browse.Browse.categories">
-    categories()
+<a class="md-nav__link" href="#async_spotify.api._endpoints.browse.Browse.get_categories">
+    get_categories()
   </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="#async_spotify.api._endpoints.browse.Browse.category_playlists">
-    category_playlists()
+<a class="md-nav__link" href="#async_spotify.api._endpoints.browse.Browse.get_category_playlists">
+    get_category_playlists()
   </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="#async_spotify.api._endpoints.browse.Browse.featured_playlists">
-    featured_playlists()
+<a class="md-nav__link" href="#async_spotify.api._endpoints.browse.Browse.get_featured_playlists">
+    get_featured_playlists()
   </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="#async_spotify.api._endpoints.browse.Browse.genre_seeds">
-    genre_seeds()
+<a class="md-nav__link" href="#async_spotify.api._endpoints.browse.Browse.get_genre_seeds">
+    get_genre_seeds()
   </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="#async_spotify.api._endpoints.browse.Browse.new_releases">
-    new_releases()
+<a class="md-nav__link" href="#async_spotify.api._endpoints.browse.Browse.get_new_releases">
+    get_new_releases()
   </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="#async_spotify.api._endpoints.browse.Browse.recommendation_by_seed">
-    recommendation_by_seed()
+<a class="md-nav__link" href="#async_spotify.api._endpoints.browse.Browse.get_recommendation_by_seed">
+    get_recommendation_by_seed()
   </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="#async_spotify.api._endpoints.browse.Browse.single_category">
-    single_category()
+<a class="md-nav__link" href="#async_spotify.api._endpoints.browse.Browse.get_single_category">
+    get_single_category()
   </a>
 </li>
 </ul>
@@ -349,8 +349,8 @@
   </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="#async_spotify.api._endpoints.follow.Follow.get_follow_artist">
-    get_follow_artist()
+<a class="md-nav__link" href="#async_spotify.api._endpoints.follow.Follow.get_followed_artist">
+    get_followed_artist()
   </a>
 </li>
 <li class="md-nav__item">
@@ -476,13 +476,23 @@
   </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="#async_spotify.api._endpoints.player.Player.current_track">
-    current_track()
+<a class="md-nav__link" href="#async_spotify.api._endpoints.player.Player.get_current_track">
+    get_current_track()
   </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="#async_spotify.api._endpoints.player.Player.devices">
-    devices()
+<a class="md-nav__link" href="#async_spotify.api._endpoints.player.Player.get_devices">
+    get_devices()
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#async_spotify.api._endpoints.player.Player.get_queue">
+    get_queue()
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#async_spotify.api._endpoints.player.Player.get_recent_tracks">
+    get_recent_tracks()
   </a>
 </li>
 <li class="md-nav__item">
@@ -503,16 +513,6 @@
 <li class="md-nav__item">
 <a class="md-nav__link" href="#async_spotify.api._endpoints.player.Player.previous">
     previous()
-  </a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#async_spotify.api._endpoints.player.Player.queue">
-    queue()
-  </a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#async_spotify.api._endpoints.player.Player.recent_tracks">
-    recent_tracks()
   </a>
 </li>
 <li class="md-nav__item">
@@ -590,13 +590,18 @@
   </a>
 </li>
 <li class="md-nav__item">
+<a class="md-nav__link" href="#async_spotify.api._endpoints.playlist.Playlist.get_user_all">
+    get_user_all()
+  </a>
+</li>
+<li class="md-nav__item">
 <a class="md-nav__link" href="#async_spotify.api._endpoints.playlist.Playlist.remove_tracks">
     remove_tracks()
   </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="#async_spotify.api._endpoints.playlist.Playlist.reorder">
-    reorder()
+<a class="md-nav__link" href="#async_spotify.api._endpoints.playlist.Playlist.reorder_tracks">
+    reorder_tracks()
   </a>
 </li>
 <li class="md-nav__item">
@@ -607,11 +612,6 @@
 <li class="md-nav__item">
 <a class="md-nav__link" href="#async_spotify.api._endpoints.playlist.Playlist.upload_cover">
     upload_cover()
-  </a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#async_spotify.api._endpoints.playlist.Playlist.user_get_all">
-    user_get_all()
   </a>
 </li>
 </ul>
@@ -648,18 +648,18 @@
 <nav aria-label="Show" class="md-nav">
 <ul class="md-nav__list">
 <li class="md-nav__item">
-<a class="md-nav__link" href="#async_spotify.api._endpoints.shows.Show.episodes">
-    episodes()
+<a class="md-nav__link" href="#async_spotify.api._endpoints.shows.Show.get_episodes">
+    get_episodes()
   </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="#async_spotify.api._endpoints.shows.Show.one">
-    one()
+<a class="md-nav__link" href="#async_spotify.api._endpoints.shows.Show.get_one">
+    get_one()
   </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="#async_spotify.api._endpoints.shows.Show.several">
-    several()
+<a class="md-nav__link" href="#async_spotify.api._endpoints.shows.Show.get_several">
+    get_several()
   </a>
 </li>
 </ul>
@@ -687,13 +687,13 @@
   </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="#async_spotify.api._endpoints.tracks.Track.one">
-    one()
+<a class="md-nav__link" href="#async_spotify.api._endpoints.tracks.Track.get_one">
+    get_one()
   </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="#async_spotify.api._endpoints.tracks.Track.several">
-    several()
+<a class="md-nav__link" href="#async_spotify.api._endpoints.tracks.Track.get_several">
+    get_several()
   </a>
 </li>
 <li class="md-nav__item">
@@ -835,8 +835,8 @@
 <nav aria-label="Artists" class="md-nav">
 <ul class="md-nav__list">
 <li class="md-nav__item">
-<a class="md-nav__link" href="#async_spotify.api._endpoints.artists.Artists.album_list">
-    album_list()
+<a class="md-nav__link" href="#async_spotify.api._endpoints.artists.Artists.get_album_list">
+    get_album_list()
   </a>
 </li>
 <li class="md-nav__item">
@@ -845,18 +845,18 @@
   </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="#async_spotify.api._endpoints.artists.Artists.several">
-    several()
+<a class="md-nav__link" href="#async_spotify.api._endpoints.artists.Artists.get_several">
+    get_several()
   </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="#async_spotify.api._endpoints.artists.Artists.similar">
-    similar()
+<a class="md-nav__link" href="#async_spotify.api._endpoints.artists.Artists.get_similar">
+    get_similar()
   </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="#async_spotify.api._endpoints.artists.Artists.top_tracks">
-    top_tracks()
+<a class="md-nav__link" href="#async_spotify.api._endpoints.artists.Artists.get_top_tracks">
+    get_top_tracks()
   </a>
 </li>
 </ul>
@@ -874,38 +874,38 @@
 <nav aria-label="Browse" class="md-nav">
 <ul class="md-nav__list">
 <li class="md-nav__item">
-<a class="md-nav__link" href="#async_spotify.api._endpoints.browse.Browse.categories">
-    categories()
+<a class="md-nav__link" href="#async_spotify.api._endpoints.browse.Browse.get_categories">
+    get_categories()
   </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="#async_spotify.api._endpoints.browse.Browse.category_playlists">
-    category_playlists()
+<a class="md-nav__link" href="#async_spotify.api._endpoints.browse.Browse.get_category_playlists">
+    get_category_playlists()
   </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="#async_spotify.api._endpoints.browse.Browse.featured_playlists">
-    featured_playlists()
+<a class="md-nav__link" href="#async_spotify.api._endpoints.browse.Browse.get_featured_playlists">
+    get_featured_playlists()
   </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="#async_spotify.api._endpoints.browse.Browse.genre_seeds">
-    genre_seeds()
+<a class="md-nav__link" href="#async_spotify.api._endpoints.browse.Browse.get_genre_seeds">
+    get_genre_seeds()
   </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="#async_spotify.api._endpoints.browse.Browse.new_releases">
-    new_releases()
+<a class="md-nav__link" href="#async_spotify.api._endpoints.browse.Browse.get_new_releases">
+    get_new_releases()
   </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="#async_spotify.api._endpoints.browse.Browse.recommendation_by_seed">
-    recommendation_by_seed()
+<a class="md-nav__link" href="#async_spotify.api._endpoints.browse.Browse.get_recommendation_by_seed">
+    get_recommendation_by_seed()
   </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="#async_spotify.api._endpoints.browse.Browse.single_category">
-    single_category()
+<a class="md-nav__link" href="#async_spotify.api._endpoints.browse.Browse.get_single_category">
+    get_single_category()
   </a>
 </li>
 </ul>
@@ -967,8 +967,8 @@
   </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="#async_spotify.api._endpoints.follow.Follow.get_follow_artist">
-    get_follow_artist()
+<a class="md-nav__link" href="#async_spotify.api._endpoints.follow.Follow.get_followed_artist">
+    get_followed_artist()
   </a>
 </li>
 <li class="md-nav__item">
@@ -1094,13 +1094,23 @@
   </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="#async_spotify.api._endpoints.player.Player.current_track">
-    current_track()
+<a class="md-nav__link" href="#async_spotify.api._endpoints.player.Player.get_current_track">
+    get_current_track()
   </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="#async_spotify.api._endpoints.player.Player.devices">
-    devices()
+<a class="md-nav__link" href="#async_spotify.api._endpoints.player.Player.get_devices">
+    get_devices()
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#async_spotify.api._endpoints.player.Player.get_queue">
+    get_queue()
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#async_spotify.api._endpoints.player.Player.get_recent_tracks">
+    get_recent_tracks()
   </a>
 </li>
 <li class="md-nav__item">
@@ -1121,16 +1131,6 @@
 <li class="md-nav__item">
 <a class="md-nav__link" href="#async_spotify.api._endpoints.player.Player.previous">
     previous()
-  </a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#async_spotify.api._endpoints.player.Player.queue">
-    queue()
-  </a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#async_spotify.api._endpoints.player.Player.recent_tracks">
-    recent_tracks()
   </a>
 </li>
 <li class="md-nav__item">
@@ -1208,13 +1208,18 @@
   </a>
 </li>
 <li class="md-nav__item">
+<a class="md-nav__link" href="#async_spotify.api._endpoints.playlist.Playlist.get_user_all">
+    get_user_all()
+  </a>
+</li>
+<li class="md-nav__item">
 <a class="md-nav__link" href="#async_spotify.api._endpoints.playlist.Playlist.remove_tracks">
     remove_tracks()
   </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="#async_spotify.api._endpoints.playlist.Playlist.reorder">
-    reorder()
+<a class="md-nav__link" href="#async_spotify.api._endpoints.playlist.Playlist.reorder_tracks">
+    reorder_tracks()
   </a>
 </li>
 <li class="md-nav__item">
@@ -1225,11 +1230,6 @@
 <li class="md-nav__item">
 <a class="md-nav__link" href="#async_spotify.api._endpoints.playlist.Playlist.upload_cover">
     upload_cover()
-  </a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#async_spotify.api._endpoints.playlist.Playlist.user_get_all">
-    user_get_all()
   </a>
 </li>
 </ul>
@@ -1266,18 +1266,18 @@
 <nav aria-label="Show" class="md-nav">
 <ul class="md-nav__list">
 <li class="md-nav__item">
-<a class="md-nav__link" href="#async_spotify.api._endpoints.shows.Show.episodes">
-    episodes()
+<a class="md-nav__link" href="#async_spotify.api._endpoints.shows.Show.get_episodes">
+    get_episodes()
   </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="#async_spotify.api._endpoints.shows.Show.one">
-    one()
+<a class="md-nav__link" href="#async_spotify.api._endpoints.shows.Show.get_one">
+    get_one()
   </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="#async_spotify.api._endpoints.shows.Show.several">
-    several()
+<a class="md-nav__link" href="#async_spotify.api._endpoints.shows.Show.get_several">
+    get_several()
   </a>
 </li>
 </ul>
@@ -1305,13 +1305,13 @@
   </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="#async_spotify.api._endpoints.tracks.Track.one">
-    one()
+<a class="md-nav__link" href="#async_spotify.api._endpoints.tracks.Track.get_one">
+    get_one()
   </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="#async_spotify.api._endpoints.tracks.Track.several">
-    several()
+<a class="md-nav__link" href="#async_spotify.api._endpoints.tracks.Track.get_several">
+    get_several()
   </a>
 </li>
 <li class="md-nav__item">
@@ -1779,10 +1779,10 @@ get_tracks<span class="p">(</span><span class="bp">self</span><span class="p">,<
 <p>Wraps the spotify artist endpoint</p>
 <div class="doc doc-children">
 <div class="doc doc-object doc-method">
-<h3 class="doc doc-heading" id="async_spotify.api._endpoints.artists.Artists.album_list">
+<h3 class="doc doc-heading" id="async_spotify.api._endpoints.artists.Artists.get_album_list">
 <code class="highlight language-python">
-album_list<span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">artist_id</span><span class="p">,</span> <span class="n">auth_token</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span> </code>
-<a class="headerlink" href="#async_spotify.api._endpoints.artists.Artists.album_list" title="Permanent link">¶</a></h3>
+get_album_list<span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">artist_id</span><span class="p">,</span> <span class="n">auth_token</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span> </code>
+<a class="headerlink" href="#async_spotify.api._endpoints.artists.Artists.get_album_list" title="Permanent link">¶</a></h3>
 <div class="doc doc-contents">
 <p>Get Spotify catalog information about an artist’s albums.</p>
 <p><strong>Parameters:</strong></p>
@@ -1876,7 +1876,7 @@ album_list<span class="p">(</span><span class="bp">self</span><span class="p">,<
 </td>
 <td class="code">
 <div class="highlight">
-<pre><span></span><code><span class="k">async</span> <span class="k">def</span> <span class="nf">album_list</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">artist_id</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">auth_token</span><span class="p">:</span> <span class="n">SpotifyAuthorisationToken</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">dict</span><span class="p">:</span>
+<pre><span></span><code><span class="k">async</span> <span class="k">def</span> <span class="nf">get_album_list</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">artist_id</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">auth_token</span><span class="p">:</span> <span class="n">SpotifyAuthorisationToken</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">dict</span><span class="p">:</span>
     <span class="sd">"""</span>
 <span class="sd">    Get Spotify catalog information about an artist’s albums.</span>
 
@@ -2037,10 +2037,10 @@ get_one<span class="p">(</span><span class="bp">self</span><span class="p">,</sp
 </div>
 </div>
 <div class="doc doc-object doc-method">
-<h3 class="doc doc-heading" id="async_spotify.api._endpoints.artists.Artists.several">
+<h3 class="doc doc-heading" id="async_spotify.api._endpoints.artists.Artists.get_several">
 <code class="highlight language-python">
-several<span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">artist_id_list</span><span class="p">,</span> <span class="n">auth_token</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span> </code>
-<a class="headerlink" href="#async_spotify.api._endpoints.artists.Artists.several" title="Permanent link">¶</a></h3>
+get_several<span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">artist_id_list</span><span class="p">,</span> <span class="n">auth_token</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span> </code>
+<a class="headerlink" href="#async_spotify.api._endpoints.artists.Artists.get_several" title="Permanent link">¶</a></h3>
 <div class="doc doc-contents">
 <p>Get Spotify catalog information for several artists based on their Spotify IDs.</p>
 <p><strong>Parameters:</strong></p>
@@ -2135,8 +2135,8 @@ several<span class="p">(</span><span class="bp">self</span><span class="p">,</sp
 </td>
 <td class="code">
 <div class="highlight">
-<pre><span></span><code><span class="k">async</span> <span class="k">def</span> <span class="nf">several</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">artist_id_list</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="nb">str</span><span class="p">],</span> <span class="n">auth_token</span><span class="p">:</span> <span class="n">SpotifyAuthorisationToken</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
-                  <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">dict</span><span class="p">:</span>
+<pre><span></span><code><span class="k">async</span> <span class="k">def</span> <span class="nf">get_several</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">artist_id_list</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="nb">str</span><span class="p">],</span> <span class="n">auth_token</span><span class="p">:</span> <span class="n">SpotifyAuthorisationToken</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+                      <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">dict</span><span class="p">:</span>
     <span class="sd">"""</span>
 <span class="sd">    Get Spotify catalog information for several artists based on their Spotify IDs.</span>
 
@@ -2168,10 +2168,10 @@ several<span class="p">(</span><span class="bp">self</span><span class="p">,</sp
 </div>
 </div>
 <div class="doc doc-object doc-method">
-<h3 class="doc doc-heading" id="async_spotify.api._endpoints.artists.Artists.similar">
+<h3 class="doc doc-heading" id="async_spotify.api._endpoints.artists.Artists.get_similar">
 <code class="highlight language-python">
-similar<span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">artist_id</span><span class="p">,</span> <span class="n">auth_token</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span> </code>
-<a class="headerlink" href="#async_spotify.api._endpoints.artists.Artists.similar" title="Permanent link">¶</a></h3>
+get_similar<span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">artist_id</span><span class="p">,</span> <span class="n">auth_token</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span> </code>
+<a class="headerlink" href="#async_spotify.api._endpoints.artists.Artists.get_similar" title="Permanent link">¶</a></h3>
 <div class="doc doc-contents">
 <p>Get Spotify catalog information about artists similar to a given artist. Similarity is based on analysis of the
 Spotify community’s listening history.</p>
@@ -2267,7 +2267,7 @@ Spotify community’s listening history.</p>
 </td>
 <td class="code">
 <div class="highlight">
-<pre><span></span><code><span class="k">async</span> <span class="k">def</span> <span class="nf">similar</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">artist_id</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">auth_token</span><span class="p">:</span> <span class="n">SpotifyAuthorisationToken</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">dict</span><span class="p">:</span>
+<pre><span></span><code><span class="k">async</span> <span class="k">def</span> <span class="nf">get_similar</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">artist_id</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">auth_token</span><span class="p">:</span> <span class="n">SpotifyAuthorisationToken</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">dict</span><span class="p">:</span>
     <span class="sd">"""</span>
 <span class="sd">    Get Spotify catalog information about artists similar to a given artist. Similarity is based on analysis of the</span>
 <span class="sd">    Spotify community’s listening history.</span>
@@ -2300,10 +2300,10 @@ Spotify community’s listening history.</p>
 </div>
 </div>
 <div class="doc doc-object doc-method">
-<h3 class="doc doc-heading" id="async_spotify.api._endpoints.artists.Artists.top_tracks">
+<h3 class="doc doc-heading" id="async_spotify.api._endpoints.artists.Artists.get_top_tracks">
 <code class="highlight language-python">
-top_tracks<span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">artist_id</span><span class="p">,</span> <span class="n">country</span><span class="p">,</span> <span class="n">auth_token</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span> </code>
-<a class="headerlink" href="#async_spotify.api._endpoints.artists.Artists.top_tracks" title="Permanent link">¶</a></h3>
+get_top_tracks<span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">artist_id</span><span class="p">,</span> <span class="n">country</span><span class="p">,</span> <span class="n">auth_token</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span> </code>
+<a class="headerlink" href="#async_spotify.api._endpoints.artists.Artists.get_top_tracks" title="Permanent link">¶</a></h3>
 <div class="doc doc-contents">
 <p>Get Spotify catalog information about an artist’s top tracks by country.</p>
 <p><strong>Parameters:</strong></p>
@@ -2407,8 +2407,8 @@ top_tracks<span class="p">(</span><span class="bp">self</span><span class="p">,<
 </td>
 <td class="code">
 <div class="highlight">
-<pre><span></span><code><span class="k">async</span> <span class="k">def</span> <span class="nf">top_tracks</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">artist_id</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">country</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">auth_token</span><span class="p">:</span> <span class="n">SpotifyAuthorisationToken</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
-                     <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">dict</span><span class="p">:</span>
+<pre><span></span><code><span class="k">async</span> <span class="k">def</span> <span class="nf">get_top_tracks</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">artist_id</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">country</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">auth_token</span><span class="p">:</span> <span class="n">SpotifyAuthorisationToken</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+                         <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">dict</span><span class="p">:</span>
     <span class="sd">"""</span>
 <span class="sd">    Get Spotify catalog information about an artist’s top tracks by country.</span>
 
@@ -2460,10 +2460,10 @@ top_tracks<span class="p">(</span><span class="bp">self</span><span class="p">,<
 <p>The browser endpoint of the api</p>
 <div class="doc doc-children">
 <div class="doc doc-object doc-method">
-<h3 class="doc doc-heading" id="async_spotify.api._endpoints.browse.Browse.categories">
+<h3 class="doc doc-heading" id="async_spotify.api._endpoints.browse.Browse.get_categories">
 <code class="highlight language-python">
-categories<span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">auth_token</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span> </code>
-<a class="headerlink" href="#async_spotify.api._endpoints.browse.Browse.categories" title="Permanent link">¶</a></h3>
+get_categories<span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">auth_token</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span> </code>
+<a class="headerlink" href="#async_spotify.api._endpoints.browse.Browse.get_categories" title="Permanent link">¶</a></h3>
 <div class="doc doc-contents">
 <p>Get a List of Browse Categories</p>
 <p><strong>Parameters:</strong></p>
@@ -2544,7 +2544,7 @@ categories<span class="p">(</span><span class="bp">self</span><span class="p">,<
 </td>
 <td class="code">
 <div class="highlight">
-<pre><span></span><code><span class="k">async</span> <span class="k">def</span> <span class="nf">categories</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">auth_token</span><span class="p">:</span> <span class="n">SpotifyAuthorisationToken</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">dict</span><span class="p">:</span>
+<pre><span></span><code><span class="k">async</span> <span class="k">def</span> <span class="nf">get_categories</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">auth_token</span><span class="p">:</span> <span class="n">SpotifyAuthorisationToken</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">dict</span><span class="p">:</span>
     <span class="sd">"""</span>
 <span class="sd">    Get a List of Browse Categories</span>
 
@@ -2571,10 +2571,10 @@ categories<span class="p">(</span><span class="bp">self</span><span class="p">,<
 </div>
 </div>
 <div class="doc doc-object doc-method">
-<h3 class="doc doc-heading" id="async_spotify.api._endpoints.browse.Browse.category_playlists">
+<h3 class="doc doc-heading" id="async_spotify.api._endpoints.browse.Browse.get_category_playlists">
 <code class="highlight language-python">
-category_playlists<span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">category_id</span><span class="p">,</span> <span class="n">auth_token</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span> </code>
-<a class="headerlink" href="#async_spotify.api._endpoints.browse.Browse.category_playlists" title="Permanent link">¶</a></h3>
+get_category_playlists<span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">category_id</span><span class="p">,</span> <span class="n">auth_token</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span> </code>
+<a class="headerlink" href="#async_spotify.api._endpoints.browse.Browse.get_category_playlists" title="Permanent link">¶</a></h3>
 <div class="doc doc-contents">
 <p>Get a Category's playlists</p>
 <p><strong>Parameters:</strong></p>
@@ -2669,8 +2669,8 @@ category_playlists<span class="p">(</span><span class="bp">self</span><span clas
 </td>
 <td class="code">
 <div class="highlight">
-<pre><span></span><code><span class="k">async</span> <span class="k">def</span> <span class="nf">category_playlists</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">category_id</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">auth_token</span><span class="p">:</span> <span class="n">SpotifyAuthorisationToken</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
-                             <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">dict</span><span class="p">:</span>
+<pre><span></span><code><span class="k">async</span> <span class="k">def</span> <span class="nf">get_category_playlists</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">category_id</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">auth_token</span><span class="p">:</span> <span class="n">SpotifyAuthorisationToken</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+                                 <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">dict</span><span class="p">:</span>
     <span class="sd">"""</span>
 <span class="sd">    Get a Category's playlists</span>
 
@@ -2702,10 +2702,10 @@ category_playlists<span class="p">(</span><span class="bp">self</span><span clas
 </div>
 </div>
 <div class="doc doc-object doc-method">
-<h3 class="doc doc-heading" id="async_spotify.api._endpoints.browse.Browse.featured_playlists">
+<h3 class="doc doc-heading" id="async_spotify.api._endpoints.browse.Browse.get_featured_playlists">
 <code class="highlight language-python">
-featured_playlists<span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">auth_token</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span> </code>
-<a class="headerlink" href="#async_spotify.api._endpoints.browse.Browse.featured_playlists" title="Permanent link">¶</a></h3>
+get_featured_playlists<span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">auth_token</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span> </code>
+<a class="headerlink" href="#async_spotify.api._endpoints.browse.Browse.get_featured_playlists" title="Permanent link">¶</a></h3>
 <div class="doc doc-contents">
 <p>Get a List of Featured Playlists</p>
 <p><strong>Parameters:</strong></p>
@@ -2786,7 +2786,7 @@ featured_playlists<span class="p">(</span><span class="bp">self</span><span clas
 </td>
 <td class="code">
 <div class="highlight">
-<pre><span></span><code><span class="k">async</span> <span class="k">def</span> <span class="nf">featured_playlists</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">auth_token</span><span class="p">:</span> <span class="n">SpotifyAuthorisationToken</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">dict</span><span class="p">:</span>
+<pre><span></span><code><span class="k">async</span> <span class="k">def</span> <span class="nf">get_featured_playlists</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">auth_token</span><span class="p">:</span> <span class="n">SpotifyAuthorisationToken</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">dict</span><span class="p">:</span>
     <span class="sd">"""</span>
 <span class="sd">    Get a List of Featured Playlists</span>
 
@@ -2813,10 +2813,10 @@ featured_playlists<span class="p">(</span><span class="bp">self</span><span clas
 </div>
 </div>
 <div class="doc doc-object doc-method">
-<h3 class="doc doc-heading" id="async_spotify.api._endpoints.browse.Browse.genre_seeds">
+<h3 class="doc doc-heading" id="async_spotify.api._endpoints.browse.Browse.get_genre_seeds">
 <code class="highlight language-python">
-genre_seeds<span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">auth_token</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span> </code>
-<a class="headerlink" href="#async_spotify.api._endpoints.browse.Browse.genre_seeds" title="Permanent link">¶</a></h3>
+get_genre_seeds<span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">auth_token</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span> </code>
+<a class="headerlink" href="#async_spotify.api._endpoints.browse.Browse.get_genre_seeds" title="Permanent link">¶</a></h3>
 <div class="doc doc-contents">
 <p>Get Available Genre Seeds</p>
 <p><strong>Parameters:</strong></p>
@@ -2886,7 +2886,7 @@ genre_seeds<span class="p">(</span><span class="bp">self</span><span class="p">,
 </td>
 <td class="code">
 <div class="highlight">
-<pre><span></span><code><span class="k">async</span> <span class="k">def</span> <span class="nf">genre_seeds</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">auth_token</span><span class="p">:</span> <span class="n">SpotifyAuthorisationToken</span> <span class="o">=</span> <span class="kc">None</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">dict</span><span class="p">:</span>
+<pre><span></span><code><span class="k">async</span> <span class="k">def</span> <span class="nf">get_genre_seeds</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">auth_token</span><span class="p">:</span> <span class="n">SpotifyAuthorisationToken</span> <span class="o">=</span> <span class="kc">None</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">dict</span><span class="p">:</span>
     <span class="sd">"""</span>
 <span class="sd">    Get Available Genre Seeds</span>
 
@@ -2910,10 +2910,10 @@ genre_seeds<span class="p">(</span><span class="bp">self</span><span class="p">,
 </div>
 </div>
 <div class="doc doc-object doc-method">
-<h3 class="doc doc-heading" id="async_spotify.api._endpoints.browse.Browse.new_releases">
+<h3 class="doc doc-heading" id="async_spotify.api._endpoints.browse.Browse.get_new_releases">
 <code class="highlight language-python">
-new_releases<span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">auth_token</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span> </code>
-<a class="headerlink" href="#async_spotify.api._endpoints.browse.Browse.new_releases" title="Permanent link">¶</a></h3>
+get_new_releases<span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">auth_token</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span> </code>
+<a class="headerlink" href="#async_spotify.api._endpoints.browse.Browse.get_new_releases" title="Permanent link">¶</a></h3>
 <div class="doc doc-contents">
 <p>Get a List of New Releases</p>
 <p><strong>Parameters:</strong></p>
@@ -2994,7 +2994,7 @@ new_releases<span class="p">(</span><span class="bp">self</span><span class="p">
 </td>
 <td class="code">
 <div class="highlight">
-<pre><span></span><code><span class="k">async</span> <span class="k">def</span> <span class="nf">new_releases</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">auth_token</span><span class="p">:</span> <span class="n">SpotifyAuthorisationToken</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">dict</span><span class="p">:</span>
+<pre><span></span><code><span class="k">async</span> <span class="k">def</span> <span class="nf">get_new_releases</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">auth_token</span><span class="p">:</span> <span class="n">SpotifyAuthorisationToken</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">dict</span><span class="p">:</span>
     <span class="sd">"""</span>
 <span class="sd">    Get a List of New Releases</span>
 
@@ -3021,10 +3021,10 @@ new_releases<span class="p">(</span><span class="bp">self</span><span class="p">
 </div>
 </div>
 <div class="doc doc-object doc-method">
-<h3 class="doc doc-heading" id="async_spotify.api._endpoints.browse.Browse.recommendation_by_seed">
+<h3 class="doc doc-heading" id="async_spotify.api._endpoints.browse.Browse.get_recommendation_by_seed">
 <code class="highlight language-python">
-recommendation_by_seed<span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">auth_token</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span> </code>
-<a class="headerlink" href="#async_spotify.api._endpoints.browse.Browse.recommendation_by_seed" title="Permanent link">¶</a></h3>
+get_recommendation_by_seed<span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">auth_token</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span> </code>
+<a class="headerlink" href="#async_spotify.api._endpoints.browse.Browse.get_recommendation_by_seed" title="Permanent link">¶</a></h3>
 <div class="doc doc-contents">
 <p>Get Recommendations Based on Seeds</p>
 <p><strong>Parameters:</strong></p>
@@ -3104,7 +3104,7 @@ recommendation_by_seed<span class="p">(</span><span class="bp">self</span><span 
 </td>
 <td class="code">
 <div class="highlight">
-<pre><span></span><code><span class="k">async</span> <span class="k">def</span> <span class="nf">recommendation_by_seed</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">auth_token</span><span class="p">:</span> <span class="n">SpotifyAuthorisationToken</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">dict</span><span class="p">:</span>
+<pre><span></span><code><span class="k">async</span> <span class="k">def</span> <span class="nf">get_recommendation_by_seed</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">auth_token</span><span class="p">:</span> <span class="n">SpotifyAuthorisationToken</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">dict</span><span class="p">:</span>
     <span class="sd">"""</span>
 <span class="sd">    Get Recommendations Based on Seeds</span>
 <span class="sd">    Args:</span>
@@ -3130,10 +3130,10 @@ recommendation_by_seed<span class="p">(</span><span class="bp">self</span><span 
 </div>
 </div>
 <div class="doc doc-object doc-method">
-<h3 class="doc doc-heading" id="async_spotify.api._endpoints.browse.Browse.single_category">
+<h3 class="doc doc-heading" id="async_spotify.api._endpoints.browse.Browse.get_single_category">
 <code class="highlight language-python">
-single_category<span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">category_id</span><span class="p">,</span> <span class="n">auth_token</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span> </code>
-<a class="headerlink" href="#async_spotify.api._endpoints.browse.Browse.single_category" title="Permanent link">¶</a></h3>
+get_single_category<span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">category_id</span><span class="p">,</span> <span class="n">auth_token</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span> </code>
+<a class="headerlink" href="#async_spotify.api._endpoints.browse.Browse.get_single_category" title="Permanent link">¶</a></h3>
 <div class="doc doc-contents">
 <p>Get a Single Browse Category</p>
 <p><strong>Parameters:</strong></p>
@@ -3227,7 +3227,7 @@ single_category<span class="p">(</span><span class="bp">self</span><span class="
 </td>
 <td class="code">
 <div class="highlight">
-<pre><span></span><code><span class="k">async</span> <span class="k">def</span> <span class="nf">single_category</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">category_id</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">auth_token</span><span class="p">:</span> <span class="n">SpotifyAuthorisationToken</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">dict</span><span class="p">:</span>
+<pre><span></span><code><span class="k">async</span> <span class="k">def</span> <span class="nf">get_single_category</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">category_id</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">auth_token</span><span class="p">:</span> <span class="n">SpotifyAuthorisationToken</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">dict</span><span class="p">:</span>
     <span class="sd">"""</span>
 <span class="sd">    Get a Single Browse Category</span>
 
@@ -4055,12 +4055,12 @@ follow_playlist<span class="p">(</span><span class="bp">self</span><span class="
 </div>
 </div>
 <div class="doc doc-object doc-method">
-<h3 class="doc doc-heading" id="async_spotify.api._endpoints.follow.Follow.get_follow_artist">
+<h3 class="doc doc-heading" id="async_spotify.api._endpoints.follow.Follow.get_followed_artist">
 <code class="highlight language-python">
-get_follow_artist<span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">follow_type</span><span class="o">=</span><span class="s1">'artist'</span><span class="p">,</span> <span class="n">auth_token</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span> </code>
-<a class="headerlink" href="#async_spotify.api._endpoints.follow.Follow.get_follow_artist" title="Permanent link">¶</a></h3>
+get_followed_artist<span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">follow_type</span><span class="o">=</span><span class="s1">'artist'</span><span class="p">,</span> <span class="n">auth_token</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span> </code>
+<a class="headerlink" href="#async_spotify.api._endpoints.follow.Follow.get_followed_artist" title="Permanent link">¶</a></h3>
 <div class="doc doc-contents">
-<p>Add the current user as a follower of a playlist.</p>
+<p>Get the current user’s followed artists.</p>
 <div class="admonition notes">
 <p class="admonition-title">Notes</p>
 <p><a href="https://developer.spotify.com/documentation/web-api/reference/follow/get-followed/">https://developer.spotify.com/documentation/web-api/reference/follow/get-followed/</a></p>
@@ -4153,10 +4153,10 @@ get_follow_artist<span class="p">(</span><span class="bp">self</span><span class
 </td>
 <td class="code">
 <div class="highlight">
-<pre><span></span><code><span class="k">async</span> <span class="k">def</span> <span class="nf">get_follow_artist</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">follow_type</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s1">'artist'</span><span class="p">,</span>
-                            <span class="n">auth_token</span><span class="p">:</span> <span class="n">SpotifyAuthorisationToken</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">dict</span><span class="p">:</span>
+<pre><span></span><code><span class="k">async</span> <span class="k">def</span> <span class="nf">get_followed_artist</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">follow_type</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s1">'artist'</span><span class="p">,</span>
+                              <span class="n">auth_token</span><span class="p">:</span> <span class="n">SpotifyAuthorisationToken</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">dict</span><span class="p">:</span>
     <span class="sd">"""</span>
-<span class="sd">    Add the current user as a follower of a playlist.</span>
+<span class="sd">    Get the current user’s followed artists.</span>
 
 <span class="sd">    Notes:</span>
 <span class="sd">        [https://developer.spotify.com/documentation/web-api/reference/follow/get-followed/](https://developer.spotify.com/documentation/web-api/reference/follow/get-followed/)</span>
@@ -5795,10 +5795,10 @@ add_to_queue<span class="p">(</span><span class="bp">self</span><span class="p">
 </div>
 </div>
 <div class="doc doc-object doc-method">
-<h3 class="doc doc-heading" id="async_spotify.api._endpoints.player.Player.current_track">
+<h3 class="doc doc-heading" id="async_spotify.api._endpoints.player.Player.get_current_track">
 <code class="highlight language-python">
-current_track<span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">auth_token</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span> </code>
-<a class="headerlink" href="#async_spotify.api._endpoints.player.Player.current_track" title="Permanent link">¶</a></h3>
+get_current_track<span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">auth_token</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span> </code>
+<a class="headerlink" href="#async_spotify.api._endpoints.player.Player.get_current_track" title="Permanent link">¶</a></h3>
 <div class="doc doc-contents">
 <p>Get the User's Currently Playing Track</p>
 <div class="admonition notes">
@@ -5877,7 +5877,7 @@ current_track<span class="p">(</span><span class="bp">self</span><span class="p"
 </td>
 <td class="code">
 <div class="highlight">
-<pre><span></span><code><span class="k">async</span> <span class="k">def</span> <span class="nf">current_track</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">auth_token</span><span class="p">:</span> <span class="n">SpotifyAuthorisationToken</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">dict</span><span class="p">:</span>
+<pre><span></span><code><span class="k">async</span> <span class="k">def</span> <span class="nf">get_current_track</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">auth_token</span><span class="p">:</span> <span class="n">SpotifyAuthorisationToken</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">dict</span><span class="p">:</span>
     <span class="sd">"""</span>
 <span class="sd">    Get the User's Currently Playing Track</span>
 
@@ -5902,10 +5902,10 @@ current_track<span class="p">(</span><span class="bp">self</span><span class="p"
 </div>
 </div>
 <div class="doc doc-object doc-method">
-<h3 class="doc doc-heading" id="async_spotify.api._endpoints.player.Player.devices">
+<h3 class="doc doc-heading" id="async_spotify.api._endpoints.player.Player.get_devices">
 <code class="highlight language-python">
-devices<span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">auth_token</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span> </code>
-<a class="headerlink" href="#async_spotify.api._endpoints.player.Player.devices" title="Permanent link">¶</a></h3>
+get_devices<span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">auth_token</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span> </code>
+<a class="headerlink" href="#async_spotify.api._endpoints.player.Player.get_devices" title="Permanent link">¶</a></h3>
 <div class="doc doc-contents">
 <p>Get information about a user’s available devices.</p>
 <div class="admonition notes">
@@ -5975,7 +5975,7 @@ devices<span class="p">(</span><span class="bp">self</span><span class="p">,</sp
 </td>
 <td class="code">
 <div class="highlight">
-<pre><span></span><code><span class="k">async</span> <span class="k">def</span> <span class="nf">devices</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">auth_token</span><span class="p">:</span> <span class="n">SpotifyAuthorisationToken</span> <span class="o">=</span> <span class="kc">None</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">dict</span><span class="p">:</span>
+<pre><span></span><code><span class="k">async</span> <span class="k">def</span> <span class="nf">get_devices</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">auth_token</span><span class="p">:</span> <span class="n">SpotifyAuthorisationToken</span> <span class="o">=</span> <span class="kc">None</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">dict</span><span class="p">:</span>
     <span class="sd">"""</span>
 <span class="sd">    Get information about a user’s available devices.</span>
 
@@ -5990,6 +5990,223 @@ devices<span class="p">(</span><span class="bp">self</span><span class="p">,</sp
 <span class="sd">    """</span>
 
     <span class="k">return</span> <span class="k">await</span> <span class="bp">self</span><span class="o">.</span><span class="n">api_request_handler</span><span class="o">.</span><span class="n">make_request</span><span class="p">(</span><span class="s1">'GET'</span><span class="p">,</span> <span class="n">URLS</span><span class="o">.</span><span class="n">PLAYER</span><span class="o">.</span><span class="n">DEVICES</span><span class="p">,</span> <span class="p">{},</span> <span class="n">auth_token</span><span class="p">)</span>
+</code></pre>
+</div>
+</td>
+</tr>
+</table>
+</details>
+</div>
+</div>
+<div class="doc doc-object doc-method">
+<h3 class="doc doc-heading" id="async_spotify.api._endpoints.player.Player.get_queue">
+<code class="highlight language-python">
+get_queue<span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">auth_token</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span> </code>
+<a class="headerlink" href="#async_spotify.api._endpoints.player.Player.get_queue" title="Permanent link">¶</a></h3>
+<div class="doc doc-contents">
+<p>Get information about the user’s current playback state, including track or episode, progress,
+and active device.</p>
+<div class="admonition notes">
+<p class="admonition-title">Notes</p>
+<p><a href="https://developer.spotify.com/documentation/web-api/reference/player/get-information-about-the-users-current-playback/">https://developer.spotify.com/documentation/web-api/reference/player/get-information-about-the-users-current-playback/</a></p>
+</div>
+<p><strong>Parameters:</strong></p>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+<th>Default</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>auth_token</code></td>
+<td><code>SpotifyAuthorisationToken</code></td>
+<td>
+<p>The auth token if you set the api class not to keep the token in memory</p>
+</td>
+<td><code>None</code></td>
+</tr>
+<tr>
+<td><code>kwargs</code></td>
+<td><code></code></td>
+<td>
+<p>Optional arguments as keyword args</p>
+</td>
+<td><code>{}</code></td>
+</tr>
+</tbody>
+</table>
+<p><strong>Returns:</strong></p>
+<table>
+<thead>
+<tr>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>dict</code></td>
+<td>
+<p>The top tracks and artists</p>
+</td>
+</tr>
+</tbody>
+</table>
+<details class="quote">
+<summary>Source code in <code>async_spotify/api/_endpoints/player.py</code></summary>
+<table class="highlighttable">
+<tr>
+<td class="linenos">
+<div class="linenodiv">
+<pre><span></span>39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55</pre>
+</div>
+</td>
+<td class="code">
+<div class="highlight">
+<pre><span></span><code><span class="k">async</span> <span class="k">def</span> <span class="nf">get_queue</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">auth_token</span><span class="p">:</span> <span class="n">SpotifyAuthorisationToken</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">dict</span><span class="p">:</span>
+    <span class="sd">"""</span>
+<span class="sd">    Get information about the user’s current playback state, including track or episode, progress,</span>
+<span class="sd">    and active device.</span>
+
+<span class="sd">    Notes:</span>
+<span class="sd">        [https://developer.spotify.com/documentation/web-api/reference/player/get-information-about-the-users-current-playback/](https://developer.spotify.com/documentation/web-api/reference/player/get-information-about-the-users-current-playback/)</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        auth_token: The auth token if you set the api class not to keep the token in memory</span>
+<span class="sd">        kwargs: Optional arguments as keyword args</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">        The top tracks and artists</span>
+<span class="sd">    """</span>
+
+    <span class="k">return</span> <span class="k">await</span> <span class="bp">self</span><span class="o">.</span><span class="n">api_request_handler</span><span class="o">.</span><span class="n">make_request</span><span class="p">(</span><span class="s1">'GET'</span><span class="p">,</span> <span class="n">URLS</span><span class="o">.</span><span class="n">PLAYER</span><span class="o">.</span><span class="n">PLAYER</span><span class="p">,</span> <span class="n">kwargs</span><span class="p">,</span> <span class="n">auth_token</span><span class="p">)</span>
+</code></pre>
+</div>
+</td>
+</tr>
+</table>
+</details>
+</div>
+</div>
+<div class="doc doc-object doc-method">
+<h3 class="doc doc-heading" id="async_spotify.api._endpoints.player.Player.get_recent_tracks">
+<code class="highlight language-python">
+get_recent_tracks<span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">auth_token</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span> </code>
+<a class="headerlink" href="#async_spotify.api._endpoints.player.Player.get_recent_tracks" title="Permanent link">¶</a></h3>
+<div class="doc doc-contents">
+<p>Get the Current User's Recently Played Tracks</p>
+<div class="admonition notes">
+<p class="admonition-title">Notes</p>
+<p><a href="https://developer.spotify.com/documentation/web-api/reference/player/get-recently-played/">https://developer.spotify.com/documentation/web-api/reference/player/get-recently-played/</a></p>
+</div>
+<p><strong>Parameters:</strong></p>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+<th>Default</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>auth_token</code></td>
+<td><code>SpotifyAuthorisationToken</code></td>
+<td>
+<p>The auth token if you set the api class not to keep the token in memory</p>
+</td>
+<td><code>None</code></td>
+</tr>
+<tr>
+<td><code>kwargs</code></td>
+<td><code></code></td>
+<td>
+<p>Optional arguments as keyword args</p>
+</td>
+<td><code>{}</code></td>
+</tr>
+</tbody>
+</table>
+<p><strong>Returns:</strong></p>
+<table>
+<thead>
+<tr>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>dict</code></td>
+<td>
+<p>The recent tracks</p>
+</td>
+</tr>
+</tbody>
+</table>
+<details class="quote">
+<summary>Source code in <code>async_spotify/api/_endpoints/player.py</code></summary>
+<table class="highlighttable">
+<tr>
+<td class="linenos">
+<div class="linenodiv">
+<pre><span></span>75
+76
+77
+78
+79
+80
+81
+82
+83
+84
+85
+86
+87
+88
+89
+90</pre>
+</div>
+</td>
+<td class="code">
+<div class="highlight">
+<pre><span></span><code><span class="k">async</span> <span class="k">def</span> <span class="nf">get_recent_tracks</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">auth_token</span><span class="p">:</span> <span class="n">SpotifyAuthorisationToken</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">dict</span><span class="p">:</span>
+    <span class="sd">"""</span>
+<span class="sd">    Get the Current User's Recently Played Tracks</span>
+
+<span class="sd">    Notes:</span>
+<span class="sd">        [https://developer.spotify.com/documentation/web-api/reference/player/get-recently-played/](https://developer.spotify.com/documentation/web-api/reference/player/get-recently-played/)</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        auth_token: The auth token if you set the api class not to keep the token in memory</span>
+<span class="sd">        kwargs: Optional arguments as keyword args</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">        The recent tracks</span>
+<span class="sd">    """</span>
+
+    <span class="k">return</span> <span class="k">await</span> <span class="bp">self</span><span class="o">.</span><span class="n">api_request_handler</span><span class="o">.</span><span class="n">make_request</span><span class="p">(</span><span class="s1">'GET'</span><span class="p">,</span> <span class="n">URLS</span><span class="o">.</span><span class="n">PLAYER</span><span class="o">.</span><span class="n">RECENTLY</span><span class="p">,</span> <span class="n">kwargs</span><span class="p">,</span> <span class="n">auth_token</span><span class="p">)</span>
 </code></pre>
 </div>
 </td>
@@ -6326,223 +6543,6 @@ previous<span class="p">(</span><span class="bp">self</span><span class="p">,</s
 <span class="sd">    """</span>
 
     <span class="k">await</span> <span class="bp">self</span><span class="o">.</span><span class="n">api_request_handler</span><span class="o">.</span><span class="n">make_request</span><span class="p">(</span><span class="s1">'POST'</span><span class="p">,</span> <span class="n">URLS</span><span class="o">.</span><span class="n">PLAYER</span><span class="o">.</span><span class="n">PREVIOUS</span><span class="p">,</span> <span class="n">kwargs</span><span class="p">,</span> <span class="n">auth_token</span><span class="p">)</span>
-</code></pre>
-</div>
-</td>
-</tr>
-</table>
-</details>
-</div>
-</div>
-<div class="doc doc-object doc-method">
-<h3 class="doc doc-heading" id="async_spotify.api._endpoints.player.Player.queue">
-<code class="highlight language-python">
-queue<span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">auth_token</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span> </code>
-<a class="headerlink" href="#async_spotify.api._endpoints.player.Player.queue" title="Permanent link">¶</a></h3>
-<div class="doc doc-contents">
-<p>Get information about the user’s current playback state, including track or episode, progress,
-and active device.</p>
-<div class="admonition notes">
-<p class="admonition-title">Notes</p>
-<p><a href="https://developer.spotify.com/documentation/web-api/reference/player/get-information-about-the-users-current-playback/">https://developer.spotify.com/documentation/web-api/reference/player/get-information-about-the-users-current-playback/</a></p>
-</div>
-<p><strong>Parameters:</strong></p>
-<table>
-<thead>
-<tr>
-<th>Name</th>
-<th>Type</th>
-<th>Description</th>
-<th>Default</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><code>auth_token</code></td>
-<td><code>SpotifyAuthorisationToken</code></td>
-<td>
-<p>The auth token if you set the api class not to keep the token in memory</p>
-</td>
-<td><code>None</code></td>
-</tr>
-<tr>
-<td><code>kwargs</code></td>
-<td><code></code></td>
-<td>
-<p>Optional arguments as keyword args</p>
-</td>
-<td><code>{}</code></td>
-</tr>
-</tbody>
-</table>
-<p><strong>Returns:</strong></p>
-<table>
-<thead>
-<tr>
-<th>Type</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><code>dict</code></td>
-<td>
-<p>The top tracks and artists</p>
-</td>
-</tr>
-</tbody>
-</table>
-<details class="quote">
-<summary>Source code in <code>async_spotify/api/_endpoints/player.py</code></summary>
-<table class="highlighttable">
-<tr>
-<td class="linenos">
-<div class="linenodiv">
-<pre><span></span>39
-40
-41
-42
-43
-44
-45
-46
-47
-48
-49
-50
-51
-52
-53
-54
-55</pre>
-</div>
-</td>
-<td class="code">
-<div class="highlight">
-<pre><span></span><code><span class="k">async</span> <span class="k">def</span> <span class="nf">queue</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">auth_token</span><span class="p">:</span> <span class="n">SpotifyAuthorisationToken</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">dict</span><span class="p">:</span>
-    <span class="sd">"""</span>
-<span class="sd">    Get information about the user’s current playback state, including track or episode, progress,</span>
-<span class="sd">    and active device.</span>
-
-<span class="sd">    Notes:</span>
-<span class="sd">        [https://developer.spotify.com/documentation/web-api/reference/player/get-information-about-the-users-current-playback/](https://developer.spotify.com/documentation/web-api/reference/player/get-information-about-the-users-current-playback/)</span>
-
-<span class="sd">    Args:</span>
-<span class="sd">        auth_token: The auth token if you set the api class not to keep the token in memory</span>
-<span class="sd">        kwargs: Optional arguments as keyword args</span>
-
-<span class="sd">    Returns:</span>
-<span class="sd">        The top tracks and artists</span>
-<span class="sd">    """</span>
-
-    <span class="k">return</span> <span class="k">await</span> <span class="bp">self</span><span class="o">.</span><span class="n">api_request_handler</span><span class="o">.</span><span class="n">make_request</span><span class="p">(</span><span class="s1">'GET'</span><span class="p">,</span> <span class="n">URLS</span><span class="o">.</span><span class="n">PLAYER</span><span class="o">.</span><span class="n">PLAYER</span><span class="p">,</span> <span class="n">kwargs</span><span class="p">,</span> <span class="n">auth_token</span><span class="p">)</span>
-</code></pre>
-</div>
-</td>
-</tr>
-</table>
-</details>
-</div>
-</div>
-<div class="doc doc-object doc-method">
-<h3 class="doc doc-heading" id="async_spotify.api._endpoints.player.Player.recent_tracks">
-<code class="highlight language-python">
-recent_tracks<span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">auth_token</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span> </code>
-<a class="headerlink" href="#async_spotify.api._endpoints.player.Player.recent_tracks" title="Permanent link">¶</a></h3>
-<div class="doc doc-contents">
-<p>Get the Current User's Recently Played Tracks</p>
-<div class="admonition notes">
-<p class="admonition-title">Notes</p>
-<p><a href="https://developer.spotify.com/documentation/web-api/reference/player/get-recently-played/">https://developer.spotify.com/documentation/web-api/reference/player/get-recently-played/</a></p>
-</div>
-<p><strong>Parameters:</strong></p>
-<table>
-<thead>
-<tr>
-<th>Name</th>
-<th>Type</th>
-<th>Description</th>
-<th>Default</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><code>auth_token</code></td>
-<td><code>SpotifyAuthorisationToken</code></td>
-<td>
-<p>The auth token if you set the api class not to keep the token in memory</p>
-</td>
-<td><code>None</code></td>
-</tr>
-<tr>
-<td><code>kwargs</code></td>
-<td><code></code></td>
-<td>
-<p>Optional arguments as keyword args</p>
-</td>
-<td><code>{}</code></td>
-</tr>
-</tbody>
-</table>
-<p><strong>Returns:</strong></p>
-<table>
-<thead>
-<tr>
-<th>Type</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><code>dict</code></td>
-<td>
-<p>The recent tracks</p>
-</td>
-</tr>
-</tbody>
-</table>
-<details class="quote">
-<summary>Source code in <code>async_spotify/api/_endpoints/player.py</code></summary>
-<table class="highlighttable">
-<tr>
-<td class="linenos">
-<div class="linenodiv">
-<pre><span></span>75
-76
-77
-78
-79
-80
-81
-82
-83
-84
-85
-86
-87
-88
-89
-90</pre>
-</div>
-</td>
-<td class="code">
-<div class="highlight">
-<pre><span></span><code><span class="k">async</span> <span class="k">def</span> <span class="nf">recent_tracks</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">auth_token</span><span class="p">:</span> <span class="n">SpotifyAuthorisationToken</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">dict</span><span class="p">:</span>
-    <span class="sd">"""</span>
-<span class="sd">    Get the Current User's Recently Played Tracks</span>
-
-<span class="sd">    Notes:</span>
-<span class="sd">        [https://developer.spotify.com/documentation/web-api/reference/player/get-recently-played/](https://developer.spotify.com/documentation/web-api/reference/player/get-recently-played/)</span>
-
-<span class="sd">    Args:</span>
-<span class="sd">        auth_token: The auth token if you set the api class not to keep the token in memory</span>
-<span class="sd">        kwargs: Optional arguments as keyword args</span>
-
-<span class="sd">    Returns:</span>
-<span class="sd">        The recent tracks</span>
-<span class="sd">    """</span>
-
-    <span class="k">return</span> <span class="k">await</span> <span class="bp">self</span><span class="o">.</span><span class="n">api_request_handler</span><span class="o">.</span><span class="n">make_request</span><span class="p">(</span><span class="s1">'GET'</span><span class="p">,</span> <span class="n">URLS</span><span class="o">.</span><span class="n">PLAYER</span><span class="o">.</span><span class="n">RECENTLY</span><span class="p">,</span> <span class="n">kwargs</span><span class="p">,</span> <span class="n">auth_token</span><span class="p">)</span>
 </code></pre>
 </div>
 </td>
@@ -7807,6 +7807,125 @@ get_tracks<span class="p">(</span><span class="bp">self</span><span class="p">,<
 </div>
 </div>
 <div class="doc doc-object doc-method">
+<h3 class="doc doc-heading" id="async_spotify.api._endpoints.playlist.Playlist.get_user_all">
+<code class="highlight language-python">
+get_user_all<span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">user_id</span><span class="p">,</span> <span class="n">auth_token</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span> </code>
+<a class="headerlink" href="#async_spotify.api._endpoints.playlist.Playlist.get_user_all" title="Permanent link">¶</a></h3>
+<div class="doc doc-contents">
+<p>Get a list of the playlists owned or followed by a Spotify user.</p>
+<div class="admonition notes">
+<p class="admonition-title">Notes</p>
+<p><a href="https://developer.spotify.com/documentation/web-api/reference/playlists/get-list-users-playlists/">https://developer.spotify.com/documentation/web-api/reference/playlists/get-list-users-playlists/</a></p>
+</div>
+<p><strong>Parameters:</strong></p>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+<th>Default</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>user_id</code></td>
+<td><code>str</code></td>
+<td>
+<p>The id of the spotify user</p>
+</td>
+<td><em>required</em></td>
+</tr>
+<tr>
+<td><code>auth_token</code></td>
+<td><code>SpotifyAuthorisationToken</code></td>
+<td>
+<p>The auth token if you set the api class not to keep the token in memory</p>
+</td>
+<td><code>None</code></td>
+</tr>
+<tr>
+<td><code>kwargs</code></td>
+<td><code></code></td>
+<td>
+<p>Optional arguments as keyword args</p>
+</td>
+<td><code>{}</code></td>
+</tr>
+</tbody>
+</table>
+<p><strong>Returns:</strong></p>
+<table>
+<thead>
+<tr>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>dict</code></td>
+<td>
+<p>A List of a User's Playlists</p>
+</td>
+</tr>
+</tbody>
+</table>
+<details class="quote">
+<summary>Source code in <code>async_spotify/api/_endpoints/playlist.py</code></summary>
+<table class="highlighttable">
+<tr>
+<td class="linenos">
+<div class="linenodiv">
+<pre><span></span>103
+104
+105
+106
+107
+108
+109
+110
+111
+112
+113
+114
+115
+116
+117
+118
+119
+120</pre>
+</div>
+</td>
+<td class="code">
+<div class="highlight">
+<pre><span></span><code><span class="k">async</span> <span class="k">def</span> <span class="nf">get_user_all</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">user_id</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">auth_token</span><span class="p">:</span> <span class="n">SpotifyAuthorisationToken</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">dict</span><span class="p">:</span>
+    <span class="sd">"""</span>
+<span class="sd">    Get a list of the playlists owned or followed by a Spotify user.</span>
+
+<span class="sd">    Notes:</span>
+<span class="sd">        [https://developer.spotify.com/documentation/web-api/reference/playlists/get-list-users-playlists/](https://developer.spotify.com/documentation/web-api/reference/playlists/get-list-users-playlists/)</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        user_id: The id of the spotify user</span>
+<span class="sd">        auth_token: The auth token if you set the api class not to keep the token in memory</span>
+<span class="sd">        kwargs: Optional arguments as keyword args</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">        A List of a User's Playlists</span>
+<span class="sd">    """</span>
+
+    <span class="n">url</span><span class="p">,</span> <span class="n">_</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_add_url_params</span><span class="p">(</span><span class="n">URLS</span><span class="o">.</span><span class="n">PLAYLIST</span><span class="o">.</span><span class="n">USER</span><span class="p">,</span> <span class="p">{</span><span class="s1">'user_id'</span><span class="p">:</span> <span class="n">user_id</span><span class="p">})</span>
+    <span class="k">return</span> <span class="k">await</span> <span class="bp">self</span><span class="o">.</span><span class="n">api_request_handler</span><span class="o">.</span><span class="n">make_request</span><span class="p">(</span><span class="s1">'GET'</span><span class="p">,</span> <span class="n">url</span><span class="p">,</span> <span class="n">kwargs</span><span class="p">,</span> <span class="n">auth_token</span><span class="p">)</span>
+</code></pre>
+</div>
+</td>
+</tr>
+</table>
+</details>
+</div>
+</div>
+<div class="doc doc-object doc-method">
 <h3 class="doc doc-heading" id="async_spotify.api._endpoints.playlist.Playlist.remove_tracks">
 <code class="highlight language-python">
 remove_tracks<span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">playlist_id</span><span class="p">,</span> <span class="n">spotify_uris</span><span class="p">,</span> <span class="n">auth_token</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span> </code>
@@ -7907,10 +8026,10 @@ remove_tracks<span class="p">(</span><span class="bp">self</span><span class="p"
 </div>
 </div>
 <div class="doc doc-object doc-method">
-<h3 class="doc doc-heading" id="async_spotify.api._endpoints.playlist.Playlist.reorder">
+<h3 class="doc doc-heading" id="async_spotify.api._endpoints.playlist.Playlist.reorder_tracks">
 <code class="highlight language-python">
-reorder<span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">playlist_id</span><span class="p">,</span> <span class="n">position_dict</span><span class="p">,</span> <span class="n">snapshot_id</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">auth_token</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span> </code>
-<a class="headerlink" href="#async_spotify.api._endpoints.playlist.Playlist.reorder" title="Permanent link">¶</a></h3>
+reorder_tracks<span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">playlist_id</span><span class="p">,</span> <span class="n">position_dict</span><span class="p">,</span> <span class="n">snapshot_id</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">auth_token</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span> </code>
+<a class="headerlink" href="#async_spotify.api._endpoints.playlist.Playlist.reorder_tracks" title="Permanent link">¶</a></h3>
 <div class="doc doc-contents">
 <p>Reorder an item or a group of items in a playlist.</p>
 <div class="admonition notes">
@@ -8014,8 +8133,8 @@ reorder<span class="p">(</span><span class="bp">self</span><span class="p">,</sp
 </td>
 <td class="code">
 <div class="highlight">
-<pre><span></span><code><span class="k">async</span> <span class="k">def</span> <span class="nf">reorder</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">playlist_id</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">position_dict</span><span class="p">:</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Union</span><span class="p">[</span><span class="nb">int</span><span class="p">,</span> <span class="nb">str</span><span class="p">]],</span> <span class="n">snapshot_id</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
-                  <span class="n">auth_token</span><span class="p">:</span> <span class="n">SpotifyAuthorisationToken</span> <span class="o">=</span> <span class="kc">None</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">dict</span><span class="p">:</span>
+<pre><span></span><code><span class="k">async</span> <span class="k">def</span> <span class="nf">reorder_tracks</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">playlist_id</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">position_dict</span><span class="p">:</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Union</span><span class="p">[</span><span class="nb">int</span><span class="p">,</span> <span class="nb">str</span><span class="p">]],</span> <span class="n">snapshot_id</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+                         <span class="n">auth_token</span><span class="p">:</span> <span class="n">SpotifyAuthorisationToken</span> <span class="o">=</span> <span class="kc">None</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">dict</span><span class="p">:</span>
     <span class="sd">"""</span>
 <span class="sd">    Reorder an item or a group of items in a playlist.</span>
 
@@ -8258,125 +8377,6 @@ upload_cover<span class="p">(</span><span class="bp">self</span><span class="p">
 </details>
 </div>
 </div>
-<div class="doc doc-object doc-method">
-<h3 class="doc doc-heading" id="async_spotify.api._endpoints.playlist.Playlist.user_get_all">
-<code class="highlight language-python">
-user_get_all<span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">user_id</span><span class="p">,</span> <span class="n">auth_token</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span> </code>
-<a class="headerlink" href="#async_spotify.api._endpoints.playlist.Playlist.user_get_all" title="Permanent link">¶</a></h3>
-<div class="doc doc-contents">
-<p>Get a list of the playlists owned or followed by a Spotify user.</p>
-<div class="admonition notes">
-<p class="admonition-title">Notes</p>
-<p><a href="https://developer.spotify.com/documentation/web-api/reference/playlists/get-list-users-playlists/">https://developer.spotify.com/documentation/web-api/reference/playlists/get-list-users-playlists/</a></p>
-</div>
-<p><strong>Parameters:</strong></p>
-<table>
-<thead>
-<tr>
-<th>Name</th>
-<th>Type</th>
-<th>Description</th>
-<th>Default</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><code>user_id</code></td>
-<td><code>str</code></td>
-<td>
-<p>The id of the spotify user</p>
-</td>
-<td><em>required</em></td>
-</tr>
-<tr>
-<td><code>auth_token</code></td>
-<td><code>SpotifyAuthorisationToken</code></td>
-<td>
-<p>The auth token if you set the api class not to keep the token in memory</p>
-</td>
-<td><code>None</code></td>
-</tr>
-<tr>
-<td><code>kwargs</code></td>
-<td><code></code></td>
-<td>
-<p>Optional arguments as keyword args</p>
-</td>
-<td><code>{}</code></td>
-</tr>
-</tbody>
-</table>
-<p><strong>Returns:</strong></p>
-<table>
-<thead>
-<tr>
-<th>Type</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><code>dict</code></td>
-<td>
-<p>A List of a User's Playlists</p>
-</td>
-</tr>
-</tbody>
-</table>
-<details class="quote">
-<summary>Source code in <code>async_spotify/api/_endpoints/playlist.py</code></summary>
-<table class="highlighttable">
-<tr>
-<td class="linenos">
-<div class="linenodiv">
-<pre><span></span>103
-104
-105
-106
-107
-108
-109
-110
-111
-112
-113
-114
-115
-116
-117
-118
-119
-120</pre>
-</div>
-</td>
-<td class="code">
-<div class="highlight">
-<pre><span></span><code><span class="k">async</span> <span class="k">def</span> <span class="nf">user_get_all</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">user_id</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">auth_token</span><span class="p">:</span> <span class="n">SpotifyAuthorisationToken</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">dict</span><span class="p">:</span>
-    <span class="sd">"""</span>
-<span class="sd">    Get a list of the playlists owned or followed by a Spotify user.</span>
-
-<span class="sd">    Notes:</span>
-<span class="sd">        [https://developer.spotify.com/documentation/web-api/reference/playlists/get-list-users-playlists/](https://developer.spotify.com/documentation/web-api/reference/playlists/get-list-users-playlists/)</span>
-
-<span class="sd">    Args:</span>
-<span class="sd">        user_id: The id of the spotify user</span>
-<span class="sd">        auth_token: The auth token if you set the api class not to keep the token in memory</span>
-<span class="sd">        kwargs: Optional arguments as keyword args</span>
-
-<span class="sd">    Returns:</span>
-<span class="sd">        A List of a User's Playlists</span>
-<span class="sd">    """</span>
-
-    <span class="n">url</span><span class="p">,</span> <span class="n">_</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_add_url_params</span><span class="p">(</span><span class="n">URLS</span><span class="o">.</span><span class="n">PLAYLIST</span><span class="o">.</span><span class="n">USER</span><span class="p">,</span> <span class="p">{</span><span class="s1">'user_id'</span><span class="p">:</span> <span class="n">user_id</span><span class="p">})</span>
-    <span class="k">return</span> <span class="k">await</span> <span class="bp">self</span><span class="o">.</span><span class="n">api_request_handler</span><span class="o">.</span><span class="n">make_request</span><span class="p">(</span><span class="s1">'GET'</span><span class="p">,</span> <span class="n">url</span><span class="p">,</span> <span class="n">kwargs</span><span class="p">,</span> <span class="n">auth_token</span><span class="p">)</span>
-</code></pre>
-</div>
-</td>
-</tr>
-</table>
-</details>
-</div>
-</div>
 </div>
 </div>
 </div>
@@ -8555,10 +8555,10 @@ start<span class="p">(</span><span class="bp">self</span><span class="p">,</span
 <p>Shows endpoint</p>
 <div class="doc doc-children">
 <div class="doc doc-object doc-method">
-<h3 class="doc doc-heading" id="async_spotify.api._endpoints.shows.Show.episodes">
+<h3 class="doc doc-heading" id="async_spotify.api._endpoints.shows.Show.get_episodes">
 <code class="highlight language-python">
-episodes<span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">show_id</span><span class="p">,</span> <span class="n">auth_token</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span> </code>
-<a class="headerlink" href="#async_spotify.api._endpoints.shows.Show.episodes" title="Permanent link">¶</a></h3>
+get_episodes<span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">show_id</span><span class="p">,</span> <span class="n">auth_token</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span> </code>
+<a class="headerlink" href="#async_spotify.api._endpoints.shows.Show.get_episodes" title="Permanent link">¶</a></h3>
 <div class="doc doc-contents">
 <p>Get Spotify catalog information about an show’s episodes. Optional parameters can be used to limit the
 number of episodes returned.</p>
@@ -8651,7 +8651,7 @@ number of episodes returned.</p>
 </td>
 <td class="code">
 <div class="highlight">
-<pre><span></span><code><span class="k">async</span> <span class="k">def</span> <span class="nf">episodes</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">show_id</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">auth_token</span><span class="p">:</span> <span class="n">SpotifyAuthorisationToken</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">dict</span><span class="p">:</span>
+<pre><span></span><code><span class="k">async</span> <span class="k">def</span> <span class="nf">get_episodes</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">show_id</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">auth_token</span><span class="p">:</span> <span class="n">SpotifyAuthorisationToken</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">dict</span><span class="p">:</span>
     <span class="sd">"""</span>
 <span class="sd">    Get Spotify catalog information about an show’s episodes. Optional parameters can be used to limit the</span>
 <span class="sd">    number of episodes returned.</span>
@@ -8681,10 +8681,10 @@ number of episodes returned.</p>
 </div>
 </div>
 <div class="doc doc-object doc-method">
-<h3 class="doc doc-heading" id="async_spotify.api._endpoints.shows.Show.one">
+<h3 class="doc doc-heading" id="async_spotify.api._endpoints.shows.Show.get_one">
 <code class="highlight language-python">
-one<span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">show_id</span><span class="p">,</span> <span class="n">auth_token</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span> </code>
-<a class="headerlink" href="#async_spotify.api._endpoints.shows.Show.one" title="Permanent link">¶</a></h3>
+get_one<span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">show_id</span><span class="p">,</span> <span class="n">auth_token</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span> </code>
+<a class="headerlink" href="#async_spotify.api._endpoints.shows.Show.get_one" title="Permanent link">¶</a></h3>
 <div class="doc doc-contents">
 <p>Get Spotify catalog information for a single show identified by its unique Spotify ID.</p>
 <div class="admonition notes">
@@ -8773,7 +8773,7 @@ one<span class="p">(</span><span class="bp">self</span><span class="p">,</span> 
 </td>
 <td class="code">
 <div class="highlight">
-<pre><span></span><code><span class="k">async</span> <span class="k">def</span> <span class="nf">one</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">show_id</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">auth_token</span><span class="p">:</span> <span class="n">SpotifyAuthorisationToken</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">dict</span><span class="p">:</span>
+<pre><span></span><code><span class="k">async</span> <span class="k">def</span> <span class="nf">get_one</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">show_id</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">auth_token</span><span class="p">:</span> <span class="n">SpotifyAuthorisationToken</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">dict</span><span class="p">:</span>
     <span class="sd">"""</span>
 <span class="sd">    Get Spotify catalog information for a single show identified by its unique Spotify ID.</span>
 
@@ -8800,10 +8800,10 @@ one<span class="p">(</span><span class="bp">self</span><span class="p">,</span> 
 </div>
 </div>
 <div class="doc doc-object doc-method">
-<h3 class="doc doc-heading" id="async_spotify.api._endpoints.shows.Show.several">
+<h3 class="doc doc-heading" id="async_spotify.api._endpoints.shows.Show.get_several">
 <code class="highlight language-python">
-several<span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">show_id_list</span><span class="p">,</span> <span class="n">auth_token</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span> </code>
-<a class="headerlink" href="#async_spotify.api._endpoints.shows.Show.several" title="Permanent link">¶</a></h3>
+get_several<span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">show_id_list</span><span class="p">,</span> <span class="n">auth_token</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span> </code>
+<a class="headerlink" href="#async_spotify.api._endpoints.shows.Show.get_several" title="Permanent link">¶</a></h3>
 <div class="doc doc-contents">
 <p>Get Spotify catalog information for multiple shows based on their Spotify IDs.</p>
 <div class="admonition notes">
@@ -8892,7 +8892,7 @@ several<span class="p">(</span><span class="bp">self</span><span class="p">,</sp
 </td>
 <td class="code">
 <div class="highlight">
-<pre><span></span><code><span class="k">async</span> <span class="k">def</span> <span class="nf">several</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">show_id_list</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="nb">str</span><span class="p">],</span> <span class="n">auth_token</span><span class="p">:</span> <span class="n">SpotifyAuthorisationToken</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">dict</span><span class="p">:</span>
+<pre><span></span><code><span class="k">async</span> <span class="k">def</span> <span class="nf">get_several</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">show_id_list</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="nb">str</span><span class="p">],</span> <span class="n">auth_token</span><span class="p">:</span> <span class="n">SpotifyAuthorisationToken</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">dict</span><span class="p">:</span>
     <span class="sd">"""</span>
 <span class="sd">    Get Spotify catalog information for multiple shows based on their Spotify IDs.</span>
 
@@ -9156,10 +9156,10 @@ audio_features<span class="p">(</span><span class="bp">self</span><span class="p
 </div>
 </div>
 <div class="doc doc-object doc-method">
-<h3 class="doc doc-heading" id="async_spotify.api._endpoints.tracks.Track.one">
+<h3 class="doc doc-heading" id="async_spotify.api._endpoints.tracks.Track.get_one">
 <code class="highlight language-python">
-one<span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">track_id</span><span class="p">,</span> <span class="n">auth_token</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span> </code>
-<a class="headerlink" href="#async_spotify.api._endpoints.tracks.Track.one" title="Permanent link">¶</a></h3>
+get_one<span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">track_id</span><span class="p">,</span> <span class="n">auth_token</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span> </code>
+<a class="headerlink" href="#async_spotify.api._endpoints.tracks.Track.get_one" title="Permanent link">¶</a></h3>
 <div class="doc doc-contents">
 <p>Get Spotify catalog information for a single track identified by its unique Spotify ID.</p>
 <div class="admonition notes">
@@ -9250,7 +9250,7 @@ one<span class="p">(</span><span class="bp">self</span><span class="p">,</span> 
 </td>
 <td class="code">
 <div class="highlight">
-<pre><span></span><code><span class="k">async</span> <span class="k">def</span> <span class="nf">one</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">track_id</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">auth_token</span><span class="p">:</span> <span class="n">SpotifyAuthorisationToken</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">dict</span><span class="p">:</span>
+<pre><span></span><code><span class="k">async</span> <span class="k">def</span> <span class="nf">get_one</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">track_id</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">auth_token</span><span class="p">:</span> <span class="n">SpotifyAuthorisationToken</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">dict</span><span class="p">:</span>
     <span class="sd">"""</span>
 <span class="sd">    Get Spotify catalog information for a single track identified by its unique Spotify ID.</span>
 
@@ -9279,10 +9279,10 @@ one<span class="p">(</span><span class="bp">self</span><span class="p">,</span> 
 </div>
 </div>
 <div class="doc doc-object doc-method">
-<h3 class="doc doc-heading" id="async_spotify.api._endpoints.tracks.Track.several">
+<h3 class="doc doc-heading" id="async_spotify.api._endpoints.tracks.Track.get_several">
 <code class="highlight language-python">
-several<span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">track_id_list</span><span class="p">,</span> <span class="n">auth_token</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span> </code>
-<a class="headerlink" href="#async_spotify.api._endpoints.tracks.Track.several" title="Permanent link">¶</a></h3>
+get_several<span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">track_id_list</span><span class="p">,</span> <span class="n">auth_token</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span> </code>
+<a class="headerlink" href="#async_spotify.api._endpoints.tracks.Track.get_several" title="Permanent link">¶</a></h3>
 <div class="doc doc-contents">
 <p>Get Spotify catalog information for multiple tracks based on their Spotify IDs.</p>
 <div class="admonition notes">
@@ -9371,7 +9371,7 @@ several<span class="p">(</span><span class="bp">self</span><span class="p">,</sp
 </td>
 <td class="code">
 <div class="highlight">
-<pre><span></span><code><span class="k">async</span> <span class="k">def</span> <span class="nf">several</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">track_id_list</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="nb">str</span><span class="p">],</span> <span class="n">auth_token</span><span class="p">:</span> <span class="n">SpotifyAuthorisationToken</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">dict</span><span class="p">:</span>
+<pre><span></span><code><span class="k">async</span> <span class="k">def</span> <span class="nf">get_several</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">track_id_list</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="nb">str</span><span class="p">],</span> <span class="n">auth_token</span><span class="p">:</span> <span class="n">SpotifyAuthorisationToken</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">dict</span><span class="p">:</span>
     <span class="sd">"""</span>
 <span class="sd">    Get Spotify catalog information for multiple tracks based on their Spotify IDs.</span>
 

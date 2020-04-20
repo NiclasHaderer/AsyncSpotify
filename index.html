@@ -131,18 +131,13 @@
     </label>
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
+<a class="md-nav__link" href="#documentation">
+    Documentation
+  </a>
+</li>
+<li class="md-nav__item">
 <a class="md-nav__link" href="#why-should-you-use-this-library">
     Why should you use this library
-  </a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#example">
-    Example
-  </a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#run-tests">
-    Run tests
   </a>
 </li>
 </ul>
@@ -258,18 +253,13 @@
     </label>
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
+<a class="md-nav__link" href="#documentation">
+    Documentation
+  </a>
+</li>
+<li class="md-nav__item">
 <a class="md-nav__link" href="#why-should-you-use-this-library">
     Why should you use this library
-  </a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#example">
-    Example
-  </a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#run-tests">
-    Run tests
   </a>
 </li>
 </ul>
@@ -286,7 +276,8 @@
 <p><img alt="Unit Tests" src="https://github.com/HuiiBuh/AsyncSpotify/workflows/Unit%20Tests/badge.svg"/>
 <a href="https://app.codacy.com/manual/nhaderer1/AsyncSpotify?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=HuiiBuh/AsyncSpotify&amp;utm_campaign=Badge_Grade_Dashboard"><img alt="Codacy Badge" src="https://api.codacy.com/project/badge/Grade/65dd7dbb2b4b4efcb3fc365f2d3f1684"/></a>
 <a href="https://codecov.io/gh/HuiiBuh/AsyncSpotify"><img alt="codecov" src="https://codecov.io/gh/HuiiBuh/AsyncSpotify/branch/master/graph/badge.svg?token=0oC3x1chKb"/></a></p>
-<p><a href="https://huiibuh.github.io/AsyncSpotify/">Documentation</a></p>
+<h2 id="documentation">Documentation<a class="headerlink" href="#documentation" title="Permanent link">¶</a></h2>
+<p>The full documentation can be viewed <a href="https://huiibuh.github.io/AsyncSpotify/">here</a>.</p>
 <h2 id="why-should-you-use-this-library">Why should you use this library<a class="headerlink" href="#why-should-you-use-this-library" title="Permanent link">¶</a></h2>
 <ul>
 <li>99% Code coverage</li>
@@ -297,8 +288,12 @@
 <li>Gets rid of the client credential workflow if you provide spotify cookies</li>
 <li>Good for automated testing</li>
 </ul>
+<h1 id="installation">Installation<a class="headerlink" href="#installation" title="Permanent link">¶</a></h1>
+<p>You need at least python3.6 to install the package</p>
+<div class="highlight"><pre><span></span><code>pip install async-spotify
+</code></pre></div>
 <h2 id="example">Example<a class="headerlink" href="#example" title="Permanent link">¶</a></h2>
-<p>For more in depth examples take a look <a href="EXAMPLES/">here</a>.</p>
+<p>For more in depth examples take a look <a href="EXAMPLES/">here</a> or visit the documentation.</p>
 <div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">async_spotify</span> <span class="kn">import</span> <span class="n">Preferences</span><span class="p">,</span> <span class="n">SpotifyApiClient</span><span class="p">,</span> <span class="n">SpotifyAuthorisationToken</span>
 
 <span class="c1"># Create a preferences object and load the preferences from env variables</span>
@@ -321,7 +316,7 @@
 <span class="c1"># If you pass a valid auth_token this auth_token will be used for making the requests</span>
 <span class="n">album_tracks</span><span class="p">:</span> <span class="nb">dict</span> <span class="o">=</span> <span class="k">await</span> <span class="n">api</span><span class="o">.</span><span class="n">albums</span><span class="o">.</span><span class="n">get_tracks</span><span class="p">(</span><span class="s1">'03dlqdFWY9gwJxGl3AREVy'</span><span class="p">,</span> <span class="n">auth_token</span><span class="p">)</span>
 </code></pre></div>
-<h2 id="run-tests">Run tests<a class="headerlink" href="#run-tests" title="Permanent link">¶</a></h2>
+<h2 id="tests">Tests<a class="headerlink" href="#tests" title="Permanent link">¶</a></h2>
 <p>See <a href="STUFF/">here</a>.</p>
 </article>
 </div>
