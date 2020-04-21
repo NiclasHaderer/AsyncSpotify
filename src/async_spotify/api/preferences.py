@@ -10,6 +10,7 @@ Preferences for the spotify api
 # ##################################################################################################
 
 import os
+from os.path import join, abspath
 from typing import List
 
 
@@ -70,22 +71,26 @@ class Preferences:
         scopes = os.environ.get("scopes", self.scopes)
         self.scopes = scopes.split(" ") if scopes else self.scopes
 
-    def load_from_docker_secret(self) -> None:
+    def load_from_docker_secret(self, base_dir: str = join(abspath(os.sep), 'var', 'run', 'secrets')) -> None:
         """
         Loads the Preferences from docker secret.
         The variable names have to be the same as the property name.
 
+        Args:
+            base_dir: The docker secrets base dir. Leave empty if you want to use the default
+
         Important:
             Scopes has to be a string separated by ' '
         """
-        self.application_id = self._get_docker_secret('application_id', self.application_id)
-        self.application_secret = self._get_docker_secret('application_secret', self.application_secret)
-        self.redirect_url = self._get_docker_secret('redirect_url', self.redirect_url)
 
-        scopes = self._get_docker_secret('scopes', self.scopes)
+        self.application_id = self._get_docker_secret('application_id', base_dir, self.application_id)
+        self.application_secret = self._get_docker_secret('application_secret', base_dir, self.application_secret)
+        self.redirect_url = self._get_docker_secret('redirect_url', base_dir, self.redirect_url)
+
+        scopes = self._get_docker_secret('scopes', base_dir, self.scopes)
         self.scopes = scopes.split(" ") if scopes and not isinstance(scopes, list) else self.scopes
 
-    def save_preferences_to_evn(self) -> None:
+    def save_preferences_to_evn(self, ) -> None:
         """
         Takes the preferences saved in the object and saves them as os environment variables
 
@@ -115,15 +120,14 @@ class Preferences:
         return False
 
     @staticmethod
-    def _get_docker_secret(name: str, default=None,
-                           secrets_dir=os.path.join(os.path.abspath(os.sep), 'var', 'run', 'secrets')) -> str:
+    def _get_docker_secret(name: str, secrets_dir: str, default=None) -> str:
         """
         Read the docker secret and return it
 
         Args:
             name: The name of the docker secret
-            default: The default value if no secret is found
             secrets_dir: The directory where the secrets are stored
+            default: The default value if no secret is found
 
         Returns:
             The docker secret

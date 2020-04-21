@@ -22,6 +22,12 @@ jobs:
         
     - name: Setup python packages
       run: pip install -r requirements.dev.txt && pip install -r requirements.txt
+
+    - name: Create docker secrets dir
+      run: sudo mkdir -p /var/run/secrets
+
+    - name: Create application_id secret
+      run: echo "wrong_id" | sudo tee /var/run/secrets/application_id
       
     - name: Save cookie file
       run: echo '${{ secrets.cookies }}' > cookies.json
