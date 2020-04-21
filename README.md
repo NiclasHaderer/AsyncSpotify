@@ -8,7 +8,7 @@
 
 The full documentation can be viewed [here](https://huiibuh.github.io/AsyncSpotify/).
 
-## Why should you use this library 
+## Why should you use this library
 
 + 99% Code coverage
 + Completely async
@@ -18,14 +18,13 @@ The full documentation can be viewed [here](https://huiibuh.github.io/AsyncSpoti
 + Gets rid of the client credential workflow if you provide spotify cookies
   + Good for automated testing
 
-# Installation
+## Installation
 
 You need at least python3.6 to install the package
 
 ```bash
 pip install async-spotify
 ```
-
 
 ## Example
 
