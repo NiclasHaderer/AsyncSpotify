@@ -100,8 +100,8 @@ class SpotifyApiClient:
          Library api """
 
         self.personalization: Personalization = Personalization(self._api_request_handler)
-        """ An instance of the [`Personalization`][async_spotify.api._endpoints.personalization] class. Use this to access the 
-         Personalization api """
+        """ An instance of the [`Personalization`][async_spotify.api._endpoints.personalization] class. Use this to 
+        access the Personalization api """
 
         self.player: Player = Player(self._api_request_handler)
         """ An instance of the [`Player`][async_spotify.api._endpoints.player] class. Use this to access the 

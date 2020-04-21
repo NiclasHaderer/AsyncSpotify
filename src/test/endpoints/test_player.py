@@ -130,6 +130,12 @@ class TestPlayer:
         try:
             device_id = devices['devices'][0]['id']
         except (KeyError, IndexError):
+
+            try:
+                await prepared_api.player.transfer(['invalid_device_id'], True)
+            except SpotifyAPIError:
+                pass
+
             assert True
             return
 

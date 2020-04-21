@@ -51,5 +51,3 @@ class SpotifyAPIError(SpotifyBaseError):
     Custom api error message
     This exception gets throws if the spotify api returns an *non success* return code
     """
-
-
