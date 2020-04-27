@@ -6,22 +6,22 @@
 <meta charset="utf-8"/>
 <meta content="width=device-width,initial-scale=1" name="viewport"/>
 <meta content="Async wrapper in python for the spotify api" name="description"/>
-<link href="https://huiibuh.github.io/AsyncSpotify/private_api/url/" rel="canonical"/>
+<link href="https://huiibuh.github.io/AsyncSpotify/public_api/endpoints/search/" rel="canonical"/>
 <link href="https://upload.wikimedia.org/wikipedia/commons/9/9b/Font_Awesome_5_brands_spotify.svg" rel="shortcut icon"/>
 <meta content="mkdocs-1.1, mkdocs-material-5.1.3" name="generator"/>
-<title>URLS - Async Spotify</title>
-<link href="../../assets/stylesheets/main.62d34fff.min.css" rel="stylesheet"/>
+<title>Search - Async Spotify</title>
+<link href="../../../assets/stylesheets/main.62d34fff.min.css" rel="stylesheet"/>
 <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
 <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700%7CRoboto+Mono&amp;display=fallback" rel="stylesheet"/>
 <style>body,input{font-family:"Roboto",-apple-system,BlinkMacSystemFont,Helvetica,Arial,sans-serif}code,kbd,pre{font-family:"Roboto Mono",SFMono-Regular,Consolas,Menlo,monospace}</style>
-<link href="../../custom.css" rel="stylesheet"/>
+<link href="../../../custom.css" rel="stylesheet"/>
 </head>
 <body dir="ltr">
 <input autocomplete="off" class="md-toggle" data-md-toggle="drawer" id="__drawer" type="checkbox"/>
 <input autocomplete="off" class="md-toggle" data-md-toggle="search" id="__search" type="checkbox"/>
 <label class="md-overlay" for="__drawer"></label>
 <div data-md-component="skip">
-<a class="md-skip" href="#async_spotify.api._endpoints.urls">
+<a class="md-skip" href="#async_spotify.api._endpoints.search">
           Skip to content
         </a>
 </div>
@@ -42,7 +42,7 @@
           </span>
 <span class="md-header-nav__topic md-ellipsis">
             
-              URLS
+              Search
             
           </span>
 </div>
@@ -112,17 +112,17 @@
 </div>
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
-<a class="md-nav__link" href="../.." title="Overview">
+<a class="md-nav__link" href="../../.." title="Overview">
       Overview
     </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../EXAMPLES/" title="Examples">
+<a class="md-nav__link" href="../../../EXAMPLES/" title="Examples">
       Examples
     </a>
 </li>
-<li class="md-nav__item md-nav__item--nested">
-<input class="md-nav__toggle md-toggle" data-md-toggle="nav-3" id="nav-3" type="checkbox"/>
+<li class="md-nav__item md-nav__item--active md-nav__item--nested">
+<input checked="" class="md-nav__toggle md-toggle" data-md-toggle="nav-3" id="nav-3" type="checkbox"/>
 <label class="md-nav__link" for="nav-3">
       Public API
       <span class="md-nav__icon md-icon">
@@ -138,27 +138,27 @@
       </label>
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../public_api/spotify_api_client/" title="Spotify Api Client">
+<a class="md-nav__link" href="../../spotify_api_client/" title="Spotify Api Client">
       Spotify Api Client
     </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../public_api/preferences/" title="Preferences">
+<a class="md-nav__link" href="../../preferences/" title="Preferences">
       Preferences
     </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../public_api/authentification/" title="Authentification">
+<a class="md-nav__link" href="../../authentification/" title="Authentification">
       Authentification
     </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../public_api/spotify_errors/" title="Spotify Errors">
+<a class="md-nav__link" href="../../spotify_errors/" title="Spotify Errors">
       Spotify Errors
     </a>
 </li>
-<li class="md-nav__item md-nav__item--nested">
-<input class="md-nav__toggle md-toggle" data-md-toggle="nav-3-5" id="nav-3-5" type="checkbox"/>
+<li class="md-nav__item md-nav__item--active md-nav__item--nested">
+<input checked="" class="md-nav__toggle md-toggle" data-md-toggle="nav-3-5" id="nav-3-5" type="checkbox"/>
 <label class="md-nav__link" for="nav-3-5">
       Endpoints
       <span class="md-nav__icon md-icon">
@@ -174,72 +174,108 @@
       </label>
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../public_api/endpoints/overview/" title="Overview">
+<a class="md-nav__link" href="../overview/" title="Overview">
       Overview
     </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../public_api/endpoints/albums/" title="Albums">
+<a class="md-nav__link" href="../albums/" title="Albums">
       Albums
     </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../public_api/endpoints/artists/" title="Artists">
+<a class="md-nav__link" href="../artists/" title="Artists">
       Artists
     </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../public_api/endpoints/browse/" title="Browse">
+<a class="md-nav__link" href="../browse/" title="Browse">
       Browse
     </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../public_api/endpoints/episodes/" title="Episodes">
+<a class="md-nav__link" href="../episodes/" title="Episodes">
       Episodes
     </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../public_api/endpoints/follow/" title="Follow">
+<a class="md-nav__link" href="../follow/" title="Follow">
       Follow
     </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../public_api/endpoints/library/" title="Library">
+<a class="md-nav__link" href="../library/" title="Library">
       Library
     </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../public_api/endpoints/personalization/" title="Personalization">
+<a class="md-nav__link" href="../personalization/" title="Personalization">
       Personalization
     </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../public_api/endpoints/player/" title="Player">
+<a class="md-nav__link" href="../player/" title="Player">
       Player
     </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../public_api/endpoints/playlists/" title="Playlists">
+<a class="md-nav__link" href="../playlists/" title="Playlists">
       Playlists
     </a>
 </li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="../../public_api/endpoints/search/" title="Search">
+<li class="md-nav__item md-nav__item--active">
+<input class="md-nav__toggle md-toggle" data-md-toggle="toc" id="__toc" type="checkbox"/>
+<label class="md-nav__link md-nav__link--active" for="__toc">
+        Search
+        <span class="md-nav__icon md-icon">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M3,9H17V7H3V9M3,13H17V11H3V13M3,17H17V15H3V17M19,17H21V15H19V17M19,7V9H21V7H19M19,13H21V11H19V13Z"></path></svg>
+</span>
+</label>
+<a class="md-nav__link md-nav__link--active" href="./" title="Search">
       Search
     </a>
+<nav aria-label="Table of contents" class="md-nav md-nav--secondary">
+<label class="md-nav__title" for="__toc">
+<span class="md-nav__icon md-icon">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M20,11V13H8L13.5,18.5L12.08,19.92L4.16,12L12.08,4.08L13.5,5.5L8,11H20Z"></path></svg>
+</span>
+      Table of contents
+    </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#async_spotify.api._endpoints.search">
+    async_spotify.api._endpoints.search
+  </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../public_api/endpoints/shows/" title="Shows">
+<a class="md-nav__link" href="#async_spotify.api._endpoints.search.Search">
+    Search
+  </a>
+<nav aria-label="Search" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#async_spotify.api._endpoints.search.Search.start">
+    start()
+  </a>
+</li>
+</ul>
+</nav>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../shows/" title="Shows">
       Shows
     </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../public_api/endpoints/tracks/" title="Tracks">
+<a class="md-nav__link" href="../tracks/" title="Tracks">
       Tracks
     </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../public_api/endpoints/user/" title="User">
+<a class="md-nav__link" href="../user/" title="User">
       User
     </a>
 </li>
@@ -249,8 +285,8 @@
 </ul>
 </nav>
 </li>
-<li class="md-nav__item md-nav__item--active md-nav__item--nested">
-<input checked="" class="md-nav__toggle md-toggle" data-md-toggle="nav-4" id="nav-4" type="checkbox"/>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" data-md-toggle="nav-4" id="nav-4" type="checkbox"/>
 <label class="md-nav__link" for="nav-4">
       Private API
       <span class="md-nav__icon md-icon">
@@ -266,126 +302,35 @@
       </label>
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
-<a class="md-nav__link" href="../error_message/" title="Error Message">
+<a class="md-nav__link" href="../../../private_api/error_message/" title="Error Message">
       Error Message
     </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../request_handler/" title="Request Handler">
+<a class="md-nav__link" href="../../../private_api/request_handler/" title="Request Handler">
       Request Handler
     </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../status_classes/" title="Status Classes">
+<a class="md-nav__link" href="../../../private_api/status_classes/" title="Status Classes">
       Status Classes
     </a>
 </li>
-<li class="md-nav__item md-nav__item--active">
-<input class="md-nav__toggle md-toggle" data-md-toggle="toc" id="__toc" type="checkbox"/>
-<label class="md-nav__link md-nav__link--active" for="__toc">
-        URLS
-        <span class="md-nav__icon md-icon">
-<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M3,9H17V7H3V9M3,13H17V11H3V13M3,17H17V15H3V17M19,17H21V15H19V17M19,7V9H21V7H19M19,13H21V11H19V13Z"></path></svg>
-</span>
-</label>
-<a class="md-nav__link md-nav__link--active" href="./" title="URLS">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../private_api/url/" title="URLS">
       URLS
     </a>
-<nav aria-label="Table of contents" class="md-nav md-nav--secondary">
-<label class="md-nav__title" for="__toc">
-<span class="md-nav__icon md-icon">
-<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M20,11V13H8L13.5,18.5L12.08,19.92L4.16,12L12.08,4.08L13.5,5.5L8,11H20Z"></path></svg>
-</span>
-      Table of contents
-    </label>
-<ul class="md-nav__list" data-md-scrollfix="">
-<li class="md-nav__item">
-<a class="md-nav__link" href="#async_spotify.api._endpoints.urls">
-    async_spotify.api._endpoints.urls
-  </a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#async_spotify.api._endpoints.urls.URLS">
-    URLS
-  </a>
-<nav aria-label="URLS" class="md-nav">
-<ul class="md-nav__list">
-<li class="md-nav__item">
-<a class="md-nav__link" href="#async_spotify.api._endpoints.urls.URLS.ALBUM">
-    ALBUM
-  </a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#async_spotify.api._endpoints.urls.URLS.ARTIST">
-    ARTIST
-  </a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#async_spotify.api._endpoints.urls.URLS.BROWSE">
-    BROWSE
-  </a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#async_spotify.api._endpoints.urls.URLS.EPISODES">
-    EPISODES
-  </a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#async_spotify.api._endpoints.urls.URLS.FOLLOW">
-    FOLLOW
-  </a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#async_spotify.api._endpoints.urls.URLS.LIBRARY">
-    LIBRARY
-  </a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#async_spotify.api._endpoints.urls.URLS.PERSONALIZATION">
-    PERSONALIZATION
-  </a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#async_spotify.api._endpoints.urls.URLS.PLAYER">
-    PLAYER
-  </a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#async_spotify.api._endpoints.urls.URLS.PLAYLIST">
-    PLAYLIST
-  </a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#async_spotify.api._endpoints.urls.URLS.SHOWS">
-    SHOWS
-  </a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#async_spotify.api._endpoints.urls.URLS.TRACKS">
-    TRACKS
-  </a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#async_spotify.api._endpoints.urls.URLS.USER">
-    USER
-  </a>
-</li>
-</ul>
-</nav>
-</li>
-</ul>
-</nav>
 </li>
 </ul>
 </nav>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../STUFF/" title="Tests">
+<a class="md-nav__link" href="../../../STUFF/" title="Tests">
       Tests
     </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../LICENCE/" title="Licence">
+<a class="md-nav__link" href="../../../LICENCE/" title="Licence">
       Licence
     </a>
 </li>
@@ -406,74 +351,19 @@
     </label>
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
-<a class="md-nav__link" href="#async_spotify.api._endpoints.urls">
-    async_spotify.api._endpoints.urls
+<a class="md-nav__link" href="#async_spotify.api._endpoints.search">
+    async_spotify.api._endpoints.search
   </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="#async_spotify.api._endpoints.urls.URLS">
-    URLS
+<a class="md-nav__link" href="#async_spotify.api._endpoints.search.Search">
+    Search
   </a>
-<nav aria-label="URLS" class="md-nav">
+<nav aria-label="Search" class="md-nav">
 <ul class="md-nav__list">
 <li class="md-nav__item">
-<a class="md-nav__link" href="#async_spotify.api._endpoints.urls.URLS.ALBUM">
-    ALBUM
-  </a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#async_spotify.api._endpoints.urls.URLS.ARTIST">
-    ARTIST
-  </a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#async_spotify.api._endpoints.urls.URLS.BROWSE">
-    BROWSE
-  </a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#async_spotify.api._endpoints.urls.URLS.EPISODES">
-    EPISODES
-  </a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#async_spotify.api._endpoints.urls.URLS.FOLLOW">
-    FOLLOW
-  </a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#async_spotify.api._endpoints.urls.URLS.LIBRARY">
-    LIBRARY
-  </a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#async_spotify.api._endpoints.urls.URLS.PERSONALIZATION">
-    PERSONALIZATION
-  </a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#async_spotify.api._endpoints.urls.URLS.PLAYER">
-    PLAYER
-  </a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#async_spotify.api._endpoints.urls.URLS.PLAYLIST">
-    PLAYLIST
-  </a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#async_spotify.api._endpoints.urls.URLS.SHOWS">
-    SHOWS
-  </a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#async_spotify.api._endpoints.urls.URLS.TRACKS">
-    TRACKS
-  </a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#async_spotify.api._endpoints.urls.URLS.USER">
-    USER
+<a class="md-nav__link" href="#async_spotify.api._endpoints.search.Search.start">
+    start()
   </a>
 </li>
 </ul>
@@ -486,117 +376,160 @@
 </div>
 <div class="md-content">
 <article class="md-content__inner md-typeset">
-<a class="md-content__button md-icon" href="https://github.com/HuiiBuh/AsyncSpotify/edit/master/docs/private_api/url.md" title="Edit this page">
+<a class="md-content__button md-icon" href="https://github.com/HuiiBuh/AsyncSpotify/edit/master/docs/public_api/endpoints/search.md" title="Edit this page">
 <svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M20.71,7.04C21.1,6.65 21.1,6 20.71,5.63L18.37,3.29C18,2.9 17.35,2.9 16.96,3.29L15.12,5.12L18.87,8.87M3,17.25V21H6.75L17.81,9.93L14.06,6.18L3,17.25Z"></path></svg>
 </a>
-<h1>URLS</h1>
+<h1>Search</h1>
 <div class="doc doc-object doc-module">
-<h2 class="hidden-toc" href="#async_spotify.api._endpoints.urls" id="async_spotify.api._endpoints.urls" style="visibility: hidden; width: 0; height: 0;">
-<a class="headerlink" href="#async_spotify.api._endpoints.urls" title="Permanent link">¶</a></h2>
+<h2 class="hidden-toc" href="#async_spotify.api._endpoints.search" id="async_spotify.api._endpoints.search" style="visibility: hidden; width: 0; height: 0;">
+<a class="headerlink" href="#async_spotify.api._endpoints.search" title="Permanent link">¶</a></h2>
 <div class="doc doc-contents first">
-<p>Collection of spotify api urls replace with str.format(id='test')</p>
+<p>Module with the search endpoint</p>
 <div class="doc doc-children">
 <div class="doc doc-object doc-class">
-<h2 class="doc doc-heading" id="async_spotify.api._endpoints.urls.URLS">
-<code>URLS</code>
-<a class="headerlink" href="#async_spotify.api._endpoints.urls.URLS" title="Permanent link">¶</a></h2>
+<h2 class="doc doc-heading" id="async_spotify.api._endpoints.search.Search">
+<code>Search</code>
+<a class="headerlink" href="#async_spotify.api._endpoints.search.Search" title="Permanent link">¶</a></h2>
 <div class="doc doc-contents">
-<p>Collection of spotify api urls</p>
+<p>Search endpoint</p>
 <div class="doc doc-children">
-<div class="doc doc-object doc-class">
-<h3 class="doc doc-heading" id="async_spotify.api._endpoints.urls.URLS.ALBUM">
-<code>ALBUM</code>
-<a class="headerlink" href="#async_spotify.api._endpoints.urls.URLS.ALBUM" title="Permanent link">¶</a></h3>
+<div class="doc doc-object doc-method">
+<h3 class="doc doc-heading" id="async_spotify.api._endpoints.search.Search.start">
+<code class="highlight language-python">
+start<span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">query</span><span class="p">,</span> <span class="n">query_type</span><span class="p">,</span> <span class="n">auth_token</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span> </code>
+<a class="headerlink" href="#async_spotify.api._endpoints.search.Search.start" title="Permanent link">¶</a></h3>
 <div class="doc doc-contents">
-<p>URLs concerning the album</p>
+<p>Make a search</p>
+<div class="admonition notes">
+<p class="admonition-title">Notes</p>
+<p>https://developer.spotify.com/documentation/web-api/reference/search/search/</p>
 </div>
+<p><strong>Parameters:</strong></p>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+<th>Default</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>query</code></td>
+<td><code>str</code></td>
+<td>
+<p>The search query</p>
+</td>
+<td><em>required</em></td>
+</tr>
+<tr>
+<td><code>query_type</code></td>
+<td><code>List[str]</code></td>
+<td>
+<p>A comma-separated list of item types to search across. Valid types are: album , artist, playlist, track, show and episode. Search results include hits from all the specified item types. For example: q=name:abacab&amp;type=album,track returns both albums and tracks with “abacab” included in their name.</p>
+</td>
+<td><em>required</em></td>
+</tr>
+<tr>
+<td><code>auth_token</code></td>
+<td><code>SpotifyAuthorisationToken</code></td>
+<td>
+<p>The auth token if you set the api class not to keep the token in memory</p>
+</td>
+<td><code>None</code></td>
+</tr>
+<tr>
+<td><code>kwargs</code></td>
+<td><code></code></td>
+<td>
+<p>Optional arguments as keyword args</p>
+</td>
+<td><code>{}</code></td>
+</tr>
+</tbody>
+</table>
+<p><strong>Returns:</strong></p>
+<table>
+<thead>
+<tr>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>dict</code></td>
+<td>
+<p>The search result</p>
+</td>
+</tr>
+</tbody>
+</table>
+<details class="quote">
+<summary>Source code in <code>async_spotify/api/_endpoints/search.py</code></summary>
+<table class="highlighttable">
+<tr>
+<td class="linenos">
+<div class="linenodiv">
+<pre><span></span>23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46</pre>
 </div>
-<div class="doc doc-object doc-class">
-<h3 class="doc doc-heading" id="async_spotify.api._endpoints.urls.URLS.ARTIST">
-<code>ARTIST</code>
-<a class="headerlink" href="#async_spotify.api._endpoints.urls.URLS.ARTIST" title="Permanent link">¶</a></h3>
-<div class="doc doc-contents">
-<p>URLs concerning the artist</p>
+</td>
+<td class="code">
+<div class="highlight">
+<pre><span></span><code><span class="k">async</span> <span class="k">def</span> <span class="nf">start</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">query</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">query_type</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="nb">str</span><span class="p">],</span> <span class="n">auth_token</span><span class="p">:</span> <span class="n">SpotifyAuthorisationToken</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+                <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">dict</span><span class="p">:</span>
+    <span class="sd">"""</span>
+<span class="sd">    Make a search</span>
+
+<span class="sd">    Notes:</span>
+<span class="sd">        https://developer.spotify.com/documentation/web-api/reference/search/search/</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        query: The search query</span>
+<span class="sd">        query_type: A comma-separated list of item types to search across.</span>
+<span class="sd">            Valid types are: album , artist, playlist, track, show and episode.</span>
+<span class="sd">            Search results include hits from all the specified item types.</span>
+<span class="sd">            For example: q=name:abacab&amp;type=album,track returns both albums and tracks with</span>
+<span class="sd">            “abacab” included in their name.</span>
+<span class="sd">        auth_token: The auth token if you set the api class not to keep the token in memory</span>
+<span class="sd">        kwargs: Optional arguments as keyword args</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">        The search result</span>
+<span class="sd">    """</span>
+
+    <span class="n">args</span> <span class="o">=</span> <span class="p">{</span><span class="o">**</span><span class="p">{</span><span class="s1">'q'</span><span class="p">:</span> <span class="n">query</span><span class="p">,</span> <span class="s1">'type'</span><span class="p">:</span> <span class="n">query_type</span><span class="p">},</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">}</span>
+    <span class="k">return</span> <span class="k">await</span> <span class="bp">self</span><span class="o">.</span><span class="n">api_request_handler</span><span class="o">.</span><span class="n">make_request</span><span class="p">(</span><span class="s1">'GET'</span><span class="p">,</span> <span class="n">URLS</span><span class="o">.</span><span class="n">SEARCH</span><span class="p">,</span> <span class="n">args</span><span class="p">,</span> <span class="n">auth_token</span><span class="p">)</span>
+</code></pre>
 </div>
-</div>
-<div class="doc doc-object doc-class">
-<h3 class="doc doc-heading" id="async_spotify.api._endpoints.urls.URLS.BROWSE">
-<code>BROWSE</code>
-<a class="headerlink" href="#async_spotify.api._endpoints.urls.URLS.BROWSE" title="Permanent link">¶</a></h3>
-<div class="doc doc-contents">
-<p>URLs concerning the browsing of artists and categories</p>
-</div>
-</div>
-<div class="doc doc-object doc-class">
-<h3 class="doc doc-heading" id="async_spotify.api._endpoints.urls.URLS.EPISODES">
-<code>EPISODES</code>
-<a class="headerlink" href="#async_spotify.api._endpoints.urls.URLS.EPISODES" title="Permanent link">¶</a></h3>
-<div class="doc doc-contents">
-<p>URLs concerning episodes</p>
-</div>
-</div>
-<div class="doc doc-object doc-class">
-<h3 class="doc doc-heading" id="async_spotify.api._endpoints.urls.URLS.FOLLOW">
-<code>FOLLOW</code>
-<a class="headerlink" href="#async_spotify.api._endpoints.urls.URLS.FOLLOW" title="Permanent link">¶</a></h3>
-<div class="doc doc-contents">
-<p>URLs concerning the follow endpoint</p>
-</div>
-</div>
-<div class="doc doc-object doc-class">
-<h3 class="doc doc-heading" id="async_spotify.api._endpoints.urls.URLS.LIBRARY">
-<code>LIBRARY</code>
-<a class="headerlink" href="#async_spotify.api._endpoints.urls.URLS.LIBRARY" title="Permanent link">¶</a></h3>
-<div class="doc doc-contents">
-<p>URLs concerning the user library</p>
-</div>
-</div>
-<div class="doc doc-object doc-class">
-<h3 class="doc doc-heading" id="async_spotify.api._endpoints.urls.URLS.PERSONALIZATION">
-<code>PERSONALIZATION</code>
-<a class="headerlink" href="#async_spotify.api._endpoints.urls.URLS.PERSONALIZATION" title="Permanent link">¶</a></h3>
-<div class="doc doc-contents">
-<p>URLs to get habits over the user</p>
-</div>
-</div>
-<div class="doc doc-object doc-class">
-<h3 class="doc doc-heading" id="async_spotify.api._endpoints.urls.URLS.PLAYER">
-<code>PLAYER</code>
-<a class="headerlink" href="#async_spotify.api._endpoints.urls.URLS.PLAYER" title="Permanent link">¶</a></h3>
-<div class="doc doc-contents">
-<p>URLs concerning the player</p>
-</div>
-</div>
-<div class="doc doc-object doc-class">
-<h3 class="doc doc-heading" id="async_spotify.api._endpoints.urls.URLS.PLAYLIST">
-<code>PLAYLIST</code>
-<a class="headerlink" href="#async_spotify.api._endpoints.urls.URLS.PLAYLIST" title="Permanent link">¶</a></h3>
-<div class="doc doc-contents">
-<p>URLs concerning the playlists</p>
-</div>
-</div>
-<div class="doc doc-object doc-class">
-<h3 class="doc doc-heading" id="async_spotify.api._endpoints.urls.URLS.SHOWS">
-<code>SHOWS</code>
-<a class="headerlink" href="#async_spotify.api._endpoints.urls.URLS.SHOWS" title="Permanent link">¶</a></h3>
-<div class="doc doc-contents">
-<p>URLs concerning shows</p>
-</div>
-</div>
-<div class="doc doc-object doc-class">
-<h3 class="doc doc-heading" id="async_spotify.api._endpoints.urls.URLS.TRACKS">
-<code>TRACKS</code>
-<a class="headerlink" href="#async_spotify.api._endpoints.urls.URLS.TRACKS" title="Permanent link">¶</a></h3>
-<div class="doc doc-contents">
-<p>URLs concerning tracks</p>
-</div>
-</div>
-<div class="doc doc-object doc-class">
-<h3 class="doc doc-heading" id="async_spotify.api._endpoints.urls.URLS.USER">
-<code>USER</code>
-<a class="headerlink" href="#async_spotify.api._endpoints.urls.URLS.USER" title="Permanent link">¶</a></h3>
-<div class="doc doc-contents">
-<p>URLs concerning a spotify user profile</p>
+</td>
+</tr>
+</table>
+</details>
 </div>
 </div>
 </div>
@@ -609,7 +542,7 @@
 <div class="md-source-date">
 <small>
     
-      Last update: April 20, 2020
+      Last update: April 27, 2020
     
   </small>
 </div>
@@ -620,7 +553,7 @@
 <footer class="md-footer">
 <div class="md-footer-nav">
 <nav aria-label="Footer" class="md-footer-nav__inner md-grid">
-<a class="md-footer-nav__link md-footer-nav__link--prev" href="../status_classes/" rel="prev" title="Status Classes">
+<a class="md-footer-nav__link md-footer-nav__link--prev" href="../playlists/" rel="prev" title="Playlists">
 <div class="md-footer-nav__button md-icon">
 <svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M20,11V13H8L13.5,18.5L12.08,19.92L4.16,12L12.08,4.08L13.5,5.5L8,11H20Z"></path></svg>
 </div>
@@ -629,17 +562,17 @@
 <span class="md-footer-nav__direction">
                   Previous
                 </span>
-                Status Classes
+                Playlists
               </div>
 </div>
 </a>
-<a class="md-footer-nav__link md-footer-nav__link--next" href="../../STUFF/" rel="next" title="Tests">
+<a class="md-footer-nav__link md-footer-nav__link--next" href="../shows/" rel="next" title="Shows">
 <div class="md-footer-nav__title">
 <div class="md-ellipsis">
 <span class="md-footer-nav__direction">
                   Next
                 </span>
-                Tests
+                Shows
               </div>
 </div>
 <div class="md-footer-nav__button md-icon">
@@ -666,14 +599,14 @@
 </div>
 </footer>
 </div>
-<script src="../../assets/javascripts/vendor.f81b9e8b.min.js"></script>
-<script src="../../assets/javascripts/bundle.23546af0.min.js"></script><script id="__lang" type="application/json">{"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents"}</script>
+<script src="../../../assets/javascripts/vendor.f81b9e8b.min.js"></script>
+<script src="../../../assets/javascripts/bundle.23546af0.min.js"></script><script id="__lang" type="application/json">{"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents"}</script>
 <script>
         app = initialize({
-          base: "../..",
+          base: "../../..",
           features: [],
           search: Object.assign({
-            worker: "../../assets/javascripts/worker/search.58d22e8e.min.js"
+            worker: "../../../assets/javascripts/worker/search.58d22e8e.min.js"
           }, typeof search !== "undefined" && search)
         })
       </script>

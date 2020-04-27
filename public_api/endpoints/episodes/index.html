@@ -6,22 +6,22 @@
 <meta charset="utf-8"/>
 <meta content="width=device-width,initial-scale=1" name="viewport"/>
 <meta content="Async wrapper in python for the spotify api" name="description"/>
-<link href="https://huiibuh.github.io/AsyncSpotify/private_api/status_classes/" rel="canonical"/>
+<link href="https://huiibuh.github.io/AsyncSpotify/public_api/endpoints/episodes/" rel="canonical"/>
 <link href="https://upload.wikimedia.org/wikipedia/commons/9/9b/Font_Awesome_5_brands_spotify.svg" rel="shortcut icon"/>
 <meta content="mkdocs-1.1, mkdocs-material-5.1.3" name="generator"/>
-<title>Status Classes - Async Spotify</title>
-<link href="../../assets/stylesheets/main.62d34fff.min.css" rel="stylesheet"/>
+<title>Episodes - Async Spotify</title>
+<link href="../../../assets/stylesheets/main.62d34fff.min.css" rel="stylesheet"/>
 <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
 <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700%7CRoboto+Mono&amp;display=fallback" rel="stylesheet"/>
 <style>body,input{font-family:"Roboto",-apple-system,BlinkMacSystemFont,Helvetica,Arial,sans-serif}code,kbd,pre{font-family:"Roboto Mono",SFMono-Regular,Consolas,Menlo,monospace}</style>
-<link href="../../custom.css" rel="stylesheet"/>
+<link href="../../../custom.css" rel="stylesheet"/>
 </head>
 <body dir="ltr">
 <input autocomplete="off" class="md-toggle" data-md-toggle="drawer" id="__drawer" type="checkbox"/>
 <input autocomplete="off" class="md-toggle" data-md-toggle="search" id="__search" type="checkbox"/>
 <label class="md-overlay" for="__drawer"></label>
 <div data-md-component="skip">
-<a class="md-skip" href="#async_spotify.api._response_status">
+<a class="md-skip" href="#async_spotify.api._endpoints.episodes">
           Skip to content
         </a>
 </div>
@@ -42,7 +42,7 @@
           </span>
 <span class="md-header-nav__topic md-ellipsis">
             
-              Status Classes
+              Episodes
             
           </span>
 </div>
@@ -112,17 +112,17 @@
 </div>
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
-<a class="md-nav__link" href="../.." title="Overview">
+<a class="md-nav__link" href="../../.." title="Overview">
       Overview
     </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../EXAMPLES/" title="Examples">
+<a class="md-nav__link" href="../../../EXAMPLES/" title="Examples">
       Examples
     </a>
 </li>
-<li class="md-nav__item md-nav__item--nested">
-<input class="md-nav__toggle md-toggle" data-md-toggle="nav-3" id="nav-3" type="checkbox"/>
+<li class="md-nav__item md-nav__item--active md-nav__item--nested">
+<input checked="" class="md-nav__toggle md-toggle" data-md-toggle="nav-3" id="nav-3" type="checkbox"/>
 <label class="md-nav__link" for="nav-3">
       Public API
       <span class="md-nav__icon md-icon">
@@ -138,27 +138,27 @@
       </label>
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../public_api/spotify_api_client/" title="Spotify Api Client">
+<a class="md-nav__link" href="../../spotify_api_client/" title="Spotify Api Client">
       Spotify Api Client
     </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../public_api/preferences/" title="Preferences">
+<a class="md-nav__link" href="../../preferences/" title="Preferences">
       Preferences
     </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../public_api/authentification/" title="Authentification">
+<a class="md-nav__link" href="../../authentification/" title="Authentification">
       Authentification
     </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../public_api/spotify_errors/" title="Spotify Errors">
+<a class="md-nav__link" href="../../spotify_errors/" title="Spotify Errors">
       Spotify Errors
     </a>
 </li>
-<li class="md-nav__item md-nav__item--nested">
-<input class="md-nav__toggle md-toggle" data-md-toggle="nav-3-5" id="nav-3-5" type="checkbox"/>
+<li class="md-nav__item md-nav__item--active md-nav__item--nested">
+<input checked="" class="md-nav__toggle md-toggle" data-md-toggle="nav-3-5" id="nav-3-5" type="checkbox"/>
 <label class="md-nav__link" for="nav-3-5">
       Endpoints
       <span class="md-nav__icon md-icon">
@@ -174,72 +174,113 @@
       </label>
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../public_api/endpoints/overview/" title="Overview">
+<a class="md-nav__link" href="../overview/" title="Overview">
       Overview
     </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../public_api/endpoints/albums/" title="Albums">
+<a class="md-nav__link" href="../albums/" title="Albums">
       Albums
     </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../public_api/endpoints/artists/" title="Artists">
+<a class="md-nav__link" href="../artists/" title="Artists">
       Artists
     </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../public_api/endpoints/browse/" title="Browse">
+<a class="md-nav__link" href="../browse/" title="Browse">
       Browse
     </a>
 </li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="../../public_api/endpoints/episodes/" title="Episodes">
+<li class="md-nav__item md-nav__item--active">
+<input class="md-nav__toggle md-toggle" data-md-toggle="toc" id="__toc" type="checkbox"/>
+<label class="md-nav__link md-nav__link--active" for="__toc">
+        Episodes
+        <span class="md-nav__icon md-icon">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M3,9H17V7H3V9M3,13H17V11H3V13M3,17H17V15H3V17M19,17H21V15H19V17M19,7V9H21V7H19M19,13H21V11H19V13Z"></path></svg>
+</span>
+</label>
+<a class="md-nav__link md-nav__link--active" href="./" title="Episodes">
       Episodes
     </a>
+<nav aria-label="Table of contents" class="md-nav md-nav--secondary">
+<label class="md-nav__title" for="__toc">
+<span class="md-nav__icon md-icon">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M20,11V13H8L13.5,18.5L12.08,19.92L4.16,12L12.08,4.08L13.5,5.5L8,11H20Z"></path></svg>
+</span>
+      Table of contents
+    </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#async_spotify.api._endpoints.episodes">
+    async_spotify.api._endpoints.episodes
+  </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../public_api/endpoints/follow/" title="Follow">
+<a class="md-nav__link" href="#async_spotify.api._endpoints.episodes.Episodes">
+    Episodes
+  </a>
+<nav aria-label="Episodes" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#async_spotify.api._endpoints.episodes.Episodes.get_multiple">
+    get_multiple()
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#async_spotify.api._endpoints.episodes.Episodes.get_one">
+    get_one()
+  </a>
+</li>
+</ul>
+</nav>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../follow/" title="Follow">
       Follow
     </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../public_api/endpoints/library/" title="Library">
+<a class="md-nav__link" href="../library/" title="Library">
       Library
     </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../public_api/endpoints/personalization/" title="Personalization">
+<a class="md-nav__link" href="../personalization/" title="Personalization">
       Personalization
     </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../public_api/endpoints/player/" title="Player">
+<a class="md-nav__link" href="../player/" title="Player">
       Player
     </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../public_api/endpoints/playlists/" title="Playlists">
+<a class="md-nav__link" href="../playlists/" title="Playlists">
       Playlists
     </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../public_api/endpoints/search/" title="Search">
+<a class="md-nav__link" href="../search/" title="Search">
       Search
     </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../public_api/endpoints/shows/" title="Shows">
+<a class="md-nav__link" href="../shows/" title="Shows">
       Shows
     </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../public_api/endpoints/tracks/" title="Tracks">
+<a class="md-nav__link" href="../tracks/" title="Tracks">
       Tracks
     </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../public_api/endpoints/user/" title="User">
+<a class="md-nav__link" href="../user/" title="User">
       User
     </a>
 </li>
@@ -249,8 +290,8 @@
 </ul>
 </nav>
 </li>
-<li class="md-nav__item md-nav__item--active md-nav__item--nested">
-<input checked="" class="md-nav__toggle md-toggle" data-md-toggle="nav-4" id="nav-4" type="checkbox"/>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" data-md-toggle="nav-4" id="nav-4" type="checkbox"/>
 <label class="md-nav__link" for="nav-4">
       Private API
       <span class="md-nav__icon md-icon">
@@ -266,63 +307,22 @@
       </label>
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
-<a class="md-nav__link" href="../error_message/" title="Error Message">
+<a class="md-nav__link" href="../../../private_api/error_message/" title="Error Message">
       Error Message
     </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../request_handler/" title="Request Handler">
+<a class="md-nav__link" href="../../../private_api/request_handler/" title="Request Handler">
       Request Handler
     </a>
 </li>
-<li class="md-nav__item md-nav__item--active">
-<input class="md-nav__toggle md-toggle" data-md-toggle="toc" id="__toc" type="checkbox"/>
-<label class="md-nav__link md-nav__link--active" for="__toc">
-        Status Classes
-        <span class="md-nav__icon md-icon">
-<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M3,9H17V7H3V9M3,13H17V11H3V13M3,17H17V15H3V17M19,17H21V15H19V17M19,7V9H21V7H19M19,13H21V11H19V13Z"></path></svg>
-</span>
-</label>
-<a class="md-nav__link md-nav__link--active" href="./" title="Status Classes">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../private_api/status_classes/" title="Status Classes">
       Status Classes
     </a>
-<nav aria-label="Table of contents" class="md-nav md-nav--secondary">
-<label class="md-nav__title" for="__toc">
-<span class="md-nav__icon md-icon">
-<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M20,11V13H8L13.5,18.5L12.08,19.92L4.16,12L12.08,4.08L13.5,5.5L8,11H20Z"></path></svg>
-</span>
-      Table of contents
-    </label>
-<ul class="md-nav__list" data-md-scrollfix="">
-<li class="md-nav__item">
-<a class="md-nav__link" href="#async_spotify.api._response_status">
-    async_spotify.api._response_status
-  </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="#async_spotify.api._response_status.ResponseStatus">
-    ResponseStatus
-  </a>
-<nav aria-label="ResponseStatus" class="md-nav">
-<ul class="md-nav__list">
-<li class="md-nav__item">
-<a class="md-nav__link" href="#async_spotify.api._response_status.ResponseStatus.__init__">
-    __init__()
-  </a>
-</li>
-</ul>
-</nav>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#async_spotify.api._status_codes">
-    async_spotify.api._status_codes
-  </a>
-</li>
-</ul>
-</nav>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="../url/" title="URLS">
+<a class="md-nav__link" href="../../../private_api/url/" title="URLS">
       URLS
     </a>
 </li>
@@ -330,12 +330,12 @@
 </nav>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../STUFF/" title="Tests">
+<a class="md-nav__link" href="../../../STUFF/" title="Tests">
       Tests
     </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../LICENCE/" title="Licence">
+<a class="md-nav__link" href="../../../LICENCE/" title="Licence">
       Licence
     </a>
 </li>
@@ -356,28 +356,28 @@
     </label>
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
-<a class="md-nav__link" href="#async_spotify.api._response_status">
-    async_spotify.api._response_status
+<a class="md-nav__link" href="#async_spotify.api._endpoints.episodes">
+    async_spotify.api._endpoints.episodes
   </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="#async_spotify.api._response_status.ResponseStatus">
-    ResponseStatus
+<a class="md-nav__link" href="#async_spotify.api._endpoints.episodes.Episodes">
+    Episodes
   </a>
-<nav aria-label="ResponseStatus" class="md-nav">
+<nav aria-label="Episodes" class="md-nav">
 <ul class="md-nav__list">
 <li class="md-nav__item">
-<a class="md-nav__link" href="#async_spotify.api._response_status.ResponseStatus.__init__">
-    __init__()
+<a class="md-nav__link" href="#async_spotify.api._endpoints.episodes.Episodes.get_multiple">
+    get_multiple()
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#async_spotify.api._endpoints.episodes.Episodes.get_one">
+    get_one()
   </a>
 </li>
 </ul>
 </nav>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#async_spotify.api._status_codes">
-    async_spotify.api._status_codes
-  </a>
 </li>
 </ul>
 </nav>
@@ -386,33 +386,34 @@
 </div>
 <div class="md-content">
 <article class="md-content__inner md-typeset">
-<a class="md-content__button md-icon" href="https://github.com/HuiiBuh/AsyncSpotify/edit/master/docs/private_api/status_classes.md" title="Edit this page">
+<a class="md-content__button md-icon" href="https://github.com/HuiiBuh/AsyncSpotify/edit/master/docs/public_api/endpoints/episodes.md" title="Edit this page">
 <svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M20.71,7.04C21.1,6.65 21.1,6 20.71,5.63L18.37,3.29C18,2.9 17.35,2.9 16.96,3.29L15.12,5.12L18.87,8.87M3,17.25V21H6.75L17.81,9.93L14.06,6.18L3,17.25Z"></path></svg>
 </a>
-<h1>Status Classes</h1>
+<h1>Episodes</h1>
 <div class="doc doc-object doc-module">
-<h2 class="hidden-toc" href="#async_spotify.api._response_status" id="async_spotify.api._response_status" style="visibility: hidden; width: 0; height: 0;">
-<a class="headerlink" href="#async_spotify.api._response_status" title="Permanent link">¶</a></h2>
+<h2 class="hidden-toc" href="#async_spotify.api._endpoints.episodes" id="async_spotify.api._endpoints.episodes" style="visibility: hidden; width: 0; height: 0;">
+<a class="headerlink" href="#async_spotify.api._endpoints.episodes" title="Permanent link">¶</a></h2>
 <div class="doc doc-contents first">
-<p>Wraps the status code of a response to give some additional context</p>
+<p>Module with the episodes endpoint</p>
 <div class="doc doc-children">
 <div class="doc doc-object doc-class">
-<h2 class="doc doc-heading" id="async_spotify.api._response_status.ResponseStatus">
-<code>ResponseStatus</code>
-<a class="headerlink" href="#async_spotify.api._response_status.ResponseStatus" title="Permanent link">¶</a></h2>
+<h2 class="doc doc-heading" id="async_spotify.api._endpoints.episodes.Episodes">
+<code>Episodes</code>
+<a class="headerlink" href="#async_spotify.api._endpoints.episodes.Episodes" title="Permanent link">¶</a></h2>
 <div class="doc doc-contents">
-<p>A response status object that can be checked if a request was ok</p>
+<p>Class with the episodes endpoint</p>
 <div class="doc doc-children">
 <div class="doc doc-object doc-method">
-<h3 class="doc doc-heading" id="async_spotify.api._response_status.ResponseStatus.__init__">
+<h3 class="doc doc-heading" id="async_spotify.api._endpoints.episodes.Episodes.get_multiple">
 <code class="highlight language-python">
-__init__<span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">status_code</span><span class="p">)</span> </code>
-<span class="doc doc-properties">
-<small class="doc doc-property doc-property-special"><code>special</code></small>
-</span>
-<a class="headerlink" href="#async_spotify.api._response_status.ResponseStatus.__init__" title="Permanent link">¶</a></h3>
+get_multiple<span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">episode_ids</span><span class="p">,</span> <span class="n">auth_token</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span> </code>
+<a class="headerlink" href="#async_spotify.api._endpoints.episodes.Episodes.get_multiple" title="Permanent link">¶</a></h3>
 <div class="doc doc-contents">
-<p>Create a Response status object that translates the status code to a success and message</p>
+<p>Get Several Episodes</p>
+<div class="admonition notes">
+<p class="admonition-title">Notes</p>
+<p><a href="https://developer.spotify.com/documentation/web-api/reference/episodes/get-several-episodes/">https://developer.spotify.com/documentation/web-api/reference/episodes/get-several-episodes/</a></p>
+</div>
 <p><strong>Parameters:</strong></p>
 <table>
 <thead>
@@ -425,25 +426,182 @@ __init__<span class="p">(</span><span class="bp">self</span><span class="p">,</s
 </thead>
 <tbody>
 <tr>
-<td><code>status_code</code></td>
-<td><code>int</code></td>
+<td><code>episode_ids</code></td>
+<td><code>List[str]</code></td>
 <td>
-<p>A valid http status code</p>
+<p>A list of episode ids</p>
 </td>
 <td><em>required</em></td>
+</tr>
+<tr>
+<td><code>auth_token</code></td>
+<td><code>SpotifyAuthorisationToken</code></td>
+<td>
+<p>The auth token if you set the api class not to keep the token in memory</p>
+</td>
+<td><code>None</code></td>
+</tr>
+<tr>
+<td><code>kwargs</code></td>
+<td><code></code></td>
+<td>
+<p>Optional arguments as keyword args</p>
+</td>
+<td><code>{}</code></td>
+</tr>
+</tbody>
+</table>
+<p><strong>Returns:</strong></p>
+<table>
+<thead>
+<tr>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>dict</code></td>
+<td>
+<p>A list of episodes</p>
+</td>
 </tr>
 </tbody>
 </table>
 <details class="quote">
-<summary>Source code in <code>async_spotify/api/_response_status.py</code></summary>
+<summary>Source code in <code>async_spotify/api/_endpoints/episodes.py</code></summary>
 <table class="highlighttable">
 <tr>
 <td class="linenos">
 <div class="linenodiv">
-<pre><span></span>20
-21
-22
-23
+<pre><span></span>47
+48
+49
+50
+51
+52
+53
+54
+55
+56
+57
+58
+59
+60
+61
+62
+63
+64
+65
+66
+67
+68</pre>
+</div>
+</td>
+<td class="code">
+<div class="highlight">
+<pre><span></span><code><span class="k">async</span> <span class="k">def</span> <span class="nf">get_multiple</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">episode_ids</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="nb">str</span><span class="p">],</span> <span class="n">auth_token</span><span class="p">:</span> <span class="n">SpotifyAuthorisationToken</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+                       <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">dict</span><span class="p">:</span>
+    <span class="sd">"""</span>
+<span class="sd">    Get Several Episodes</span>
+
+<span class="sd">    Notes:</span>
+<span class="sd">        [https://developer.spotify.com/documentation/web-api/reference/episodes/get-several-episodes/](https://developer.spotify.com/documentation/web-api/reference/episodes/get-several-episodes/)</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        episode_ids: A list of episode ids</span>
+<span class="sd">        auth_token: The auth token if you set the api class not to keep the token in memory</span>
+<span class="sd">        kwargs: Optional arguments as keyword args</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">        A list of episodes</span>
+<span class="sd">    """</span>
+
+    <span class="n">required_args</span> <span class="o">=</span> <span class="p">{</span><span class="s2">"ids"</span><span class="p">:</span> <span class="n">episode_ids</span><span class="p">}</span>
+    <span class="n">args</span> <span class="o">=</span> <span class="p">{</span><span class="o">**</span><span class="n">required_args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">}</span>
+    <span class="n">response</span> <span class="o">=</span> <span class="k">await</span> <span class="bp">self</span><span class="o">.</span><span class="n">api_request_handler</span><span class="o">.</span><span class="n">make_request</span><span class="p">(</span><span class="s1">'GET'</span><span class="p">,</span> <span class="n">URLS</span><span class="o">.</span><span class="n">EPISODES</span><span class="o">.</span><span class="n">MULTIPLE</span><span class="p">,</span> <span class="n">args</span><span class="p">,</span> <span class="n">auth_token</span><span class="p">)</span>
+
+    <span class="k">return</span> <span class="n">response</span>
+</code></pre>
+</div>
+</td>
+</tr>
+</table>
+</details>
+</div>
+</div>
+<div class="doc doc-object doc-method">
+<h3 class="doc doc-heading" id="async_spotify.api._endpoints.episodes.Episodes.get_one">
+<code class="highlight language-python">
+get_one<span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">episode_id</span><span class="p">,</span> <span class="n">auth_token</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span> </code>
+<a class="headerlink" href="#async_spotify.api._endpoints.episodes.Episodes.get_one" title="Permanent link">¶</a></h3>
+<div class="doc doc-contents">
+<p>Get an Episode</p>
+<div class="admonition notes">
+<p class="admonition-title">Notes</p>
+<p><a href="https://developer.spotify.com/documentation/web-api/reference/episodes/get-an-episode/">https://developer.spotify.com/documentation/web-api/reference/episodes/get-an-episode/</a></p>
+</div>
+<p><strong>Parameters:</strong></p>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+<th>Default</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>episode_id</code></td>
+<td><code>str</code></td>
+<td>
+<p>The id of the episode</p>
+</td>
+<td><em>required</em></td>
+</tr>
+<tr>
+<td><code>auth_token</code></td>
+<td><code>SpotifyAuthorisationToken</code></td>
+<td>
+<p>The auth token if you set the api class not to keep the token in memory</p>
+</td>
+<td><code>None</code></td>
+</tr>
+<tr>
+<td><code>kwargs</code></td>
+<td><code></code></td>
+<td>
+<p>Optional arguments as keyword args</p>
+</td>
+<td><code>{}</code></td>
+</tr>
+</tbody>
+</table>
+<p><strong>Returns:</strong></p>
+<table>
+<thead>
+<tr>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>dict</code></td>
+<td>
+<p>A episode</p>
+</td>
+</tr>
+</tbody>
+</table>
+<details class="quote">
+<summary>Source code in <code>async_spotify/api/_endpoints/episodes.py</code></summary>
+<table class="highlighttable">
+<tr>
+<td class="linenos">
+<div class="linenodiv">
+<pre><span></span>23
 24
 25
 26
@@ -465,51 +623,34 @@ __init__<span class="p">(</span><span class="bp">self</span><span class="p">,</s
 42
 43
 44
-45
-46
-47
-48
-49
-50
-51
-52</pre>
+45</pre>
 </div>
 </td>
 <td class="code">
 <div class="highlight">
-<pre><span></span><code><span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">status_code</span><span class="p">:</span> <span class="nb">int</span><span class="p">):</span>
+<pre><span></span><code><span class="k">async</span> <span class="k">def</span> <span class="nf">get_one</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">episode_id</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">auth_token</span><span class="p">:</span> <span class="n">SpotifyAuthorisationToken</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">dict</span><span class="p">:</span>
     <span class="sd">"""</span>
-<span class="sd">    Create a Response status object that translates the status code to a success and message</span>
+<span class="sd">    Get an Episode</span>
+
+<span class="sd">    Notes:</span>
+<span class="sd">        [https://developer.spotify.com/documentation/web-api/reference/episodes/get-an-episode/](https://developer.spotify.com/documentation/web-api/reference/episodes/get-an-episode/)</span>
 
 <span class="sd">    Args:</span>
-<span class="sd">        status_code: A valid http status code</span>
+<span class="sd">        episode_id: The id of the episode</span>
+<span class="sd">        auth_token: The auth token if you set the api class not to keep the token in memory</span>
+<span class="sd">        kwargs: Optional arguments as keyword args</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">        A episode</span>
 <span class="sd">    """</span>
 
-    <span class="bp">self</span><span class="o">.</span><span class="n">moved</span> <span class="o">=</span> <span class="kc">False</span>
-    <span class="bp">self</span><span class="o">.</span><span class="n">success</span> <span class="o">=</span> <span class="kc">False</span>
-    <span class="bp">self</span><span class="o">.</span><span class="n">error</span> <span class="o">=</span> <span class="kc">False</span>
+    <span class="n">required_args</span> <span class="o">=</span> <span class="p">{</span><span class="s2">"id"</span><span class="p">:</span> <span class="n">episode_id</span><span class="p">}</span>
+    <span class="n">args</span> <span class="o">=</span> <span class="p">{</span><span class="o">**</span><span class="n">required_args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">}</span>
 
-    <span class="k">if</span> <span class="n">status_code</span> <span class="ow">in</span> <span class="n">STATUS_CODES</span><span class="p">[</span><span class="s2">"OK"</span><span class="p">]:</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">success</span> <span class="o">=</span> <span class="kc">True</span>
-        <span class="n">message</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="n">STATUS_CODES</span><span class="p">[</span><span class="s2">"OK"</span><span class="p">][</span><span class="n">status_code</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span>
+    <span class="n">url</span><span class="p">,</span> <span class="n">args</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_add_url_params</span><span class="p">(</span><span class="n">URLS</span><span class="o">.</span><span class="n">EPISODES</span><span class="o">.</span><span class="n">ONE</span><span class="p">,</span> <span class="n">args</span><span class="p">)</span>
+    <span class="n">response</span> <span class="o">=</span> <span class="k">await</span> <span class="bp">self</span><span class="o">.</span><span class="n">api_request_handler</span><span class="o">.</span><span class="n">make_request</span><span class="p">(</span><span class="s1">'GET'</span><span class="p">,</span> <span class="n">url</span><span class="p">,</span> <span class="n">args</span><span class="p">,</span> <span class="n">auth_token</span><span class="p">)</span>
 
-    <span class="k">elif</span> <span class="n">status_code</span> <span class="ow">in</span> <span class="n">STATUS_CODES</span><span class="p">[</span><span class="s2">"REDIRECT"</span><span class="p">]:</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">moved</span> <span class="o">=</span> <span class="kc">True</span>
-        <span class="n">message</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="n">STATUS_CODES</span><span class="p">[</span><span class="s2">"REDIRECT"</span><span class="p">][</span><span class="n">status_code</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span>
-
-    <span class="k">elif</span> <span class="n">status_code</span> <span class="ow">in</span> <span class="n">STATUS_CODES</span><span class="p">[</span><span class="s2">"CLIENT_ERROR"</span><span class="p">]:</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">error</span> <span class="o">=</span> <span class="kc">True</span>
-        <span class="n">message</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="n">STATUS_CODES</span><span class="p">[</span><span class="s2">"CLIENT_ERROR"</span><span class="p">][</span><span class="n">status_code</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span>
-
-    <span class="k">elif</span> <span class="n">status_code</span> <span class="ow">in</span> <span class="n">STATUS_CODES</span><span class="p">[</span><span class="s2">"SERVER_ERROR"</span><span class="p">]:</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">error</span> <span class="o">=</span> <span class="kc">True</span>
-        <span class="n">message</span> <span class="o">=</span> <span class="n">STATUS_CODES</span><span class="p">[</span><span class="s2">"SERVER_ERROR"</span><span class="p">][</span><span class="n">status_code</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span>
-    <span class="k">else</span><span class="p">:</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">error</span> <span class="o">=</span> <span class="kc">True</span>
-        <span class="n">message</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">"Unknown response code"</span>
-
-    <span class="bp">self</span><span class="o">.</span><span class="n">code</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="n">status_code</span>
-    <span class="bp">self</span><span class="o">.</span><span class="n">message</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="n">message</span>
+    <span class="k">return</span> <span class="n">response</span>
 </code></pre>
 </div>
 </td>
@@ -524,18 +665,11 @@ __init__<span class="p">(</span><span class="bp">self</span><span class="p">,</s
 </div>
 </div>
 </div>
-<div class="doc doc-object doc-module">
-<h2 class="hidden-toc" href="#async_spotify.api._status_codes" id="async_spotify.api._status_codes" style="visibility: hidden; width: 0; height: 0;">
-<a class="headerlink" href="#async_spotify.api._status_codes" title="Permanent link">¶</a></h2>
-<div class="doc doc-contents first">
-<p>A collection of http response codes and their meaning (copied from python requests)</p>
-</div>
-</div>
 <hr/>
 <div class="md-source-date">
 <small>
     
-      Last update: April 20, 2020
+      Last update: April 27, 2020
     
   </small>
 </div>
@@ -546,7 +680,7 @@ __init__<span class="p">(</span><span class="bp">self</span><span class="p">,</s
 <footer class="md-footer">
 <div class="md-footer-nav">
 <nav aria-label="Footer" class="md-footer-nav__inner md-grid">
-<a class="md-footer-nav__link md-footer-nav__link--prev" href="../request_handler/" rel="prev" title="Request Handler">
+<a class="md-footer-nav__link md-footer-nav__link--prev" href="../browse/" rel="prev" title="Browse">
 <div class="md-footer-nav__button md-icon">
 <svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M20,11V13H8L13.5,18.5L12.08,19.92L4.16,12L12.08,4.08L13.5,5.5L8,11H20Z"></path></svg>
 </div>
@@ -555,17 +689,17 @@ __init__<span class="p">(</span><span class="bp">self</span><span class="p">,</s
 <span class="md-footer-nav__direction">
                   Previous
                 </span>
-                Request Handler
+                Browse
               </div>
 </div>
 </a>
-<a class="md-footer-nav__link md-footer-nav__link--next" href="../url/" rel="next" title="URLS">
+<a class="md-footer-nav__link md-footer-nav__link--next" href="../follow/" rel="next" title="Follow">
 <div class="md-footer-nav__title">
 <div class="md-ellipsis">
 <span class="md-footer-nav__direction">
                   Next
                 </span>
-                URLS
+                Follow
               </div>
 </div>
 <div class="md-footer-nav__button md-icon">
@@ -592,14 +726,14 @@ __init__<span class="p">(</span><span class="bp">self</span><span class="p">,</s
 </div>
 </footer>
 </div>
-<script src="../../assets/javascripts/vendor.f81b9e8b.min.js"></script>
-<script src="../../assets/javascripts/bundle.23546af0.min.js"></script><script id="__lang" type="application/json">{"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents"}</script>
+<script src="../../../assets/javascripts/vendor.f81b9e8b.min.js"></script>
+<script src="../../../assets/javascripts/bundle.23546af0.min.js"></script><script id="__lang" type="application/json">{"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents"}</script>
 <script>
         app = initialize({
-          base: "../..",
+          base: "../../..",
           features: [],
           search: Object.assign({
-            worker: "../../assets/javascripts/worker/search.58d22e8e.min.js"
+            worker: "../../../assets/javascripts/worker/search.58d22e8e.min.js"
           }, typeof search !== "undefined" && search)
         })
       </script>
