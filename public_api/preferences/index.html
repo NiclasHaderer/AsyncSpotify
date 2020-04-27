@@ -462,17 +462,17 @@ __eq__<span class="p">(</span><span class="bp">self</span><span class="p">,</spa
 <tr>
 <td class="linenos">
 <div class="linenodiv">
-<pre><span></span>139
-140
-141
-142
-143
+<pre><span></span>143
 144
 145
 146
 147
 148
-149</pre>
+149
+150
+151
+152
+153</pre>
 </div>
 </td>
 <td class="code">
@@ -557,8 +557,7 @@ __init__<span class="p">(</span><span class="bp">self</span><span class="p">,</s
 <tr>
 <td class="linenos">
 <div class="linenodiv">
-<pre><span></span>42
-43
+<pre><span></span>43
 44
 45
 46
@@ -571,7 +570,8 @@ __init__<span class="p">(</span><span class="bp">self</span><span class="p">,</s
 53
 54
 55
-56</pre>
+56
+57</pre>
 </div>
 </td>
 <td class="code">
@@ -602,11 +602,32 @@ __init__<span class="p">(</span><span class="bp">self</span><span class="p">,</s
 <div class="doc doc-object doc-method">
 <h3 class="doc doc-heading" id="async_spotify.api.preferences.Preferences.load_from_docker_secret">
 <code class="highlight language-python">
-load_from_docker_secret<span class="p">(</span><span class="bp">self</span><span class="p">)</span> </code>
+load_from_docker_secret<span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">base_dir</span><span class="o">=</span><span class="s1">'/var/run/secrets'</span><span class="p">)</span> </code>
 <a class="headerlink" href="#async_spotify.api.preferences.Preferences.load_from_docker_secret" title="Permanent link">¶</a></h3>
 <div class="doc doc-contents">
 <p>Loads the Preferences from docker secret.
 The variable names have to be the same as the property name.</p>
+<p><strong>Parameters:</strong></p>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+<th>Default</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>base_dir</code></td>
+<td><code>str</code></td>
+<td>
+<p>The docker secrets base dir. Leave empty if you want to use the default</p>
+</td>
+<td><code>'/var/run/secrets'</code></td>
+</tr>
+</tbody>
+</table>
 <div class="admonition important">
 <p class="admonition-title">Important</p>
 <p>Scopes has to be a string separated by ' '</p>
@@ -617,8 +638,7 @@ The variable names have to be the same as the property name.</p>
 <tr>
 <td class="linenos">
 <div class="linenodiv">
-<pre><span></span>73
-74
+<pre><span></span>74
 75
 76
 77
@@ -630,24 +650,33 @@ The variable names have to be the same as the property name.</p>
 83
 84
 85
-86</pre>
+86
+87
+88
+89
+90
+91</pre>
 </div>
 </td>
 <td class="code">
 <div class="highlight">
-<pre><span></span><code><span class="k">def</span> <span class="nf">load_from_docker_secret</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<pre><span></span><code><span class="k">def</span> <span class="nf">load_from_docker_secret</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">base_dir</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="n">join</span><span class="p">(</span><span class="n">abspath</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">sep</span><span class="p">),</span> <span class="s1">'var'</span><span class="p">,</span> <span class="s1">'run'</span><span class="p">,</span> <span class="s1">'secrets'</span><span class="p">))</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
     <span class="sd">"""</span>
 <span class="sd">    Loads the Preferences from docker secret.</span>
 <span class="sd">    The variable names have to be the same as the property name.</span>
 
+<span class="sd">    Args:</span>
+<span class="sd">        base_dir: The docker secrets base dir. Leave empty if you want to use the default</span>
+
 <span class="sd">    Important:</span>
 <span class="sd">        Scopes has to be a string separated by ' '</span>
 <span class="sd">    """</span>
-    <span class="bp">self</span><span class="o">.</span><span class="n">application_id</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_get_docker_secret</span><span class="p">(</span><span class="s1">'application_id'</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">application_id</span><span class="p">)</span>
-    <span class="bp">self</span><span class="o">.</span><span class="n">application_secret</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_get_docker_secret</span><span class="p">(</span><span class="s1">'application_secret'</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">application_secret</span><span class="p">)</span>
-    <span class="bp">self</span><span class="o">.</span><span class="n">redirect_url</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_get_docker_secret</span><span class="p">(</span><span class="s1">'redirect_url'</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">redirect_url</span><span class="p">)</span>
 
-    <span class="n">scopes</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_get_docker_secret</span><span class="p">(</span><span class="s1">'scopes'</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">scopes</span><span class="p">)</span>
+    <span class="bp">self</span><span class="o">.</span><span class="n">application_id</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_get_docker_secret</span><span class="p">(</span><span class="s1">'application_id'</span><span class="p">,</span> <span class="n">base_dir</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">application_id</span><span class="p">)</span>
+    <span class="bp">self</span><span class="o">.</span><span class="n">application_secret</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_get_docker_secret</span><span class="p">(</span><span class="s1">'application_secret'</span><span class="p">,</span> <span class="n">base_dir</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">application_secret</span><span class="p">)</span>
+    <span class="bp">self</span><span class="o">.</span><span class="n">redirect_url</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_get_docker_secret</span><span class="p">(</span><span class="s1">'redirect_url'</span><span class="p">,</span> <span class="n">base_dir</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">redirect_url</span><span class="p">)</span>
+
+    <span class="n">scopes</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_get_docker_secret</span><span class="p">(</span><span class="s1">'scopes'</span><span class="p">,</span> <span class="n">base_dir</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">scopes</span><span class="p">)</span>
     <span class="bp">self</span><span class="o">.</span><span class="n">scopes</span> <span class="o">=</span> <span class="n">scopes</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">" "</span><span class="p">)</span> <span class="k">if</span> <span class="n">scopes</span> <span class="ow">and</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">scopes</span><span class="p">,</span> <span class="nb">list</span><span class="p">)</span> <span class="k">else</span> <span class="bp">self</span><span class="o">.</span><span class="n">scopes</span>
 </code></pre>
 </div>
@@ -674,8 +703,7 @@ load_from_env<span class="p">(</span><span class="bp">self</span><span class="p"
 <tr>
 <td class="linenos">
 <div class="linenodiv">
-<pre><span></span>58
-59
+<pre><span></span>59
 60
 61
 62
@@ -687,7 +715,8 @@ load_from_env<span class="p">(</span><span class="bp">self</span><span class="p"
 68
 69
 70
-71</pre>
+71
+72</pre>
 </div>
 </td>
 <td class="code">
@@ -731,12 +760,7 @@ save_preferences_to_evn<span class="p">(</span><span class="bp">self</span><span
 <tr>
 <td class="linenos">
 <div class="linenodiv">
-<pre><span></span> 88
- 89
- 90
- 91
- 92
- 93
+<pre><span></span> 93
  94
  95
  96
@@ -746,12 +770,17 @@ save_preferences_to_evn<span class="p">(</span><span class="bp">self</span><span
 100
 101
 102
-103</pre>
+103
+104
+105
+106
+107
+108</pre>
 </div>
 </td>
 <td class="code">
 <div class="highlight">
-<pre><span></span><code><span class="k">def</span> <span class="nf">save_preferences_to_evn</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<pre><span></span><code><span class="k">def</span> <span class="nf">save_preferences_to_evn</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
     <span class="sd">"""</span>
 <span class="sd">    Takes the preferences saved in the object and saves them as os environment variables</span>
 

@@ -310,11 +310,12 @@
 <p>The full documentation can be viewed <a href="https://huiibuh.github.io/AsyncSpotify/">here</a>.</p>
 <h2 id="why-should-you-use-this-library">Why should you use this library<a class="headerlink" href="#why-should-you-use-this-library" title="Permanent link">¶</a></h2>
 <ul>
-<li>99% Code coverage</li>
+<li>100% Code coverage</li>
+<li>Completely type annotated</li>
 <li>Completely async</li>
-<li>Scales up to (theoretically) unlimited requests per second (this depends mostly on the spotify request limit)</li>
+<li>Scales up to (theoretically) unlimited requests per second (tested with 1000 simultaneous requests which lead to a 429)</li>
 <li>Customize the timeout, maximal simultaneous request</li>
-<li>Throws custom errors so you can catch a Token expiration or a rate limit violation easily</li>
+<li>Throws custom errors so you can catch a Token expiration, a rate limit violation easily or an invalid album id easily</li>
 <li>Gets rid of the client credential workflow if you provide spotify cookies</li>
 <li>Good for automated testing</li>
 </ul>
