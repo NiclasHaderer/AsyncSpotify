@@ -15,9 +15,19 @@ class ErrorMessage(object):
     """The error message"""
 
     def __init__(self, status: int = 0, message: str = ''):
+        """
+        Create a Error message object which will be used internally by the spotify exceptions
+
+        Args:
+            status: The http status code (0 if not applicable)
+            message: The error message
+        """
         self.message = message
         self.status = status
 
     @property
     def __dict__(self) -> dict:
+        """
+        Returns: The error message which can is used by the spotify exceptions
+        """
         return {'error': {'status': self.status, 'message': self.message}}
