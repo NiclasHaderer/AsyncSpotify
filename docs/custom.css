@@ -1,37 +1,23 @@
+/* Indent with grey stripes */
 div.doc-contents:not(.first) {
     padding-left: 25px;
-    border-left: 4px solid rgba(230, 230, 230);
+    border-left: 4px solid rgb(230, 230, 230);
     margin-bottom: 80px;
 }
 
-h5.doc-heading {
-    text-transform: none !important;
-}
 
-h6.hidden-toc {
-    margin: 0 !important;
-    position: relative;
-    top: -70px;
-}
-
-h6.hidden-toc::before {
-    margin-top: 0 !important;
-    padding-top: 0 !important;
-}
-
-h6.hidden-toc a.headerlink {
-    display: none;
-}
-
+/* Dont break parameter names */
 td code {
     word-break: normal !important;
 }
 
+/* Less space around parameters */
 td p {
     margin-top: 0 !important;
     margin-bottom: 0 !important;
 }
 
+/* Make return table stretch */
 .md-typeset__table {
     width: 100%;
 }
@@ -40,23 +26,19 @@ td p {
     display: table !important;
 }
 
-table.codehilitetable {
-    overflow: auto !important;
-    max-height: 40vh !important;
-    margin-bottom: 0 !important;
-}
 
-details.note {
-    padding-left: 0;
-    padding-right: 0;
-}
+/*Theme***************************************************************************************************************/
+:root {
+    /* Link and nav color */
+    --md-primary-fg-color: hsla(146, 73%, 42%, 1);
+    --md-primary-fg-color--light: hsl(146, 42%, 64%);
+    --md-primary-fg-color--dark: hsl(148, 54%, 41%);
 
-details.note > summary {
-    padding-left: 2.5rem;
-    padding-right: 2.5rem;
-    margin: 0;
-}
+    /* Hover link and hover side nav */
+    --md-accent-fg-color: hsla(142, 99%, 60%, 1);
 
-.md-typeset__table code, .md-typeset__table em {
-    display: inline-block;
+    /* Heading color */
+    --md-code-fg-color: hsla(140, 18%, 24%, 1);
+
+    --md-accent-fg-color--transparent: hsla(146, 73%, 42%, .07);
 }

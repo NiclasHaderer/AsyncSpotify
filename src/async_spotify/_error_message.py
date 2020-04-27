@@ -1,4 +1,6 @@
-"""Error messages"""
+"""
+Class which handles the error message the spotify exceptions use
+"""
 
 
 # ##################################################################################################

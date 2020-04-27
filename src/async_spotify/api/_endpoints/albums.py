@@ -1,5 +1,5 @@
 """
-Handle the requests to the albums endpoint
+Module with the albums endpoint
 """
 
 # ##################################################################################################

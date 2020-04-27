@@ -1,5 +1,5 @@
 """
-Handle the requests to the artist endpoint
+Module with the artists endpoint
 """
 
 # ##################################################################################################

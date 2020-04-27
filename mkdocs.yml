@@ -12,8 +12,23 @@ nav:
       - Preferences: "public_api/preferences.md"
       - Authentification: "public_api/authentification.md"
       - Spotify Errors: "public_api/spotify_errors.md"
-      - Endpoints: "public_api/endpoints.md"
+      - Endpoints:
+          - "public_api/endpoints/overview.md"
+          - "public_api/endpoints/albums.md"
+          - "public_api/endpoints/artists.md"
+          - "public_api/endpoints/browse.md"
+          - "public_api/endpoints/episodes.md"
+          - "public_api/endpoints/follow.md"
+          - "public_api/endpoints/library.md"
+          - "public_api/endpoints/personalization.md"
+          - "public_api/endpoints/player.md"
+          - "public_api/endpoints/playlists.md"
+          - "public_api/endpoints/search.md"
+          - "public_api/endpoints/shows.md"
+          - "public_api/endpoints/tracks.md"
+          - "public_api/endpoints/user.md"
   - Private API:
+      - Error Message: "private_api/error_message.md"
       - Request Handler: "private_api/request_handler.md"
       - Status Classes: "private_api/status_classes.md"
       - URLS: "private_api/url.md"
@@ -25,8 +40,8 @@ theme:
   language: en
 
   icon:
-    logo: fontawesome/brands/spotify
-    repo: fontawesome/brands/github
+    logo: material/spotify
+    repo: material/git
   favicon: https://upload.wikimedia.org/wikipedia/commons/9/9b/Font_Awesome_5_brands_spotify.svg
 
 extra_css:
@@ -41,8 +56,14 @@ markdown_extensions:
   - toc:
       permalink: true
 
+extra:
+  social:
+    - icon: fontawesome/brands/github-alt
+      link: https://github.com/huiibuh
+
 plugins:
   - search
+  - git-revision-date-localized
   - mkdocstrings:
       default_handler: python
       handlers:
