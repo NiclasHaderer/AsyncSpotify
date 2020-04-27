@@ -10,11 +10,12 @@ The full documentation can be viewed [here](https://huiibuh.github.io/AsyncSpoti
 
 ## Why should you use this library
 
-+ 99% Code coverage
++ 100% Code coverage
++ Completely type annotated
 + Completely async
-+ Scales up to (theoretically) unlimited requests per second (this depends mostly on the spotify request limit)
++ Scales up to (theoretically) unlimited requests per second (tested with 1000 simultaneous requests which lead to a 429)
 + Customize the timeout, maximal simultaneous request
-+ Throws custom errors so you can catch a Token expiration or a rate limit violation easily
++ Throws custom errors so you can catch a Token expiration, a rate limit violation easily or an invalid album id easily
 + Gets rid of the client credential workflow if you provide spotify cookies
   + Good for automated testing
 

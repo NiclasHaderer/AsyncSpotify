@@ -24,30 +24,30 @@ class TestPlaylist:
         me = await prepared_api.user.me()
         user_id: str = me['id']
 
-        playlist = await prepared_api.playlist.create_playlist(user_id, 'test_playlist')
+        playlist = await prepared_api.playlists.create_playlist(user_id, 'test_playlist')
         assert isinstance(playlist, dict) and playlist
 
         playlist_id = playlist['id']
 
         uris: List[str] = ['spotify:track:7FIWs0pqAYbP91WWM0vlTQ', 'spotify:track:40YbWniIEmqy6s58fYXLUh']
-        songs = await prepared_api.playlist.add_tracks(playlist_id, uris, position=0)
+        songs = await prepared_api.playlists.add_tracks(playlist_id, uris, position=0)
         assert songs is None
 
-        details = await prepared_api.playlist.change_details(playlist_id, name='test_playlist_x')
+        details = await prepared_api.playlists.change_details(playlist_id, name='test_playlist_x')
         assert details is None
 
-        playlist_list = await prepared_api.playlist.current_get_all()
+        playlist_list = await prepared_api.playlists.current_get_all()
         assert isinstance(playlist_list, dict)
-        playlist_list_user = await prepared_api.playlist.get_user_all(user_id)
+        playlist_list_user = await prepared_api.playlists.get_user_all(user_id)
         assert isinstance(playlist_list_user, dict)
 
-        playlist = await prepared_api.playlist.get_one(playlist_id)
+        playlist = await prepared_api.playlists.get_one(playlist_id)
         assert isinstance(playlist, dict)
 
-        cover = await prepared_api.playlist.get_cover(playlist_id)
+        cover = await prepared_api.playlists.get_cover(playlist_id)
         assert isinstance(cover, List)
 
-        tracks = await prepared_api.playlist.get_tracks(playlist_id)
+        tracks = await prepared_api.playlists.get_tracks(playlist_id)
         assert isinstance(tracks, dict)
 
         reorder = {
@@ -56,18 +56,18 @@ class TestPlaylist:
             "insert_before": 1
         }
 
-        reorder_return = await prepared_api.playlist.reorder_tracks(playlist_id, reorder)
+        reorder_return = await prepared_api.playlists.reorder_tracks(playlist_id, reorder)
         assert isinstance(reorder_return, dict)
 
         snapshot_id = reorder_return['snapshot_id']
-        reorder_return = await prepared_api.playlist.reorder_tracks(playlist_id, reorder, snapshot_id)
+        reorder_return = await prepared_api.playlists.reorder_tracks(playlist_id, reorder, snapshot_id)
         assert isinstance(reorder_return, dict)
 
-        replace = await prepared_api.playlist.replace_tracks(playlist_id, ['spotify:track:3kW5Rq9AIL0QQuYTSKNkQw'])
+        replace = await prepared_api.playlists.replace_tracks(playlist_id, ['spotify:track:3kW5Rq9AIL0QQuYTSKNkQw'])
         assert replace is None
 
-        remove = await prepared_api.playlist.remove_tracks(playlist_id,
-                                                           {'tracks': [
+        remove = await prepared_api.playlists.remove_tracks(playlist_id,
+                                                            {'tracks': [
                                                                {'uri': 'spotify:track:3kW5Rq9AIL0QQuYTSKNkQw'}]})
         assert remove is None
 
@@ -80,7 +80,7 @@ class TestPlaylist:
 
         b_64_image = base64.b64encode(b_64_image)
 
-        image = await prepared_api.playlist.upload_cover(playlist_id, b_64_image)
+        image = await prepared_api.playlists.upload_cover(playlist_id, b_64_image)
         assert image is None
 
         await prepared_api.follow.unfollow_playlist(playlist_id)

@@ -13,7 +13,7 @@ with open("README.md", "r") as fh:
 setuptools.setup(
     name="async-spotify",
     packages=setuptools.find_packages(),
-    version="0.1.1",
+    version="0.1.2",
     author="HuiiBuh",
     author_email="nhaderer1@gmail.com",
     description="An async spotify api client",

@@ -76,7 +76,8 @@ class Browse(Endpoint):
         response = await self.api_request_handler.make_request('GET', URLS.BROWSE.CATEGORY_LIST, args, auth_token)
         return response
 
-    async def get_single_category(self, category_id: str, auth_token: SpotifyAuthorisationToken = None, **kwargs) -> dict:
+    async def get_single_category(self, category_id: str, auth_token: SpotifyAuthorisationToken = None,
+                                  **kwargs) -> dict:
         """
         Get a Single Browse Category
 

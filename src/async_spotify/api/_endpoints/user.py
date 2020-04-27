@@ -1,9 +1,14 @@
+"""
+Module with the user endpoint
+"""
+
 # ##################################################################################################
 #  Copyright (c) 2020. HuiiBuh                                                                     #
 #  This file (user.py) is part of AsyncSpotify which is released under MIT.                        #
 #  You are not allowed to use this code or this file for another project without                   #
 #  linking to the original source.                                                                 #
 # ##################################################################################################
+
 from async_spotify.api._endpoints.endpoint import Endpoint
 from async_spotify.api._endpoints.urls import URLS
 from async_spotify.authentification.spotify_authorization_token import SpotifyAuthorisationToken

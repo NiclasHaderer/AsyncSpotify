@@ -30,9 +30,9 @@ from ._endpoints.follow import Follow
 from ._endpoints.library import Library
 from ._endpoints.personalization import Personalization
 from ._endpoints.player import Player
-from ._endpoints.playlist import Playlist
+from ._endpoints.playlists import Playlists
 from ._endpoints.search import Search
-from ._endpoints.shows import Show
+from ._endpoints.shows import Shows
 from ._endpoints.tracks import Track
 from ._endpoints.urls import URLS
 from ._endpoints.user import User
@@ -79,7 +79,7 @@ class SpotifyApiClient:
         """ An instance of the [`Albums`][async_spotify.api._endpoints.albums] class. Use this to access the 
          Albums api """
 
-        self.artist: Artists = Artists(self._api_request_handler)
+        self.artists: Artists = Artists(self._api_request_handler)
         """ An instance of the [`Artists`][async_spotify.api._endpoints.artists] class. Use this to access the 
          Artists api """
 
@@ -107,16 +107,16 @@ class SpotifyApiClient:
         """ An instance of the [`Player`][async_spotify.api._endpoints.player] class. Use this to access the 
          Player api """
 
-        self.playlist: Playlist = Playlist(self._api_request_handler)
-        """ An instance of the [`Playlist`][async_spotify.api._endpoints.playlist] class. Use this to access the 
+        self.playlists: Playlists = Playlists(self._api_request_handler)
+        """ An instance of the [`Playlists`][async_spotify.api._endpoints.playlists] class. Use this to access the 
          Playlist api """
 
         self.search: Search = Search(self._api_request_handler)
         """ An instance of the [`Search`][async_spotify.api._endpoints.search] class. Use this to access the 
          Search api """
 
-        self.show: Show = Show(self._api_request_handler)
-        """ An instance of the [`Show`][async_spotify.api._endpoints.shows] class. Use this to access the 
+        self.shows: Shows = Shows(self._api_request_handler)
+        """ An instance of the [`Shows`][async_spotify.api._endpoints.shows] class. Use this to access the 
          Show api """
 
         self.track: Track = Track(self._api_request_handler)

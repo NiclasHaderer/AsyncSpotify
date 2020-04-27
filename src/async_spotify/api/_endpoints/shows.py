@@ -1,5 +1,5 @@
 """
-Shows module
+Module with the shows endpoint
 """
 
 # ##################################################################################################
@@ -15,7 +15,7 @@ from .urls import URLS
 from ...authentification.spotify_authorization_token import SpotifyAuthorisationToken
 
 
-class Show(Endpoint):
+class Shows(Endpoint):
     """
     Shows endpoint
     """

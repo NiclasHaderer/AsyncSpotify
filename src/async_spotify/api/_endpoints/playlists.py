@@ -1,5 +1,5 @@
 """
-Playlist module
+Module with the playlists endpoint
 """
 
 # ##################################################################################################
@@ -17,7 +17,7 @@ from .urls import URLS
 from ...authentification.spotify_authorization_token import SpotifyAuthorisationToken
 
 
-class Playlist(Endpoint):
+class Playlists(Endpoint):
     """
     Playlist endpoint
     """
