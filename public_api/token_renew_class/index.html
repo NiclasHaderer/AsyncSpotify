@@ -6,22 +6,22 @@
 <meta charset="utf-8"/>
 <meta content="width=device-width,initial-scale=1" name="viewport"/>
 <meta content="Async wrapper in python for the spotify api" name="description"/>
-<link href="https://huiibuh.github.io/AsyncSpotify/public_api/endpoints/search/" rel="canonical"/>
+<link href="https://huiibuh.github.io/AsyncSpotify/public_api/token_renew_class/" rel="canonical"/>
 <link href="https://upload.wikimedia.org/wikipedia/commons/9/9b/Font_Awesome_5_brands_spotify.svg" rel="shortcut icon"/>
 <meta content="mkdocs-1.1, mkdocs-material-5.1.3" name="generator"/>
-<title>Search - Async Spotify</title>
-<link href="../../../assets/stylesheets/main.62d34fff.min.css" rel="stylesheet"/>
+<title>Token Renew Hook - Async Spotify</title>
+<link href="../../assets/stylesheets/main.62d34fff.min.css" rel="stylesheet"/>
 <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
 <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700%7CRoboto+Mono&amp;display=fallback" rel="stylesheet"/>
 <style>body,input{font-family:"Roboto",-apple-system,BlinkMacSystemFont,Helvetica,Arial,sans-serif}code,kbd,pre{font-family:"Roboto Mono",SFMono-Regular,Consolas,Menlo,monospace}</style>
-<link href="../../../custom.css" rel="stylesheet"/>
+<link href="../../custom.css" rel="stylesheet"/>
 </head>
 <body dir="ltr">
 <input autocomplete="off" class="md-toggle" data-md-toggle="drawer" id="__drawer" type="checkbox"/>
 <input autocomplete="off" class="md-toggle" data-md-toggle="search" id="__search" type="checkbox"/>
 <label class="md-overlay" for="__drawer"></label>
 <div data-md-component="skip">
-<a class="md-skip" href="#async_spotify.api._endpoints.search">
+<a class="md-skip" href="#async_spotify.token_renew_class">
           Skip to content
         </a>
 </div>
@@ -42,7 +42,7 @@
           </span>
 <span class="md-header-nav__topic md-ellipsis">
             
-              Search
+              Token Renew Hook
             
           </span>
 </div>
@@ -112,12 +112,12 @@
 </div>
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../.." title="Overview">
+<a class="md-nav__link" href="../.." title="Overview">
       Overview
     </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../../EXAMPLES/" title="Examples">
+<a class="md-nav__link" href="../../EXAMPLES/" title="Examples">
       Examples
     </a>
 </li>
@@ -138,32 +138,68 @@
       </label>
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../spotify_api_client/" title="Spotify Api Client">
+<a class="md-nav__link" href="../spotify_api_client/" title="Spotify Api Client">
       Spotify Api Client
     </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../preferences/" title="Preferences">
+<a class="md-nav__link" href="../preferences/" title="Preferences">
       Preferences
     </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../authentification/" title="Authentification">
+<a class="md-nav__link" href="../authentification/" title="Authentification">
       Authentification
     </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../spotify_errors/" title="Spotify Errors">
+<a class="md-nav__link" href="../spotify_errors/" title="Spotify Errors">
       Spotify Errors
     </a>
 </li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="../../token_renew_class/" title="Token Renew Hook">
+<li class="md-nav__item md-nav__item--active">
+<input class="md-nav__toggle md-toggle" data-md-toggle="toc" id="__toc" type="checkbox"/>
+<label class="md-nav__link md-nav__link--active" for="__toc">
+        Token Renew Hook
+        <span class="md-nav__icon md-icon">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M3,9H17V7H3V9M3,13H17V11H3V13M3,17H17V15H3V17M19,17H21V15H19V17M19,7V9H21V7H19M19,13H21V11H19V13Z"></path></svg>
+</span>
+</label>
+<a class="md-nav__link md-nav__link--active" href="./" title="Token Renew Hook">
       Token Renew Hook
     </a>
+<nav aria-label="Table of contents" class="md-nav md-nav--secondary">
+<label class="md-nav__title" for="__toc">
+<span class="md-nav__icon md-icon">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M20,11V13H8L13.5,18.5L12.08,19.92L4.16,12L12.08,4.08L13.5,5.5L8,11H20Z"></path></svg>
+</span>
+      Table of contents
+    </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#async_spotify.token_renew_class">
+    async_spotify.token_renew_class
+  </a>
 </li>
-<li class="md-nav__item md-nav__item--active md-nav__item--nested">
-<input checked="" class="md-nav__toggle md-toggle" data-md-toggle="nav-3-6" id="nav-3-6" type="checkbox"/>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#async_spotify.token_renew_class.TokenRenewClass">
+    TokenRenewClass
+  </a>
+<nav aria-label="TokenRenewClass" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#async_spotify.token_renew_class.TokenRenewClass.__call__">
+    __call__()
+  </a>
+</li>
+</ul>
+</nav>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" data-md-toggle="nav-3-6" id="nav-3-6" type="checkbox"/>
 <label class="md-nav__link" for="nav-3-6">
       Endpoints
       <span class="md-nav__icon md-icon">
@@ -179,108 +215,72 @@
       </label>
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
-<a class="md-nav__link" href="../overview/" title="Overview">
+<a class="md-nav__link" href="../endpoints/overview/" title="Overview">
       Overview
     </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../albums/" title="Albums">
+<a class="md-nav__link" href="../endpoints/albums/" title="Albums">
       Albums
     </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../artists/" title="Artists">
+<a class="md-nav__link" href="../endpoints/artists/" title="Artists">
       Artists
     </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../browse/" title="Browse">
+<a class="md-nav__link" href="../endpoints/browse/" title="Browse">
       Browse
     </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../episodes/" title="Episodes">
+<a class="md-nav__link" href="../endpoints/episodes/" title="Episodes">
       Episodes
     </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../follow/" title="Follow">
+<a class="md-nav__link" href="../endpoints/follow/" title="Follow">
       Follow
     </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../library/" title="Library">
+<a class="md-nav__link" href="../endpoints/library/" title="Library">
       Library
     </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../personalization/" title="Personalization">
+<a class="md-nav__link" href="../endpoints/personalization/" title="Personalization">
       Personalization
     </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../player/" title="Player">
+<a class="md-nav__link" href="../endpoints/player/" title="Player">
       Player
     </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../playlists/" title="Playlists">
+<a class="md-nav__link" href="../endpoints/playlists/" title="Playlists">
       Playlists
     </a>
 </li>
-<li class="md-nav__item md-nav__item--active">
-<input class="md-nav__toggle md-toggle" data-md-toggle="toc" id="__toc" type="checkbox"/>
-<label class="md-nav__link md-nav__link--active" for="__toc">
-        Search
-        <span class="md-nav__icon md-icon">
-<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M3,9H17V7H3V9M3,13H17V11H3V13M3,17H17V15H3V17M19,17H21V15H19V17M19,7V9H21V7H19M19,13H21V11H19V13Z"></path></svg>
-</span>
-</label>
-<a class="md-nav__link md-nav__link--active" href="./" title="Search">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../endpoints/search/" title="Search">
       Search
     </a>
-<nav aria-label="Table of contents" class="md-nav md-nav--secondary">
-<label class="md-nav__title" for="__toc">
-<span class="md-nav__icon md-icon">
-<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M20,11V13H8L13.5,18.5L12.08,19.92L4.16,12L12.08,4.08L13.5,5.5L8,11H20Z"></path></svg>
-</span>
-      Table of contents
-    </label>
-<ul class="md-nav__list" data-md-scrollfix="">
-<li class="md-nav__item">
-<a class="md-nav__link" href="#async_spotify.api._endpoints.search">
-    async_spotify.api._endpoints.search
-  </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="#async_spotify.api._endpoints.search.Search">
-    Search
-  </a>
-<nav aria-label="Search" class="md-nav">
-<ul class="md-nav__list">
-<li class="md-nav__item">
-<a class="md-nav__link" href="#async_spotify.api._endpoints.search.Search.start">
-    start()
-  </a>
-</li>
-</ul>
-</nav>
-</li>
-</ul>
-</nav>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="../shows/" title="Shows">
+<a class="md-nav__link" href="../endpoints/shows/" title="Shows">
       Shows
     </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../tracks/" title="Tracks">
+<a class="md-nav__link" href="../endpoints/tracks/" title="Tracks">
       Tracks
     </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../user/" title="User">
+<a class="md-nav__link" href="../endpoints/user/" title="User">
       User
     </a>
 </li>
@@ -307,22 +307,22 @@
       </label>
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../../private_api/error_message/" title="Error Message">
+<a class="md-nav__link" href="../../private_api/error_message/" title="Error Message">
       Error Message
     </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../../private_api/request_handler/" title="Request Handler">
+<a class="md-nav__link" href="../../private_api/request_handler/" title="Request Handler">
       Request Handler
     </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../../private_api/status_classes/" title="Status Classes">
+<a class="md-nav__link" href="../../private_api/status_classes/" title="Status Classes">
       Status Classes
     </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../../private_api/url/" title="URLS">
+<a class="md-nav__link" href="../../private_api/url/" title="URLS">
       URLS
     </a>
 </li>
@@ -330,12 +330,12 @@
 </nav>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../../STUFF/" title="Tests">
+<a class="md-nav__link" href="../../STUFF/" title="Tests">
       Tests
     </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../../LICENCE/" title="Licence">
+<a class="md-nav__link" href="../../LICENCE/" title="Licence">
       Licence
     </a>
 </li>
@@ -356,19 +356,19 @@
     </label>
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
-<a class="md-nav__link" href="#async_spotify.api._endpoints.search">
-    async_spotify.api._endpoints.search
+<a class="md-nav__link" href="#async_spotify.token_renew_class">
+    async_spotify.token_renew_class
   </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="#async_spotify.api._endpoints.search.Search">
-    Search
+<a class="md-nav__link" href="#async_spotify.token_renew_class.TokenRenewClass">
+    TokenRenewClass
   </a>
-<nav aria-label="Search" class="md-nav">
+<nav aria-label="TokenRenewClass" class="md-nav">
 <ul class="md-nav__list">
 <li class="md-nav__item">
-<a class="md-nav__link" href="#async_spotify.api._endpoints.search.Search.start">
-    start()
+<a class="md-nav__link" href="#async_spotify.token_renew_class.TokenRenewClass.__call__">
+    __call__()
   </a>
 </li>
 </ul>
@@ -381,34 +381,34 @@
 </div>
 <div class="md-content">
 <article class="md-content__inner md-typeset">
-<a class="md-content__button md-icon" href="https://github.com/HuiiBuh/AsyncSpotify/edit/master/docs/public_api/endpoints/search.md" title="Edit this page">
+<a class="md-content__button md-icon" href="https://github.com/HuiiBuh/AsyncSpotify/edit/master/docs/public_api/token_renew_class.md" title="Edit this page">
 <svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M20.71,7.04C21.1,6.65 21.1,6 20.71,5.63L18.37,3.29C18,2.9 17.35,2.9 16.96,3.29L15.12,5.12L18.87,8.87M3,17.25V21H6.75L17.81,9.93L14.06,6.18L3,17.25Z"></path></svg>
 </a>
-<h1>Search</h1>
+<h1>Token Renew Hook</h1>
+<p>If you want to add a hook to update the Api token automatically you can do this by passing your own class to the <a href="../spotify_api_client/">SpotifyApiClient</a>.  </p>
+<p>Your class has to extend the <code>TokenRenewClass</code> and provide an <code>async __call__()</code> method which returns the new <a href="../authentification/">Auth Token</a>. </p>
 <div class="doc doc-object doc-module">
-<h2 class="hidden-toc" href="#async_spotify.api._endpoints.search" id="async_spotify.api._endpoints.search" style="visibility: hidden; width: 0; height: 0;">
-<a class="headerlink" href="#async_spotify.api._endpoints.search" title="Permanent link">¶</a></h2>
+<h2 class="hidden-toc" href="#async_spotify.token_renew_class" id="async_spotify.token_renew_class" style="visibility: hidden; width: 0; height: 0;">
+<a class="headerlink" href="#async_spotify.token_renew_class" title="Permanent link">¶</a></h2>
 <div class="doc doc-contents first">
-<p>Module with the search endpoint</p>
 <div class="doc doc-children">
 <div class="doc doc-object doc-class">
-<h2 class="doc doc-heading" id="async_spotify.api._endpoints.search.Search">
-<code>Search</code>
-<a class="headerlink" href="#async_spotify.api._endpoints.search.Search" title="Permanent link">¶</a></h2>
+<h2 class="doc doc-heading" id="async_spotify.token_renew_class.TokenRenewClass">
+<code>TokenRenewClass</code>
+<a class="headerlink" href="#async_spotify.token_renew_class.TokenRenewClass" title="Permanent link">¶</a></h2>
 <div class="doc doc-contents">
-<p>Search endpoint</p>
+<p>Class which describes the interfaces the Token renew class has and can also be used to handle basic token renewal</p>
 <div class="doc doc-children">
 <div class="doc doc-object doc-method">
-<h3 class="doc doc-heading" id="async_spotify.api._endpoints.search.Search.start">
+<h3 class="doc doc-heading" id="async_spotify.token_renew_class.TokenRenewClass.__call__">
 <code class="highlight language-python">
-start<span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">query</span><span class="p">,</span> <span class="n">query_type</span><span class="p">,</span> <span class="n">auth_token</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span> </code>
-<a class="headerlink" href="#async_spotify.api._endpoints.search.Search.start" title="Permanent link">¶</a></h3>
+__call__<span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">spotify_api_client</span><span class="p">)</span> </code>
+<span class="doc doc-properties">
+<small class="doc doc-property doc-property-special"><code>special</code></small>
+</span>
+<a class="headerlink" href="#async_spotify.token_renew_class.TokenRenewClass.__call__" title="Permanent link">¶</a></h3>
 <div class="doc doc-contents">
-<p>Make a search</p>
-<div class="admonition notes">
-<p class="admonition-title">Notes</p>
-<p>https://developer.spotify.com/documentation/web-api/reference/search/search/</p>
-</div>
+<p><strong>Async</strong> method which gets called if the token is expired</p>
 <p><strong>Parameters:</strong></p>
 <table>
 <thead>
@@ -421,114 +421,48 @@ start<span class="p">(</span><span class="bp">self</span><span class="p">,</span
 </thead>
 <tbody>
 <tr>
-<td><code>query</code></td>
-<td><code>str</code></td>
-<td>
-<p>The search query</p>
-</td>
-<td><em>required</em></td>
-</tr>
-<tr>
-<td><code>query_type</code></td>
-<td><code>List[str]</code></td>
-<td>
-<p>A comma-separated list of item types to search across. Valid types are: album , artist, playlist, track, show and episode. Search results include hits from all the specified item types. For example: q=name:abacab&amp;type=album,track returns both albums and tracks with “abacab” included in their name.</p>
-</td>
-<td><em>required</em></td>
-</tr>
-<tr>
-<td><code>auth_token</code></td>
-<td><code>SpotifyAuthorisationToken</code></td>
-<td>
-<p>The auth token if you set the api class not to keep the token in memory</p>
-</td>
-<td><code>None</code></td>
-</tr>
-<tr>
-<td><code>kwargs</code></td>
+<td><code>spotify_api_client</code></td>
 <td><code></code></td>
 <td>
-<p>Optional arguments as keyword args</p>
+<p>The instance of the <a href="https://huiibuh.github.io/AsyncSpotify/public_api/spotify_api_client/#async_spotify.api.spotify_api_client"><code>SpotifyApiClient</code></a></p>
 </td>
-<td><code>{}</code></td>
+<td><em>required</em></td>
 </tr>
 </tbody>
 </table>
-<p><strong>Returns:</strong></p>
-<table>
-<thead>
-<tr>
-<th>Type</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><code>dict</code></td>
-<td>
-<p>The search result</p>
-</td>
-</tr>
-</tbody>
-</table>
+<p>Returns: A renewed spotify authorization token</p>
 <details class="quote">
-<summary>Source code in <code>async_spotify/api/_endpoints/search.py</code></summary>
+<summary>Source code in <code>async_spotify/token_renew_class.py</code></summary>
 <table class="highlighttable">
 <tr>
 <td class="linenos">
 <div class="linenodiv">
-<pre><span></span>23
+<pre><span></span>16
+17
+18
+19
+20
+21
+22
+23
 24
 25
-26
-27
-28
-29
-30
-31
-32
-33
-34
-35
-36
-37
-38
-39
-40
-41
-42
-43
-44
-45
-46</pre>
+26</pre>
 </div>
 </td>
 <td class="code">
 <div class="highlight">
-<pre><span></span><code><span class="k">async</span> <span class="k">def</span> <span class="nf">start</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">query</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">query_type</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="nb">str</span><span class="p">],</span> <span class="n">auth_token</span><span class="p">:</span> <span class="n">SpotifyAuthorisationToken</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
-                <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">dict</span><span class="p">:</span>
+<pre><span></span><code><span class="k">async</span> <span class="k">def</span> <span class="fm">__call__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">spotify_api_client</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">SpotifyAuthorisationToken</span><span class="p">:</span>
     <span class="sd">"""</span>
-<span class="sd">    Make a search</span>
-
-<span class="sd">    Notes:</span>
-<span class="sd">        https://developer.spotify.com/documentation/web-api/reference/search/search/</span>
+<span class="sd">    **Async** method which gets called if the token is expired</span>
 
 <span class="sd">    Args:</span>
-<span class="sd">        query: The search query</span>
-<span class="sd">        query_type: A comma-separated list of item types to search across.</span>
-<span class="sd">            Valid types are: album , artist, playlist, track, show and episode.</span>
-<span class="sd">            Search results include hits from all the specified item types.</span>
-<span class="sd">            For example: q=name:abacab&amp;type=album,track returns both albums and tracks with</span>
-<span class="sd">            “abacab” included in their name.</span>
-<span class="sd">        auth_token: The auth token if you set the api class not to keep the token in memory</span>
-<span class="sd">        kwargs: Optional arguments as keyword args</span>
+<span class="sd">        spotify_api_client: The instance of the [`SpotifyApiClient`][async_spotify.api.spotify_api_client]</span>
 
-<span class="sd">    Returns:</span>
-<span class="sd">        The search result</span>
+<span class="sd">    Returns: A renewed spotify authorization token</span>
 <span class="sd">    """</span>
 
-    <span class="n">args</span> <span class="o">=</span> <span class="p">{</span><span class="o">**</span><span class="p">{</span><span class="s1">'q'</span><span class="p">:</span> <span class="n">query</span><span class="p">,</span> <span class="s1">'type'</span><span class="p">:</span> <span class="n">query_type</span><span class="p">},</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">}</span>
-    <span class="k">return</span> <span class="k">await</span> <span class="bp">self</span><span class="o">.</span><span class="n">api_request_handler</span><span class="o">.</span><span class="n">make_request</span><span class="p">(</span><span class="s1">'GET'</span><span class="p">,</span> <span class="n">URLS</span><span class="o">.</span><span class="n">SEARCH</span><span class="p">,</span> <span class="n">args</span><span class="p">,</span> <span class="n">auth_token</span><span class="p">)</span>
+    <span class="k">return</span> <span class="k">await</span> <span class="n">spotify_api_client</span><span class="o">.</span><span class="n">refresh_token</span><span class="p">()</span>
 </code></pre>
 </div>
 </td>
@@ -547,7 +481,7 @@ start<span class="p">(</span><span class="bp">self</span><span class="p">,</span
 <div class="md-source-date">
 <small>
     
-      Last update: April 27, 2020
+      Last update: May 8, 2020
     
   </small>
 </div>
@@ -558,7 +492,7 @@ start<span class="p">(</span><span class="bp">self</span><span class="p">,</span
 <footer class="md-footer">
 <div class="md-footer-nav">
 <nav aria-label="Footer" class="md-footer-nav__inner md-grid">
-<a class="md-footer-nav__link md-footer-nav__link--prev" href="../playlists/" rel="prev" title="Playlists">
+<a class="md-footer-nav__link md-footer-nav__link--prev" href="../spotify_errors/" rel="prev" title="Spotify Errors">
 <div class="md-footer-nav__button md-icon">
 <svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M20,11V13H8L13.5,18.5L12.08,19.92L4.16,12L12.08,4.08L13.5,5.5L8,11H20Z"></path></svg>
 </div>
@@ -567,17 +501,17 @@ start<span class="p">(</span><span class="bp">self</span><span class="p">,</span
 <span class="md-footer-nav__direction">
                   Previous
                 </span>
-                Playlists
+                Spotify Errors
               </div>
 </div>
 </a>
-<a class="md-footer-nav__link md-footer-nav__link--next" href="../shows/" rel="next" title="Shows">
+<a class="md-footer-nav__link md-footer-nav__link--next" href="../endpoints/overview/" rel="next" title="Overview">
 <div class="md-footer-nav__title">
 <div class="md-ellipsis">
 <span class="md-footer-nav__direction">
                   Next
                 </span>
-                Shows
+                Overview
               </div>
 </div>
 <div class="md-footer-nav__button md-icon">
@@ -604,14 +538,14 @@ start<span class="p">(</span><span class="bp">self</span><span class="p">,</span
 </div>
 </footer>
 </div>
-<script src="../../../assets/javascripts/vendor.f81b9e8b.min.js"></script>
-<script src="../../../assets/javascripts/bundle.23546af0.min.js"></script><script id="__lang" type="application/json">{"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents"}</script>
+<script src="../../assets/javascripts/vendor.f81b9e8b.min.js"></script>
+<script src="../../assets/javascripts/bundle.23546af0.min.js"></script><script id="__lang" type="application/json">{"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents"}</script>
 <script>
         app = initialize({
-          base: "../../..",
+          base: "../..",
           features: [],
           search: Object.assign({
-            worker: "../../../assets/javascripts/worker/search.58d22e8e.min.js"
+            worker: "../../assets/javascripts/worker/search.58d22e8e.min.js"
           }, typeof search !== "undefined" && search)
         })
       </script>

@@ -233,6 +233,11 @@
   </a>
 </li>
 <li class="md-nav__item">
+<a class="md-nav__link" href="#async_spotify.api.spotify_api_client.SpotifyApiClient.token_renew_instance">
+    token_renew_instance
+  </a>
+</li>
+<li class="md-nav__item">
 <a class="md-nav__link" href="#async_spotify.api.spotify_api_client.SpotifyApiClient.track">
     track
   </a>
@@ -313,16 +318,21 @@
       Spotify Errors
     </a>
 </li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../token_renew_class/" title="Token Renew Hook">
+      Token Renew Hook
+    </a>
+</li>
 <li class="md-nav__item md-nav__item--nested">
-<input class="md-nav__toggle md-toggle" data-md-toggle="nav-3-5" id="nav-3-5" type="checkbox"/>
-<label class="md-nav__link" for="nav-3-5">
+<input class="md-nav__toggle md-toggle" data-md-toggle="nav-3-6" id="nav-3-6" type="checkbox"/>
+<label class="md-nav__link" for="nav-3-6">
       Endpoints
       <span class="md-nav__icon md-icon">
 <svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M8.59,16.58L13.17,12L8.59,7.41L10,6L16,12L10,18L8.59,16.58Z"></path></svg>
 </span>
 </label>
 <nav aria-label="Endpoints" class="md-nav" data-md-level="2">
-<label class="md-nav__title" for="nav-3-5">
+<label class="md-nav__title" for="nav-3-6">
 <span class="md-nav__icon md-icon">
 <svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M20,11V13H8L13.5,18.5L12.08,19.92L4.16,12L12.08,4.08L13.5,5.5L8,11H20Z"></path></svg>
 </span>
@@ -544,6 +554,11 @@
 <li class="md-nav__item">
 <a class="md-nav__link" href="#async_spotify.api.spotify_api_client.SpotifyApiClient.spotify_authorization_token">
     spotify_authorization_token
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#async_spotify.api.spotify_api_client.SpotifyApiClient.token_renew_instance">
+    token_renew_instance
   </a>
 </li>
 <li class="md-nav__item">
@@ -803,6 +818,20 @@ spotify_authorization_token: <span class="n">SpotifyAuthorisationToken</span> </
 </div>
 </div>
 <div class="doc doc-object doc-attribute">
+<h3 class="doc doc-heading" id="async_spotify.api.spotify_api_client.SpotifyApiClient.token_renew_instance">
+<code class="highlight">
+token_renew_instance: <span class="n">TokenRenewClass</span> </code>
+<span class="doc doc-properties">
+<small class="doc doc-property doc-property-property"><code>property</code></small>
+<small class="doc doc-property doc-property-writable"><code>writable</code></small>
+</span>
+<a class="headerlink" href="#async_spotify.api.spotify_api_client.SpotifyApiClient.token_renew_instance" title="Permanent link">¶</a></h3>
+<div class="doc doc-contents">
+<p>Returns the token renew class instance</p>
+<p>Returns: The token renew class instance</p>
+</div>
+</div>
+<div class="doc doc-object doc-attribute">
 <h3 class="doc doc-heading" id="async_spotify.api.spotify_api_client.SpotifyApiClient.track">
 <code class="highlight">
 track: <span class="n">Track</span> </code>
@@ -825,7 +854,7 @@ user: <span class="n">User</span> </code>
 <div class="doc doc-object doc-method">
 <h3 class="doc doc-heading" id="async_spotify.api.spotify_api_client.SpotifyApiClient.__init__">
 <code class="highlight language-python">
-__init__<span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">preferences</span><span class="p">,</span> <span class="n">hold_authentication</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">spotify_authorisation_token</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span> </code>
+__init__<span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">preferences</span><span class="p">,</span> <span class="n">hold_authentication</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">spotify_authorisation_token</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">token_renew_instance</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span> </code>
 <span class="doc doc-properties">
 <small class="doc doc-property doc-property-special"><code>special</code></small>
 </span>
@@ -859,6 +888,14 @@ __init__<span class="p">(</span><span class="bp">self</span><span class="p">,</s
 </td>
 <td><code>False</code></td>
 </tr>
+<tr>
+<td><code>token_renew_instance</code></td>
+<td><code>TokenRenewClass</code></td>
+<td>
+<p>An instance of a class which handles the renewing of the token if it should expire</p>
+</td>
+<td><code>None</code></td>
+</tr>
 </tbody>
 </table>
 <details class="quote">
@@ -867,8 +904,7 @@ __init__<span class="p">(</span><span class="bp">self</span><span class="p">,</s
 <tr>
 <td class="linenos">
 <div class="linenodiv">
-<pre><span></span> 53
- 54
+<pre><span></span> 54
  55
  56
  57
@@ -942,36 +978,47 @@ __init__<span class="p">(</span><span class="bp">self</span><span class="p">,</s
 125
 126
 127
-128</pre>
+128
+129
+130
+131
+132
+133
+134</pre>
 </div>
 </td>
 <td class="code">
 <div class="highlight">
-<pre><span></span><code><span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">preferences</span><span class="p">:</span> <span class="n">Preferences</span><span class="p">,</span> <span class="n">hold_authentication</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
-             <span class="n">spotify_authorisation_token</span><span class="p">:</span> <span class="n">SpotifyAuthorisationToken</span> <span class="o">=</span> <span class="kc">None</span><span class="p">):</span>
+<pre><span></span><code><span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">preferences</span><span class="p">:</span> <span class="n">Preferences</span><span class="p">,</span>
+             <span class="n">hold_authentication</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
+             <span class="n">spotify_authorisation_token</span><span class="p">:</span> <span class="n">SpotifyAuthorisationToken</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+             <span class="n">token_renew_instance</span><span class="p">:</span> <span class="n">TokenRenewClass</span> <span class="o">=</span> <span class="kc">None</span><span class="p">):</span>
     <span class="sd">"""</span>
 <span class="sd">    Create a new api class</span>
 
 <span class="sd">    Args:</span>
 <span class="sd">        preferences: The preferences object fully filled with information</span>
 <span class="sd">        hold_authentication: Should the api keep the authentication im memory and refresh it automatically</span>
+<span class="sd">        token_renew_instance: An instance of a class which handles the renewing of the token if it should expire</span>
 <span class="sd">    """</span>
 
     <span class="c1"># Check if the preferences are valid</span>
     <span class="k">if</span> <span class="ow">not</span> <span class="n">preferences</span><span class="o">.</span><span class="n">valid</span><span class="p">:</span>
         <span class="k">raise</span> <span class="n">SpotifyError</span><span class="p">(</span><span class="n">ErrorMessage</span><span class="p">(</span><span class="n">message</span><span class="o">=</span><span class="s2">"The preferences of your app are not correct"</span><span class="p">)</span><span class="o">.</span><span class="vm">__dict__</span><span class="p">)</span>
-
-    <span class="c1"># Set the preferences</span>
     <span class="bp">self</span><span class="o">.</span><span class="n">preferences</span><span class="p">:</span> <span class="n">Preferences</span> <span class="o">=</span> <span class="n">preferences</span>
 
-    <span class="bp">self</span><span class="o">.</span><span class="n">_hold_authentication</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="n">hold_authentication</span>
-    <span class="bp">self</span><span class="o">.</span><span class="n">_spotify_authorisation_token</span><span class="p">:</span> <span class="n">SpotifyAuthorisationToken</span> <span class="o">=</span> <span class="n">SpotifyAuthorisationToken</span><span class="p">()</span>
-
+    <span class="c1"># Set the SpotifyAuthorisationToken</span>
     <span class="k">if</span> <span class="n">spotify_authorisation_token</span><span class="p">:</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">spotify_authorization_token</span> <span class="o">=</span> <span class="n">spotify_authorisation_token</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_spotify_authorisation_token</span><span class="p">:</span> <span class="n">SpotifyAuthorisationToken</span> <span class="o">=</span> <span class="n">spotify_authorisation_token</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_spotify_authorisation_token</span><span class="p">:</span> <span class="n">SpotifyAuthorisationToken</span> <span class="o">=</span> <span class="n">SpotifyAuthorisationToken</span><span class="p">()</span>
 
-    <span class="bp">self</span><span class="o">.</span><span class="n">_api_request_handler</span><span class="p">:</span> <span class="n">ApiRequestHandler</span> <span class="o">=</span> <span class="n">ApiRequestHandler</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_spotify_authorisation_token</span><span class="p">)</span>
+    <span class="bp">self</span><span class="o">.</span><span class="n">_token_renew_instance</span><span class="p">:</span> <span class="n">TokenRenewClass</span> <span class="o">=</span> <span class="n">token_renew_instance</span>
+    <span class="bp">self</span><span class="o">.</span><span class="n">_hold_authentication</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="n">hold_authentication</span>
+    <span class="bp">self</span><span class="o">.</span><span class="n">_api_request_handler</span><span class="p">:</span> <span class="n">ApiRequestHandler</span> <span class="o">=</span> <span class="n">ApiRequestHandler</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_spotify_authorisation_token</span><span class="p">,</span>
+                                                                     <span class="n">token_renew_instance</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span>
 
+    <span class="c1">################################################################################################################</span>
     <span class="bp">self</span><span class="o">.</span><span class="n">albums</span><span class="p">:</span> <span class="n">Albums</span> <span class="o">=</span> <span class="n">Albums</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_api_request_handler</span><span class="p">)</span>
     <span class="sd">""" An instance of the [`Albums`][async_spotify.api._endpoints.albums] class. Use this to access the </span>
 <span class="sd">     Albums api """</span>
@@ -1090,13 +1137,7 @@ build_authorization_url<span class="p">(</span><span class="bp">self</span><span
 <tr>
 <td class="linenos">
 <div class="linenodiv">
-<pre><span></span>152
-153
-154
-155
-156
-157
-158
+<pre><span></span>158
 159
 160
 161
@@ -1114,7 +1155,13 @@ build_authorization_url<span class="p">(</span><span class="bp">self</span><span
 173
 174
 175
-176</pre>
+176
+177
+178
+179
+180
+181
+182</pre>
 </div>
 </td>
 <td class="code">
@@ -1166,13 +1213,13 @@ This method should always be called before you end your program</p>
 <tr>
 <td class="linenos">
 <div class="linenodiv">
-<pre><span></span>144
-145
-146
-147
-148
-149
-150</pre>
+<pre><span></span>150
+151
+152
+153
+154
+155
+156</pre>
 </div>
 </td>
 <td class="code">
@@ -1237,19 +1284,19 @@ This will however close all ongoing requests.</p>
 <tr>
 <td class="linenos">
 <div class="linenodiv">
-<pre><span></span>130
-131
-132
-133
-134
-135
-136
+<pre><span></span>136
 137
 138
 139
 140
 141
-142</pre>
+142
+143
+144
+145
+146
+147
+148</pre>
 </div>
 </td>
 <td class="code">
@@ -1347,13 +1394,7 @@ get_auth_token_with_code<span class="p">(</span><span class="bp">self</span><spa
 <tr>
 <td class="linenos">
 <div class="linenodiv">
-<pre><span></span>295
-296
-297
-298
-299
-300
-301
+<pre><span></span>301
 302
 303
 304
@@ -1379,7 +1420,13 @@ get_auth_token_with_code<span class="p">(</span><span class="bp">self</span><spa
 324
 325
 326
-327</pre>
+327
+328
+329
+330
+331
+332
+333</pre>
 </div>
 </td>
 <td class="code">
@@ -1520,13 +1567,7 @@ environment.</p>
 <tr>
 <td class="linenos">
 <div class="linenodiv">
-<pre><span></span>190
-191
-192
-193
-194
-195
-196
+<pre><span></span>196
 197
 198
 199
@@ -1559,7 +1600,13 @@ environment.</p>
 226
 227
 228
-229</pre>
+229
+230
+231
+232
+233
+234
+235</pre>
 </div>
 </td>
 <td class="code">
@@ -1671,19 +1718,19 @@ next<span class="p">(</span><span class="bp">self</span><span class="p">,</span>
 <tr>
 <td class="linenos">
 <div class="linenodiv">
-<pre><span></span>395
-396
-397
-398
-399
-400
-401
+<pre><span></span>401
 402
 403
 404
 405
 406
-407</pre>
+407
+408
+409
+410
+411
+412
+413</pre>
 </div>
 </td>
 <td class="code">
@@ -1744,17 +1791,17 @@ Only for testing purposes or the usage of this library in a desktop app</p>
 <tr>
 <td class="linenos">
 <div class="linenodiv">
-<pre><span></span>178
-179
-180
-181
-182
-183
-184
+<pre><span></span>184
 185
 186
 187
-188</pre>
+188
+189
+190
+191
+192
+193
+194</pre>
 </div>
 </td>
 <td class="code">
@@ -1837,19 +1884,19 @@ previous<span class="p">(</span><span class="bp">self</span><span class="p">,</s
 <tr>
 <td class="linenos">
 <div class="linenodiv">
-<pre><span></span>409
-410
-411
-412
-413
-414
-415
+<pre><span></span>415
 416
 417
 418
 419
 420
-421</pre>
+421
+422
+423
+424
+425
+426
+427</pre>
 </div>
 </td>
 <td class="code">
@@ -1931,13 +1978,7 @@ by the spotify auth flow.</p>
 <tr>
 <td class="linenos">
 <div class="linenodiv">
-<pre><span></span>329
-330
-331
-332
-333
-334
-335
+<pre><span></span>335
 336
 337
 338
@@ -1966,7 +2007,13 @@ by the spotify auth flow.</p>
 361
 362
 363
-364</pre>
+364
+365
+366
+367
+368
+369
+370</pre>
 </div>
 </td>
 <td class="code">
