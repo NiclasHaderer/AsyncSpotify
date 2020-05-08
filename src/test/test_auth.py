@@ -27,7 +27,7 @@ class TestAuth:
         assert False is cookies.valid
 
     def test_pass_authentication(self):
-        client = SpotifyApiClient(TestDataTransfer.preferences,
+        client = SpotifyApiClient(TestDataTransfer.preferences, hold_authentication=True,
                                   spotify_authorisation_token=SpotifyAuthorisationToken(refresh_token='1'))
 
         assert client.spotify_authorization_token.refresh_token is '1'

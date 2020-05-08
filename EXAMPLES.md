@@ -25,9 +25,9 @@ These created preferences have to be passed to the `SpotifyApiClient`.
 api_client = SpotifyApiClient(prefernces)
 ```
 
-To get a code from Spotify the user has to agee to the scopes your app asks for.  
+To get a code from Spotify the user has to agree to the scopes your app asks for.  
 For this you create an authorization, let the user visit this url and read the code parameter in the spotify redirect.  
-If you have some questions about this process read [this](https://developer.spotify.com/documentation/general/guides/authorization-guide/#authorization-code-flow) spotify aritcle about it.
+If you have some questions about this process read [this](https://developer.spotify.com/documentation/general/guides/authorization-guide/#authorization-code-flow) spotify article about it.
 
 ```python
 # Build the authorization url for the users
@@ -35,9 +35,9 @@ If you have some questions about this process read [this](https://developer.spot
 authorization_url: str = api_client.build_authorization_url(show_dialog = True)
 ```
 
-We will assue that you managed to get a code from spotify for a specific user.  
+We will assume that you managed to get a code from spotify for a specific user.  
 
-Now we have to excange the code for an authorization token and a refresh token. But before we make this we have to create a new client which will be internally used for all the request making.
+Now we have to exchange the code for an authorization token, and a refresh token. But before we make this we have to create a new client which will be internally used for all the request making.
 
 ```python
 # Create a new client which will handle the request
@@ -76,8 +76,12 @@ api_client.artist.whatever()
 
 ## Advanced Configuration
 
-If you don't want to pass the `auth_token` every time you make a request you can instruct the `SpotifyApiClient` to keep the token in memmory. Every time you refresh the token the in memmory token will be updated too. So you always have a valid token you can make requests with. If the token expires you will still have to refresh it yourself by calling the `refresh_token` method, which will returned the updated token. You dont have to pass a token to the method however if you want the internal token to be updated.  
-In addition to that you can limit the simulatnious requests and the timout if you create a new client.
+If you don't want to pass the `auth_token` every time you make a request you can instruct the `SpotifyApiClient` to keep the token in memory.
+Every time you refresh the token the in memory token will be updated too.
+So you always have a valid token you can make requests with.
+If the token expires you will still have to refresh it yourself by calling the `refresh_token` method, which will returned the updated token.
+You don't have to pass a token to the method however if you want the internal token to be updated.  
+In addition to that you can limit the simultaneous requests, and the timout if you create a new client.
 
 ```python
 api_client = SpotifyApiClient(preferences, hold_authentication=True)
@@ -99,10 +103,10 @@ Every exception inherits from the `SpotifyBaseError` so if you want to catch eve
 
 + The `SpotifyError` exception gets raised for general usage errors
 + The `TokenExpired` exception gets raised if the spotify token used for making an api call is expired
-+ The `RateLimitExceeded` exception gets raised if the raite limit is exceeded
++ The `RateLimitExceeded` exception gets raised if the rate limit is exceeded
 + The `SpotifyAPIError` exception gets raised for general errors like a invalid album id
 
-Each of the exceptions implements the `get_json()` method which will return the follwing json:
+Each of the exceptions implements the `get_json()` method which will return the following json:
 
 ```json
 {
@@ -126,8 +130,8 @@ except SpotifyAPIError as error:
 
 ## Code retrieval with a cookie
 
-Normally you have to get the code with the client credential workflow. If your user has already agreed to the scopes and you have the cookie of the user you can get rid of this process.  
-This is mostely intended for testing purposes, but you could also use it in your production environment in the very unlikely edge case that you have the spotify cookie of your user.  
+Normally you have to get the code with the client credential workflow. If your user has already agreed to the scopes, and you have the cookie of the user you can get rid of this process.  
+This is mostly intended for testing purposes, but you could also use it in your production environment in the very unlikely edge case that you have the spotify cookie of your user.  
 
 You start like normal and create a new `SpotifyApiClient`.
 
@@ -161,4 +165,45 @@ Format of the *cookie.json*
     "sp_dc" : "b",
     "sp_key": "c"
 }
+```
+
+## Token expiration hook
+
+If you want to add a hook in case your auth token expires you can pass an instance of your `TokenRenewClass` to the `SpotifyApiClient`.  
+Your `TokenRenewClass` has to implement an `async call` method which has the `SpotifyApiClient` as parameter and returns an updated and valid `SpotifyAuthorisationToken`.
+As long as you respect this interface you can do what you want (update a token in your database, ...).
+
+```python
+class YourTokenRenewClass:
+    """
+    Renew the auth token every time it expires
+    """
+
+    async def __call__(self, spotify_api_client: SpotifyApiClient) -> SpotifyAuthorisationToken:
+        """
+        Async method which gets called if the token is expired
+
+        Args:
+            spotify_api_client: The instance of the SpotifyApiClient
+
+        Returns: A renewed spotify authorization token
+        """
+
+        return await spotify_api_client.refresh_token()
+
+renew_class = YourTokenRenewClass()
+
+api_client = SpotifyApiClient(preferences, token_renew_instance = renew_class)
+# ...
+```
+
+If you don't want to implement a class for your own and don't want to save the updated auth token to your database you can use the included [`TokenRenewClass`](./public_api/token_renew_class.md).  
+Because `hold_authentication` is set to `True` the SpotifyApiClient will save the renewed token in memory and use it to make request.
+
+```python
+from async_spotify import SpotifyApiClient, TokenRenewClass
+
+renew_token = TokenRenewClass()
+SpotifyApiClient(preferences, hold_authentication=True, renew_token)
+
 ```
