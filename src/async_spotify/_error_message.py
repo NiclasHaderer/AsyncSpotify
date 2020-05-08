@@ -9,6 +9,7 @@ Class which handles the error message the spotify exceptions use
 #  You are not allowed to use this code or this file for another project without                   #
 #  linking to the original source.                                                                 #
 # ##################################################################################################
+from typing import Dict
 
 
 class ErrorMessage(object):
@@ -26,7 +27,7 @@ class ErrorMessage(object):
         self.status = status
 
     @property
-    def __dict__(self) -> dict:
+    def __dict__(self) -> Dict[str, Dict[str, str]]:
         """
         Returns: The error message which can is used by the spotify exceptions
         """

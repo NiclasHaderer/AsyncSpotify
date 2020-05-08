@@ -11,7 +11,7 @@ to get api response if a SpotifyAPIError is raised or should be used to get the 
 #  linking to the original source.                                                                 #
 # ##################################################################################################
 
-from typing import Dict, Any
+from typing import Dict
 
 
 class SpotifyBaseError(Exception):
@@ -25,9 +25,10 @@ class SpotifyBaseError(Exception):
     def __str__(self):
         return str(self.message)
 
-    def get_json(self) -> Dict[str, Dict[str, Any]]:
+    def get_json(self) -> Dict[str, Dict[str, str]]:
         """
         Get the the api response which was an error as dict
+        {"error":{"status": 400, "message": "The reason"}}
         """
         return self.message
 
