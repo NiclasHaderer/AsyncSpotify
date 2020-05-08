@@ -74,9 +74,12 @@ class ApiRequestHandler:
 
         self.client_session_list: Deque = deque([])
 
-    async def make_request(self, method: str, url: str, query_params: Optional[dict],
-                           auth_token: SpotifyAuthorisationToken, body: dict = None) -> \
-            Union[dict, List[bool], None, bool]:
+    async def make_request(self, method: str,
+                           url: str,
+                           query_params: Optional[dict],
+                           auth_token: SpotifyAuthorisationToken,
+                           body: dict = None) \
+            -> Union[dict, List[bool], None, bool]:
         """
         Make a request to the spotify api
 
@@ -95,23 +98,16 @@ class ApiRequestHandler:
                       'before you can make requests to the spotify api.'
             raise SpotifyError(ErrorMessage(message=message).__dict__)
 
-        params: List[Tuple[str, str]] = self._format_params(query_params)
-        headers = self._get_headers(auth_token)
+        url_params, headers, body = self._prepare_request_parameters(auth_token, query_params, body)
 
-        # Check if the body should be a json or an image
-        if body and isinstance(body, dict):
-            body = json.dumps(body)
-        elif body:
-            headers['Content-Type'] = 'image/jpeg'
-
-        # Rotate the list
+        # Round robin so you use a different client for every new request
         self.client_session_list.rotate(1)
 
         # Get the first of the rotated list
         client: ClientSession = self.client_session_list[0]
 
         # Make the api response
-        async with client.request(method, url, params=params, headers=headers, data=body) as response:
+        async with client.request(method, url, params=url_params, headers=headers, data=body) as response:
             response_status = ResponseStatus(response.status)
 
             # Handle the parsing of the rate limit exceeded response which does not work for some reason
@@ -122,6 +118,49 @@ class ApiRequestHandler:
                 response_json: dict = json.loads(response_text)
             except JSONDecodeError:
                 pass
+
+        # Handle the api errors which have occurred
+        self._handle_errors(response_status, response_json)
+
+        return response_json
+
+    def _prepare_request_parameters(self, auth_token: SpotifyAuthorisationToken, query_params: dict, body: dict) \
+            -> Tuple[List[Tuple[str, str]], dict, str]:
+        """
+        Prepare the request parameters for the aiohttp request
+
+        Args:
+            auth_token: An auth_token
+            query_params: URL params for the request
+            body: The request body (either string or dict)
+
+        Returns:
+            A tuple with the
+                url_params
+                headers
+                body
+            in the right format
+        """
+        url_params: List[Tuple[str, str]] = self._format_params(query_params)
+        headers = self._get_headers(auth_token)
+
+        # Check if the body should be a json or an image
+        if body and isinstance(body, dict):
+            body = json.dumps(body)
+        elif body:
+            headers['Content-Type'] = 'image/jpeg'
+
+        return url_params, headers, body
+
+    @staticmethod
+    def _handle_errors(response_status: ResponseStatus, response_json: dict) -> None:
+        """
+        Handle errors which happened during the api request
+
+        Args:
+            response_status: The status of the api request
+            response_json: The response of the api
+        """
 
         # Expired
         if response_status.code == 401:
@@ -134,8 +173,6 @@ class ApiRequestHandler:
         # Check if the response was a success
         if not response_status.success:
             raise SpotifyAPIError(response_json)
-
-        return response_json
 
     @staticmethod
     def _format_params(query_params: dict) -> List[Tuple[str, str]]:
