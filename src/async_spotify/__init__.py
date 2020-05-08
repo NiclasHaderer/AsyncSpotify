@@ -12,7 +12,7 @@ Asynchronous spotify api wrapper
 
 __title__ = 'async_spotify'
 __author__ = 'HuiiBuh'
-__version__ = '0.1.2'
+__version__ = '0.2.0'
 __license__ = 'MIT'
 
 from .api.preferences import Preferences
@@ -20,3 +20,4 @@ from .api.spotify_api_client import SpotifyApiClient
 from .authentification.spotify_authorization_token import SpotifyAuthorisationToken
 from .authentification.spotify_cookies import SpotifyCookie
 from .spotify_errors import SpotifyError, RateLimitExceeded, TokenExpired, SpotifyAPIError, SpotifyBaseError
+from .token_renew_class import TokenRenewClass

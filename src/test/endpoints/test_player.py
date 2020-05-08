@@ -60,7 +60,7 @@ class TestPlayer:
                 play = await prepared_api.player.play()
             except SpotifyAPIError as e:
                 error = e.get_json()
-                assert error['error']['status'] == 404
+                assert error['error']['status'] == 404 or error['error']['status'] == 500
                 return
 
         assert pause is None and play is None
@@ -93,7 +93,7 @@ class TestPlayer:
 
         except SpotifyAPIError as e:
             error = e.get_json()
-            assert error['error']['status'] == 404
+            assert error['error']['status'] == 404 or error['error']['status'] == 403
 
     @pytest.mark.asyncio
     async def test_next(self, prepared_api: SpotifyApiClient):

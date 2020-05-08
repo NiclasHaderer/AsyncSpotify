@@ -28,5 +28,5 @@ twine upload dist/*
 
 ## Generate Docs
 
-To generate the docs run `PYTHONPATH=src mkdocs serve`.  
+To preview the docs run `PYTHONPATH=src mkdocs serve`.  
 To publish the docs run `PYTHONPATH=src mkdocs gh-deploy`

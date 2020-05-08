@@ -42,6 +42,7 @@ from .._error_message import ErrorMessage
 from ..authentification.spotify_authorization_token import SpotifyAuthorisationToken
 from ..authentification.spotify_cookies import SpotifyCookie
 from ..spotify_errors import SpotifyError
+from ..token_renew_class import TokenRenewClass
 
 
 class SpotifyApiClient:
@@ -50,31 +51,36 @@ class SpotifyApiClient:
     Use this class to authenticate and connect to the spotify api.
     """
 
-    def __init__(self, preferences: Preferences, hold_authentication=False,
-                 spotify_authorisation_token: SpotifyAuthorisationToken = None):
+    def __init__(self, preferences: Preferences,
+                 hold_authentication=False,
+                 spotify_authorisation_token: SpotifyAuthorisationToken = None,
+                 token_renew_instance: TokenRenewClass = None):
         """
         Create a new api class
 
         Args:
             preferences: The preferences object fully filled with information
             hold_authentication: Should the api keep the authentication im memory and refresh it automatically
+            token_renew_instance: An instance of a class which handles the renewing of the token if it should expire
         """
 
         # Check if the preferences are valid
         if not preferences.valid:
             raise SpotifyError(ErrorMessage(message="The preferences of your app are not correct").__dict__)
-
-        # Set the preferences
         self.preferences: Preferences = preferences
 
-        self._hold_authentication: bool = hold_authentication
-        self._spotify_authorisation_token: SpotifyAuthorisationToken = SpotifyAuthorisationToken()
-
+        # Set the SpotifyAuthorisationToken
         if spotify_authorisation_token:
-            self.spotify_authorization_token = spotify_authorisation_token
+            self._spotify_authorisation_token: SpotifyAuthorisationToken = spotify_authorisation_token
+        else:
+            self._spotify_authorisation_token: SpotifyAuthorisationToken = SpotifyAuthorisationToken()
 
-        self._api_request_handler: ApiRequestHandler = ApiRequestHandler(self._spotify_authorisation_token)
+        self._token_renew_instance: TokenRenewClass = token_renew_instance
+        self._hold_authentication: bool = hold_authentication
+        self._api_request_handler: ApiRequestHandler = ApiRequestHandler(self._spotify_authorisation_token,
+                                                                         token_renew_instance, self)
 
+        ################################################################################################################
         self.albums: Albums = Albums(self._api_request_handler)
         """ An instance of the [`Albums`][async_spotify.api._endpoints.albums] class. Use this to access the 
          Albums api """
@@ -426,6 +432,8 @@ class SpotifyApiClient:
         Returns:
             The SpotifyAuthorisationToken of the api class
         """
+        if not self._hold_authentication:
+            raise SpotifyError(ErrorMessage(message='You have to enable hold_authentication').__dict__)
 
         return self._spotify_authorisation_token
 
@@ -437,6 +445,9 @@ class SpotifyApiClient:
         Args:
             spotify_authorization_token: The spotify auth token
         """
+
+        if not self._hold_authentication:
+            raise SpotifyError(ErrorMessage(message='You have to enable hold_authentication').__dict__)
 
         self._spotify_authorisation_token.refresh_token = spotify_authorization_token.refresh_token
         self._spotify_authorisation_token.access_token = spotify_authorization_token.access_token
@@ -466,3 +477,25 @@ class SpotifyApiClient:
             self._spotify_authorisation_token.activation_time = None
             self._spotify_authorisation_token.access_token = None
             self._spotify_authorisation_token.refresh_token = None
+
+    @property
+    def token_renew_instance(self) -> TokenRenewClass:
+        """
+        Returns the token renew class instance
+
+        Returns: The token renew class instance
+        """
+
+        return self._token_renew_instance
+
+    @token_renew_instance.setter
+    def token_renew_instance(self, value: TokenRenewClass) -> None:
+        """
+        Set the token renew instance
+
+        Args:
+            value: The new token renew instance
+        """
+
+        self._token_renew_instance = value
+        self._api_request_handler.token_renew_instance = value

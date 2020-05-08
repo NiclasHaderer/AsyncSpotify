@@ -12,6 +12,7 @@ nav:
       - Preferences: "public_api/preferences.md"
       - Authentification: "public_api/authentification.md"
       - Spotify Errors: "public_api/spotify_errors.md"
+      - Token Renew Hook: "public_api/token_renew_class.md"
       - Endpoints:
           - "public_api/endpoints/overview.md"
           - "public_api/endpoints/albums.md"

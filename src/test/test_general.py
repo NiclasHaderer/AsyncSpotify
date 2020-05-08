@@ -23,7 +23,14 @@ class TestGeneral:
         api.hold_authentication = False
         assert False is api.hold_authentication
 
+        with pytest.raises(SpotifyError):
+            api.spotify_authorization_token = SpotifyAuthorisationToken()
+
+        with pytest.raises(SpotifyError):
+            token = api.spotify_authorization_token
+
     def test_spotify_api_token(self, api):
+        api.hold_authentication = True
         token = SpotifyAuthorisationToken('1', 2, '3')
         api.spotify_authorization_token = token
         assert api.spotify_authorization_token == token
