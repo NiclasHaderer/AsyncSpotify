@@ -409,12 +409,16 @@
 <li>Completely async</li>
 <li>Scales up to (theoretically) unlimited requests per second (tested with 1000 simultaneous requests which lead to a 429)</li>
 <li>Customize the timeout, maximal simultaneous request</li>
-<li>Throws custom errors, so you can catch different errors easily</li>
+<li>Throws custom errors, so you can catch different errors easily<ul>
 <li>Token expiration</li>
 <li>Rate limit violation</li>
 <li>An invalid album id</li>
-<li>Gets rid of the client credential workflow if you provide spotify cookies</li>
+</ul>
+</li>
+<li>Gets rid of the client credential workflow if you provide spotify cookies<ul>
 <li>Good for automated testing</li>
+</ul>
+</li>
 <li>Offers a hook which gets called if the token expires, so you can automatically update the token</li>
 </ul>
 <h2 id="installation">Installation<a class="headerlink" href="#installation" title="Permanent link">¶</a></h2>
