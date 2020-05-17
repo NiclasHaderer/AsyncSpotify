@@ -15,7 +15,7 @@ __author__ = 'HuiiBuh'
 __version__ = '0.2.0'
 __license__ = 'MIT'
 
-from .api.preferences import Preferences
+from .api.spotify_api_preferences import SpotifyApiPreferences
 from .api.spotify_api_client import SpotifyApiClient
 from .authentification.spotify_authorization_token import SpotifyAuthorisationToken
 from .authentification.spotify_cookies import SpotifyCookie

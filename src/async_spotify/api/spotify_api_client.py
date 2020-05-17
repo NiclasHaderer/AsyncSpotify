@@ -37,7 +37,7 @@ from ._endpoints.tracks import Track
 from ._endpoints.urls import URLS
 from ._endpoints.user import User
 from ._response_status import ResponseStatus
-from .preferences import Preferences
+from .spotify_api_preferences import SpotifyApiPreferences
 from .._error_message import ErrorMessage
 from ..authentification.spotify_authorization_token import SpotifyAuthorisationToken
 from ..authentification.spotify_cookies import SpotifyCookie
@@ -51,7 +51,7 @@ class SpotifyApiClient:
     Use this class to authenticate and connect to the spotify api.
     """
 
-    def __init__(self, preferences: Preferences,
+    def __init__(self, preferences: SpotifyApiPreferences,
                  hold_authentication=False,
                  spotify_authorisation_token: SpotifyAuthorisationToken = None,
                  token_renew_instance: TokenRenewClass = None):
@@ -67,7 +67,7 @@ class SpotifyApiClient:
         # Check if the preferences are valid
         if not preferences.valid:
             raise SpotifyError(ErrorMessage(message="The preferences of your app are not correct").__dict__)
-        self.preferences: Preferences = preferences
+        self.preferences: SpotifyApiPreferences = preferences
 
         # Set the SpotifyAuthorisationToken
         if spotify_authorisation_token:
@@ -298,6 +298,26 @@ class SpotifyApiClient:
 
         return code
 
+    async def get_auth_token_with_client_credentials(self) -> SpotifyAuthorisationToken:
+        """
+        Get the auth token with the client credential flow
+
+        Notes:
+            [https://developer.spotify.com/documentation/general/guides/authorization-guide/#client-credentials-flow]/https://developer.spotify.com/documentation/general/guides/authorization-guide/#client-credentials-flow)
+
+        Raises:
+            SpotifyError: If the request to the refresh api point was not successful
+
+        Returns:
+            A valid SpotifyAuthorisationToken
+        """
+
+        body: dict = {
+            'grant_type': 'client_credentials',
+        }
+
+        return await self._get_token(body)
+
     async def get_auth_token_with_code(self, code: str) -> SpotifyAuthorisationToken:
         """
         Get the auth token with the code returned by the oauth process.
@@ -321,13 +341,24 @@ class SpotifyApiClient:
             'redirect_uri': self.preferences.redirect_url
         }
 
+        return await self._get_token(body)
+
+    async def _get_token(self, body) -> SpotifyAuthorisationToken:
+        """
+        Get the token from the api
+
+        Args:
+            body: Request body
+
+        Returns: The new SpotifyAuthorisationToken
+        """
         response_json: dict = await self._make_auth_api_request(body)
 
-        refresh_token: str = response_json['refresh_token']
+        refresh_token: str = response_json['refresh_token'] if 'refresh_token' in response_json else ''
         access_token: str = response_json['access_token']
 
-        self._spotify_authorisation_token.refresh_token = refresh_token
         self._spotify_authorisation_token.activation_time = int(time.time())
+        self._spotify_authorisation_token.refresh_token = refresh_token
         self._spotify_authorisation_token.access_token = access_token
 
         return deepcopy(self._spotify_authorisation_token)

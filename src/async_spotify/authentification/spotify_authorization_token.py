@@ -23,6 +23,7 @@ class SpotifyAuthorisationToken:
 
         Args:
             refresh_token: The refresh token that was given to the application
+                (not needed if client credentials workflow is used)
             access_token: The token that will be used to make request
         """
 
@@ -55,7 +56,7 @@ class SpotifyAuthorisationToken:
             Is the token valid
         """
 
-        if self.access_token and self.refresh_token and self.activation_time:
+        if self.access_token and self.activation_time:
             return True
         return False
 

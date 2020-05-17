@@ -1,10 +1,10 @@
 """
-Preferences for the spotify api
+SpotifyApiPreferences for the spotify api
 """
 
 # ##################################################################################################
 #  Copyright (c) 2020. HuiiBuh                                                                     #
-#  This file (preferences.py) is part of AsyncSpotify which is released under MIT.                 #
+#  This file (spotifyapipreferences.py) is part of AsyncSpotify which is released under MIT.                 #
 #  You are not allowed to use this code or this file for another project without                   #
 #  linking to the original source.                                                                 #
 # ##################################################################################################
@@ -14,7 +14,7 @@ from os.path import join, abspath
 from typing import List
 
 
-class Preferences:
+class SpotifyApiPreferences:
     """
     A Class with only the application information in it
 
@@ -43,14 +43,15 @@ class Preferences:
     def __init__(self, application_id: str = None, application_secret: str = None, scopes: List[str] = None,
                  redirect_url: str = None):
         """
-        Create a new Spotify Preferences Object
+        Create a new Spotify SpotifyApiPreferences Object
 
         Args:
             application_id: The id of the application (Has to be set to use the object)
             application_secret: The secret of the application (Has to be set to use the object)
-            scopes: The spotify scopes you app will request
-            redirect_url: The redirect url spotify will referee the user after authentication
+            scopes: The spotify scopes you app will request (optional)
+            redirect_url: The redirect url spotify will redirect the user after authentication (optional)
         """
+        
         self.application_id: str = application_id
         self.application_secret: str = application_secret
         self.scopes: List[str] = scopes
@@ -58,7 +59,7 @@ class Preferences:
 
     def load_from_env(self) -> None:
         """
-        Load the Preferences from the environment. The variable names have to be the same as the property name.
+        Load the SpotifyApiPreferences from the environment. The variable names have to be the same as the property name.
 
         Important:
             Scopes has to be a string separated by ' '
@@ -73,7 +74,7 @@ class Preferences:
 
     def load_from_docker_secret(self, base_dir: str = join(abspath(os.sep), 'var', 'run', 'secrets')) -> None:
         """
-        Loads the Preferences from docker secret.
+        Loads the SpotifyApiPreferences from docker secret.
         The variable names have to be the same as the property name.
 
         Args:
@@ -115,7 +116,7 @@ class Preferences:
         Returns:
             Are the preferences valid
         """
-        if self.application_id and self.application_secret and self.scopes and self.redirect_url:
+        if self.application_id and self.application_secret:
             return True
         return False
 
