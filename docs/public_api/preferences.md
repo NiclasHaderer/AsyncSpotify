@@ -1,1 +1,1 @@
-::: async_spotify.api.preferences
+::: async_spotify.api.spotify_api_preferences
