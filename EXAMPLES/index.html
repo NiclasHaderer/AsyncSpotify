@@ -139,6 +139,20 @@
 <a class="md-nav__link" href="#getting-started">
     Getting started
   </a>
+<nav aria-label="Getting started" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#authorization-code-flow">
+    Authorization Code Flow
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#client-credentials-flow">
+    Client Credentials Flow
+  </a>
+</li>
+</ul>
+</nav>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="#endpoints">
@@ -370,6 +384,20 @@
 <a class="md-nav__link" href="#getting-started">
     Getting started
   </a>
+<nav aria-label="Getting started" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#authorization-code-flow">
+    Authorization Code Flow
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#client-credentials-flow">
+    Client Credentials Flow
+  </a>
+</li>
+</ul>
+</nav>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="#endpoints">
@@ -408,23 +436,25 @@
 </a>
 <h1 id="examples">Examples<a class="headerlink" href="#examples" title="Permanent link">¶</a></h1>
 <h2 id="getting-started">Getting started<a class="headerlink" href="#getting-started" title="Permanent link">¶</a></h2>
-<p>If you want to start connecting to the spotify api you have to create a new instance of the <code>Preferences</code>. These Preferences hold all sorts of configurations.  </p>
-<div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">async_spotify</span> <span class="kn">import</span> <span class="n">Preferences</span>
+<p>If you want to start connecting to the spotify api you have to create a new instance of the <code>SpotifyApiPreferences</code>. These SpotifyApiPreferences hold all sorts of configurations.<br/>
+Scopes and redirect_url are optional if you are using the client credentials flow.</p>
+<div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">async_spotify</span> <span class="kn">import</span> <span class="n">SpotifyApiPreferences</span>
 
-<span class="n">preferences</span> <span class="o">=</span> <span class="n">Preferences</span><span class="p">(</span>
+<span class="n">preferences</span> <span class="o">=</span> <span class="n">SpotifyApiPreferences</span><span class="p">(</span>
     <span class="n">application_id</span> <span class="o">=</span> <span class="s1">'Your id'</span><span class="p">,</span>
     <span class="n">application_secret</span> <span class="o">=</span> <span class="s1">'Your secret'</span><span class="p">,</span>
     <span class="n">scopes</span> <span class="o">=</span> <span class="p">[</span><span class="s1">'your'</span><span class="p">,</span> <span class="s1">'scopes'</span><span class="p">],</span>
     <span class="n">redirect_url</span> <span class="o">=</span> <span class="s1">'your.redirect.utl'</span><span class="p">)</span>
 
-<span class="c1"># You can also load the preferences from environment variables.  </span>
+<span class="c1"># You can also load the preferences from environment variables.</span>
 <span class="c1"># If the variable does not exist the existing value will not be overwritten.</span>
 <span class="n">preferences</span><span class="o">.</span><span class="n">load_from_env</span><span class="p">()</span>
 </code></pre></div>
-<p>These created preferences have to be passed to the <code>SpotifyApiClient</code>.  </p>
+<p>These created preferences have to be passed to the <code>SpotifyApiClient</code>.</p>
 <div class="highlight"><pre><span></span><code><span class="c1"># Create new client</span>
 <span class="n">api_client</span> <span class="o">=</span> <span class="n">SpotifyApiClient</span><span class="p">(</span><span class="n">prefernces</span><span class="p">)</span>
 </code></pre></div>
+<h3 id="authorization-code-flow">Authorization Code Flow<a class="headerlink" href="#authorization-code-flow" title="Permanent link">¶</a></h3>
 <p>To get a code from Spotify the user has to agree to the scopes your app asks for.<br/>
 For this you create an authorization, let the user visit this url and read the code parameter in the spotify redirect.<br/>
 If you have some questions about this process read <a href="https://developer.spotify.com/documentation/general/guides/authorization-guide/#authorization-code-flow">this</a> spotify article about it.</p>
@@ -432,16 +462,38 @@ If you have some questions about this process read <a href="https://developer.sp
 
 <span class="n">authorization_url</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="n">api_client</span><span class="o">.</span><span class="n">build_authorization_url</span><span class="p">(</span><span class="n">show_dialog</span> <span class="o">=</span> <span class="kc">True</span><span class="p">)</span>
 </code></pre></div>
-<p>We will assume that you managed to get a code from spotify for a specific user.  </p>
+<p>We will assume that you managed to get a code from spotify for a specific user.</p>
 <p>Now we have to exchange the code for an authorization token, and a refresh token. But before we make this we have to create a new client which will be internally used for all the request making.</p>
+<div class="highlight"><pre><span></span><code><span class="c1"># Exchange the code for the tokens</span>
+<span class="n">auth_token</span><span class="p">:</span> <span class="n">SpotifyAuthorisationToken</span> <span class="o">=</span> <span class="k">await</span> <span class="n">api</span><span class="o">.</span><span class="n">get_auth_token_with_code</span><span class="p">(</span><span class="n">code</span><span class="p">)</span>
+</code></pre></div>
+<p>After we recieved the <code>auth_token</code> we can start making request.</p>
 <div class="highlight"><pre><span></span><code><span class="c1"># Create a new client which will handle the request</span>
 <span class="k">await</span> <span class="n">api_client</span><span class="o">.</span><span class="n">create_new_client</span><span class="p">()</span>
 
-<span class="c1"># Exchange the code for the tokens</span>
-<span class="n">auth_token</span><span class="p">:</span> <span class="n">SpotifyAuthorisationToken</span> <span class="o">=</span> <span class="k">await</span> <span class="n">api</span><span class="o">.</span><span class="n">get_auth_token_with_code</span><span class="p">(</span><span class="n">code</span><span class="p">)</span>
+<span class="c1"># Get information about an album</span>
+<span class="n">album</span> <span class="o">=</span> <span class="k">await</span> <span class="n">api_client</span><span class="o">.</span><span class="n">albums</span><span class="o">.</span><span class="n">get_one</span><span class="p">(</span><span class="n">album_id</span><span class="p">,</span> <span class="n">market</span><span class="o">=</span><span class="s1">'DE'</span><span class="p">,</span> <span class="n">auth_token</span><span class="o">=</span><span class="n">auth_token</span><span class="p">)</span>
+<span class="c1"># ...</span>
 </code></pre></div>
-<p>After we recieved the <code>auth_token</code> we can start making request.  </p>
-<div class="highlight"><pre><span></span><code><span class="c1"># Get information about an album</span>
+<p>If you want to shut down your application and don't want to leak requests you have to call the <code>close_client</code> method of the <code>api_client</code>.</p>
+<div class="highlight"><pre><span></span><code><span class="c1"># Close the client</span>
+<span class="k">await</span> <span class="n">api_client</span><span class="o">.</span><span class="n">close_client</span><span class="p">()</span>
+</code></pre></div>
+<h3 id="client-credentials-flow">Client Credentials Flow<a class="headerlink" href="#client-credentials-flow" title="Permanent link">¶</a></h3>
+<p>In this case you only have to pass your preferences to your <code>SpotifyApiClient</code> and call the</p>
+<p>If you have some questions about this process read <a href="https://developer.spotify.com/documentation/general/guides/authorization-guide/#client-credentials-flow">this</a> potify article about it.</p>
+<div class="highlight"><pre><span></span><code>    <span class="n">preferences</span> <span class="o">=</span> <span class="n">SpotifyApiPreferences</span><span class="p">()</span>
+    <span class="n">preferences</span><span class="o">.</span><span class="n">load_from_env</span><span class="p">()</span>
+
+    <span class="n">api_client</span> <span class="o">=</span> <span class="n">SpotifyApiClient</span><span class="p">(</span><span class="n">preferences</span><span class="p">)</span>
+    <span class="n">auth_token</span> <span class="o">=</span> <span class="k">await</span> <span class="n">api_client</span><span class="o">.</span><span class="n">get_auth_token_with_client_credentials</span><span class="p">()</span>
+    <span class="k">await</span> <span class="n">api</span><span class="o">.</span><span class="n">create_new_client</span><span class="p">()</span>
+</code></pre></div>
+<p>After we recieved the <code>auth_token</code> we can start making request.</p>
+<div class="highlight"><pre><span></span><code><span class="c1"># Create a new client which will handle the request</span>
+<span class="k">await</span> <span class="n">api_client</span><span class="o">.</span><span class="n">create_new_client</span><span class="p">()</span>
+
+<span class="c1"># Get information about an album</span>
 <span class="n">album</span> <span class="o">=</span> <span class="k">await</span> <span class="n">api_client</span><span class="o">.</span><span class="n">albums</span><span class="o">.</span><span class="n">get_one</span><span class="p">(</span><span class="n">album_id</span><span class="p">,</span> <span class="n">market</span><span class="o">=</span><span class="s1">'DE'</span><span class="p">,</span> <span class="n">auth_token</span><span class="o">=</span><span class="n">auth_token</span><span class="p">)</span>
 <span class="c1"># ...</span>
 </code></pre></div>
@@ -451,7 +503,7 @@ If you have some questions about this process read <a href="https://developer.sp
 </code></pre></div>
 <h2 id="endpoints">Endpoints<a class="headerlink" href="#endpoints" title="Permanent link">¶</a></h2>
 <p>Every Api Endpoint is represented as an instance variables of the <code>SpotifyApiClient</code>.<br/>
-Look <a href="https://huiibuh.github.io/AsyncSpotify/public_api/spotify_api_client/">here</a> for every instance variable and the associated classes.  </p>
+Look <a href="https://huiibuh.github.io/AsyncSpotify/public_api/spotify_api_client/">here</a> for every instance variable and the associated classes.</p>
 <div class="highlight"><pre><span></span><code><span class="c1"># For the albums endpoint</span>
 <span class="n">api_client</span><span class="o">.</span><span class="n">albums</span><span class="o">.</span><span class="n">whatever</span><span class="p">()</span>
 <span class="c1"># For the artist endpoint</span>
@@ -476,7 +528,7 @@ In addition to that you can limit the simultaneous requests, and the timout if y
 </code></pre></div>
 <h2 id="exceptions">Exceptions<a class="headerlink" href="#exceptions" title="Permanent link">¶</a></h2>
 <p>There are multiple exception which could get raised by the <code>SpotifyApiClient</code>.<br/>
-Every exception inherits from the <code>SpotifyBaseError</code> so if you want to catch every spotify exception you can do it with the <code>SpotifyBaseError</code>.  </p>
+Every exception inherits from the <code>SpotifyBaseError</code> so if you want to catch every spotify exception you can do it with the <code>SpotifyBaseError</code>.</p>
 <ul>
 <li>The <code>SpotifyError</code> exception gets raised for general usage errors</li>
 <li>The <code>TokenExpired</code> exception gets raised if the spotify token used for making an api call is expired</li>
@@ -485,14 +537,14 @@ Every exception inherits from the <code>SpotifyBaseError</code> so if you want t
 </ul>
 <p>Each of the exceptions implements the <code>get_json()</code> method which will return the following json:</p>
 <div class="highlight"><pre><span></span><code><span class="p">{</span>
-    <span class="err">error:</span> <span class="err">{</span>
-        <span class="err">status:</span> <span class="err">0,</span>
-        <span class="err">message:</span> <span class="err">''</span>
-    <span class="p">}</span>
-<span class="err">}</span>
+  <span class="nt">"error"</span><span class="p">:</span> <span class="p">{</span>
+    <span class="nt">"status"</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+    <span class="nt">"message"</span><span class="p">:</span> <span class="s2">""</span>
+  <span class="p">}</span>
+<span class="p">}</span>
 </code></pre></div>
 <p>The status is the HTTP status code and if not aplicable the number 0.
-The message is the reason something failed.  </p>
+The message is the reason something failed.</p>
 <div class="highlight"><pre><span></span><code><span class="k">try</span><span class="p">:</span>
     <span class="n">album</span> <span class="o">=</span> <span class="k">await</span> <span class="n">api_client</span><span class="o">.</span><span class="n">albums</span><span class="o">.</span><span class="n">get_one</span><span class="p">(</span><span class="n">album_id</span><span class="p">)</span>
 <span class="k">except</span> <span class="n">SpotifyAPIError</span> <span class="k">as</span> <span class="n">error</span><span class="p">:</span>
@@ -501,9 +553,9 @@ The message is the reason something failed.  </p>
 </code></pre></div>
 <h2 id="code-retrieval-with-a-cookie">Code retrieval with a cookie<a class="headerlink" href="#code-retrieval-with-a-cookie" title="Permanent link">¶</a></h2>
 <p>Normally you have to get the code with the client credential workflow. If your user has already agreed to the scopes, and you have the cookie of the user you can get rid of this process.<br/>
-This is mostly intended for testing purposes, but you could also use it in your production environment in the very unlikely edge case that you have the spotify cookie of your user.  </p>
+This is mostly intended for testing purposes, but you could also use it in your production environment in the very unlikely edge case that you have the spotify cookie of your user.</p>
 <p>You start like normal and create a new <code>SpotifyApiClient</code>.</p>
-<div class="highlight"><pre><span></span><code><span class="n">preferences</span> <span class="o">=</span> <span class="n">Preferences</span><span class="p">()</span>
+<div class="highlight"><pre><span></span><code><span class="n">preferences</span> <span class="o">=</span> <span class="n">SpotifyApiPreferences</span><span class="p">()</span>
 <span class="n">preferences</span><span class="o">.</span><span class="n">load_from_env</span><span class="p">()</span>
 
 <span class="n">api_client</span> <span class="o">=</span> <span class="n">SpotifyApiClient</span><span class="p">(</span><span class="n">preferences</span><span class="p">,</span> <span class="n">hold_authentication</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
@@ -525,9 +577,9 @@ This is mostly intended for testing purposes, but you could also use it in your 
 </code></pre></div>
 <p>Format of the <em>cookie.json</em></p>
 <div class="highlight"><pre><span></span><code><span class="p">{</span>
-    <span class="nt">"sp_t"</span>  <span class="p">:</span> <span class="s2">"a"</span><span class="p">,</span>
-    <span class="nt">"sp_dc"</span> <span class="p">:</span> <span class="s2">"b"</span><span class="p">,</span>
-    <span class="nt">"sp_key"</span><span class="p">:</span> <span class="s2">"c"</span>
+  <span class="nt">"sp_t"</span><span class="p">:</span> <span class="s2">"a"</span><span class="p">,</span>
+  <span class="nt">"sp_dc"</span><span class="p">:</span> <span class="s2">"b"</span><span class="p">,</span>
+  <span class="nt">"sp_key"</span><span class="p">:</span> <span class="s2">"c"</span>
 <span class="p">}</span>
 </code></pre></div>
 <h2 id="token-expiration-hook">Token expiration hook<a class="headerlink" href="#token-expiration-hook" title="Permanent link">¶</a></h2>

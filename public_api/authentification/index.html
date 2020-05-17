@@ -570,8 +570,7 @@ __eq__<span class="p">(</span><span class="bp">self</span><span class="p">,</spa
 <tr>
 <td class="linenos">
 <div class="linenodiv">
-<pre><span></span>62
-63
+<pre><span></span>63
 64
 65
 66
@@ -580,7 +579,8 @@ __eq__<span class="p">(</span><span class="bp">self</span><span class="p">,</spa
 69
 70
 71
-72</pre>
+72
+73</pre>
 </div>
 </td>
 <td class="code">
@@ -629,7 +629,7 @@ __init__<span class="p">(</span><span class="bp">self</span><span class="p">,</s
 <td><code>refresh_token</code></td>
 <td><code>str</code></td>
 <td>
-<p>The refresh token that was given to the application</p>
+<p>The refresh token that was given to the application (not needed if client credentials workflow is used)</p>
 </td>
 <td><code>None</code></td>
 </tr>
@@ -660,7 +660,8 @@ __init__<span class="p">(</span><span class="bp">self</span><span class="p">,</s
 28
 29
 30
-31</pre>
+31
+32</pre>
 </div>
 </td>
 <td class="code">
@@ -671,6 +672,7 @@ __init__<span class="p">(</span><span class="bp">self</span><span class="p">,</s
 
 <span class="sd">    Args:</span>
 <span class="sd">        refresh_token: The refresh token that was given to the application</span>
+<span class="sd">            (not needed if client credentials workflow is used)</span>
 <span class="sd">        access_token: The token that will be used to make request</span>
 <span class="sd">    """</span>
 
@@ -715,8 +717,7 @@ is_expired<span class="p">(</span><span class="bp">self</span><span class="p">)<
 <tr>
 <td class="linenos">
 <div class="linenodiv">
-<pre><span></span>33
-34
+<pre><span></span>34
 35
 36
 37
@@ -729,7 +730,8 @@ is_expired<span class="p">(</span><span class="bp">self</span><span class="p">)<
 44
 45
 46
-47</pre>
+47
+48</pre>
 </div>
 </td>
 <td class="code">

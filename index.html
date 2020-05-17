@@ -426,11 +426,11 @@
 <div class="highlight"><pre><span></span><code>pip install async-spotify
 </code></pre></div>
 <h2 id="example">Example<a class="headerlink" href="#example" title="Permanent link">¶</a></h2>
-<p>For more in depth examples take a look <a href="EXAMPLES/">here</a> or visit the documentation.</p>
-<div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">async_spotify</span> <span class="kn">import</span> <span class="n">Preferences</span><span class="p">,</span> <span class="n">SpotifyApiClient</span><span class="p">,</span> <span class="n">SpotifyAuthorisationToken</span>
+<p>For more in depth examples take a look <a href="https://huiibuh.github.io/AsyncSpotify/EXAMPLES/">here</a> or visit the documentation.</p>
+<div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">async_spotify</span> <span class="kn">import</span> <span class="n">SpotifyApiPreferences</span><span class="p">,</span> <span class="n">SpotifyApiClient</span><span class="p">,</span> <span class="n">SpotifyAuthorisationToken</span>
 
 <span class="c1"># Create a preferences object and load the preferences from env variables</span>
-<span class="n">preferences</span> <span class="o">=</span> <span class="n">Preferences</span><span class="p">()</span>
+<span class="n">preferences</span> <span class="o">=</span> <span class="n">SpotifyApiPreferences</span><span class="p">()</span>
 <span class="n">preferences</span><span class="o">.</span><span class="n">load_from_env</span><span class="p">()</span>
 
 <span class="c1"># Create a new Api client and pass the preferences</span>

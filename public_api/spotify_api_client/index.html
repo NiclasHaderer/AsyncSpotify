@@ -268,6 +268,11 @@
   </a>
 </li>
 <li class="md-nav__item">
+<a class="md-nav__link" href="#async_spotify.api.spotify_api_client.SpotifyApiClient.get_auth_token_with_client_credentials">
+    get_auth_token_with_client_credentials()
+  </a>
+</li>
+<li class="md-nav__item">
 <a class="md-nav__link" href="#async_spotify.api.spotify_api_client.SpotifyApiClient.get_auth_token_with_code">
     get_auth_token_with_code()
   </a>
@@ -592,6 +597,11 @@
   </a>
 </li>
 <li class="md-nav__item">
+<a class="md-nav__link" href="#async_spotify.api.spotify_api_client.SpotifyApiClient.get_auth_token_with_client_credentials">
+    get_auth_token_with_client_credentials()
+  </a>
+</li>
+<li class="md-nav__item">
 <a class="md-nav__link" href="#async_spotify.api.spotify_api_client.SpotifyApiClient.get_auth_token_with_code">
     get_auth_token_with_code()
   </a>
@@ -874,7 +884,7 @@ __init__<span class="p">(</span><span class="bp">self</span><span class="p">,</s
 <tbody>
 <tr>
 <td><code>preferences</code></td>
-<td><code>Preferences</code></td>
+<td><code>SpotifyApiPreferences</code></td>
 <td>
 <p>The preferences object fully filled with information</p>
 </td>
@@ -989,7 +999,7 @@ __init__<span class="p">(</span><span class="bp">self</span><span class="p">,</s
 </td>
 <td class="code">
 <div class="highlight">
-<pre><span></span><code><span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">preferences</span><span class="p">:</span> <span class="n">Preferences</span><span class="p">,</span>
+<pre><span></span><code><span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">preferences</span><span class="p">:</span> <span class="n">SpotifyApiPreferences</span><span class="p">,</span>
              <span class="n">hold_authentication</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
              <span class="n">spotify_authorisation_token</span><span class="p">:</span> <span class="n">SpotifyAuthorisationToken</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
              <span class="n">token_renew_instance</span><span class="p">:</span> <span class="n">TokenRenewClass</span> <span class="o">=</span> <span class="kc">None</span><span class="p">):</span>
@@ -1005,7 +1015,7 @@ __init__<span class="p">(</span><span class="bp">self</span><span class="p">,</s
     <span class="c1"># Check if the preferences are valid</span>
     <span class="k">if</span> <span class="ow">not</span> <span class="n">preferences</span><span class="o">.</span><span class="n">valid</span><span class="p">:</span>
         <span class="k">raise</span> <span class="n">SpotifyError</span><span class="p">(</span><span class="n">ErrorMessage</span><span class="p">(</span><span class="n">message</span><span class="o">=</span><span class="s2">"The preferences of your app are not correct"</span><span class="p">)</span><span class="o">.</span><span class="vm">__dict__</span><span class="p">)</span>
-    <span class="bp">self</span><span class="o">.</span><span class="n">preferences</span><span class="p">:</span> <span class="n">Preferences</span> <span class="o">=</span> <span class="n">preferences</span>
+    <span class="bp">self</span><span class="o">.</span><span class="n">preferences</span><span class="p">:</span> <span class="n">SpotifyApiPreferences</span> <span class="o">=</span> <span class="n">preferences</span>
 
     <span class="c1"># Set the SpotifyAuthorisationToken</span>
     <span class="k">if</span> <span class="n">spotify_authorisation_token</span><span class="p">:</span>
@@ -1323,6 +1333,107 @@ This will however close all ongoing requests.</p>
 </div>
 </div>
 <div class="doc doc-object doc-method">
+<h3 class="doc doc-heading" id="async_spotify.api.spotify_api_client.SpotifyApiClient.get_auth_token_with_client_credentials">
+<code class="highlight language-python">
+get_auth_token_with_client_credentials<span class="p">(</span><span class="bp">self</span><span class="p">)</span> </code>
+<a class="headerlink" href="#async_spotify.api.spotify_api_client.SpotifyApiClient.get_auth_token_with_client_credentials" title="Permanent link">¶</a></h3>
+<div class="doc doc-contents">
+<p>Get the auth token with the client credential flow</p>
+<div class="admonition notes">
+<p class="admonition-title">Notes</p>
+<p>[https://developer.spotify.com/documentation/general/guides/authorization-guide/#client-credentials-flow]/https://developer.spotify.com/documentation/general/guides/authorization-guide/#client-credentials-flow)</p>
+</div>
+<p><strong>Exceptions:</strong></p>
+<table>
+<thead>
+<tr>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>SpotifyError</code></td>
+<td>
+<p>If the request to the refresh api point was not successful</p>
+</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Returns:</strong></p>
+<table>
+<thead>
+<tr>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>SpotifyAuthorisationToken</code></td>
+<td>
+<p>A valid SpotifyAuthorisationToken</p>
+</td>
+</tr>
+</tbody>
+</table>
+<details class="quote">
+<summary>Source code in <code>async_spotify/api/spotify_api_client.py</code></summary>
+<table class="highlighttable">
+<tr>
+<td class="linenos">
+<div class="linenodiv">
+<pre><span></span>301
+302
+303
+304
+305
+306
+307
+308
+309
+310
+311
+312
+313
+314
+315
+316
+317
+318
+319</pre>
+</div>
+</td>
+<td class="code">
+<div class="highlight">
+<pre><span></span><code><span class="k">async</span> <span class="k">def</span> <span class="nf">get_auth_token_with_client_credentials</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">SpotifyAuthorisationToken</span><span class="p">:</span>
+    <span class="sd">"""</span>
+<span class="sd">    Get the auth token with the client credential flow</span>
+
+<span class="sd">    Notes:</span>
+<span class="sd">        [https://developer.spotify.com/documentation/general/guides/authorization-guide/#client-credentials-flow]/https://developer.spotify.com/documentation/general/guides/authorization-guide/#client-credentials-flow)</span>
+
+<span class="sd">    Raises:</span>
+<span class="sd">        SpotifyError: If the request to the refresh api point was not successful</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">        A valid SpotifyAuthorisationToken</span>
+<span class="sd">    """</span>
+
+    <span class="n">body</span><span class="p">:</span> <span class="nb">dict</span> <span class="o">=</span> <span class="p">{</span>
+        <span class="s1">'grant_type'</span><span class="p">:</span> <span class="s1">'client_credentials'</span><span class="p">,</span>
+    <span class="p">}</span>
+
+    <span class="k">return</span> <span class="k">await</span> <span class="bp">self</span><span class="o">.</span><span class="n">_get_token</span><span class="p">(</span><span class="n">body</span><span class="p">)</span>
+</code></pre>
+</div>
+</td>
+</tr>
+</table>
+</details>
+</div>
+</div>
+<div class="doc doc-object doc-method">
 <h3 class="doc doc-heading" id="async_spotify.api.spotify_api_client.SpotifyApiClient.get_auth_token_with_code">
 <code class="highlight language-python">
 get_auth_token_with_code<span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">code</span><span class="p">)</span> </code>
@@ -1394,27 +1505,7 @@ get_auth_token_with_code<span class="p">(</span><span class="bp">self</span><spa
 <tr>
 <td class="linenos">
 <div class="linenodiv">
-<pre><span></span>301
-302
-303
-304
-305
-306
-307
-308
-309
-310
-311
-312
-313
-314
-315
-316
-317
-318
-319
-320
-321
+<pre><span></span>321
 322
 323
 324
@@ -1426,7 +1517,18 @@ get_auth_token_with_code<span class="p">(</span><span class="bp">self</span><spa
 330
 331
 332
-333</pre>
+333
+334
+335
+336
+337
+338
+339
+340
+341
+342
+343
+344</pre>
 </div>
 </td>
 <td class="code">
@@ -1454,16 +1556,7 @@ get_auth_token_with_code<span class="p">(</span><span class="bp">self</span><spa
         <span class="s1">'redirect_uri'</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">preferences</span><span class="o">.</span><span class="n">redirect_url</span>
     <span class="p">}</span>
 
-    <span class="n">response_json</span><span class="p">:</span> <span class="nb">dict</span> <span class="o">=</span> <span class="k">await</span> <span class="bp">self</span><span class="o">.</span><span class="n">_make_auth_api_request</span><span class="p">(</span><span class="n">body</span><span class="p">)</span>
-
-    <span class="n">refresh_token</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="n">response_json</span><span class="p">[</span><span class="s1">'refresh_token'</span><span class="p">]</span>
-    <span class="n">access_token</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="n">response_json</span><span class="p">[</span><span class="s1">'access_token'</span><span class="p">]</span>
-
-    <span class="bp">self</span><span class="o">.</span><span class="n">_spotify_authorisation_token</span><span class="o">.</span><span class="n">refresh_token</span> <span class="o">=</span> <span class="n">refresh_token</span>
-    <span class="bp">self</span><span class="o">.</span><span class="n">_spotify_authorisation_token</span><span class="o">.</span><span class="n">activation_time</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">())</span>
-    <span class="bp">self</span><span class="o">.</span><span class="n">_spotify_authorisation_token</span><span class="o">.</span><span class="n">access_token</span> <span class="o">=</span> <span class="n">access_token</span>
-
-    <span class="k">return</span> <span class="n">deepcopy</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_spotify_authorisation_token</span><span class="p">)</span>
+    <span class="k">return</span> <span class="k">await</span> <span class="bp">self</span><span class="o">.</span><span class="n">_get_token</span><span class="p">(</span><span class="n">body</span><span class="p">)</span>
 </code></pre>
 </div>
 </td>
@@ -1718,19 +1811,19 @@ next<span class="p">(</span><span class="bp">self</span><span class="p">,</span>
 <tr>
 <td class="linenos">
 <div class="linenodiv">
-<pre><span></span>401
-402
-403
-404
-405
-406
-407
-408
-409
-410
-411
-412
-413</pre>
+<pre><span></span>432
+433
+434
+435
+436
+437
+438
+439
+440
+441
+442
+443
+444</pre>
 </div>
 </td>
 <td class="code">
@@ -1884,19 +1977,19 @@ previous<span class="p">(</span><span class="bp">self</span><span class="p">,</s
 <tr>
 <td class="linenos">
 <div class="linenodiv">
-<pre><span></span>415
-416
-417
-418
-419
-420
-421
-422
-423
-424
-425
-426
-427</pre>
+<pre><span></span>446
+447
+448
+449
+450
+451
+452
+453
+454
+455
+456
+457
+458</pre>
 </div>
 </td>
 <td class="code">
@@ -1978,42 +2071,42 @@ by the spotify auth flow.</p>
 <tr>
 <td class="linenos">
 <div class="linenodiv">
-<pre><span></span>335
-336
-337
-338
-339
-340
-341
-342
-343
-344
-345
-346
-347
-348
-349
-350
-351
-352
-353
-354
-355
-356
-357
-358
-359
-360
-361
-362
-363
-364
-365
-366
+<pre><span></span>366
 367
 368
 369
-370</pre>
+370
+371
+372
+373
+374
+375
+376
+377
+378
+379
+380
+381
+382
+383
+384
+385
+386
+387
+388
+389
+390
+391
+392
+393
+394
+395
+396
+397
+398
+399
+400
+401</pre>
 </div>
 </td>
 <td class="code">
