@@ -33,7 +33,7 @@ pip install async-spotify
 
 ## Example
 
-For more in depth examples take a look [here](EXAMPLES.md) or visit the documentation.
+For more in depth examples take a look [here](https://huiibuh.github.io/AsyncSpotify/EXAMPLES/) or visit the documentation.
 
 ```python
 from async_spotify import SpotifyApiPreferences, SpotifyApiClient, SpotifyAuthorisationToken
