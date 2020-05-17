@@ -14,7 +14,7 @@ from typing import List
 
 import pytest
 
-from async_spotify import Preferences, SpotifyApiClient, SpotifyCookie
+from async_spotify import SpotifyApiPreferences, SpotifyApiClient, SpotifyCookie
 
 
 class TestDataTransfer:
@@ -22,7 +22,7 @@ class TestDataTransfer:
     Class which transfers test data
     """
     cookies: SpotifyCookie = None
-    preferences: Preferences = None
+    preferences: SpotifyApiPreferences = None
     api: SpotifyApiClient = None
     scopes: List[str] = None
 
@@ -33,7 +33,7 @@ def api():
     Returns: The an api instance
     """
 
-    preferences = Preferences()
+    preferences = SpotifyApiPreferences()
     preferences.load_from_env()
     preferences.scopes = TestDataTransfer.scopes
 
@@ -48,7 +48,7 @@ async def prepared_api():
     Returns: A ready to go api client
     """
 
-    preferences = Preferences()
+    preferences = SpotifyApiPreferences()
     preferences.load_from_env()
     preferences.scopes = TestDataTransfer.scopes
 
@@ -95,7 +95,7 @@ def prepare_test_data():
         """
         Add preferences parameter
         """
-        preferences = Preferences()
+        preferences = SpotifyApiPreferences()
         preferences.load_from_env()
         preferences.scopes = TestDataTransfer.scopes
         TestDataTransfer.preferences = preferences
@@ -104,7 +104,7 @@ def prepare_test_data():
         """
         Add api parameter
         """
-        preferences = Preferences()
+        preferences = SpotifyApiPreferences()
         preferences.load_from_env()
         preferences.scopes = TestDataTransfer.scopes
 

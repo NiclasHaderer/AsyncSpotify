@@ -2,28 +2,31 @@
 
 ## Getting started
 
-If you want to start connecting to the spotify api you have to create a new instance of the `Preferences`. These Preferences hold all sorts of configurations.  
+If you want to start connecting to the spotify api you have to create a new instance of the `SpotifyApiPreferences`. These SpotifyApiPreferences hold all sorts of configurations.  
+Scopes and redirect_url are optional if you are using the client credentials flow.
 
 ```python
-from async_spotify import Preferences
+from async_spotify import SpotifyApiPreferences
 
-preferences = Preferences(
+preferences = SpotifyApiPreferences(
     application_id = 'Your id',
     application_secret = 'Your secret',
     scopes = ['your', 'scopes'],
     redirect_url = 'your.redirect.utl')
 
-# You can also load the preferences from environment variables.  
+# You can also load the preferences from environment variables.
 # If the variable does not exist the existing value will not be overwritten.
 preferences.load_from_env()
 ```
 
-These created preferences have to be passed to the `SpotifyApiClient`.  
+These created preferences have to be passed to the `SpotifyApiClient`.
 
 ```python
 # Create new client
 api_client = SpotifyApiClient(prefernces)
 ```
+
+### Authorization Code Flow
 
 To get a code from Spotify the user has to agree to the scopes your app asks for.  
 For this you create an authorization, let the user visit this url and read the code parameter in the spotify redirect.  
@@ -35,21 +38,56 @@ If you have some questions about this process read [this](https://developer.spot
 authorization_url: str = api_client.build_authorization_url(show_dialog = True)
 ```
 
-We will assume that you managed to get a code from spotify for a specific user.  
+We will assume that you managed to get a code from spotify for a specific user.
 
 Now we have to exchange the code for an authorization token, and a refresh token. But before we make this we have to create a new client which will be internally used for all the request making.
+
+```python
+# Exchange the code for the tokens
+auth_token: SpotifyAuthorisationToken = await api.get_auth_token_with_code(code)
+```
+
+After we recieved the `auth_token` we can start making request.
 
 ```python
 # Create a new client which will handle the request
 await api_client.create_new_client()
 
-# Exchange the code for the tokens
-auth_token: SpotifyAuthorisationToken = await api.get_auth_token_with_code(code)
+# Get information about an album
+album = await api_client.albums.get_one(album_id, market='DE', auth_token=auth_token)
+# ...
 ```
 
-After we recieved the `auth_token` we can start making request.  
+If you want to shut down your application and don't want to leak requests you have to call the `close_client` method of the `api_client`.
 
 ```python
+# Close the client
+await api_client.close_client()
+```
+
+### Client Credentials Flow
+
+In this case you only have to pass your preferences to your `SpotifyApiClient` and call the
+
+If you have some questions about this process read [this](https://developer.spotify.com/documentation/general/guides/authorization-guide/#client-credentials-flow) potify article about it.
+
+```python
+
+
+    preferences = SpotifyApiPreferences()
+    preferences.load_from_env()
+
+    api_client = SpotifyApiClient(preferences)
+    auth_token = await api_client.get_auth_token_with_client_credentials()
+    await api.create_new_client()
+```
+
+After we recieved the `auth_token` we can start making request.
+
+```python
+# Create a new client which will handle the request
+await api_client.create_new_client()
+
 # Get information about an album
 album = await api_client.albums.get_one(album_id, market='DE', auth_token=auth_token)
 # ...
@@ -65,7 +103,7 @@ await api_client.close_client()
 ## Endpoints
 
 Every Api Endpoint is represented as an instance variables of the `SpotifyApiClient`.  
-Look [here](https://huiibuh.github.io/AsyncSpotify/public_api/spotify_api_client/) for every instance variable and the associated classes.  
+Look [here](https://huiibuh.github.io/AsyncSpotify/public_api/spotify_api_client/) for every instance variable and the associated classes.
 
 ```python
 # For the albums endpoint
@@ -99,26 +137,26 @@ await api_client.create_new_client(request_limit=1500, request_timeout=30)
 ## Exceptions
 
 There are multiple exception which could get raised by the `SpotifyApiClient`.  
-Every exception inherits from the `SpotifyBaseError` so if you want to catch every spotify exception you can do it with the `SpotifyBaseError`.  
+Every exception inherits from the `SpotifyBaseError` so if you want to catch every spotify exception you can do it with the `SpotifyBaseError`.
 
-+ The `SpotifyError` exception gets raised for general usage errors
-+ The `TokenExpired` exception gets raised if the spotify token used for making an api call is expired
-+ The `RateLimitExceeded` exception gets raised if the rate limit is exceeded
-+ The `SpotifyAPIError` exception gets raised for general errors like a invalid album id
+- The `SpotifyError` exception gets raised for general usage errors
+- The `TokenExpired` exception gets raised if the spotify token used for making an api call is expired
+- The `RateLimitExceeded` exception gets raised if the rate limit is exceeded
+- The `SpotifyAPIError` exception gets raised for general errors like a invalid album id
 
 Each of the exceptions implements the `get_json()` method which will return the following json:
 
 ```json
 {
-    error: {
-        status: 0,
-        message: ''
-    }
+  "error": {
+    "status": 0,
+    "message": ""
+  }
 }
 ```
 
 The status is the HTTP status code and if not aplicable the number 0.
-The message is the reason something failed.  
+The message is the reason something failed.
 
 ```python
 try:
@@ -131,12 +169,12 @@ except SpotifyAPIError as error:
 ## Code retrieval with a cookie
 
 Normally you have to get the code with the client credential workflow. If your user has already agreed to the scopes, and you have the cookie of the user you can get rid of this process.  
-This is mostly intended for testing purposes, but you could also use it in your production environment in the very unlikely edge case that you have the spotify cookie of your user.  
+This is mostly intended for testing purposes, but you could also use it in your production environment in the very unlikely edge case that you have the spotify cookie of your user.
 
 You start like normal and create a new `SpotifyApiClient`.
 
 ```python
-preferences = Preferences()
+preferences = SpotifyApiPreferences()
 preferences.load_from_env()
 
 api_client = SpotifyApiClient(preferences, hold_authentication=True)
@@ -157,13 +195,13 @@ album = await api_client.albums.get_one(album_id)
 await api_client.close_client()
 ```
 
-Format of the *cookie.json*
+Format of the _cookie.json_
 
 ```json
 {
-    "sp_t"  : "a",
-    "sp_dc" : "b",
-    "sp_key": "c"
+  "sp_t": "a",
+  "sp_dc": "b",
+  "sp_key": "c"
 }
 ```
 

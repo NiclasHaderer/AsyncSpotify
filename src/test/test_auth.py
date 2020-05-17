@@ -15,7 +15,7 @@ import pytest
 
 from async_spotify import SpotifyAuthorisationToken, SpotifyApiClient, SpotifyError, SpotifyCookie
 from async_spotify.api._response_status import ResponseStatus
-from async_spotify.api.preferences import Preferences
+from async_spotify.api.spotify_api_preferences import SpotifyApiPreferences
 from conftest import TestDataTransfer
 
 
@@ -34,28 +34,28 @@ class TestAuth:
 
     # Load preferences
     def test_load_secret_preferences(self):
-        preferences = Preferences()
+        preferences = SpotifyApiPreferences()
         preferences.load_from_docker_secret()
 
         assert False is preferences.valid
 
     # Load the preferences from os
     def test_load_os_preferences(self):
-        preferences = Preferences()
+        preferences = SpotifyApiPreferences()
         preferences.load_from_env()
 
         assert preferences.valid
 
     # Test preference saving to os env
     def test_save_preferences_to_env(self):
-        original_data = Preferences()
+        original_data = SpotifyApiPreferences()
         original_data.load_from_env()
 
-        preferences = Preferences("save-preferences", "save-preferences", ["save-preferences", "save-preferences"],
+        preferences = SpotifyApiPreferences("save-preferences", "save-preferences", ["save-preferences", "save-preferences"],
                                   "save-preferences")
         preferences.save_preferences_to_evn()
 
-        loaded_preferences = Preferences()
+        loaded_preferences = SpotifyApiPreferences()
         loaded_preferences.load_from_env()
 
         original_data.save_preferences_to_evn()
@@ -63,7 +63,7 @@ class TestAuth:
         assert preferences == loaded_preferences
 
     def test_load_wrong_preferences(self):
-        preferences = Preferences()
+        preferences = SpotifyApiPreferences()
         with pytest.raises(SpotifyError):
             SpotifyApiClient(preferences)
 
@@ -88,7 +88,7 @@ class TestAuth:
     # Test the retrieval of the code with wrong params
     @pytest.mark.asyncio
     async def test_wrong_code_url(self):
-        preferences = Preferences("test-with-wrong-code", "test-with-wrong-code", ["test-with-wrong-code"],
+        preferences = SpotifyApiPreferences("test-with-wrong-code", "test-with-wrong-code", ["test-with-wrong-code"],
                                   "test-with-wrong-code")
         api = SpotifyApiClient(preferences)
 
