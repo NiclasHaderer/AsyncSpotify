@@ -54,20 +54,22 @@ class Player(Endpoint):
 
         return await self.api_request_handler.make_request('GET', URLS.PLAYER.PLAYER, kwargs, auth_token)
 
-    async def add_to_queue(self, spotify_id: str, auth_token: SpotifyAuthorisationToken = None) -> None:
+    async def add_to_queue(self, spotify_id: str, auth_token: SpotifyAuthorisationToken = None, **kwargs) -> None:
         """
-        Add a list of spotify ids to the currently playing queue
+        Add an item to the end of the user’s current playback queue
 
         Notes:
             [https://developer.spotify.com/documentation/web-api/reference/player/add-to-queue/](https://developer.spotify.com/documentation/web-api/reference/player/add-to-queue/)
 
         Args:
-            spotify_id: A spotify id
+            spotify_id: A spotify id of an item
             auth_token: The auth token if you set the api class not to keep the token in memory
+            kwargs: Optional arguments as keyword args
         """
 
         args: dict = {
-            'uri': spotify_id
+            'uri': spotify_id,
+            **kwargs
         }
 
         await self.api_request_handler.make_request('POST', URLS.PLAYER.QUEUE, args, auth_token)
@@ -200,19 +202,21 @@ class Player(Endpoint):
 
         await self.api_request_handler.make_request('POST', URLS.PLAYER.PREVIOUS, kwargs, auth_token)
 
-    async def play(self, auth_token: SpotifyAuthorisationToken = None, **kwargs) -> None:
+    async def play(self, device_id: str = None, auth_token: SpotifyAuthorisationToken = None, **kwargs) -> None:
         """
         Start a new context or resume current playback on the user’s active device.
 
         Notes:
-            [https://developer.spotify.com/documentation/web-api/reference/player/skip-users-playback-to-previous-track/](https://developer.spotify.com/documentation/web-api/reference/player/skip-users-playback-to-previous-track/)
+            [https://developer.spotify.com/documentation/web-api/reference/player/start-a-users-playback/](https://developer.spotify.com/documentation/web-api/reference/player/start-a-users-playback/)
 
         Args:
+            device_id: A single device ID
             auth_token: The auth token if you set the api class not to keep the token in memory
             kwargs: Optional arguments as keyword args
         """
 
-        await self.api_request_handler.make_request('PUT', URLS.PLAYER.PLAY, kwargs, auth_token)
+        await self.api_request_handler.make_request('PUT', URLS.PLAYER.PLAY, {'device_id': device_id}, auth_token,
+                                                    kwargs)
 
     async def shuffle(self, shuffle_on: bool, auth_token: SpotifyAuthorisationToken = None, **kwargs) -> None:
         """
