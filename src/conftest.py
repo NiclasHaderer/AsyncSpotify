@@ -14,7 +14,9 @@ from typing import List
 
 import pytest
 
-from async_spotify import SpotifyApiPreferences, SpotifyApiClient, SpotifyCookie
+from async_spotify import SpotifyApiClient
+from async_spotify.authentification import SpotifyCookie
+from async_spotify.authentification.authorization_flows import AuthorizationCodeFlow
 
 
 class TestDataTransfer:
@@ -22,7 +24,7 @@ class TestDataTransfer:
     Class which transfers test data
     """
     cookies: SpotifyCookie = None
-    preferences: SpotifyApiPreferences = None
+    auth_code_flow: AuthorizationCodeFlow = None
     api: SpotifyApiClient = None
     scopes: List[str] = None
 
@@ -33,11 +35,11 @@ def api():
     Returns: The an api instance
     """
 
-    preferences = SpotifyApiPreferences()
-    preferences.load_from_env()
-    preferences.scopes = TestDataTransfer.scopes
+    auth_code_flow = AuthorizationCodeFlow()
+    auth_code_flow.load_from_env()
+    auth_code_flow.scopes = TestDataTransfer.scopes
 
-    api = SpotifyApiClient(preferences)
+    api = SpotifyApiClient(auth_code_flow)
     return api
 
 
@@ -48,11 +50,11 @@ async def prepared_api():
     Returns: A ready to go api client
     """
 
-    preferences = SpotifyApiPreferences()
-    preferences.load_from_env()
-    preferences.scopes = TestDataTransfer.scopes
+    auth_code_flow = AuthorizationCodeFlow()
+    auth_code_flow.load_from_env()
+    auth_code_flow.scopes = TestDataTransfer.scopes
 
-    api = SpotifyApiClient(preferences, hold_authentication=True)
+    api = SpotifyApiClient(auth_code_flow, hold_authentication=True)
 
     code = await api.get_code_with_cookie(TestDataTransfer.cookies)
     await api.get_auth_token_with_code(code)
@@ -91,28 +93,28 @@ def prepare_test_data():
                                               "/home/niclas/IdeaProjects/AsyncSpotify/examples/private/cookies.json"))
         TestDataTransfer.cookies = cookies
 
-    def add_preferences():
+    def add_auth_code_flow():
         """
-        Add preferences parameter
+        Add auth_code_flow parameter
         """
-        preferences = SpotifyApiPreferences()
-        preferences.load_from_env()
-        preferences.scopes = TestDataTransfer.scopes
-        TestDataTransfer.preferences = preferences
+        auth_code_flow = AuthorizationCodeFlow()
+        auth_code_flow.load_from_env()
+        auth_code_flow.scopes = TestDataTransfer.scopes
+        TestDataTransfer.auth_code_flow = auth_code_flow
 
     def add_api():
         """
         Add api parameter
         """
-        preferences = SpotifyApiPreferences()
-        preferences.load_from_env()
-        preferences.scopes = TestDataTransfer.scopes
+        auth_code_flow = AuthorizationCodeFlow()
+        auth_code_flow.load_from_env()
+        auth_code_flow.scopes = TestDataTransfer.scopes
 
-        TestDataTransfer.api = SpotifyApiClient(preferences, hold_authentication=True)
+        TestDataTransfer.api = SpotifyApiClient(auth_code_flow, hold_authentication=True)
 
     add_scopes()
     add_cookie()
-    add_preferences()
+    add_auth_code_flow()
     add_api()
 
 

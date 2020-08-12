@@ -13,8 +13,10 @@ import time
 
 import pytest
 
-from async_spotify import SpotifyApiClient, SpotifyError, SpotifyAuthorisationToken, SpotifyApiPreferences
-from async_spotify.spotify_errors import SpotifyAPIError, TokenExpired
+from async_spotify import SpotifyApiClient
+from async_spotify.authentification.authorization_flows import AuthorizationCodeFlow
+from async_spotify.authentification.spotify_authorization_token import SpotifyAuthorisationToken
+from async_spotify.spotify_errors import SpotifyAPIError, TokenExpired, SpotifyError
 
 
 class TestGeneral:
@@ -94,7 +96,7 @@ class TestGeneral:
 
     def test_docker_secret(self):
 
-        p = SpotifyApiPreferences()
+        p = AuthorizationCodeFlow()
 
         if os.environ.get('github_action'):
             p.load_from_docker_secret()
