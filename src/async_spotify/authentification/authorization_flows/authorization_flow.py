@@ -47,11 +47,9 @@ class AuthorizationFlow(ABC):
                     value = " ".join(value)
                 os.environ[key] = value
 
-    @property
     @abstractmethod
     def valid(self) -> bool:
         """Check if the flow is valid"""
-        pass
 
     def _get_instance_variables(self) -> [str]:
         """
