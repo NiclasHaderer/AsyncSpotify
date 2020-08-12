@@ -10,3 +10,4 @@ All modules related to authentication
 """
 
 from .spotify_cookies import SpotifyCookie
+from .spotify_authorization_token import SpotifyAuthorisationToken
