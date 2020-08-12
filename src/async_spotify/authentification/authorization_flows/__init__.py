@@ -1,7 +1,3 @@
-"""
-Asynchronous spotify api wrapper
-"""
-
 # ##################################################################################################
 #  Copyright (c) 2020. HuiiBuh                                                                     #
 #  This file (__init__.py) is part of AsyncSpotify which is released under MIT.                    #
@@ -9,15 +5,6 @@ Asynchronous spotify api wrapper
 #  linking to the original source.                                                                 #
 # ##################################################################################################
 
-
-__title__ = 'async_spotify'
-__author__ = 'HuiiBuh'
-__version__ = '0.3.1'
-__license__ = 'MIT'
-
-from async_spotify.authentification.authorization_flows.authorization_code_flow import AuthorizationCodeFlow
-from .api.spotify_api_client import SpotifyApiClient
-from .authentification.spotify_authorization_token import SpotifyAuthorisationToken
-from .authentification.spotify_cookies import SpotifyCookie
-from .spotify_errors import SpotifyError, RateLimitExceeded, TokenExpired, SpotifyAPIError, SpotifyBaseError
-from .token_renew_class import TokenRenewClass
+from .authorization_code_flow import AuthorizationCodeFlow
+from .authorization_flow import AuthorizationFlow
+from .implicit_grant_flow import ImplicitGrantFlow
