@@ -7,25 +7,60 @@
 
 import os
 from abc import ABC, abstractmethod
+from os.path import join, abspath
+from typing import Any, List
 
 
 class AuthorizationFlow(ABC):
+    """
+    Abstract class which every auth flow should extend
+    """
 
-    @abstractmethod
     def load_from_env(self) -> None:
-        pass
+        """
+        Load the instance variables of the flow from the environment variables
+        """
+        for key in self._get_instance_variables():
+            value = os.environ.get(key, self[key])
+            if value and key == "scopes":
+                value = value.split(" ")
+            self[key] = value
 
-    @abstractmethod
-    def load_from_docker_secret(self, base_dir: str) -> None:
-        pass
+    def load_from_docker_secret(self, base_dir: str = join(abspath(os.sep), 'var', 'run', 'secrets')) -> None:
+        """
+        Load the instance variables of the flow from docker secrets
+        """
+        for key in self._get_instance_variables():
+            value = AuthorizationFlow._get_docker_secret(name=key, secrets_dir=base_dir, default=self[key])
+            if value and key == "scopes":
+                value = value.split(" ")
+            self[key] = value
 
-    @abstractmethod
-    def save_to_evn(self) -> None:
-        pass
+    def save_to_env(self) -> None:
+        """
+        Save the instance variables of the flow as environment variables
+        """
+        for key in self._get_instance_variables():
+            value = self[key]
+            if value:
+                if isinstance(value, List):
+                    value = " ".join(value)
+                os.environ[key] = value
 
+    @property
     @abstractmethod
     def valid(self) -> bool:
+        """Check if the flow is valid"""
         pass
+
+    def _get_instance_variables(self) -> [str]:
+        """
+        Get the instance variables keys
+
+        Returns:
+            The keys in a list
+        """
+        return self.__dict__.keys()
 
     @staticmethod
     def _get_docker_secret(name: str, secrets_dir: str, default=None) -> str:
@@ -47,6 +82,16 @@ class AuthorizationFlow(ABC):
                 return secret_file.read().strip()
         except IOError:
             return default
+
+    def __getitem__(self, item) -> Any:
+        if item not in self.__dict__:
+            raise KeyError()
+        return getattr(self, item)
+
+    def __setitem__(self, key, value) -> None:
+        if key not in self.__dict__:
+            raise KeyError()
+        setattr(self, key, value)
 
     def __eq__(self, other) -> bool:
         """

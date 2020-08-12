@@ -9,8 +9,6 @@ AuthorizationCodeFlow for the spotify api
 #  linking to the original source.                                                                 #
 # ##################################################################################################
 
-import os
-from os.path import join, abspath
 from typing import List
 
 from .authorization_flow import AuthorizationFlow
@@ -58,59 +56,6 @@ class AuthorizationCodeFlow(AuthorizationFlow):
         self.application_secret: str = application_secret
         self.scopes: List[str] = scopes
         self.redirect_url: str = redirect_url
-
-    def load_from_env(self) -> None:
-        """
-        Load the AuthorizationCodeFlow from the environment.
-        The variable names have to be the same as the property name.
-
-        Important:
-            Scopes has to be a string separated by ' '
-        """
-
-        self.application_id = os.environ.get("application_id", self.application_id)
-        self.application_secret = os.environ.get("application_secret", self.application_secret)
-        self.redirect_url = os.environ.get("redirect_url", self.redirect_url)
-
-        scopes = os.environ.get("scopes", self.scopes)
-        self.scopes = scopes.split(" ") if scopes else self.scopes
-
-    def load_from_docker_secret(self, base_dir: str = join(abspath(os.sep), 'var', 'run', 'secrets')) -> None:
-        """
-        Loads the AuthorizationCodeFlow from docker secret.
-        The variable names have to be the same as the property name.
-
-        Args:
-            base_dir: The docker secrets base dir. Leave empty if you want to use the default
-
-        Important:
-            Scopes has to be a string separated by ' '
-        """
-
-        self.application_id = AuthorizationFlow._get_docker_secret('application_id', base_dir, self.application_id)
-        self.application_secret = AuthorizationFlow._get_docker_secret('application_secret', base_dir,
-                                                                       self.application_secret)
-        self.redirect_url = AuthorizationFlow._get_docker_secret('redirect_url', base_dir, self.redirect_url)
-
-        scopes = AuthorizationFlow._get_docker_secret('scopes', base_dir, self.scopes)
-        self.scopes = scopes.split(" ") if scopes and not isinstance(scopes, list) else self.scopes
-
-    def save_to_evn(self) -> None:
-        """
-        Takes the auth_code_flow saved in the object and saves them as os environment variables
-
-        Notes:
-            This will however not be permanent but only last for one session
-        """
-
-        if self.application_id:
-            os.environ["application_id"] = self.application_id
-        if self.application_secret:
-            os.environ["application_secret"] = self.application_secret
-        if self.scopes:
-            os.environ["scopes"] = " ".join(self.scopes)
-        if self.redirect_url:
-            os.environ["redirect_url"] = self.redirect_url
 
     @property
     def valid(self) -> bool:

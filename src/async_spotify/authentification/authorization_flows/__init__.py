@@ -6,5 +6,4 @@
 # ##################################################################################################
 
 from .authorization_code_flow import AuthorizationCodeFlow
-from .authorization_flow import AuthorizationFlow
-from .implicit_grant_flow import ImplicitGrantFlow
+from .client_credentials_flow import ClientCredentialsFlow

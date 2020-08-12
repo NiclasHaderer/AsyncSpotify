@@ -14,7 +14,9 @@ from typing import List
 
 import pytest
 
-from async_spotify import AuthorizationCodeFlow, SpotifyApiClient, SpotifyCookie
+from async_spotify import SpotifyApiClient
+from async_spotify.authentification import SpotifyCookie
+from async_spotify.authentification.authorization_flows import AuthorizationCodeFlow
 
 
 class TestDataTransfer:
