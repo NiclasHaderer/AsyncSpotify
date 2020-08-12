@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/AsyncSpotify.iml" filepath="$PROJECT_DIR$/AsyncSpotify.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/AsyncSpotify.iml" filepath="$PROJECT_DIR$/.idea/AsyncSpotify.iml" />
     </modules>
   </component>
 </project>

@@ -1,6 +1,8 @@
 import pytest
 
-from async_spotify import SpotifyApiClient, SpotifyAuthorisationToken, TokenExpired
+from async_spotify import SpotifyApiClient
+from async_spotify.authentification.spotify_authorization_token import SpotifyAuthorisationToken
+from async_spotify.spotify_errors import TokenExpired
 from async_spotify.token_renew_class import TokenRenewClass
 
 
@@ -37,4 +39,4 @@ class TestTokenRenewClass:
         prepared_api.token_renew_instance = FalseRenew()
 
         with pytest.raises(TokenExpired):
-            album = await prepared_api.albums.get_one('03dlqdFWY9gwJxGl3AREVy')
+            await prepared_api.albums.get_one('03dlqdFWY9gwJxGl3AREVy')

@@ -15,7 +15,7 @@ import time
 import webbrowser
 from copy import deepcopy
 from types import SimpleNamespace
-from typing import Optional, List
+from typing import Optional, List, Union
 from urllib import parse
 from urllib.parse import urlencode
 
@@ -38,7 +38,9 @@ from ._endpoints.urls import URLS
 from ._endpoints.user import User
 from ._response_status import ResponseStatus
 from .._error_message import ErrorMessage
-from ..authentification.authorization_flows import AuthorizationFlow
+from ..authentification.authorization_flows import AuthorizationCodeFlow
+from ..authentification.authorization_flows.authorization_flow import AuthorizationFlow
+from ..authentification.authorization_flows.client_credentials_flow import ClientCredentialsFlow
 from ..authentification.spotify_authorization_token import SpotifyAuthorisationToken
 from ..authentification.spotify_cookies import SpotifyCookie
 from ..spotify_errors import SpotifyError
@@ -167,6 +169,10 @@ class SpotifyApiClient:
             The encoded url which can be used to authorize a new or existing user
         """
 
+        self._enforce_flows()
+
+        # TODO PKCEFlow
+        self.authorization_flow: Union[AuthorizationCodeFlow]
         params = {
             "client_id": self.authorization_flow.application_id,
             "response_type": "code",
@@ -312,6 +318,11 @@ class SpotifyApiClient:
             A valid SpotifyAuthorisationToken
         """
 
+        if not isinstance(self.authorization_flow, ClientCredentialsFlow):
+            raise SpotifyError(ErrorMessage(
+                message="Your authorization flow cannot build an authorization url. "
+                        "Select the ClientCredentialsFlow instead").__dict__)
+
         body: dict = {
             'grant_type': 'client_credentials',
         }
@@ -334,6 +345,10 @@ class SpotifyApiClient:
         Returns:
             A valid SpotifyAuthorisationToken
         """
+
+        # TODO PKCEFlow
+        self._enforce_flows()
+        self.authorization_flow: Union[AuthorizationCodeFlow]
 
         body: dict = {
             'grant_type': 'authorization_code',
@@ -379,6 +394,8 @@ class SpotifyApiClient:
             The SpotifyAuthorisationToken
         """
 
+        self._enforce_flows()
+
         # Check if the internal auth token should be used
         if not auth_token and self._hold_authentication:
             auth_token = self._spotify_authorisation_token
@@ -410,6 +427,8 @@ class SpotifyApiClient:
         Returns:
             The access token and the refresh token if the grant_type was code
         """
+
+        self.authorization_flow: Union[ClientCredentialsFlow, AuthorizationCodeFlow]
 
         # Build the header of the request
         base_64: base64 = base64.b64encode(
@@ -456,6 +475,16 @@ class SpotifyApiClient:
         """
 
         return await self._api_request_handler.make_request('GET', url, {}, auth_token)
+
+    def _enforce_flows(self):
+        """
+        Make sure that the flows are ether the AuthorizationCodeFlow or the PKCEFlow
+        """
+        # TODO PKCEFlow
+        if not isinstance(self.authorization_flow, AuthorizationCodeFlow):
+            raise SpotifyError(ErrorMessage(
+                message="Your authorization flow cannot build an authorization url. "
+                        "Select the AuthorizationCodeFlow or the PKCEFlow instead").__dict__)
 
     @property
     def spotify_authorization_token(self) -> SpotifyAuthorisationToken:

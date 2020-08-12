@@ -13,9 +13,12 @@ from urllib.parse import urlencode
 
 import pytest
 
-from async_spotify import SpotifyAuthorisationToken, SpotifyApiClient, SpotifyError, SpotifyCookie
+from async_spotify import SpotifyApiClient
 from async_spotify.api._response_status import ResponseStatus
+from async_spotify.authentification import SpotifyCookie
 from async_spotify.authentification.authorization_flows.authorization_code_flow import AuthorizationCodeFlow
+from async_spotify.authentification.spotify_authorization_token import SpotifyAuthorisationToken
+from async_spotify.spotify_errors import SpotifyError
 from conftest import TestDataTransfer
 
 
@@ -54,12 +57,12 @@ class TestAuth:
         auth_flow = AuthorizationCodeFlow("save-auth_code_flow", "save-auth_code_flow",
                                           ["save-auth_code_flow", "save-auth_code_flow"],
                                           "save-auth_code_flow")
-        auth_flow.save_to_evn()
+        auth_flow.save_to_env()
 
         loaded_auth_flow = AuthorizationCodeFlow()
         loaded_auth_flow.load_from_env()
 
-        original_data.save_to_evn()
+        original_data.save_to_env()
 
         assert auth_flow == loaded_auth_flow
 
@@ -148,7 +151,6 @@ class TestAuth:
     async def test_get_code_without_callback(self, api: SpotifyApiClient):
         code = await api.get_code_with_cookie(TestDataTransfer.cookies)
         assert code != ""
-
 
     # Test different response codes
     def test_response_type(self):

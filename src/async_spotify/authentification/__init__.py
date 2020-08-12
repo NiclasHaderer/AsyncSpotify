@@ -8,3 +8,5 @@
 """
 All modules related to authentication
 """
+
+from .spotify_cookies import SpotifyCookie
