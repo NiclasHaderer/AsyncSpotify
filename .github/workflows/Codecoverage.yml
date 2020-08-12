@@ -27,9 +27,7 @@ jobs:
       run: sudo mkdir -p /var/run/secrets
 
     - name: Create application_id secret
-      run:
-        - echo "wrong_id" | sudo tee /var/run/secrets/application_id
-        - echo "s c o p e s" | sudo tee /var/run/secrets/scopes
+      run: echo "wrong_id" | sudo tee /var/run/secrets/application_id && echo "s c o p e s" | sudo tee /var/run/secrets/scopes
 
     - name: Save cookie file
       run: echo '${{ secrets.cookies }}' > cookies.json
