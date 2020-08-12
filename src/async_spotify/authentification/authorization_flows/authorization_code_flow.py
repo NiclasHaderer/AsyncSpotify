@@ -1,10 +1,10 @@
 """
-SpotifyApiPreferences for the spotify api
+AuthorizationCodeFlow for the spotify api
 """
 
 # ##################################################################################################
 #  Copyright (c) 2020. HuiiBuh                                                                     #
-#  This file (spotifyapipreferences.py) is part of AsyncSpotify which is released under MIT.                 #
+#  This file (authorization_code_flow.py) is part of AsyncSpotify which is released under MIT.     #
 #  You are not allowed to use this code or this file for another project without                   #
 #  linking to the original source.                                                                 #
 # ##################################################################################################
@@ -13,10 +13,12 @@ import os
 from os.path import join, abspath
 from typing import List
 
+from .authorization_flow import AuthorizationFlow
 
-class SpotifyApiPreferences:
+
+class AuthorizationCodeFlow(AuthorizationFlow):
     """
-    A Class with only the application information in it
+    A Class with the necessary information for the Authorization Code Flow in it
 
     Notes:
         __Scopes available:__
@@ -43,15 +45,15 @@ class SpotifyApiPreferences:
     def __init__(self, application_id: str = None, application_secret: str = None, scopes: List[str] = None,
                  redirect_url: str = None):
         """
-        Create a new Spotify SpotifyApiPreferences Object
+        Create a new Spotify AuthorizationCodeFlow Object
 
         Args:
-            application_id: The id of the application (Has to be set to use the object)
-            application_secret: The secret of the application (Has to be set to use the object)
-            scopes: The spotify scopes you app will request (optional)
-            redirect_url: The redirect url spotify will redirect the user after authentication (optional)
+            application_id: The id of the application
+            application_secret: The secret of the application
+            scopes: The spotify scopes you app will request
+            redirect_url: The redirect url spotify will redirect the user after authentication
         """
-        
+
         self.application_id: str = application_id
         self.application_secret: str = application_secret
         self.scopes: List[str] = scopes
@@ -59,7 +61,8 @@ class SpotifyApiPreferences:
 
     def load_from_env(self) -> None:
         """
-        Load the SpotifyApiPreferences from the environment. The variable names have to be the same as the property name.
+        Load the AuthorizationCodeFlow from the environment.
+        The variable names have to be the same as the property name.
 
         Important:
             Scopes has to be a string separated by ' '
@@ -74,7 +77,7 @@ class SpotifyApiPreferences:
 
     def load_from_docker_secret(self, base_dir: str = join(abspath(os.sep), 'var', 'run', 'secrets')) -> None:
         """
-        Loads the SpotifyApiPreferences from docker secret.
+        Loads the AuthorizationCodeFlow from docker secret.
         The variable names have to be the same as the property name.
 
         Args:
@@ -84,16 +87,17 @@ class SpotifyApiPreferences:
             Scopes has to be a string separated by ' '
         """
 
-        self.application_id = self._get_docker_secret('application_id', base_dir, self.application_id)
-        self.application_secret = self._get_docker_secret('application_secret', base_dir, self.application_secret)
-        self.redirect_url = self._get_docker_secret('redirect_url', base_dir, self.redirect_url)
+        self.application_id = AuthorizationFlow._get_docker_secret('application_id', base_dir, self.application_id)
+        self.application_secret = AuthorizationFlow._get_docker_secret('application_secret', base_dir,
+                                                                       self.application_secret)
+        self.redirect_url = AuthorizationFlow._get_docker_secret('redirect_url', base_dir, self.redirect_url)
 
-        scopes = self._get_docker_secret('scopes', base_dir, self.scopes)
+        scopes = AuthorizationFlow._get_docker_secret('scopes', base_dir, self.scopes)
         self.scopes = scopes.split(" ") if scopes and not isinstance(scopes, list) else self.scopes
 
-    def save_preferences_to_evn(self, ) -> None:
+    def save_to_evn(self) -> None:
         """
-        Takes the preferences saved in the object and saves them as os environment variables
+        Takes the auth_code_flow saved in the object and saves them as os environment variables
 
         Notes:
             This will however not be permanent but only last for one session
@@ -111,44 +115,11 @@ class SpotifyApiPreferences:
     @property
     def valid(self) -> bool:
         """
-        Validate if the preferences can be used. This will only check if the values of the preferences are not empty.
+        Validate if the auth_code_flow can be used. This will only check if the values of the auth_code_flow are not empty.
 
         Returns:
-            Are the preferences valid
+            Are the auth_code_flow valid
         """
-        if self.application_id and self.application_secret:
+        if self.application_id and self.application_secret and self.redirect_url and self.scopes:
             return True
         return False
-
-    @staticmethod
-    def _get_docker_secret(name: str, secrets_dir: str, default=None) -> str:
-        """
-        Read the docker secret and return it
-
-        Args:
-            name: The name of the docker secret
-            secrets_dir: The directory where the secrets are stored
-            default: The default value if no secret is found
-
-        Returns:
-            The docker secret
-        """
-
-        # try to read from secret file
-        try:
-            with open(os.path.join(secrets_dir, name), 'r') as secret_file:
-                return secret_file.read().strip()
-        except IOError:
-            return default
-
-    def __eq__(self, other) -> bool:
-        """
-        Support for equal assertion
-
-        Args:
-            other: The other object the comparison is made to
-
-        Returns:
-            Is the content of the objects equal
-        """
-        return self.__dict__ == other.__dict__

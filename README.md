@@ -36,13 +36,13 @@ pip install async-spotify
 For more in depth examples take a look [here](https://huiibuh.github.io/AsyncSpotify/EXAMPLES/) or visit the documentation.
 
 ```python
-from async_spotify import SpotifyApiPreferences, SpotifyApiClient, SpotifyAuthorisationToken
+from async_spotify import AuthorizationCodeFlow, SpotifyApiClient, SpotifyAuthorisationToken
 
-# Create a preferences object and load the preferences from env variables
-preferences = SpotifyApiPreferences()
+# Create a auth_code_flow object and load the auth_code_flow from env variables
+preferences = AuthorizationCodeFlow()
 preferences.load_from_env()
 
-# Create a new Api client and pass the preferences
+# Create a new Api client and pass the auth_code_flow
 api = SpotifyApiClient(preferences, hold_authentication=True)
 
 # Get the auth token with your code

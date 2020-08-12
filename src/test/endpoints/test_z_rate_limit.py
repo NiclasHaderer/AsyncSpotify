@@ -8,6 +8,7 @@
 import asyncio
 
 import pytest
+from aiohttp import ClientOSError
 
 from async_spotify import SpotifyApiClient
 from async_spotify.spotify_errors import RateLimitExceeded
@@ -19,5 +20,8 @@ async def test_rate_limit(prepared_api: SpotifyApiClient):
 
     album_id = '03dlqdFWY9gwJxGl3AREVy'
     with pytest.raises(RateLimitExceeded):
-        await asyncio.gather(*[prepared_api.albums.get_one(album_id) for _ in range(1000)])
+        try:
+            await asyncio.gather(*[prepared_api.albums.get_one(album_id) for _ in range(1000)])
+        except (ClientOSError, TimeoutError):
+            pass
     await asyncio.sleep(5)

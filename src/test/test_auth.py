@@ -15,7 +15,7 @@ import pytest
 
 from async_spotify import SpotifyAuthorisationToken, SpotifyApiClient, SpotifyError, SpotifyCookie
 from async_spotify.api._response_status import ResponseStatus
-from async_spotify.api.spotify_api_preferences import SpotifyApiPreferences
+from async_spotify.authentification.authorization_flows.authorization_code_flow import AuthorizationCodeFlow
 from conftest import TestDataTransfer
 
 
@@ -27,53 +27,54 @@ class TestAuth:
         assert False is cookies.valid
 
     def test_pass_authentication(self):
-        client = SpotifyApiClient(TestDataTransfer.preferences, hold_authentication=True,
+        client = SpotifyApiClient(TestDataTransfer.auth_code_flow, hold_authentication=True,
                                   spotify_authorisation_token=SpotifyAuthorisationToken(refresh_token='1'))
 
         assert client.spotify_authorization_token.refresh_token is '1'
 
-    # Load preferences
-    def test_load_secret_preferences(self):
-        preferences = SpotifyApiPreferences()
-        preferences.load_from_docker_secret()
+    # Load auth_code_flow
+    def test_load_secret_auth_flow(self):
+        auth_flow = AuthorizationCodeFlow()
+        auth_flow.load_from_docker_secret()
 
-        assert False is preferences.valid
+        assert False is auth_flow.valid
 
-    # Load the preferences from os
-    def test_load_os_preferences(self):
-        preferences = SpotifyApiPreferences()
-        preferences.load_from_env()
+    # Load the auth_code_flow from os
+    def test_load_os_auth_flow(self):
+        auth_flow = AuthorizationCodeFlow()
+        auth_flow.load_from_env()
 
-        assert preferences.valid
+        assert auth_flow.valid
 
-    # Test preference saving to os env
-    def test_save_preferences_to_env(self):
-        original_data = SpotifyApiPreferences()
+    # Test auth_flow saving to os env
+    def test_save_auth_flow_to_env(self):
+        original_data = AuthorizationCodeFlow()
         original_data.load_from_env()
 
-        preferences = SpotifyApiPreferences("save-preferences", "save-preferences", ["save-preferences", "save-preferences"],
-                                  "save-preferences")
-        preferences.save_preferences_to_evn()
+        auth_flow = AuthorizationCodeFlow("save-auth_code_flow", "save-auth_code_flow",
+                                          ["save-auth_code_flow", "save-auth_code_flow"],
+                                          "save-auth_code_flow")
+        auth_flow.save_to_evn()
 
-        loaded_preferences = SpotifyApiPreferences()
-        loaded_preferences.load_from_env()
+        loaded_auth_flow = AuthorizationCodeFlow()
+        loaded_auth_flow.load_from_env()
 
-        original_data.save_preferences_to_evn()
+        original_data.save_to_evn()
 
-        assert preferences == loaded_preferences
+        assert auth_flow == loaded_auth_flow
 
-    def test_load_wrong_preferences(self):
-        preferences = SpotifyApiPreferences()
+    def test_load_wrong_auth_flow(self):
+        auth_flow = AuthorizationCodeFlow()
         with pytest.raises(SpotifyError):
-            SpotifyApiClient(preferences)
+            SpotifyApiClient(auth_flow)
 
     # Test the generation of the auth url
     def test_auth_url(self, api: SpotifyApiClient):
         url = api.build_authorization_url(show_dialog=False, state="TestState")
         assert ("show_dialog=False" in url and
                 "state=TestState" in url and
-                TestDataTransfer.preferences.application_id in url and
-                urlencode({"redirect_uri": TestDataTransfer.preferences.redirect_url}) in url)
+                TestDataTransfer.auth_code_flow.application_id in url and
+                urlencode({"redirect_uri": TestDataTransfer.auth_code_flow.redirect_url}) in url)
 
     # Test the expiration token
     def test_not_expired_token(self):
@@ -88,9 +89,9 @@ class TestAuth:
     # Test the retrieval of the code with wrong params
     @pytest.mark.asyncio
     async def test_wrong_code_url(self):
-        preferences = SpotifyApiPreferences("test-with-wrong-code", "test-with-wrong-code", ["test-with-wrong-code"],
-                                  "test-with-wrong-code")
-        api = SpotifyApiClient(preferences)
+        auth_flow = AuthorizationCodeFlow("test-with-wrong-code", "test-with-wrong-code", ["test-with-wrong-code"],
+                                          "test-with-wrong-code")
+        api = SpotifyApiClient(auth_flow)
 
         with pytest.raises(SpotifyError):
             await api.get_code_with_cookie(TestDataTransfer.cookies)
@@ -147,6 +148,7 @@ class TestAuth:
     async def test_get_code_without_callback(self, api: SpotifyApiClient):
         code = await api.get_code_with_cookie(TestDataTransfer.cookies)
         assert code != ""
+
 
     # Test different response codes
     def test_response_type(self):

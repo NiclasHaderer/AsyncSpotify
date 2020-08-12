@@ -37,8 +37,8 @@ from ._endpoints.tracks import Track
 from ._endpoints.urls import URLS
 from ._endpoints.user import User
 from ._response_status import ResponseStatus
-from .spotify_api_preferences import SpotifyApiPreferences
 from .._error_message import ErrorMessage
+from ..authentification.authorization_flows import AuthorizationFlow
 from ..authentification.spotify_authorization_token import SpotifyAuthorisationToken
 from ..authentification.spotify_cookies import SpotifyCookie
 from ..spotify_errors import SpotifyError
@@ -51,7 +51,7 @@ class SpotifyApiClient:
     Use this class to authenticate and connect to the spotify api.
     """
 
-    def __init__(self, preferences: SpotifyApiPreferences,
+    def __init__(self, authorization_flow: AuthorizationFlow,
                  hold_authentication=False,
                  spotify_authorisation_token: SpotifyAuthorisationToken = None,
                  token_renew_instance: TokenRenewClass = None):
@@ -59,15 +59,15 @@ class SpotifyApiClient:
         Create a new api class
 
         Args:
-            preferences: The preferences object fully filled with information
+            authorization_flow: The auth_code_flow object fully filled with information
             hold_authentication: Should the api keep the authentication im memory and refresh it automatically
             token_renew_instance: An instance of a class which handles the renewing of the token if it should expire
         """
 
-        # Check if the preferences are valid
-        if not preferences.valid:
-            raise SpotifyError(ErrorMessage(message="The preferences of your app are not correct").__dict__)
-        self.preferences: SpotifyApiPreferences = preferences
+        # Check if the auth_code_flow are valid
+        if not authorization_flow.valid:
+            raise SpotifyError(ErrorMessage(message="The auth flow instance of your app is not correct").__dict__)
+        self.authorization_flow: AuthorizationFlow = authorization_flow
 
         # Set the SpotifyAuthorisationToken
         if spotify_authorisation_token:
@@ -168,11 +168,11 @@ class SpotifyApiClient:
         """
 
         params = {
-            "client_id": self.preferences.application_id,
+            "client_id": self.authorization_flow.application_id,
             "response_type": "code",
-            "scope": ' '.join(self.preferences.scopes),
+            "scope": ' '.join(self.authorization_flow.scopes),
             "show_dialog": f"{show_dialog}",
-            "redirect_uri": f"{self.preferences.redirect_url}"
+            "redirect_uri": f"{self.authorization_flow.redirect_url}"
         }
 
         # Check if a state is required
@@ -338,7 +338,7 @@ class SpotifyApiClient:
         body: dict = {
             'grant_type': 'authorization_code',
             'code': code,
-            'redirect_uri': self.preferences.redirect_url
+            'redirect_uri': self.authorization_flow.redirect_url
         }
 
         return await self._get_token(body)
@@ -413,7 +413,7 @@ class SpotifyApiClient:
 
         # Build the header of the request
         base_64: base64 = base64.b64encode(
-            f'{self.preferences.application_id}:{self.preferences.application_secret}'.encode('ascii'))
+            f'{self.authorization_flow.application_id}:{self.authorization_flow.application_secret}'.encode('ascii'))
         header: dict = {'Authorization': f'Basic {base_64.decode("ascii")}'}
 
         # Make the request to the api

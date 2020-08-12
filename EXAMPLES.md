@@ -2,19 +2,19 @@
 
 ## Getting started
 
-If you want to start connecting to the spotify api you have to create a new instance of the `SpotifyApiPreferences`. These SpotifyApiPreferences hold all sorts of configurations.  
+If you want to start connecting to the spotify api you have to create a new instance of the `AuthorizationCodeFlow`. These AuthorizationCodeFlow hold all sorts of configurations.  
 Scopes and redirect_url are optional if you are using the client credentials flow.
 
 ```python
-from async_spotify import SpotifyApiPreferences
+from async_spotify import AuthorizationCodeFlow
 
-preferences = SpotifyApiPreferences(
+preferences = AuthorizationCodeFlow(
     application_id = 'Your id',
     application_secret = 'Your secret',
     scopes = ['your', 'scopes'],
     redirect_url = 'your.redirect.utl')
 
-# You can also load the preferences from environment variables.
+# You can also load the auth_code_flow from environment variables.
 # If the variable does not exist the existing value will not be overwritten.
 preferences.load_from_env()
 ```
@@ -74,7 +74,7 @@ If you have some questions about this process read [this](https://developer.spot
 ```python
 
 
-    preferences = SpotifyApiPreferences()
+    preferences = AuthorizationCodeFlow()
     preferences.load_from_env()
 
     api_client = SpotifyApiClient(preferences)
@@ -174,7 +174,7 @@ This is mostly intended for testing purposes, but you could also use it in your 
 You start like normal and create a new `SpotifyApiClient`.
 
 ```python
-preferences = SpotifyApiPreferences()
+preferences = AuthorizationCodeFlow()
 preferences.load_from_env()
 
 api_client = SpotifyApiClient(preferences, hold_authentication=True)
