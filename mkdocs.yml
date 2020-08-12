@@ -9,7 +9,6 @@ nav:
   - Examples: "EXAMPLES.md"
   - Public API:
       - Spotify Api Client: "public_api/spotify_api_client.md"
-      - Preferences: "public_api/auth_code_flow.md"
       - Authentification: "public_api/authentification.md"
       - Spotify Errors: "public_api/spotify_errors.md"
       - Token Renew Hook: "public_api/token_renew_class.md"
@@ -39,6 +38,10 @@ nav:
 theme:
   name: "material"
   language: en
+
+  palette:
+    scheme: preference
+    primary: green
 
   icon:
     logo: material/spotify

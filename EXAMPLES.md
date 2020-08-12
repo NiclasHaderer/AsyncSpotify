@@ -2,13 +2,12 @@
 
 ## Getting started
 
-If you want to start connecting to the spotify api you have to create a new instance of the `AuthorizationCodeFlow`. These AuthorizationCodeFlow hold all sorts of configurations.  
-Scopes and redirect_url are optional if you are using the client credentials flow.
+If you want to start connecting to the spotify api you have to create a new instance of one of the AuthorizationCodeFlows. Currently onle the `AuthorizationCodeFlow` and `ClientCredentialsFlow` are supported. These AuthorizationCodeFlow hold all sorts of configurations.
 
 ```python
 from async_spotify import AuthorizationCodeFlow
 
-preferences = AuthorizationCodeFlow(
+auth_flow = AuthorizationCodeFlow(
     application_id = 'Your id',
     application_secret = 'Your secret',
     scopes = ['your', 'scopes'],
@@ -16,31 +15,31 @@ preferences = AuthorizationCodeFlow(
 
 # You can also load the auth_code_flow from environment variables.
 # If the variable does not exist the existing value will not be overwritten.
-preferences.load_from_env()
+auth_flow.load_from_env()
 ```
 
-These created preferences have to be passed to the `SpotifyApiClient`.
+These created auth_flow have to be passed to the `SpotifyApiClient`.
 
 ```python
 # Create new client
-api_client = SpotifyApiClient(prefernces)
+api_client = SpotifyApiClient(auth_flow)
 ```
 
 ### Authorization Code Flow
 
 To get a code from Spotify the user has to agree to the scopes your app asks for.  
-For this you create an authorization, let the user visit this url and read the code parameter in the spotify redirect.  
-If you have some questions about this process read [this](https://developer.spotify.com/documentation/general/guides/authorization-guide/#authorization-code-flow) spotify article about it.
+For this you create an authorization, let the user visit this url and read the code parameter in the spotify redirect.
 
 ```python
 # Build the authorization url for the users
-
 authorization_url: str = api_client.build_authorization_url(show_dialog = True)
 ```
 
+If you have some questions about this process read [this](https://developer.spotify.com/documentation/general/guides/authorization-guide/#authorization-code-flow) spotify article about it.
+
 We will assume that you managed to get a code from spotify for a specific user.
 
-Now we have to exchange the code for an authorization token, and a refresh token. But before we make this we have to create a new client which will be internally used for all the request making.
+Now we have to exchange the code for an authorization token, and a refresh token.
 
 ```python
 # Exchange the code for the tokens
@@ -48,6 +47,7 @@ auth_token: SpotifyAuthorisationToken = await api.get_auth_token_with_code(code)
 ```
 
 After we recieved the `auth_token` we can start making request.
+But before we make this we have to create a new client which will be internally used for all the request making.
 
 ```python
 # Create a new client which will handle the request
@@ -58,28 +58,32 @@ album = await api_client.albums.get_one(album_id, market='DE', auth_token=auth_t
 # ...
 ```
 
-If you want to shut down your application and don't want to leak requests you have to call the `close_client` method of the `api_client`.
 
-```python
-# Close the client
-await api_client.close_client()
-```
-
+!!! important
+    If you want to shut down your application and don't want to leak requests you have to call the `close_client` method of the `api_client`.
+    
+    ```python
+    # Close the client
+    await api_client.close_client()
+    ```
 ### Client Credentials Flow
 
-In this case you only have to pass your preferences to your `SpotifyApiClient` and call the
+In this case you only have to pass your auth_flow to your `SpotifyApiClient` and call the `get_auth_token_with_client_credentials` method.
 
 If you have some questions about this process read [this](https://developer.spotify.com/documentation/general/guides/authorization-guide/#client-credentials-flow) potify article about it.
 
 ```python
+# Create a auth flow (this time a ClientCredentialsFlow)
+auth_flow = ClientCredentialsFlow()
+auth_flow.load_from_env()
 
+# Pass it to the spotify client
+api_client = SpotifyApiClient(auth_flow)
 
-    preferences = AuthorizationCodeFlow()
-    preferences.load_from_env()
-
-    api_client = SpotifyApiClient(preferences)
-    auth_token = await api_client.get_auth_token_with_client_credentials()
-    await api.create_new_client()
+# Get the token from spotify
+await api_client.get_auth_token_with_client_credentials()
+# And start making requests
+await api.create_new_client()
 ```
 
 After we recieved the `auth_token` we can start making request.
@@ -93,12 +97,13 @@ album = await api_client.albums.get_one(album_id, market='DE', auth_token=auth_t
 # ...
 ```
 
-If you want to shut down your application and don't want to leak requests you have to call the `close_client` method of the `api_client`.
-
-```python
-# Close the client
-await api_client.close_client()
-```
+!!! important
+    If you want to shut down your application and don't want to leak requests you have to call the `close_client` method of the `api_client`.
+    
+    ```python
+    # Close the client
+    await api_client.close_client()
+    ```
 
 ## Endpoints
 
@@ -122,10 +127,10 @@ You don't have to pass a token to the method however if you want the internal to
 In addition to that you can limit the simultaneous requests, and the timout if you create a new client.
 
 ```python
-api_client = SpotifyApiClient(preferences, hold_authentication=True)
+api_client = SpotifyApiClient(auth_flow, hold_authentication=True)
 
 # And if you already have a auth_token you can pass this token to the constructor
-api_client = SpotifyApiClient(preferences, hold_authentication=True, auth_token=auth_token)
+api_client = SpotifyApiClient(auth_flow, hold_authentication=True, auth_token=auth_token)
 # Make the requests without passing the auth_token every time
 album = await api_client.albums.get_one(album_id)
 
@@ -174,10 +179,10 @@ This is mostly intended for testing purposes, but you could also use it in your 
 You start like normal and create a new `SpotifyApiClient`.
 
 ```python
-preferences = AuthorizationCodeFlow()
-preferences.load_from_env()
+auth_flow = AuthorizationCodeFlow()
+auth_flow.load_from_env()
 
-api_client = SpotifyApiClient(preferences, hold_authentication=True)
+api_client = SpotifyApiClient(auth_flow, hold_authentication=True)
 
 # Create a new spotify cookie
 cookie = SpotifyCookie()
@@ -231,7 +236,7 @@ class YourTokenRenewClass:
 
 renew_class = YourTokenRenewClass()
 
-api_client = SpotifyApiClient(preferences, token_renew_instance = renew_class)
+api_client = SpotifyApiClient(auth_flow, token_renew_instance = renew_class)
 # ...
 ```
 
@@ -242,6 +247,6 @@ Because `hold_authentication` is set to `True` the SpotifyApiClient will save th
 from async_spotify import SpotifyApiClient, TokenRenewClass
 
 renew_token = TokenRenewClass()
-SpotifyApiClient(preferences, hold_authentication=True, renew_token)
+SpotifyApiClient(auth_flow, hold_authentication=True, renew_token)
 
 ```
