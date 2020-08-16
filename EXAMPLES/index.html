@@ -435,7 +435,7 @@
 <h1 id="examples">Examples<a class="headerlink" href="#examples" title="Permanent link">¶</a></h1>
 <h2 id="getting-started">Getting started<a class="headerlink" href="#getting-started" title="Permanent link">¶</a></h2>
 <p>If you want to start connecting to the spotify api you have to create a new instance of one of the AuthorizationCodeFlows. Currently onle the <code>AuthorizationCodeFlow</code> and <code>ClientCredentialsFlow</code> are supported. These AuthorizationCodeFlow hold all sorts of configurations.</p>
-<div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">async_spotify</span> <span class="kn">import</span> <span class="n">AuthorizationCodeFlow</span>
+<div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">async_spotify.authentification.authorization_flows</span> <span class="kn">import</span> <span class="n">AuthorizationCodeFlow</span>
 
 <span class="n">auth_flow</span> <span class="o">=</span> <span class="n">AuthorizationCodeFlow</span><span class="p">(</span>
     <span class="n">application_id</span> <span class="o">=</span> <span class="s1">'Your id'</span><span class="p">,</span>
