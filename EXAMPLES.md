@@ -5,7 +5,7 @@
 If you want to start connecting to the spotify api you have to create a new instance of one of the AuthorizationCodeFlows. Currently onle the `AuthorizationCodeFlow` and `ClientCredentialsFlow` are supported. These AuthorizationCodeFlow hold all sorts of configurations.
 
 ```python
-from async_spotify import AuthorizationCodeFlow
+from async_spotify.authentification.authorization_flows import AuthorizationCodeFlow
 
 auth_flow = AuthorizationCodeFlow(
     application_id = 'Your id',
