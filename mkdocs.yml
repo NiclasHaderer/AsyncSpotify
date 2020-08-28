@@ -45,6 +45,7 @@ theme:
   palette:
     scheme: preference
     primary: green
+    accent: green
 
   icon:
     logo: material/spotify
