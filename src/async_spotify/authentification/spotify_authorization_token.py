@@ -1,5 +1,7 @@
 """
-This file contains the Spotify AuthorisationToken
+The AuthorisationToken is used to authorize the requests which get made. Every token has an activation_time and a
+access_token property which have to be present.
+The refresh_token property is only present if you use a authorization flow which provides a refresh_token.
 """
 
 # ##################################################################################################

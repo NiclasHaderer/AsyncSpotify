@@ -1,7 +1,3 @@
-"""
-The main api class which will be used to authenticate and connect to the spotify api
-"""
-
 # ##################################################################################################
 #  Copyright (c) 2020. HuiiBuh                                                                     #
 #  This file (spotify_api_client.py) is part of AsyncSpotify which is released under MIT.          #
@@ -49,8 +45,7 @@ from ..token_renew_class import TokenRenewClass
 
 class SpotifyApiClient:
     """
-    The main api class which will be used to authenticate and connect to the spotify api.
-    Use this class to authenticate and connect to the spotify api.
+    The class which will be used to authenticate and connect to the spotify api.
     """
 
     def __init__(self, authorization_flow: AuthorizationFlow,

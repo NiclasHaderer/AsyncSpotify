@@ -7,5 +7,5 @@ pytest-asyncio==0.10.0
 
 # Documentation
 mkdocstrings==0.12.2
-mkdocs-material==5.5.5
+mkdocs-material==5.5.7
 mkdocs-git-revision-date-localized-plugin==0.7

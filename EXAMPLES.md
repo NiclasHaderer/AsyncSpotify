@@ -11,7 +11,7 @@ auth_flow = AuthorizationCodeFlow(
     application_id = 'Your id',
     application_secret = 'Your secret',
     scopes = ['your', 'scopes'],
-    redirect_url = 'your.redirect.utl')
+    redirect_url = 'your.redirect.url')
 
 # You can also load the auth_code_flow from environment variables.
 # If the variable does not exist the existing value will not be overwritten.

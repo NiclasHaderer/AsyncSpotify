@@ -1,7 +1,3 @@
-"""
-Class which describes a spotify cookie which is necessary to authenticate a user
-"""
-
 # ##################################################################################################
 #  Copyright (c) 2020. HuiiBuh                                                                     #
 #  This file (spotify_cookies.py) is part of AsyncSpotify which is released under MIT.             #
@@ -14,7 +10,8 @@ import json
 
 class SpotifyCookie:
     """
-    Class which describes a valid spotify cookie
+    This class represents a spotify cookie. All of the provided values have to be set, otherwise the request will not be
+    successful.
     """
 
     def __init__(self, sp_t: str = None, sp_dc: str = None, sp_key: str = None):
