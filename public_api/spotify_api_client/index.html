@@ -8,17 +8,17 @@
 <meta content="Async wrapper in python for the spotify api" name="description"/>
 <link href="https://huiibuh.github.io/AsyncSpotify/public_api/spotify_api_client/" rel="canonical"/>
 <link href="https://upload.wikimedia.org/wikipedia/commons/9/9b/Font_Awesome_5_brands_spotify.svg" rel="shortcut icon"/>
-<meta content="mkdocs-1.1, mkdocs-material-5.5.5" name="generator"/>
+<meta content="mkdocs-1.1, mkdocs-material-5.5.9" name="generator"/>
 <title>Spotify Api Client - Async Spotify</title>
-<link href="../../assets/stylesheets/main.63b94e9e.min.css" rel="stylesheet"/>
-<link href="../../assets/stylesheets/palette.7f672a1f.min.css" rel="stylesheet"/>
-<meta content="#4caf50" name="theme-color"/>
+<link href="../../assets/stylesheets/main.36ee6aaa.min.css" rel="stylesheet"/>
+<link href="../../assets/stylesheets/palette.83bccb1f.min.css" rel="stylesheet"/>
+<meta content="#4cae4f" name="theme-color"/>
 <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
 <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700%7CRoboto+Mono&amp;display=fallback" rel="stylesheet"/>
 <style>body,input{font-family:"Roboto",-apple-system,BlinkMacSystemFont,Helvetica,Arial,sans-serif}code,kbd,pre{font-family:"Roboto Mono",SFMono-Regular,Consolas,Menlo,monospace}</style>
 <link href="../../custom.css" rel="stylesheet"/>
 </head>
-<body data-md-color-accent="" data-md-color-primary="green" data-md-color-scheme="preference" dir="ltr">
+<body data-md-color-accent="green" data-md-color-primary="green" data-md-color-scheme="preference" dir="ltr">
 <script>matchMedia("(prefers-color-scheme: dark)").matches&&document.body.setAttribute("data-md-color-scheme","slate")</script>
 <input autocomplete="off" class="md-toggle" data-md-toggle="drawer" id="__drawer" type="checkbox"/>
 <input autocomplete="off" class="md-toggle" data-md-toggle="search" id="__search" type="checkbox"/>
@@ -317,13 +317,13 @@
     </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../spotify_errors/" title="Spotify Errors">
-      Spotify Errors
+<a class="md-nav__link" href="../token_renew_class/" title="Token Renew Hook">
+      Token Renew Hook
     </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../token_renew_class/" title="Token Renew Hook">
-      Token Renew Hook
+<a class="md-nav__link" href="../spotify_errors/" title="Spotify Errors">
+      Spotify Errors
     </a>
 </li>
 <li class="md-nav__item md-nav__item--nested">
@@ -421,36 +421,36 @@
 <li class="md-nav__item md-nav__item--nested">
 <input class="md-nav__toggle md-toggle" data-md-toggle="nav-4" id="nav-4" type="checkbox"/>
 <label class="md-nav__link" for="nav-4">
-      Private API
+      Reference
       <span class="md-nav__icon md-icon">
 <svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M8.59 16.58L13.17 12 8.59 7.41 10 6l6 6-6 6-1.41-1.42z"></path></svg>
 </span>
 </label>
-<nav aria-label="Private API" class="md-nav" data-md-level="1">
+<nav aria-label="Reference" class="md-nav" data-md-level="1">
 <label class="md-nav__title" for="nav-4">
 <span class="md-nav__icon md-icon">
 <svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"></path></svg>
 </span>
-        Private API
+        Reference
       </label>
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../private_api/error_message/" title="Error Message">
+<a class="md-nav__link" href="../../reference/error_message/" title="Error Message">
       Error Message
     </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../private_api/request_handler/" title="Request Handler">
+<a class="md-nav__link" href="../../reference/request_handler/" title="Request Handler">
       Request Handler
     </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../private_api/status_classes/" title="Status Classes">
+<a class="md-nav__link" href="../../reference/status_classes/" title="Status Classes">
       Status Classes
     </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../private_api/url/" title="URLS">
+<a class="md-nav__link" href="../../reference/url/" title="URLS">
       URLS
     </a>
 </li>
@@ -647,15 +647,13 @@
 <h2 class="hidden-toc" href="#async_spotify.api.spotify_api_client" id="async_spotify.api.spotify_api_client" style="visibility: hidden; width: 0; height: 0;">
 <a class="headerlink" href="#async_spotify.api.spotify_api_client" title="Permanent link">¶</a></h2>
 <div class="doc doc-contents first">
-<p>The main api class which will be used to authenticate and connect to the spotify api</p>
 <div class="doc doc-children">
 <div class="doc doc-object doc-class">
 <h2 class="doc doc-heading" id="async_spotify.api.spotify_api_client.SpotifyApiClient">
 <code>SpotifyApiClient</code>
 <a class="headerlink" href="#async_spotify.api.spotify_api_client.SpotifyApiClient" title="Permanent link">¶</a></h2>
 <div class="doc doc-contents">
-<p>The main api class which will be used to authenticate and connect to the spotify api.
-Use this class to authenticate and connect to the spotify api.</p>
+<p>The class which will be used to authenticate and connect to the spotify api.</p>
 <div class="doc doc-children">
 <div class="doc doc-object doc-attribute">
 <h3 class="doc doc-heading" id="async_spotify.api.spotify_api_client.SpotifyApiClient.albums">
@@ -912,7 +910,12 @@ __init__<span class="p">(</span><span class="bp">self</span><span class="p">,</s
 <tr>
 <td class="linenos">
 <div class="linenodiv">
-<pre><span></span> 56
+<pre><span></span> 51
+ 52
+ 53
+ 54
+ 55
+ 56
  57
  58
  59
@@ -987,12 +990,7 @@ __init__<span class="p">(</span><span class="bp">self</span><span class="p">,</s
 128
 129
 130
-131
-132
-133
-134
-135
-136</pre>
+131</pre>
 </div>
 </td>
 <td class="code">
@@ -1145,7 +1143,12 @@ build_authorization_url<span class="p">(</span><span class="bp">self</span><span
 <tr>
 <td class="linenos">
 <div class="linenodiv">
-<pre><span></span>160
+<pre><span></span>155
+156
+157
+158
+159
+160
 161
 162
 163
@@ -1168,12 +1171,7 @@ build_authorization_url<span class="p">(</span><span class="bp">self</span><span
 180
 181
 182
-183
-184
-185
-186
-187
-188</pre>
+183</pre>
 </div>
 </td>
 <td class="code">
@@ -1229,13 +1227,13 @@ This method should always be called before you end your program</p>
 <tr>
 <td class="linenos">
 <div class="linenodiv">
-<pre><span></span>152
-153
-154
-155
-156
-157
-158</pre>
+<pre><span></span>147
+148
+149
+150
+151
+152
+153</pre>
 </div>
 </td>
 <td class="code">
@@ -1300,19 +1298,19 @@ This will however close all ongoing requests.</p>
 <tr>
 <td class="linenos">
 <div class="linenodiv">
-<pre><span></span>138
+<pre><span></span>133
+134
+135
+136
+137
+138
 139
 140
 141
 142
 143
 144
-145
-146
-147
-148
-149
-150</pre>
+145</pre>
 </div>
 </td>
 <td class="code">
@@ -1389,7 +1387,12 @@ get_auth_token_with_client_credentials<span class="p">(</span><span class="bp">s
 <tr>
 <td class="linenos">
 <div class="linenodiv">
-<pre><span></span>307
+<pre><span></span>302
+303
+304
+305
+306
+307
 308
 309
 310
@@ -1407,12 +1410,7 @@ get_auth_token_with_client_credentials<span class="p">(</span><span class="bp">s
 322
 323
 324
-325
-326
-327
-328
-329
-330</pre>
+325</pre>
 </div>
 </td>
 <td class="code">
@@ -1521,7 +1519,12 @@ get_auth_token_with_code<span class="p">(</span><span class="bp">self</span><spa
 <tr>
 <td class="linenos">
 <div class="linenodiv">
-<pre><span></span>332
+<pre><span></span>327
+328
+329
+330
+331
+332
 333
 334
 335
@@ -1543,12 +1546,7 @@ get_auth_token_with_code<span class="p">(</span><span class="bp">self</span><spa
 351
 352
 353
-354
-355
-356
-357
-358
-359</pre>
+354</pre>
 </div>
 </td>
 <td class="code">
@@ -1684,7 +1682,12 @@ environment.</p>
 <tr>
 <td class="linenos">
 <div class="linenodiv">
-<pre><span></span>202
+<pre><span></span>197
+198
+199
+200
+201
+202
 203
 204
 205
@@ -1718,12 +1721,7 @@ environment.</p>
 233
 234
 235
-236
-237
-238
-239
-240
-241</pre>
+236</pre>
 </div>
 </td>
 <td class="code">
@@ -1835,19 +1833,19 @@ next<span class="p">(</span><span class="bp">self</span><span class="p">,</span>
 <tr>
 <td class="linenos">
 <div class="linenodiv">
-<pre><span></span>451
+<pre><span></span>446
+447
+448
+449
+450
+451
 452
 453
 454
 455
 456
 457
-458
-459
-460
-461
-462
-463</pre>
+458</pre>
 </div>
 </td>
 <td class="code">
@@ -1908,17 +1906,17 @@ Only for testing purposes or the usage of this library in a desktop app</p>
 <tr>
 <td class="linenos">
 <div class="linenodiv">
-<pre><span></span>190
+<pre><span></span>185
+186
+187
+188
+189
+190
 191
 192
 193
 194
-195
-196
-197
-198
-199
-200</pre>
+195</pre>
 </div>
 </td>
 <td class="code">
@@ -2001,19 +1999,19 @@ previous<span class="p">(</span><span class="bp">self</span><span class="p">,</s
 <tr>
 <td class="linenos">
 <div class="linenodiv">
-<pre><span></span>465
+<pre><span></span>460
+461
+462
+463
+464
+465
 466
 467
 468
 469
 470
 471
-472
-473
-474
-475
-476
-477</pre>
+472</pre>
 </div>
 </td>
 <td class="code">
@@ -2095,7 +2093,12 @@ by the spotify auth flow.</p>
 <tr>
 <td class="linenos">
 <div class="linenodiv">
-<pre><span></span>381
+<pre><span></span>376
+377
+378
+379
+380
+381
 382
 383
 384
@@ -2127,12 +2130,7 @@ by the spotify auth flow.</p>
 410
 411
 412
-413
-414
-415
-416
-417
-418</pre>
+413</pre>
 </div>
 </td>
 <td class="code">
@@ -2249,14 +2247,14 @@ by the spotify auth flow.</p>
 </div>
 </footer>
 </div>
-<script src="../../assets/javascripts/vendor.d1f5a259.min.js"></script>
-<script src="../../assets/javascripts/bundle.f9edbbd5.min.js"></script><script id="__lang" type="application/json">{"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents"}</script>
+<script src="../../assets/javascripts/vendor.df0def68.min.js"></script>
+<script src="../../assets/javascripts/bundle.ba57d267.min.js"></script><script id="__lang" type="application/json">{"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents"}</script>
 <script>
         app = initialize({
           base: "../..",
-          features: [],
+          features: ["instant"],
           search: Object.assign({
-            worker: "../../assets/javascripts/worker/search.fae956e7.min.js"
+            worker: "../../assets/javascripts/worker/search.5eca75d3.min.js"
           }, typeof search !== "undefined" && search)
         })
       </script>
