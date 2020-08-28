@@ -27,6 +27,10 @@ class ClientCredentialsFlow(AuthorizationFlow):
 
     @property
     def valid(self) -> bool:
+        """
+        Check if the ClientCredentialsFlow is valid
+        Returns: boolean
+        """
         if self.application_id and self.application_secret:
             return True
         return False

@@ -28,6 +28,5 @@ twine upload dist/*
 
 ## Generate Docs
 
-To preview the docs run `PYTHONPATH=src mkdocs serve` (fish) `env PYTHONPATH=src mkdocs serve`.  
-To publish the docs run `PYTHONPATH=src mkdocs gh-deploy` (fish) `env PYTHONPATH=src mkdocs gh-deploy`.
-
+To preview the docs run `PYTHONPATH=src mkdocs serve -a 0.0.0.0:8000`  
+To publish the docs run `PYTHONPATH=src mkdocs gh-deploy`  

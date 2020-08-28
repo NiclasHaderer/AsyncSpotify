@@ -27,18 +27,20 @@ td p {
 }
 
 
-/*Theme***************************************************************************************************************/
-/*:root {*/
-/*    !* Link and nav color *!*/
-/*    --md-primary-fg-color: hsla(146, 73%, 42%, 1);*/
-/*    --md-primary-fg-color--light: hsl(146, 42%, 64%);*/
-/*    --md-primary-fg-color--dark: hsl(148, 54%, 41%);*/
+/* Scrollbar */
+* {
+    scrollbar-width: thin;
+}
 
-/*    !* Hover link and hover side nav *!*/
-/*    --md-accent-fg-color: hsla(142, 99%, 60%, 1);*/
+*::-webkit-scrollbar {
+    width: 5px
+}
 
-/*    !* Heading color *!*/
-/*    --md-code-fg-color: hsla(140, 18%, 24%, 1);*/
+*::-webkit-scrollbar-track {
+    background: #ddd
+}
 
-/*    --md-accent-fg-color--transparent: hsla(146, 73%, 42%, .07);*/
-/*}*/
+
+*::-webkit-scrollbar-thumb {
+    background: #666
+}

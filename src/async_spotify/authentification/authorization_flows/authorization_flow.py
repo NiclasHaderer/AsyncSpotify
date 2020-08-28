@@ -13,7 +13,8 @@ from typing import Any, List
 
 class AuthorizationFlow(ABC):
     """
-    Abstract class which every auth flow should extend
+    Abstract class which every auth flow should extend.
+    Provides the basic features every auth flow should have.
     """
 
     def load_from_env(self) -> None:

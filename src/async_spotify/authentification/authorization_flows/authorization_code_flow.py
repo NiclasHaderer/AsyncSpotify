@@ -1,7 +1,3 @@
-"""
-AuthorizationCodeFlow for the spotify api
-"""
-
 # ##################################################################################################
 #  Copyright (c) 2020. HuiiBuh                                                                     #
 #  This file (authorization_code_flow.py) is part of AsyncSpotify which is released under MIT.     #
@@ -16,7 +12,7 @@ from .authorization_flow import AuthorizationFlow
 
 class AuthorizationCodeFlow(AuthorizationFlow):
     """
-    A Class with the necessary information for the Authorization Code Flow in it
+    A Class which implements the authorization flow
 
     Notes:
         __Scopes available:__
@@ -60,7 +56,8 @@ class AuthorizationCodeFlow(AuthorizationFlow):
     @property
     def valid(self) -> bool:
         """
-        Validate if the auth_code_flow can be used. This will only check if the values of the auth_code_flow are not empty.
+        Validate if the auth_code_flow can be used. This will only check if the values of the auth_code_flow are not
+        empty.
 
         Returns:
             Are the auth_code_flow valid

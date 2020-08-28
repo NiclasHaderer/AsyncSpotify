@@ -10,8 +10,8 @@ nav:
   - Public API:
       - Spotify Api Client: "public_api/spotify_api_client.md"
       - Authentification: "public_api/authentification.md"
-      - Spotify Errors: "public_api/spotify_errors.md"
       - Token Renew Hook: "public_api/token_renew_class.md"
+      - Spotify Errors: "public_api/spotify_errors.md"
       - Endpoints:
           - "public_api/endpoints/overview.md"
           - "public_api/endpoints/albums.md"
@@ -27,17 +27,20 @@ nav:
           - "public_api/endpoints/shows.md"
           - "public_api/endpoints/tracks.md"
           - "public_api/endpoints/user.md"
-  - Private API:
-      - Error Message: "private_api/error_message.md"
-      - Request Handler: "private_api/request_handler.md"
-      - Status Classes: "private_api/status_classes.md"
-      - URLS: "private_api/url.md"
+  - Reference:
+      - Error Message: "reference/error_message.md"
+      - Request Handler: "reference/request_handler.md"
+      - Status Classes: "reference/status_classes.md"
+      - URLS: "reference/url.md"
   - Tests: "STUFF.md"
   - Licence: "LICENCE.md"
 
 theme:
   name: "material"
   language: en
+
+  features:
+    - instant
 
   palette:
     scheme: preference
