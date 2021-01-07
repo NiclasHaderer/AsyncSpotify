@@ -62,6 +62,6 @@ class AuthorizationCodeFlow(AuthorizationFlow):
         Returns:
             Are the auth_code_flow valid
         """
-        if self.application_id and self.application_secret and self.redirect_url and self.scopes:
+        if self.application_id and self.application_secret and self.redirect_url:
             return True
         return False
