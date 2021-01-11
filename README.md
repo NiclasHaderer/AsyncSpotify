@@ -1,5 +1,3 @@
-![AsyncSpotify](docs/images/icon_readme.png)
-
 # AsyncSpotify
 
 ![Unit Tests](https://github.com/HuiiBuh/AsyncSpotify/workflows/Unit%20Tests/badge.svg)

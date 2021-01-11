@@ -74,8 +74,8 @@ class Player(Endpoint):
 
         await self.api_request_handler.make_request('POST', URLS.PLAYER.QUEUE, args, auth_token)
 
-    async def add_multiple_to_queue(self, spotify_id_list: List[str],
-                                    auth_token: SpotifyAuthorisationToken = None, **kwargs) -> None:
+    async def add_multiple_tracks_to_queue(self, spotify_id_list: List[str],
+                                           auth_token: SpotifyAuthorisationToken = None, **kwargs) -> None:
         """
         Add items to the end of the user’s current playback queue
 
