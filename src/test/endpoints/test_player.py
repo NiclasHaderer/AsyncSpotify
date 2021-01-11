@@ -32,8 +32,7 @@ class TestPlayer:
         assert isinstance(response, dict)
 
     @pytest.mark.asyncio
-    async def test_current_track(self, prepared_api: SpotifyApiClient):
-
+    async def test_add_to_queue(self, prepared_api: SpotifyApiClient):
         try:
             await prepared_api.player.add_to_queue('spotify:track:4iV5W9uYEdYUVa79Axb7Rh')
             response: None = await prepared_api.player.add_to_queue('spotify:track:3RauEVgRgj1IuWdJ9fDs70')
@@ -45,7 +44,26 @@ class TestPlayer:
         assert not response
 
     @pytest.mark.asyncio
-    async def test_add_to_queue(self, prepared_api: SpotifyApiClient):
+    async def test_add_multiple_to_queue(self, prepared_api: SpotifyApiClient):
+        try:
+            await prepared_api.player.add_multiple_to_queue(
+                ['spotify:track:4iV5W9uYEdYUVa79Axb7Rh',
+                 'spotify:track:4iV5W9uYEdYUVa79Axb7Rh',
+                 'spotify:track:4iV5W9uYEdYUVa79Axb7Rh',
+                 'spotify:track:4iV5W9uYEdYUVa79Axb7Rh'])
+            response: None = await prepared_api.player.add_multiple_to_queue(
+                ['spotify:track:3RauEVgRgj1IuWdJ9fDs70',
+                 'spotify:track:3RauEVgRgj1IuWdJ9fDs70',
+                 'spotify:track:3RauEVgRgj1IuWdJ9fDs70'])
+        except SpotifyAPIError as e:
+            error = e.get_json()
+            assert error['error']['status'] == 404
+            return
+
+        assert not response
+
+    @pytest.mark.asyncio
+    async def test_current_track(self, prepared_api: SpotifyApiClient):
         response: dict = await prepared_api.player.get_current_track()
         assert isinstance(response, dict)
 
