@@ -46,12 +46,12 @@ class TestPlayer:
     @pytest.mark.asyncio
     async def test_add_multiple_to_queue(self, prepared_api: SpotifyApiClient):
         try:
-            await prepared_api.player.add_multiple_to_queue(
+            await prepared_api.player.add_multiple_tracks_to_queue(
                 ['spotify:track:4iV5W9uYEdYUVa79Axb7Rh',
                  'spotify:track:4iV5W9uYEdYUVa79Axb7Rh',
                  'spotify:track:4iV5W9uYEdYUVa79Axb7Rh',
                  'spotify:track:4iV5W9uYEdYUVa79Axb7Rh'])
-            response: None = await prepared_api.player.add_multiple_to_queue(
+            response: None = await prepared_api.player.add_multiple_tracks_to_queue(
                 ['spotify:track:3RauEVgRgj1IuWdJ9fDs70',
                  'spotify:track:3RauEVgRgj1IuWdJ9fDs70',
                  'spotify:track:3RauEVgRgj1IuWdJ9fDs70'])
