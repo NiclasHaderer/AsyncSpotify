@@ -64,24 +64,29 @@ class Playlists(Endpoint):
         url, _ = self._add_url_params(URLS.PLAYLIST.ONE, {'playlist_id': playlist_id})
         await self.api_request_handler.make_request('PUT', url, {}, auth_token, body=kwargs)
 
-    async def create_playlist(self, user_id: str, playlist_name: str, auth_token: SpotifyAuthorisationToken = None,
-                              **kwargs) -> dict:
+    async def create_playlist(self, user_id: str, playlist_name: str, playlist_description: str = '',
+                              public: bool = True, collaborative: bool = False,
+                              auth_token: SpotifyAuthorisationToken = None, **kwargs) -> dict:
         """
-        Change a playlist’s name and public/private state. (The user must, of course, own the playlist.)
+        Create a playlist for a user
 
         Notes:
             [https://developer.spotify.com/documentation/web-api/reference/playlists/create-playlist/](https://developer.spotify.com/documentation/web-api/reference/playlists/create-playlist/)
 
         Args:
             user_id: The id of the user
-            playlist_name: THe name of the playlist
+            playlist_name: The name of the playlist
+            playlist_description: The description for the playlist.
+            public: Wether the playlist is public
+            collaborative: Whether the playlist is collaborative
             auth_token: The auth token if you set the api class not to keep the token in memory
             kwargs: Optional arguments as keyword args
         """
 
         url, _ = self._add_url_params(URLS.PLAYLIST.CREATE, {'user_id': user_id})
         return await self.api_request_handler.make_request('POST', url, {}, auth_token,
-                                                           body={**{'name': playlist_name}, **kwargs})
+                                                           body={**{'name': playlist_name, 'description': playlist_description,
+                                                                   'collaborative': collaborative, 'public': public}, **kwargs})
 
     async def current_get_all(self, auth_token: SpotifyAuthorisationToken = None, **kwargs) -> dict:
         """
