@@ -113,4 +113,4 @@ class Track(Endpoint):
         url, _ = self._add_url_params(URLS.TRACKS.ONE, {'id': track_id})
 
         return await self.api_request_handler.make_request(
-            'GET', url, kwargs, auth_token)
+            'GET', url, auth_token, **kwargs)

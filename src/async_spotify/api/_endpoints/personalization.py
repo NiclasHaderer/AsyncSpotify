@@ -37,4 +37,4 @@ class Personalization(Endpoint):
         """
 
         url, _ = self._add_url_params(URLS.PERSONALIZATION.TOP, {'type': content_type})
-        return await self.api_request_handler.make_request('GET', url, kwargs, auth_token)
+        return await self.api_request_handler.make_request('GET', url, auth_token, **kwargs)

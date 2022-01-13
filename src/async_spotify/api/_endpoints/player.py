@@ -52,7 +52,7 @@ class Player(Endpoint):
             The top tracks and artists
         """
 
-        return await self.api_request_handler.make_request('GET', URLS.PLAYER.PLAYER, kwargs, auth_token)
+        return await self.api_request_handler.make_request('GET', URLS.PLAYER.PLAYER, auth_token, **kwargs)
 
     async def add_to_queue(self, spotify_id: str, auth_token: SpotifyAuthorisationToken = None, **kwargs) -> None:
         """
@@ -111,7 +111,7 @@ class Player(Endpoint):
             The recent tracks
         """
 
-        return await self.api_request_handler.make_request('GET', URLS.PLAYER.RECENTLY, kwargs, auth_token)
+        return await self.api_request_handler.make_request('GET', URLS.PLAYER.RECENTLY, auth_token, **kwargs)
 
     async def get_current_track(self, auth_token: SpotifyAuthorisationToken = None, **kwargs) -> dict:
         """
@@ -128,7 +128,7 @@ class Player(Endpoint):
             The current track
         """
 
-        return await self.api_request_handler.make_request('GET', URLS.PLAYER.PLAYING, kwargs, auth_token)
+        return await self.api_request_handler.make_request('GET', URLS.PLAYER.PLAYING, auth_token, **kwargs)
 
     async def pause(self, auth_token: SpotifyAuthorisationToken = None, **kwargs) -> None:
         """
@@ -142,7 +142,7 @@ class Player(Endpoint):
             kwargs: Optional arguments as keyword args
         """
 
-        await self.api_request_handler.make_request('PUT', URLS.PLAYER.PAUSE, kwargs, auth_token)
+        await self.api_request_handler.make_request('PUT', URLS.PLAYER.PAUSE, auth_token, **kwargs)
 
     async def seek(self, position_ms: int, auth_token: SpotifyAuthorisationToken = None, **kwargs) -> None:
         """
@@ -208,7 +208,7 @@ class Player(Endpoint):
             kwargs: Optional arguments as keyword args
         """
 
-        await self.api_request_handler.make_request('POST', URLS.PLAYER.NEXT, kwargs, auth_token)
+        await self.api_request_handler.make_request('POST', URLS.PLAYER.NEXT, auth_token, **kwargs)
 
     async def previous(self, auth_token: SpotifyAuthorisationToken = None, **kwargs) -> None:
         """
@@ -222,7 +222,7 @@ class Player(Endpoint):
             kwargs: Optional arguments as keyword args
         """
 
-        await self.api_request_handler.make_request('POST', URLS.PLAYER.PREVIOUS, kwargs, auth_token)
+        await self.api_request_handler.make_request('POST', URLS.PLAYER.PREVIOUS, auth_token, **kwargs)
 
     async def play(self, device_id: str = None, auth_token: SpotifyAuthorisationToken = None, **kwargs) -> None:
         """

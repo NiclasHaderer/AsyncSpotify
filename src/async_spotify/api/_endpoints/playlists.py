@@ -98,7 +98,7 @@ class Playlists(Endpoint):
             A List of Current User's Playlists
         """
 
-        return await self.api_request_handler.make_request('GET', URLS.PLAYLIST.ME, kwargs, auth_token)
+        return await self.api_request_handler.make_request('GET', URLS.PLAYLIST.ME, auth_token, **kwargs)
 
     async def get_user_all(self, user_id: str, auth_token: SpotifyAuthorisationToken = None, **kwargs) -> dict:
         """
@@ -117,7 +117,7 @@ class Playlists(Endpoint):
         """
 
         url, _ = self._add_url_params(URLS.PLAYLIST.USER, {'user_id': user_id})
-        return await self.api_request_handler.make_request('GET', url, kwargs, auth_token)
+        return await self.api_request_handler.make_request('GET', url, auth_token, **kwargs)
 
     async def get_one(self, playlist_id: str, auth_token: SpotifyAuthorisationToken = None, **kwargs) -> dict:
         """
@@ -136,7 +136,7 @@ class Playlists(Endpoint):
         """
 
         url, _ = self._add_url_params(URLS.PLAYLIST.ONE, {'playlist_id': playlist_id})
-        return await self.api_request_handler.make_request('GET', url, kwargs, auth_token)
+        return await self.api_request_handler.make_request('GET', url, auth_token, **kwargs)
 
     async def get_cover(self, playlist_id: str, auth_token: SpotifyAuthorisationToken = None) -> dict:
         """
