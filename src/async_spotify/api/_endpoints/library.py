@@ -89,7 +89,7 @@ class Library(Endpoint):
             kwargs: Optional arguments as keyword args
         """
 
-        return await self.api_request_handler.make_request('GET', URLS.LIBRARY.ALBUMS, kwargs, auth_token)
+        return await self.api_request_handler.make_request('GET', URLS.LIBRARY.ALBUMS, auth_token, **kwargs)
 
     async def get_shows(self, auth_token: SpotifyAuthorisationToken = None, **kwargs) -> dict:
         """
@@ -103,7 +103,7 @@ class Library(Endpoint):
             kwargs: Optional arguments as keyword args
         """
 
-        return await self.api_request_handler.make_request('GET', URLS.LIBRARY.SHOWS, kwargs, auth_token)
+        return await self.api_request_handler.make_request('GET', URLS.LIBRARY.SHOWS, auth_token, **kwargs)
 
     async def get_tracks(self, auth_token: SpotifyAuthorisationToken = None, **kwargs) -> dict:
         """
@@ -117,7 +117,7 @@ class Library(Endpoint):
             kwargs: Optional arguments as keyword args
         """
 
-        return await self.api_request_handler.make_request('GET', URLS.LIBRARY.TRACKS, kwargs, auth_token)
+        return await self.api_request_handler.make_request('GET', URLS.LIBRARY.TRACKS, auth_token, **kwargs)
 
     async def remove_albums(self, album_id_list: List[str], auth_token: SpotifyAuthorisationToken = None) -> None:
         """

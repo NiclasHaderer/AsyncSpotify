@@ -78,4 +78,4 @@ class Shows(Endpoint):
         url, _ = self._add_url_params(URLS.SHOWS.EPISODES, {'id': show_id})
 
         return await self.api_request_handler.make_request(
-            'GET', url, kwargs, auth_token)
+            'GET', url, auth_token, **kwargs)
