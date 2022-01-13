@@ -208,7 +208,7 @@ class Player(Endpoint):
             kwargs: Optional arguments as keyword args
         """
 
-        await self.api_request_handler.make_request('POST', URLS.PLAYER.NEXT, **kwargs, auth_token)
+        await self.api_request_handler.make_request('POST', URLS.PLAYER.NEXT, auth_token, **kwargs)
 
     async def previous(self, auth_token: SpotifyAuthorisationToken = None, **kwargs) -> None:
         """
