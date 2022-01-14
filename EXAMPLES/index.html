@@ -877,7 +877,7 @@
 
 <h1 id="examples">Examples<a class="headerlink" href="#examples" title="Permanent link">&para;</a></h1>
 <h2 id="getting-started">Getting started<a class="headerlink" href="#getting-started" title="Permanent link">&para;</a></h2>
-<p>If you want to start connecting to the spotify api you have to create a new instance of one of the AuthorizationCodeFlows. Currently onle the <code>AuthorizationCodeFlow</code> and <code>ClientCredentialsFlow</code> are supported. These AuthorizationCodeFlow hold all sorts of configurations.</p>
+<p>If you want to start connecting to the spotify api you have to create a new instance of one of the AuthorizationCodeFlows. Currently, only the <code>AuthorizationCodeFlow</code> and <code>ClientCredentialsFlow</code> are supported. These AuthorizationCodeFlow hold all sorts of configurations.</p>
 <div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">async_spotify.authentification.authorization_flows</span> <span class="kn">import</span> <span class="n">AuthorizationCodeFlow</span>
 
 <span class="n">auth_flow</span> <span class="o">=</span> <span class="n">AuthorizationCodeFlow</span><span class="p">(</span>
@@ -959,6 +959,11 @@ Look <a href="https://huiibuh.github.io/AsyncSpotify/public_api/spotify_api_clie
 <span class="n">api_client</span><span class="o">.</span><span class="n">albums</span><span class="o">.</span><span class="n">whatever</span><span class="p">()</span>
 <span class="c1"># For the artist endpoint</span>
 <span class="n">api_client</span><span class="o">.</span><span class="n">artist</span><span class="o">.</span><span class="n">whatever</span><span class="p">()</span>
+<span class="c1"># Every argument mentioned by the Spotify API can be passed as kwarg. The client will figure out if your provided kwarg</span>
+<span class="c1"># should be added to the request body, or the url</span>
+<span class="k">await</span> <span class="n">api_client</span><span class="o">.</span><span class="n">player</span><span class="o">.</span><span class="n">play</span><span class="p">(</span><span class="n">context_uri</span><span class="o">=</span><span class="s2">&quot;spotify:album:5ht7ItJgpBH7W6vJ5BqpPr&quot;</span><span class="p">,</span> <span class="n">device_id</span><span class="o">=</span><span class="s2">&quot;whatever_id&quot;</span><span class="p">)</span>
+<span class="c1">#                                 ^                                                  ^</span>
+<span class="c1">#                                BODY                                               URL      </span>
 </code></pre></div>
 <h2 id="advanced-configuration">Advanced Configuration<a class="headerlink" href="#advanced-configuration" title="Permanent link">&para;</a></h2>
 <p>If you don't want to pass the <code>auth_token</code> every time you make a request you can instruct the <code>SpotifyApiClient</code> to keep the token in memory.
@@ -994,7 +999,7 @@ Every exception inherits from the <code>SpotifyBaseError</code> so if you want t
 <span class="w">  </span><span class="p">}</span><span class="w"></span>
 <span class="p">}</span><span class="w"></span>
 </code></pre></div>
-<p>The status is the HTTP status code and if not aplicable the number 0.
+<p>The status is the HTTP status code and if not applicable the number 0.
 The message is the reason something failed.</p>
 <div class="highlight"><pre><span></span><code><span class="k">try</span><span class="p">:</span>
     <span class="n">album</span> <span class="o">=</span> <span class="k">await</span> <span class="n">api_client</span><span class="o">.</span><span class="n">albums</span><span class="o">.</span><span class="n">get_one</span><span class="p">(</span><span class="n">album_id</span><span class="p">)</span>
@@ -1072,7 +1077,7 @@ Because <code>hold_authentication</code> is set to <code>True</code> the Spotify
   <small>
     
       Last update:
-      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">August 28, 2020</span>
+      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">January 14, 2022</span>
       
     
   </small>
