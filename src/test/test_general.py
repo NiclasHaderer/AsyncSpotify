@@ -102,5 +102,5 @@ class TestGeneral:
             p.load_from_docker_secret()
             assert p.application_id == 'wrong_id'
         else:
-            p.load_from_docker_secret('/home/niclas/IdeaProjects/AsyncSpotify/examples/private/')
+            p.load_from_docker_secret(os.environ["docker_secret_dummy_location"])
             assert p.application_id == 'wrong_id'

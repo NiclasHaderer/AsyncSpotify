@@ -131,3 +131,4 @@ dmypy.json
 .pyre/
 /examples/private/
 /out/
+cookie.json

@@ -81,7 +81,16 @@ class TestPlayer:
                 assert error['error']['status'] == 404 or error['error']['status'] == 500
                 return
 
-        assert pause is None and play is None
+    @pytest.mark.asyncio
+    async def test_queue_album(self, prepared_api: SpotifyApiClient):
+        await prepared_api.player.play(context_uri="spotify:album:5ht7ItJgpBH7W6vJ5BqpPr")
+        current_track = await prepared_api.player.get_current_track()
+        assert current_track["item"]["album"]["uri"] == "spotify:album:5ht7ItJgpBH7W6vJ5BqpPr"
+
+    @pytest.mark.asyncio
+    async def test_invalid_device_queue(self, prepared_api: SpotifyApiClient):
+        with pytest.raises(SpotifyAPIError):
+            await prepared_api.player.play(context_uri="spotify:album:5ht7ItJgpBH7W6vJ5BqpPr", device_id="asdf")
 
     @pytest.mark.asyncio
     async def test_seek(self, prepared_api: SpotifyApiClient):

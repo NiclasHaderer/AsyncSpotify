@@ -224,7 +224,7 @@ class Player(Endpoint):
 
         await self.api_request_handler.make_request('POST', URLS.PLAYER.PREVIOUS, kwargs, auth_token)
 
-    async def play(self, device_id: str = None, auth_token: SpotifyAuthorisationToken = None, **kwargs) -> None:
+    async def play(self, auth_token: SpotifyAuthorisationToken = None, **kwargs) -> None:
         """
         Start a new context or resume current playback on the user’s active device.
 
@@ -232,12 +232,15 @@ class Player(Endpoint):
             [https://developer.spotify.com/documentation/web-api/reference/player/start-a-users-playback/](https://developer.spotify.com/documentation/web-api/reference/player/start-a-users-playback/)
 
         Args:
-            device_id: A single device ID
             auth_token: The auth token if you set the api class not to keep the token in memory
             kwargs: Optional arguments as keyword args
         """
 
-        await self.api_request_handler.make_request('PUT', URLS.PLAYER.PLAY, {'device_id': device_id}, auth_token,
+        query_params = {}
+        if "device_id" in kwargs:
+            query_params = {'device_id': kwargs["device_id"]}
+
+        await self.api_request_handler.make_request('PUT', URLS.PLAYER.PLAY, query_params, auth_token,
                                                     kwargs)
 
     async def shuffle(self, shuffle_on: bool, auth_token: SpotifyAuthorisationToken = None, **kwargs) -> None:
