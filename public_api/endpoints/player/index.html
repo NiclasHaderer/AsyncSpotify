@@ -10,11 +10,10 @@
       
       
       
-      
         <link rel="canonical" href="https://huiibuh.github.io/AsyncSpotify/public_api/endpoints/player/">
       
-      <link rel="shortcut icon" href="https://upload.wikimedia.org/wikipedia/commons/9/9b/Font_Awesome_5_brands_spotify.svg">
-      <meta name="generator" content="mkdocs-1.1, mkdocs-material-6.2.4">
+      <link rel="icon" href="https://upload.wikimedia.org/wikipedia/commons/9/9b/Font_Awesome_5_brands_spotify.svg">
+      <meta name="generator" content="mkdocs-1.2.3, mkdocs-material-8.1.6">
     
     
       
@@ -22,10 +21,10 @@
       
     
     
-      <link rel="stylesheet" href="../../../assets/stylesheets/main.15aa0b43.min.css">
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.cd566b2a.min.css">
       
         
-        <link rel="stylesheet" href="../../../assets/stylesheets/palette.75751829.min.css">
+        <link rel="stylesheet" href="../../../assets/stylesheets/palette.e6a45f82.min.css">
         
           
           
@@ -39,15 +38,18 @@
         
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
         <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700%7CRoboto+Mono&display=fallback">
-        <style>body,input{font-family:"Roboto",-apple-system,BlinkMacSystemFont,Helvetica,Arial,sans-serif}code,kbd,pre{font-family:"Roboto Mono",SFMono-Regular,Consolas,Menlo,monospace}</style>
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
       
     
     
+      <link rel="stylesheet" href="../../../assets/_mkdocstrings.css">
     
       <link rel="stylesheet" href="../../../custom.css">
     
+    <script>__md_scope=new URL("../../..",location),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
+
     
     
   </head>
@@ -59,10 +61,8 @@
     
     
     <body dir="ltr" data-md-color-scheme="preference" data-md-color-primary="green" data-md-color-accent="green">
-      
-        <script>matchMedia("(prefers-color-scheme: dark)").matches&&document.body.setAttribute("data-md-color-scheme","slate")</script>
-      
   
+    
     
     <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
     <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
@@ -79,27 +79,28 @@
       
     </div>
     
+    
       
 
 <header class="md-header" data-md-component="header">
-  <nav class="md-header-nav md-grid" aria-label="Header">
-    <a href="https://huiibuh.github.io/AsyncSpotify/" title="Async Spotify" class="md-header-nav__button md-logo" aria-label="Async Spotify">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../../.." title="Async Spotify" class="md-header__button md-logo" aria-label="Async Spotify" data-md-component="logo">
       
   
-  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17.9 10.9C14.7 9 9.35 8.8 6.3 9.75c-.5.15-1-.15-1.15-.6-.15-.5.15-1 .6-1.15 3.55-1.05 9.4-.85 13.1 1.35.45.25.6.85.35 1.3-.25.35-.85.5-1.3.25m-.1 2.8c-.25.35-.7.5-1.05.25-2.7-1.65-6.8-2.15-9.95-1.15-.4.1-.85-.1-.95-.5-.1-.4.1-.85.5-.95 3.65-1.1 8.15-.55 11.25 1.35.3.15.45.65.2 1m-1.2 2.75c-.2.3-.55.4-.85.2-2.35-1.45-5.3-1.75-8.8-.95-.35.1-.65-.15-.75-.45-.1-.35.15-.65.45-.75 3.8-.85 7.1-.5 9.7 1.1.35.15.4.55.25.85M12 2A10 10 0 002 12a10 10 0 0010 10 10 10 0 0010-10A10 10 0 0012 2z"/></svg>
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17.9 10.9C14.7 9 9.35 8.8 6.3 9.75c-.5.15-1-.15-1.15-.6-.15-.5.15-1 .6-1.15 3.55-1.05 9.4-.85 13.1 1.35.45.25.6.85.35 1.3-.25.35-.85.5-1.3.25m-.1 2.8c-.25.35-.7.5-1.05.25-2.7-1.65-6.8-2.15-9.95-1.15-.4.1-.85-.1-.95-.5-.1-.4.1-.85.5-.95 3.65-1.1 8.15-.55 11.25 1.35.3.15.45.65.2 1m-1.2 2.75c-.2.3-.55.4-.85.2-2.35-1.45-5.3-1.75-8.8-.95-.35.1-.65-.15-.75-.45-.1-.35.15-.65.45-.75 3.8-.85 7.1-.5 9.7 1.1.35.15.4.55.25.85M12 2A10 10 0 0 0 2 12a10 10 0 0 0 10 10 10 10 0 0 0 10-10A10 10 0 0 0 12 2z"/></svg>
 
     </a>
-    <label class="md-header-nav__button md-icon" for="__drawer">
+    <label class="md-header__button md-icon" for="__drawer">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2z"/></svg>
     </label>
-    <div class="md-header-nav__title" data-md-component="header-title">
-      <div class="md-header-nav__ellipsis">
-        <div class="md-header-nav__topic">
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
           <span class="md-ellipsis">
             Async Spotify
           </span>
         </div>
-        <div class="md-header-nav__topic">
+        <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
               Player
@@ -109,22 +110,27 @@
       </div>
     </div>
     
-      <label class="md-header-nav__button md-icon" for="__search">
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0116 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 019.5 16 6.5 6.5 0 013 9.5 6.5 6.5 0 019.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
       </label>
-      
-<div class="md-search" data-md-component="search" role="dialog">
+      <div class="md-search" data-md-component="search" role="dialog">
   <label class="md-search__overlay" for="__search"></label>
   <div class="md-search__inner" role="search">
     <form class="md-search__form" name="search">
-      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" data-md-state="active" required>
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
       <label class="md-search__icon md-icon" for="__search">
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0116 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 019.5 16 6.5 6.5 0 013 9.5 6.5 6.5 0 019.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
       </label>
-      <button type="reset" class="md-search__icon md-icon" aria-label="Clear" data-md-component="search-reset" tabindex="-1">
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41z"/></svg>
-      </button>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" aria-label="Clear" tabindex="-1">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41z"/></svg>
+        </button>
+      </nav>
+      
     </form>
     <div class="md-search__output">
       <div class="md-search__scrollwrap" data-md-scrollfix>
@@ -140,12 +146,11 @@
 </div>
     
     
-      <div class="md-header-nav__source">
-        
-<a href="https://github.com/HuiiBuh/AsyncSpotify/" title="Go to repository" class="md-source">
+      <div class="md-header__source">
+        <a href="https://github.com/HuiiBuh/AsyncSpotify/" title="Go to repository" class="md-source" data-md-component="source">
   <div class="md-source__icon md-icon">
     
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M2.6 10.59L8.38 4.8l1.69 1.7c-.24.85.15 1.78.93 2.23v5.54c-.6.34-1 .99-1 1.73a2 2 0 002 2 2 2 0 002-2c0-.74-.4-1.39-1-1.73V9.41l2.07 2.09c-.07.15-.07.32-.07.5a2 2 0 002 2 2 2 0 002-2 2 2 0 00-2-2c-.18 0-.35 0-.5.07L13.93 7.5a1.98 1.98 0 00-1.15-2.34c-.43-.16-.88-.2-1.28-.09L9.8 3.38l.79-.78c.78-.79 2.04-.79 2.82 0l7.99 7.99c.79.78.79 2.04 0 2.82l-7.99 7.99c-.78.79-2.04.79-2.82 0L2.6 13.41c-.79-.78-.79-2.04 0-2.82z"/></svg>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M2.6 10.59 8.38 4.8l1.69 1.7c-.24.85.15 1.78.93 2.23v5.54c-.6.34-1 .99-1 1.73a2 2 0 0 0 2 2 2 2 0 0 0 2-2c0-.74-.4-1.39-1-1.73V9.41l2.07 2.09c-.07.15-.07.32-.07.5a2 2 0 0 0 2 2 2 2 0 0 0 2-2 2 2 0 0 0-2-2c-.18 0-.35 0-.5.07L13.93 7.5a1.98 1.98 0 0 0-1.15-2.34c-.43-.16-.88-.2-1.28-.09L9.8 3.38l.79-.78c.78-.79 2.04-.79 2.82 0l7.99 7.99c.79.78.79 2.04 0 2.82l-7.99 7.99c-.78.79-2.04.79-2.82 0L2.6 13.41c-.79-.78-.79-2.04 0-2.82z"/></svg>
   </div>
   <div class="md-source__repository">
     HuiiBuh/AsyncSpotify
@@ -154,11 +159,14 @@
       </div>
     
   </nav>
+  
 </header>
     
     <div class="md-container" data-md-component="container">
       
       
+        
+          
         
       
       <main class="md-main" data-md-component="main">
@@ -166,31 +174,28 @@
           
             
               
-              <div class="md-sidebar md-sidebar--primary" data-md-component="navigation" >
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
                 <div class="md-sidebar__scrollwrap">
                   <div class="md-sidebar__inner">
                     
 
 
-
-
 <nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
   <label class="md-nav__title" for="__drawer">
-    <a href="https://huiibuh.github.io/AsyncSpotify/" title="Async Spotify" class="md-nav__button md-logo" aria-label="Async Spotify">
+    <a href="../../.." title="Async Spotify" class="md-nav__button md-logo" aria-label="Async Spotify" data-md-component="logo">
       
   
-  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17.9 10.9C14.7 9 9.35 8.8 6.3 9.75c-.5.15-1-.15-1.15-.6-.15-.5.15-1 .6-1.15 3.55-1.05 9.4-.85 13.1 1.35.45.25.6.85.35 1.3-.25.35-.85.5-1.3.25m-.1 2.8c-.25.35-.7.5-1.05.25-2.7-1.65-6.8-2.15-9.95-1.15-.4.1-.85-.1-.95-.5-.1-.4.1-.85.5-.95 3.65-1.1 8.15-.55 11.25 1.35.3.15.45.65.2 1m-1.2 2.75c-.2.3-.55.4-.85.2-2.35-1.45-5.3-1.75-8.8-.95-.35.1-.65-.15-.75-.45-.1-.35.15-.65.45-.75 3.8-.85 7.1-.5 9.7 1.1.35.15.4.55.25.85M12 2A10 10 0 002 12a10 10 0 0010 10 10 10 0 0010-10A10 10 0 0012 2z"/></svg>
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17.9 10.9C14.7 9 9.35 8.8 6.3 9.75c-.5.15-1-.15-1.15-.6-.15-.5.15-1 .6-1.15 3.55-1.05 9.4-.85 13.1 1.35.45.25.6.85.35 1.3-.25.35-.85.5-1.3.25m-.1 2.8c-.25.35-.7.5-1.05.25-2.7-1.65-6.8-2.15-9.95-1.15-.4.1-.85-.1-.95-.5-.1-.4.1-.85.5-.95 3.65-1.1 8.15-.55 11.25 1.35.3.15.45.65.2 1m-1.2 2.75c-.2.3-.55.4-.85.2-2.35-1.45-5.3-1.75-8.8-.95-.35.1-.65-.15-.75-.45-.1-.35.15-.65.45-.75 3.8-.85 7.1-.5 9.7 1.1.35.15.4.55.25.85M12 2A10 10 0 0 0 2 12a10 10 0 0 0 10 10 10 10 0 0 0 10-10A10 10 0 0 0 12 2z"/></svg>
 
     </a>
     Async Spotify
   </label>
   
     <div class="md-nav__source">
-      
-<a href="https://github.com/HuiiBuh/AsyncSpotify/" title="Go to repository" class="md-source">
+      <a href="https://github.com/HuiiBuh/AsyncSpotify/" title="Go to repository" class="md-source" data-md-component="source">
   <div class="md-source__icon md-icon">
     
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M2.6 10.59L8.38 4.8l1.69 1.7c-.24.85.15 1.78.93 2.23v5.54c-.6.34-1 .99-1 1.73a2 2 0 002 2 2 2 0 002-2c0-.74-.4-1.39-1-1.73V9.41l2.07 2.09c-.07.15-.07.32-.07.5a2 2 0 002 2 2 2 0 002-2 2 2 0 00-2-2c-.18 0-.35 0-.5.07L13.93 7.5a1.98 1.98 0 00-1.15-2.34c-.43-.16-.88-.2-1.28-.09L9.8 3.38l.79-.78c.78-.79 2.04-.79 2.82 0l7.99 7.99c.79.78.79 2.04 0 2.82l-7.99 7.99c-.78.79-2.04.79-2.82 0L2.6 13.41c-.79-.78-.79-2.04 0-2.82z"/></svg>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M2.6 10.59 8.38 4.8l1.69 1.7c-.24.85.15 1.78.93 2.23v5.54c-.6.34-1 .99-1 1.73a2 2 0 0 0 2 2 2 2 0 0 0 2-2c0-.74-.4-1.39-1-1.73V9.41l2.07 2.09c-.07.15-.07.32-.07.5a2 2 0 0 0 2 2 2 2 0 0 0 2-2 2 2 0 0 0-2-2c-.18 0-.35 0-.5.07L13.93 7.5a1.98 1.98 0 0 0-1.15-2.34c-.43-.16-.88-.2-1.28-.09L9.8 3.38l.79-.78c.78-.79 2.04-.79 2.82 0l7.99 7.99c.79.78.79 2.04 0 2.82l-7.99 7.99c-.78.79-2.04.79-2.82 0L2.6 13.41c-.79-.78-.79-2.04 0-2.82z"/></svg>
   </div>
   <div class="md-source__repository">
     HuiiBuh/AsyncSpotify
@@ -204,260 +209,284 @@
       
       
 
-
-
-  <li class="md-nav__item">
-    <a href="../../.." class="md-nav__link">
-      Overview
-    </a>
-  </li>
-
-    
-      
-      
-      
-
-
-
-  <li class="md-nav__item">
-    <a href="../../../EXAMPLES/" class="md-nav__link">
-      Examples
-    </a>
-  </li>
-
-    
-      
-      
-      
-
-
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../.." class="md-nav__link">
+        Overview
+      </a>
+    </li>
   
 
+    
+      
+      
+      
 
   
-  <li class="md-nav__item md-nav__item--active md-nav__item--nested">
-    
-    
-      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-3" type="checkbox" id="nav-3" checked>
-    
-    <label class="md-nav__link" for="nav-3">
-      Public API
-      <span class="md-nav__icon md-icon"></span>
-    </label>
-    <nav class="md-nav" aria-label="Public API" data-md-level="1">
-      <label class="md-nav__title" for="nav-3">
-        <span class="md-nav__icon md-icon"></span>
-        Public API
-      </label>
-      <ul class="md-nav__list" data-md-scrollfix>
-        
-        
-          
-          
-          
-
-
-
-  <li class="md-nav__item">
-    <a href="../../spotify_api_client/" class="md-nav__link">
-      Spotify Api Client
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-
-  <li class="md-nav__item">
-    <a href="../../authentification/" class="md-nav__link">
-      Authentification
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-
-  <li class="md-nav__item">
-    <a href="../../token_renew_class/" class="md-nav__link">
-      Token Renew Hook
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-
-  <li class="md-nav__item">
-    <a href="../../spotify_errors/" class="md-nav__link">
-      Spotify Errors
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../EXAMPLES/" class="md-nav__link">
+        Examples
+      </a>
+    </li>
   
 
+    
+      
+      
+      
 
   
-  <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+  
     
+  
+  
     
-      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-3-5" type="checkbox" id="nav-3-5" checked>
-    
-    <label class="md-nav__link" for="nav-3-5">
-      Endpoints
-      <span class="md-nav__icon md-icon"></span>
-    </label>
-    <nav class="md-nav" aria-label="Endpoints" data-md-level="2">
-      <label class="md-nav__title" for="nav-3-5">
-        <span class="md-nav__icon md-icon"></span>
-        Endpoints
-      </label>
-      <ul class="md-nav__list" data-md-scrollfix>
-        
-        
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3" type="checkbox" id="__nav_3" checked>
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_3">
+          Public API
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Public API" data-md-level="1">
+        <label class="md-nav__title" for="__nav_3">
+          <span class="md-nav__icon md-icon"></span>
+          Public API
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
           
-          
-          
-
-
-
-  <li class="md-nav__item">
-    <a href="../overview/" class="md-nav__link">
-      Overview
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-
-  <li class="md-nav__item">
-    <a href="../albums/" class="md-nav__link">
-      Albums
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-
-  <li class="md-nav__item">
-    <a href="../artists/" class="md-nav__link">
-      Artists
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-
-  <li class="md-nav__item">
-    <a href="../browse/" class="md-nav__link">
-      Browse
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-
-  <li class="md-nav__item">
-    <a href="../episodes/" class="md-nav__link">
-      Episodes
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-
-  <li class="md-nav__item">
-    <a href="../follow/" class="md-nav__link">
-      Follow
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-
-  <li class="md-nav__item">
-    <a href="../library/" class="md-nav__link">
-      Library
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-
-  <li class="md-nav__item">
-    <a href="../personalization/" class="md-nav__link">
-      Personalization
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../spotify_api_client/" class="md-nav__link">
+        Spotify Api Client
+      </a>
+    </li>
   
 
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../authentification/" class="md-nav__link">
+        Authentification
+      </a>
+    </li>
+  
 
-  <li class="md-nav__item md-nav__item--active">
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../token_renew_class/" class="md-nav__link">
+        Token Renew Hook
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../spotify_errors/" class="md-nav__link">
+        Spotify Errors
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
     
-    <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+  
+  
     
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3_5" type="checkbox" id="__nav_3_5" checked>
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_3_5">
+          Endpoints
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Endpoints" data-md-level="2">
+        <label class="md-nav__title" for="__nav_3_5">
+          <span class="md-nav__icon md-icon"></span>
+          Endpoints
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../overview/" class="md-nav__link">
+        Overview
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../albums/" class="md-nav__link">
+        Albums
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../artists/" class="md-nav__link">
+        Artists
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../browse/" class="md-nav__link">
+        Browse
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../episodes/" class="md-nav__link">
+        Episodes
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../follow/" class="md-nav__link">
+        Follow
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../library/" class="md-nav__link">
+        Library
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../personalization/" class="md-nav__link">
+        Personalization
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
     
-      <label class="md-nav__link md-nav__link--active" for="__toc">
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+      
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          Player
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         Player
-        <span class="md-nav__icon md-icon"></span>
-      </label>
-    
-    <a href="./" class="md-nav__link md-nav__link--active">
-      Player
-    </a>
-    
+      </a>
       
+        
+
 <nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
   
   
   
@@ -465,7 +494,7 @@
       <span class="md-nav__icon md-icon"></span>
       Table of contents
     </label>
-    <ul class="md-nav__list" data-md-scrollfix>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
   <a href="#async_spotify.api._endpoints.player" class="md-nav__link">
@@ -595,190 +624,213 @@
     </ul>
   
 </nav>
+      
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../playlists/" class="md-nav__link">
+        Playlists
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../search/" class="md-nav__link">
+        Search
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../shows/" class="md-nav__link">
+        Shows
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../tracks/" class="md-nav__link">
+        Tracks
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../user/" class="md-nav__link">
+        User
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
     
-  </li>
-
-        
-          
-          
-          
-
-
-
-  <li class="md-nav__item">
-    <a href="../playlists/" class="md-nav__link">
-      Playlists
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-
-  <li class="md-nav__item">
-    <a href="../search/" class="md-nav__link">
-      Search
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-
-  <li class="md-nav__item">
-    <a href="../shows/" class="md-nav__link">
-      Shows
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-
-  <li class="md-nav__item">
-    <a href="../tracks/" class="md-nav__link">
-      Tracks
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-
-  <li class="md-nav__item">
-    <a href="../user/" class="md-nav__link">
-      User
-    </a>
-  </li>
-
-        
-      </ul>
-    </nav>
-  </li>
-
-        
-      </ul>
-    </nav>
-  </li>
-
-    
       
       
       
-
-
 
   
-  <li class="md-nav__item md-nav__item--nested">
+  
+  
     
-    
-      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-4" type="checkbox" id="nav-4" >
-    
-    <label class="md-nav__link" for="nav-4">
-      Reference
-      <span class="md-nav__icon md-icon"></span>
-    </label>
-    <nav class="md-nav" aria-label="Reference" data-md-level="1">
-      <label class="md-nav__title" for="nav-4">
-        <span class="md-nav__icon md-icon"></span>
-        Reference
-      </label>
-      <ul class="md-nav__list" data-md-scrollfix>
-        
-        
-          
-          
-          
-
-
-
-  <li class="md-nav__item">
-    <a href="../../../reference/error_message/" class="md-nav__link">
-      Error Message
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-
-  <li class="md-nav__item">
-    <a href="../../../reference/request_handler/" class="md-nav__link">
-      Request Handler
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-
-  <li class="md-nav__item">
-    <a href="../../../reference/status_classes/" class="md-nav__link">
-      Status Classes
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-
-  <li class="md-nav__item">
-    <a href="../../../reference/url/" class="md-nav__link">
-      URLS
-    </a>
-  </li>
-
-        
-      </ul>
-    </nav>
-  </li>
-
-    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_4" type="checkbox" id="__nav_4" >
       
       
       
+      
+        <label class="md-nav__link" for="__nav_4">
+          Reference
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Reference" data-md-level="1">
+        <label class="md-nav__title" for="__nav_4">
+          <span class="md-nav__icon md-icon"></span>
+          Reference
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../reference/error_message/" class="md-nav__link">
+        Error Message
+      </a>
+    </li>
+  
 
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../reference/request_handler/" class="md-nav__link">
+        Request Handler
+      </a>
+    </li>
+  
 
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../reference/status_classes/" class="md-nav__link">
+        Status Classes
+      </a>
+    </li>
+  
 
-  <li class="md-nav__item">
-    <a href="../../../STUFF/" class="md-nav__link">
-      Tests
-    </a>
-  </li>
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../reference/url/" class="md-nav__link">
+        URLS
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
 
     
       
       
       
 
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../STUFF/" class="md-nav__link">
+        Tests
+      </a>
+    </li>
+  
 
+    
+      
+      
+      
 
-  <li class="md-nav__item">
-    <a href="../../../LICENCE/" class="md-nav__link">
-      Licence
-    </a>
-  </li>
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../LICENCE/" class="md-nav__link">
+        Licence
+      </a>
+    </li>
+  
 
     
   </ul>
@@ -789,11 +841,13 @@
             
             
               
-              <div class="md-sidebar md-sidebar--secondary" data-md-component="toc" >
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
                 <div class="md-sidebar__scrollwrap">
                   <div class="md-sidebar__inner">
                     
+
 <nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
   
   
   
@@ -801,7 +855,7 @@
       <span class="md-nav__icon md-icon"></span>
       Table of contents
     </label>
-    <ul class="md-nav__list" data-md-scrollfix>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
   <a href="#async_spotify.api._endpoints.player" class="md-nav__link">
@@ -936,118 +990,390 @@
               </div>
             
           
-          <div class="md-content">
+          <div class="md-content" data-md-component="content">
             <article class="md-content__inner md-typeset">
               
                 
-                  <a href="https://github.com/HuiiBuh/AsyncSpotify/edit/master/docs/public_api/endpoints/player.md" title="Edit this page" class="md-content__button md-icon">
-                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75L3 17.25z"/></svg>
-                  </a>
-                
-                
-                  <h1>Player</h1>
-                
-                <div class="doc doc-object doc-module">
-<h2 class="hidden-toc" id="async_spotify.api._endpoints.player" style="visibility: hidden; position: absolute;">
-        <a class="headerlink" href="#async_spotify.api._endpoints.player" title="Permanent link">&para;</a></h2>
-<div class="doc doc-contents first">
-<p>Module with the player endpoint</p>
-<div class="doc doc-children">
-<div class="doc doc-object doc-class">
-<h2 class="doc doc-heading" id="async_spotify.api._endpoints.player.Player">
+<a href="https://github.com/HuiiBuh/AsyncSpotify/edit/master/docs/public_api/endpoints/player.md" title="Edit this page" class="md-content__button md-icon">
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75L3 17.25z"/></svg>
+</a>
 
-        <code>Player</code>
+
+  <h1>Player</h1>
+
+<div class="doc doc-object doc-module">
+
+<a id="async_spotify.api._endpoints.player"></a>
+    <div class="doc doc-contents first">
+
+      <p>Module with the player endpoint</p>
 
 
 
-      <a class="headerlink" href="#async_spotify.api._endpoints.player.Player" title="Permanent link">&para;</a></h2>
-<div class="doc doc-contents ">
-<p>Player endpoint</p>
-<div class="doc doc-children">
-<div class="doc doc-object doc-method">
-<h3 class="doc doc-heading" id="async_spotify.api._endpoints.player.Player.add_multiple_tracks_to_queue">
-
-<code class="highlight language-python"><span class="n">add_multiple_tracks_to_queue</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">spotify_id_list</span><span class="p">,</span> <span class="n">auth_token</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span></code>
+  <div class="doc doc-children">
 
 
-      <a class="headerlink" href="#async_spotify.api._endpoints.player.Player.add_multiple_tracks_to_queue" title="Permanent link">&para;</a></h3>
-<div class="doc doc-contents ">
-<p>Add items to the end of the user’s current playback queue</p>
+
+
+
+
+
+  <div class="doc doc-object doc-class">
+
+
+
+<h2 id="async_spotify.api._endpoints.player.Player" class="doc doc-heading">
+        <code>
+Player            (<span title="async_spotify.api._endpoints.endpoint.Endpoint">Endpoint</span>)
+        </code>
+
+
+
+<a href="#async_spotify.api._endpoints.player.Player" class="headerlink" title="Permanent link">&para;</a></h2>
+
+    <div class="doc doc-contents ">
+
+      <p>Player endpoint</p>
+
+        <details class="quote">
+          <summary>Source code in <code>async_spotify/api/_endpoints/player.py</code></summary>
+          <div class="codehilite"><pre><span></span><code><span class="k">class</span> <span class="nc">Player</span><span class="p">(</span><span class="n">Endpoint</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Player endpoint</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="k">async</span> <span class="k">def</span> <span class="nf">get_devices</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">auth_token</span><span class="p">:</span> <span class="n">SpotifyAuthorisationToken</span> <span class="o">=</span> <span class="kc">None</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">dict</span><span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Get information about a user’s available devices.</span>
+
+<span class="sd">        Notes:</span>
+<span class="sd">            [https://developer.spotify.com/documentation/web-api/reference/player/get-a-users-available-devices/](https://developer.spotify.com/documentation/web-api/reference/player/get-a-users-available-devices/)</span>
+
+<span class="sd">        Args:</span>
+<span class="sd">            auth_token: The auth token if you set the api class not to keep the token in memory</span>
+
+<span class="sd">        Returns:</span>
+<span class="sd">            The available devices</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+
+        <span class="k">return</span> <span class="k">await</span> <span class="bp">self</span><span class="o">.</span><span class="n">api_request_handler</span><span class="o">.</span><span class="n">make_request</span><span class="p">(</span><span class="s1">&#39;GET&#39;</span><span class="p">,</span> <span class="n">URLS</span><span class="o">.</span><span class="n">PLAYER</span><span class="o">.</span><span class="n">DEVICES</span><span class="p">,</span> <span class="p">{},</span> <span class="n">auth_token</span><span class="p">)</span>
+
+    <span class="k">async</span> <span class="k">def</span> <span class="nf">get_queue</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">auth_token</span><span class="p">:</span> <span class="n">SpotifyAuthorisationToken</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">dict</span><span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Get information about the user’s current playback state, including track or episode, progress,</span>
+<span class="sd">        and active device.</span>
+
+<span class="sd">        Notes:</span>
+<span class="sd">            [https://developer.spotify.com/documentation/web-api/reference/player/get-information-about-the-users-current-playback/](https://developer.spotify.com/documentation/web-api/reference/player/get-information-about-the-users-current-playback/)</span>
+
+<span class="sd">        Args:</span>
+<span class="sd">            auth_token: The auth token if you set the api class not to keep the token in memory</span>
+<span class="sd">            kwargs: Optional arguments as keyword args</span>
+
+<span class="sd">        Returns:</span>
+<span class="sd">            The top tracks and artists</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+
+        <span class="k">return</span> <span class="k">await</span> <span class="bp">self</span><span class="o">.</span><span class="n">api_request_handler</span><span class="o">.</span><span class="n">make_request</span><span class="p">(</span><span class="s1">&#39;GET&#39;</span><span class="p">,</span> <span class="n">URLS</span><span class="o">.</span><span class="n">PLAYER</span><span class="o">.</span><span class="n">PLAYER</span><span class="p">,</span> <span class="n">kwargs</span><span class="p">,</span> <span class="n">auth_token</span><span class="p">)</span>
+
+    <span class="k">async</span> <span class="k">def</span> <span class="nf">add_to_queue</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">spotify_id</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">auth_token</span><span class="p">:</span> <span class="n">SpotifyAuthorisationToken</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Add an item to the end of the user’s current playback queue</span>
+
+<span class="sd">        Notes:</span>
+<span class="sd">            [https://developer.spotify.com/documentation/web-api/reference/player/add-to-queue/](https://developer.spotify.com/documentation/web-api/reference/player/add-to-queue/)</span>
+
+<span class="sd">        Args:</span>
+<span class="sd">            spotify_id: A spotify id of an item</span>
+<span class="sd">            auth_token: The auth token if you set the api class not to keep the token in memory</span>
+<span class="sd">            kwargs: Optional arguments as keyword args</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+
+        <span class="n">args</span><span class="p">:</span> <span class="nb">dict</span> <span class="o">=</span> <span class="p">{</span>
+            <span class="s1">&#39;uri&#39;</span><span class="p">:</span> <span class="n">spotify_id</span><span class="p">,</span>
+            <span class="o">**</span><span class="n">kwargs</span>
+        <span class="p">}</span>
+
+        <span class="k">await</span> <span class="bp">self</span><span class="o">.</span><span class="n">api_request_handler</span><span class="o">.</span><span class="n">make_request</span><span class="p">(</span><span class="s1">&#39;POST&#39;</span><span class="p">,</span> <span class="n">URLS</span><span class="o">.</span><span class="n">PLAYER</span><span class="o">.</span><span class="n">QUEUE</span><span class="p">,</span> <span class="n">args</span><span class="p">,</span> <span class="n">auth_token</span><span class="p">)</span>
+
+    <span class="k">async</span> <span class="k">def</span> <span class="nf">add_multiple_tracks_to_queue</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">spotify_id_list</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="nb">str</span><span class="p">],</span>
+                                           <span class="n">auth_token</span><span class="p">:</span> <span class="n">SpotifyAuthorisationToken</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Add items to the end of the user’s current playback queue</span>
+
+<span class="sd">        Notes:</span>
+<span class="sd">            [https://developer.spotify.com/documentation/web-api/reference/player/add-to-queue/](https://developer.spotify.com/documentation/web-api/reference/player/add-to-queue/)</span>
+
+<span class="sd">        Args:</span>
+<span class="sd">            spotify_id_list: A spotify id list of an item</span>
+<span class="sd">            auth_token: The auth token if you set the api class not to keep the token in memory</span>
+<span class="sd">            kwargs: Optional arguments as keyword args</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+
+        <span class="k">for</span> <span class="n">spotify_id</span> <span class="ow">in</span> <span class="n">spotify_id_list</span><span class="p">:</span>
+            <span class="n">args</span><span class="p">:</span> <span class="nb">dict</span> <span class="o">=</span> <span class="p">{</span>
+                <span class="s1">&#39;uri&#39;</span><span class="p">:</span> <span class="n">spotify_id</span><span class="p">,</span>
+                <span class="o">**</span><span class="n">kwargs</span>
+            <span class="p">}</span>
+
+            <span class="k">await</span> <span class="bp">self</span><span class="o">.</span><span class="n">api_request_handler</span><span class="o">.</span><span class="n">make_request</span><span class="p">(</span><span class="s1">&#39;POST&#39;</span><span class="p">,</span> <span class="n">URLS</span><span class="o">.</span><span class="n">PLAYER</span><span class="o">.</span><span class="n">QUEUE</span><span class="p">,</span> <span class="n">args</span><span class="p">,</span> <span class="n">auth_token</span><span class="p">)</span>
+
+    <span class="k">async</span> <span class="k">def</span> <span class="nf">get_recent_tracks</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">auth_token</span><span class="p">:</span> <span class="n">SpotifyAuthorisationToken</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">dict</span><span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Get the Current User&#39;s Recently Played Tracks</span>
+
+<span class="sd">        Notes:</span>
+<span class="sd">            [https://developer.spotify.com/documentation/web-api/reference/player/get-recently-played/](https://developer.spotify.com/documentation/web-api/reference/player/get-recently-played/)</span>
+
+<span class="sd">        Args:</span>
+<span class="sd">            auth_token: The auth token if you set the api class not to keep the token in memory</span>
+<span class="sd">            kwargs: Optional arguments as keyword args</span>
+
+<span class="sd">        Returns:</span>
+<span class="sd">            The recent tracks</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+
+        <span class="k">return</span> <span class="k">await</span> <span class="bp">self</span><span class="o">.</span><span class="n">api_request_handler</span><span class="o">.</span><span class="n">make_request</span><span class="p">(</span><span class="s1">&#39;GET&#39;</span><span class="p">,</span> <span class="n">URLS</span><span class="o">.</span><span class="n">PLAYER</span><span class="o">.</span><span class="n">RECENTLY</span><span class="p">,</span> <span class="n">kwargs</span><span class="p">,</span> <span class="n">auth_token</span><span class="p">)</span>
+
+    <span class="k">async</span> <span class="k">def</span> <span class="nf">get_current_track</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">auth_token</span><span class="p">:</span> <span class="n">SpotifyAuthorisationToken</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">dict</span><span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Get the User&#39;s Currently Playing Track</span>
+
+<span class="sd">        Notes:</span>
+<span class="sd">            [https://developer.spotify.com/documentation/web-api/reference/player/get-the-users-currently-playing-track/](https://developer.spotify.com/documentation/web-api/reference/player/get-the-users-currently-playing-track/)</span>
+
+<span class="sd">        Args:</span>
+<span class="sd">            auth_token: The auth token if you set the api class not to keep the token in memory</span>
+<span class="sd">            kwargs: Optional arguments as keyword args</span>
+
+<span class="sd">        Returns:</span>
+<span class="sd">            The current track</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+
+        <span class="k">return</span> <span class="k">await</span> <span class="bp">self</span><span class="o">.</span><span class="n">api_request_handler</span><span class="o">.</span><span class="n">make_request</span><span class="p">(</span><span class="s1">&#39;GET&#39;</span><span class="p">,</span> <span class="n">URLS</span><span class="o">.</span><span class="n">PLAYER</span><span class="o">.</span><span class="n">PLAYING</span><span class="p">,</span> <span class="n">kwargs</span><span class="p">,</span> <span class="n">auth_token</span><span class="p">)</span>
+
+    <span class="k">async</span> <span class="k">def</span> <span class="nf">pause</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">auth_token</span><span class="p">:</span> <span class="n">SpotifyAuthorisationToken</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Pause playback on the user’s account</span>
+
+<span class="sd">        Notes:</span>
+<span class="sd">            [https://developer.spotify.com/documentation/web-api/reference/player/pause-a-users-playback/](https://developer.spotify.com/documentation/web-api/reference/player/pause-a-users-playback/)</span>
+
+<span class="sd">        Args:</span>
+<span class="sd">            auth_token: The auth token if you set the api class not to keep the token in memory</span>
+<span class="sd">            kwargs: Optional arguments as keyword args</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+
+        <span class="k">await</span> <span class="bp">self</span><span class="o">.</span><span class="n">api_request_handler</span><span class="o">.</span><span class="n">make_request</span><span class="p">(</span><span class="s1">&#39;PUT&#39;</span><span class="p">,</span> <span class="n">URLS</span><span class="o">.</span><span class="n">PLAYER</span><span class="o">.</span><span class="n">PAUSE</span><span class="p">,</span> <span class="n">kwargs</span><span class="p">,</span> <span class="n">auth_token</span><span class="p">)</span>
+
+    <span class="k">async</span> <span class="k">def</span> <span class="nf">seek</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">position_ms</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span> <span class="n">auth_token</span><span class="p">:</span> <span class="n">SpotifyAuthorisationToken</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Pause playback on the user’s account</span>
+
+<span class="sd">        Notes:</span>
+<span class="sd">            [https://developer.spotify.com/documentation/web-api/reference/player/seek-to-position-in-currently-playing-track/](https://developer.spotify.com/documentation/web-api/reference/player/seek-to-position-in-currently-playing-track/)</span>
+
+<span class="sd">        Args:</span>
+<span class="sd">            position_ms: The position in milliseconds to seek to. Must be a positive number. Passing in a position that</span>
+<span class="sd">                is greater than the length of the track will cause the player to start playing the next song.</span>
+<span class="sd">            auth_token: The auth token if you set the api class not to keep the token in memory</span>
+<span class="sd">            kwargs: Optional arguments as keyword args</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+
+        <span class="n">args</span> <span class="o">=</span> <span class="p">{</span><span class="o">**</span><span class="p">{</span><span class="s1">&#39;position_ms&#39;</span><span class="p">:</span> <span class="n">position_ms</span><span class="p">},</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">}</span>
+        <span class="k">await</span> <span class="bp">self</span><span class="o">.</span><span class="n">api_request_handler</span><span class="o">.</span><span class="n">make_request</span><span class="p">(</span><span class="s1">&#39;PUT&#39;</span><span class="p">,</span> <span class="n">URLS</span><span class="o">.</span><span class="n">PLAYER</span><span class="o">.</span><span class="n">SEEK</span><span class="p">,</span> <span class="n">args</span><span class="p">,</span> <span class="n">auth_token</span><span class="p">)</span>
+
+    <span class="k">async</span> <span class="k">def</span> <span class="nf">repeat</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">state</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">auth_token</span><span class="p">:</span> <span class="n">SpotifyAuthorisationToken</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Set the repeat mode for the user’s playback. Options are repeat-track, repeat-context, and off.</span>
+
+<span class="sd">        Notes:</span>
+<span class="sd">            [https://developer.spotify.com/documentation/web-api/reference/player/set-repeat-mode-on-users-playback/](https://developer.spotify.com/documentation/web-api/reference/player/set-repeat-mode-on-users-playback/)</span>
+
+<span class="sd">        Args:</span>
+<span class="sd">            state: track, context or off.</span>
+<span class="sd">                track will repeat the current track.</span>
+<span class="sd">                context will repeat the current context.</span>
+<span class="sd">                off will turn repeat off.</span>
+<span class="sd">            auth_token: The auth token if you set the api class not to keep the token in memory</span>
+<span class="sd">            kwargs: Optional arguments as keyword args</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+
+        <span class="n">args</span> <span class="o">=</span> <span class="p">{</span><span class="o">**</span><span class="p">{</span><span class="s1">&#39;state&#39;</span><span class="p">:</span> <span class="n">state</span><span class="p">},</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">}</span>
+        <span class="k">await</span> <span class="bp">self</span><span class="o">.</span><span class="n">api_request_handler</span><span class="o">.</span><span class="n">make_request</span><span class="p">(</span><span class="s1">&#39;PUT&#39;</span><span class="p">,</span> <span class="n">URLS</span><span class="o">.</span><span class="n">PLAYER</span><span class="o">.</span><span class="n">REPEAT</span><span class="p">,</span> <span class="n">args</span><span class="p">,</span> <span class="n">auth_token</span><span class="p">)</span>
+
+    <span class="k">async</span> <span class="k">def</span> <span class="nf">volume</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">volume_percent</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span> <span class="n">auth_token</span><span class="p">:</span> <span class="n">SpotifyAuthorisationToken</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Set the volume for the user’s current playback device.</span>
+
+<span class="sd">        Notes:</span>
+<span class="sd">            [https://developer.spotify.com/documentation/web-api/reference/player/set-volume-for-users-playback/](https://developer.spotify.com/documentation/web-api/reference/player/set-volume-for-users-playback/)</span>
+
+<span class="sd">        Args:</span>
+<span class="sd">            volume_percent: Integer. The volume to set. Must be a value from 0 to 100 inclusive.</span>
+<span class="sd">            auth_token: The auth token if you set the api class not to keep the token in memory</span>
+<span class="sd">            kwargs: Optional arguments as keyword args</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+
+        <span class="n">args</span> <span class="o">=</span> <span class="p">{</span><span class="o">**</span><span class="p">{</span><span class="s1">&#39;volume_percent&#39;</span><span class="p">:</span> <span class="n">volume_percent</span><span class="p">},</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">}</span>
+        <span class="k">await</span> <span class="bp">self</span><span class="o">.</span><span class="n">api_request_handler</span><span class="o">.</span><span class="n">make_request</span><span class="p">(</span><span class="s1">&#39;PUT&#39;</span><span class="p">,</span> <span class="n">URLS</span><span class="o">.</span><span class="n">PLAYER</span><span class="o">.</span><span class="n">VOLUME</span><span class="p">,</span> <span class="n">args</span><span class="p">,</span> <span class="n">auth_token</span><span class="p">)</span>
+
+    <span class="k">async</span> <span class="k">def</span> <span class="nf">next</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">auth_token</span><span class="p">:</span> <span class="n">SpotifyAuthorisationToken</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Set the volume for the user’s current playback device.</span>
+
+<span class="sd">        Notes:</span>
+<span class="sd">            [https://developer.spotify.com/documentation/web-api/reference/player/skip-users-playback-to-next-track/](https://developer.spotify.com/documentation/web-api/reference/player/skip-users-playback-to-next-track/)</span>
+
+<span class="sd">        Args:</span>
+<span class="sd">            auth_token: The auth token if you set the api class not to keep the token in memory</span>
+<span class="sd">            kwargs: Optional arguments as keyword args</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+
+        <span class="k">await</span> <span class="bp">self</span><span class="o">.</span><span class="n">api_request_handler</span><span class="o">.</span><span class="n">make_request</span><span class="p">(</span><span class="s1">&#39;POST&#39;</span><span class="p">,</span> <span class="n">URLS</span><span class="o">.</span><span class="n">PLAYER</span><span class="o">.</span><span class="n">NEXT</span><span class="p">,</span> <span class="n">kwargs</span><span class="p">,</span> <span class="n">auth_token</span><span class="p">)</span>
+
+    <span class="k">async</span> <span class="k">def</span> <span class="nf">previous</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">auth_token</span><span class="p">:</span> <span class="n">SpotifyAuthorisationToken</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Skips to previous track in the user’s queue.</span>
+
+<span class="sd">        Notes:</span>
+<span class="sd">            [https://developer.spotify.com/documentation/web-api/reference/player/skip-users-playback-to-previous-track/](https://developer.spotify.com/documentation/web-api/reference/player/skip-users-playback-to-previous-track/)</span>
+
+<span class="sd">        Args:</span>
+<span class="sd">            auth_token: The auth token if you set the api class not to keep the token in memory</span>
+<span class="sd">            kwargs: Optional arguments as keyword args</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+
+        <span class="k">await</span> <span class="bp">self</span><span class="o">.</span><span class="n">api_request_handler</span><span class="o">.</span><span class="n">make_request</span><span class="p">(</span><span class="s1">&#39;POST&#39;</span><span class="p">,</span> <span class="n">URLS</span><span class="o">.</span><span class="n">PLAYER</span><span class="o">.</span><span class="n">PREVIOUS</span><span class="p">,</span> <span class="n">kwargs</span><span class="p">,</span> <span class="n">auth_token</span><span class="p">)</span>
+
+    <span class="k">async</span> <span class="k">def</span> <span class="nf">play</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">auth_token</span><span class="p">:</span> <span class="n">SpotifyAuthorisationToken</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Start a new context or resume current playback on the user’s active device.</span>
+
+<span class="sd">        Notes:</span>
+<span class="sd">            [https://developer.spotify.com/documentation/web-api/reference/player/start-a-users-playback/](https://developer.spotify.com/documentation/web-api/reference/player/start-a-users-playback/)</span>
+
+<span class="sd">        Args:</span>
+<span class="sd">            auth_token: The auth token if you set the api class not to keep the token in memory</span>
+<span class="sd">            kwargs: Optional arguments as keyword args</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+
+        <span class="n">query_params</span> <span class="o">=</span> <span class="p">{}</span>
+        <span class="k">if</span> <span class="s2">&quot;device_id&quot;</span> <span class="ow">in</span> <span class="n">kwargs</span><span class="p">:</span>
+            <span class="n">query_params</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;device_id&#39;</span><span class="p">:</span> <span class="n">kwargs</span><span class="p">[</span><span class="s2">&quot;device_id&quot;</span><span class="p">]}</span>
+
+        <span class="k">await</span> <span class="bp">self</span><span class="o">.</span><span class="n">api_request_handler</span><span class="o">.</span><span class="n">make_request</span><span class="p">(</span><span class="s1">&#39;PUT&#39;</span><span class="p">,</span> <span class="n">URLS</span><span class="o">.</span><span class="n">PLAYER</span><span class="o">.</span><span class="n">PLAY</span><span class="p">,</span> <span class="n">query_params</span><span class="p">,</span> <span class="n">auth_token</span><span class="p">,</span>
+                                                    <span class="n">kwargs</span><span class="p">)</span>
+
+    <span class="k">async</span> <span class="k">def</span> <span class="nf">shuffle</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">shuffle_on</span><span class="p">:</span> <span class="nb">bool</span><span class="p">,</span> <span class="n">auth_token</span><span class="p">:</span> <span class="n">SpotifyAuthorisationToken</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Toggle shuffle on or off for user’s playback.</span>
+
+<span class="sd">        Notes:</span>
+<span class="sd">            [https://developer.spotify.com/documentation/web-api/reference/player/toggle-shuffle-for-users-playback/](https://developer.spotify.com/documentation/web-api/reference/player/toggle-shuffle-for-users-playback/)</span>
+
+<span class="sd">        Args:</span>
+<span class="sd">            shuffle_on: The state of the shuffle</span>
+<span class="sd">            auth_token: The auth token if you set the api class not to keep the token in memory</span>
+<span class="sd">            kwargs: Optional arguments as keyword args</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+
+        <span class="n">args</span> <span class="o">=</span> <span class="p">{</span><span class="o">**</span><span class="p">{</span><span class="s1">&#39;state&#39;</span><span class="p">:</span> <span class="n">shuffle_on</span><span class="p">},</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">}</span>
+
+        <span class="k">await</span> <span class="bp">self</span><span class="o">.</span><span class="n">api_request_handler</span><span class="o">.</span><span class="n">make_request</span><span class="p">(</span><span class="s1">&#39;PUT&#39;</span><span class="p">,</span> <span class="n">URLS</span><span class="o">.</span><span class="n">PLAYER</span><span class="o">.</span><span class="n">SHUFFLE</span><span class="p">,</span> <span class="n">args</span><span class="p">,</span> <span class="n">auth_token</span><span class="p">)</span>
+
+    <span class="k">async</span> <span class="k">def</span> <span class="nf">transfer</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">device_id</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="nb">str</span><span class="p">],</span> <span class="n">play</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span>
+                       <span class="n">auth_token</span><span class="p">:</span> <span class="n">SpotifyAuthorisationToken</span> <span class="o">=</span> <span class="kc">None</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Transfer playback to a new device and determine if it should start playing.</span>
+
+<span class="sd">        Notes:</span>
+<span class="sd">            [https://developer.spotify.com/documentation/web-api/reference/player/transfer-a-users-playback/](https://developer.spotify.com/documentation/web-api/reference/player/transfer-a-users-playback/)</span>
+
+<span class="sd">        Args:</span>
+<span class="sd">            play: ensure playback happens on new device</span>
+<span class="sd">            device_id: A SINGLE device ID</span>
+<span class="sd">            auth_token: The auth token if you set the api class not to keep the token in memory</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+
+        <span class="n">body</span> <span class="o">=</span> <span class="p">{</span>
+            <span class="s2">&quot;device_ids&quot;</span><span class="p">:</span> <span class="n">device_id</span><span class="p">,</span>
+            <span class="s2">&quot;state&quot;</span><span class="p">:</span> <span class="n">play</span>
+        <span class="p">}</span>
+
+        <span class="k">await</span> <span class="bp">self</span><span class="o">.</span><span class="n">api_request_handler</span><span class="o">.</span><span class="n">make_request</span><span class="p">(</span><span class="s1">&#39;PUT&#39;</span><span class="p">,</span> <span class="n">URLS</span><span class="o">.</span><span class="n">PLAYER</span><span class="o">.</span><span class="n">PLAYER</span><span class="p">,</span> <span class="p">{},</span> <span class="n">auth_token</span><span class="p">,</span> <span class="n">body</span><span class="o">=</span><span class="n">body</span><span class="p">)</span>
+</code></pre></div>
+        </details>
+
+
+
+  <div class="doc doc-children">
+
+
+
+
+
+
+
+
+
+  <div class="doc doc-object doc-method">
+
+
+
+<h3 id="async_spotify.api._endpoints.player.Player.add_multiple_tracks_to_queue" class="doc doc-heading">
+<code class="codehilite language-python"><span class="n">add_multiple_tracks_to_queue</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">spotify_id_list</span><span class="p">,</span> <span class="n">auth_token</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span></code>
+
+  <span class="doc doc-properties">
+      <small class="doc doc-property doc-property-async"><code>async</code></small>
+  </span>
+
+<a href="#async_spotify.api._endpoints.player.Player.add_multiple_tracks_to_queue" class="headerlink" title="Permanent link">&para;</a></h3>
+
+    <div class="doc doc-contents ">
+
+      <p>Add items to the end of the user’s current playback queue</p>
 <div class="admonition notes">
 <p class="admonition-title">Notes</p>
 <p><a href="https://developer.spotify.com/documentation/web-api/reference/player/add-to-queue/">https://developer.spotify.com/documentation/web-api/reference/player/add-to-queue/</a></p>
 </div>
+
 <p><strong>Parameters:</strong></p>
 <table>
-<thead>
-<tr>
-<th>Name</th>
-<th>Type</th>
-<th>Description</th>
-<th>Default</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><code>spotify_id_list</code></td>
-<td><code>List[str]</code></td>
-<td>
-<p>A spotify id list of an item</p>
-</td>
-<td><em>required</em></td>
-</tr>
-<tr>
-<td><code>auth_token</code></td>
-<td><code>SpotifyAuthorisationToken</code></td>
-<td>
-<p>The auth token if you set the api class not to keep the token in memory</p>
-</td>
-<td><code>None</code></td>
-</tr>
-<tr>
-<td><code>kwargs</code></td>
-<td><code></code></td>
-<td>
-<p>Optional arguments as keyword args</p>
-</td>
-<td><code>{}</code></td>
-</tr>
-</tbody>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Type</th>
+      <th>Description</th>
+      <th>Default</th>
+    </tr>
+  </thead>
+  <tbody>
+      <tr>
+        <td><code>spotify_id_list</code></td>
+        <td><code>List[str]</code></td>
+        <td><p>A spotify id list of an item</p></td>
+        <td><em>required</em></td>
+      </tr>
+      <tr>
+        <td><code>auth_token</code></td>
+        <td><code>SpotifyAuthorisationToken</code></td>
+        <td><p>The auth token if you set the api class not to keep the token in memory</p></td>
+        <td><code>None</code></td>
+      </tr>
+      <tr>
+        <td><code>kwargs</code></td>
+        <td></td>
+        <td><p>Optional arguments as keyword args</p></td>
+        <td><code>{}</code></td>
+      </tr>
+  </tbody>
 </table>
-<details class="quote">
+        <details class="quote">
           <summary>Source code in <code>async_spotify/api/_endpoints/player.py</code></summary>
-          <table class="highlighttable">
-<tr>
-<td class="linenos">
-<div class="linenodiv">
-<pre><span></span>77
-78
-79
-80
-81
-82
-83
-84
-85
-86
-87
-88
-89
-90
-91
-92
-93
-94
-95
-96
-97</pre>
-</div>
-</td>
-<td class="code">
-<div class="highlight">
-<pre><span></span><code><span class="k">async</span> <span class="k">def</span> <span class="nf">add_multiple_tracks_to_queue</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">spotify_id_list</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="nb">str</span><span class="p">],</span>
+          <div class="codehilite"><pre><span></span><code><span class="k">async</span> <span class="k">def</span> <span class="nf">add_multiple_tracks_to_queue</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">spotify_id_list</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="nb">str</span><span class="p">],</span>
                                        <span class="n">auth_token</span><span class="p">:</span> <span class="n">SpotifyAuthorisationToken</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
-    <span class="sd">"""</span>
+    <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Add items to the end of the user’s current playback queue</span>
 
 <span class="sd">    Notes:</span>
@@ -1057,104 +1383,79 @@
 <span class="sd">        spotify_id_list: A spotify id list of an item</span>
 <span class="sd">        auth_token: The auth token if you set the api class not to keep the token in memory</span>
 <span class="sd">        kwargs: Optional arguments as keyword args</span>
-<span class="sd">    """</span>
+<span class="sd">    &quot;&quot;&quot;</span>
 
     <span class="k">for</span> <span class="n">spotify_id</span> <span class="ow">in</span> <span class="n">spotify_id_list</span><span class="p">:</span>
         <span class="n">args</span><span class="p">:</span> <span class="nb">dict</span> <span class="o">=</span> <span class="p">{</span>
-            <span class="s1">'uri'</span><span class="p">:</span> <span class="n">spotify_id</span><span class="p">,</span>
+            <span class="s1">&#39;uri&#39;</span><span class="p">:</span> <span class="n">spotify_id</span><span class="p">,</span>
             <span class="o">**</span><span class="n">kwargs</span>
         <span class="p">}</span>
 
-        <span class="k">await</span> <span class="bp">self</span><span class="o">.</span><span class="n">api_request_handler</span><span class="o">.</span><span class="n">make_request</span><span class="p">(</span><span class="s1">'POST'</span><span class="p">,</span> <span class="n">URLS</span><span class="o">.</span><span class="n">PLAYER</span><span class="o">.</span><span class="n">QUEUE</span><span class="p">,</span> <span class="n">args</span><span class="p">,</span> <span class="n">auth_token</span><span class="p">)</span>
-</code></pre>
-</div>
-</td>
-</tr>
-</table>
-</details>
-</div>
-</div>
-<div class="doc doc-object doc-method">
-<h3 class="doc doc-heading" id="async_spotify.api._endpoints.player.Player.add_to_queue">
+        <span class="k">await</span> <span class="bp">self</span><span class="o">.</span><span class="n">api_request_handler</span><span class="o">.</span><span class="n">make_request</span><span class="p">(</span><span class="s1">&#39;POST&#39;</span><span class="p">,</span> <span class="n">URLS</span><span class="o">.</span><span class="n">PLAYER</span><span class="o">.</span><span class="n">QUEUE</span><span class="p">,</span> <span class="n">args</span><span class="p">,</span> <span class="n">auth_token</span><span class="p">)</span>
+</code></pre></div>
+        </details>
+    </div>
 
-<code class="highlight language-python"><span class="n">add_to_queue</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">spotify_id</span><span class="p">,</span> <span class="n">auth_token</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span></code>
+  </div>
 
 
-      <a class="headerlink" href="#async_spotify.api._endpoints.player.Player.add_to_queue" title="Permanent link">&para;</a></h3>
-<div class="doc doc-contents ">
-<p>Add an item to the end of the user’s current playback queue</p>
+
+  <div class="doc doc-object doc-method">
+
+
+
+<h3 id="async_spotify.api._endpoints.player.Player.add_to_queue" class="doc doc-heading">
+<code class="codehilite language-python"><span class="n">add_to_queue</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">spotify_id</span><span class="p">,</span> <span class="n">auth_token</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span></code>
+
+  <span class="doc doc-properties">
+      <small class="doc doc-property doc-property-async"><code>async</code></small>
+  </span>
+
+<a href="#async_spotify.api._endpoints.player.Player.add_to_queue" class="headerlink" title="Permanent link">&para;</a></h3>
+
+    <div class="doc doc-contents ">
+
+      <p>Add an item to the end of the user’s current playback queue</p>
 <div class="admonition notes">
 <p class="admonition-title">Notes</p>
 <p><a href="https://developer.spotify.com/documentation/web-api/reference/player/add-to-queue/">https://developer.spotify.com/documentation/web-api/reference/player/add-to-queue/</a></p>
 </div>
+
 <p><strong>Parameters:</strong></p>
 <table>
-<thead>
-<tr>
-<th>Name</th>
-<th>Type</th>
-<th>Description</th>
-<th>Default</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><code>spotify_id</code></td>
-<td><code>str</code></td>
-<td>
-<p>A spotify id of an item</p>
-</td>
-<td><em>required</em></td>
-</tr>
-<tr>
-<td><code>auth_token</code></td>
-<td><code>SpotifyAuthorisationToken</code></td>
-<td>
-<p>The auth token if you set the api class not to keep the token in memory</p>
-</td>
-<td><code>None</code></td>
-</tr>
-<tr>
-<td><code>kwargs</code></td>
-<td><code></code></td>
-<td>
-<p>Optional arguments as keyword args</p>
-</td>
-<td><code>{}</code></td>
-</tr>
-</tbody>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Type</th>
+      <th>Description</th>
+      <th>Default</th>
+    </tr>
+  </thead>
+  <tbody>
+      <tr>
+        <td><code>spotify_id</code></td>
+        <td><code>str</code></td>
+        <td><p>A spotify id of an item</p></td>
+        <td><em>required</em></td>
+      </tr>
+      <tr>
+        <td><code>auth_token</code></td>
+        <td><code>SpotifyAuthorisationToken</code></td>
+        <td><p>The auth token if you set the api class not to keep the token in memory</p></td>
+        <td><code>None</code></td>
+      </tr>
+      <tr>
+        <td><code>kwargs</code></td>
+        <td></td>
+        <td><p>Optional arguments as keyword args</p></td>
+        <td><code>{}</code></td>
+      </tr>
+  </tbody>
 </table>
-<details class="quote">
+        <details class="quote">
           <summary>Source code in <code>async_spotify/api/_endpoints/player.py</code></summary>
-          <table class="highlighttable">
-<tr>
-<td class="linenos">
-<div class="linenodiv">
-<pre><span></span>57
-58
-59
-60
-61
-62
-63
-64
-65
-66
-67
-68
-69
-70
-71
-72
-73
-74
-75</pre>
-</div>
-</td>
-<td class="code">
-<div class="highlight">
-<pre><span></span><code><span class="k">async</span> <span class="k">def</span> <span class="nf">add_to_queue</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">spotify_id</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">auth_token</span><span class="p">:</span> <span class="n">SpotifyAuthorisationToken</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
-    <span class="sd">"""</span>
+          <div class="codehilite"><pre><span></span><code><span class="k">async</span> <span class="k">def</span> <span class="nf">add_to_queue</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">spotify_id</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">auth_token</span><span class="p">:</span> <span class="n">SpotifyAuthorisationToken</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+    <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Add an item to the end of the user’s current playback queue</span>
 
 <span class="sd">    Notes:</span>
@@ -1164,110 +1465,88 @@
 <span class="sd">        spotify_id: A spotify id of an item</span>
 <span class="sd">        auth_token: The auth token if you set the api class not to keep the token in memory</span>
 <span class="sd">        kwargs: Optional arguments as keyword args</span>
-<span class="sd">    """</span>
+<span class="sd">    &quot;&quot;&quot;</span>
 
     <span class="n">args</span><span class="p">:</span> <span class="nb">dict</span> <span class="o">=</span> <span class="p">{</span>
-        <span class="s1">'uri'</span><span class="p">:</span> <span class="n">spotify_id</span><span class="p">,</span>
+        <span class="s1">&#39;uri&#39;</span><span class="p">:</span> <span class="n">spotify_id</span><span class="p">,</span>
         <span class="o">**</span><span class="n">kwargs</span>
     <span class="p">}</span>
 
-    <span class="k">await</span> <span class="bp">self</span><span class="o">.</span><span class="n">api_request_handler</span><span class="o">.</span><span class="n">make_request</span><span class="p">(</span><span class="s1">'POST'</span><span class="p">,</span> <span class="n">URLS</span><span class="o">.</span><span class="n">PLAYER</span><span class="o">.</span><span class="n">QUEUE</span><span class="p">,</span> <span class="n">args</span><span class="p">,</span> <span class="n">auth_token</span><span class="p">)</span>
-</code></pre>
-</div>
-</td>
-</tr>
-</table>
-</details>
-</div>
-</div>
-<div class="doc doc-object doc-method">
-<h3 class="doc doc-heading" id="async_spotify.api._endpoints.player.Player.get_current_track">
+    <span class="k">await</span> <span class="bp">self</span><span class="o">.</span><span class="n">api_request_handler</span><span class="o">.</span><span class="n">make_request</span><span class="p">(</span><span class="s1">&#39;POST&#39;</span><span class="p">,</span> <span class="n">URLS</span><span class="o">.</span><span class="n">PLAYER</span><span class="o">.</span><span class="n">QUEUE</span><span class="p">,</span> <span class="n">args</span><span class="p">,</span> <span class="n">auth_token</span><span class="p">)</span>
+</code></pre></div>
+        </details>
+    </div>
 
-<code class="highlight language-python"><span class="n">get_current_track</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">auth_token</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span></code>
+  </div>
 
 
-      <a class="headerlink" href="#async_spotify.api._endpoints.player.Player.get_current_track" title="Permanent link">&para;</a></h3>
-<div class="doc doc-contents ">
-<p>Get the User's Currently Playing Track</p>
+
+  <div class="doc doc-object doc-method">
+
+
+
+<h3 id="async_spotify.api._endpoints.player.Player.get_current_track" class="doc doc-heading">
+<code class="codehilite language-python"><span class="n">get_current_track</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">auth_token</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span></code>
+
+  <span class="doc doc-properties">
+      <small class="doc doc-property doc-property-async"><code>async</code></small>
+  </span>
+
+<a href="#async_spotify.api._endpoints.player.Player.get_current_track" class="headerlink" title="Permanent link">&para;</a></h3>
+
+    <div class="doc doc-contents ">
+
+      <p>Get the User's Currently Playing Track</p>
 <div class="admonition notes">
 <p class="admonition-title">Notes</p>
 <p><a href="https://developer.spotify.com/documentation/web-api/reference/player/get-the-users-currently-playing-track/">https://developer.spotify.com/documentation/web-api/reference/player/get-the-users-currently-playing-track/</a></p>
 </div>
+
 <p><strong>Parameters:</strong></p>
 <table>
-<thead>
-<tr>
-<th>Name</th>
-<th>Type</th>
-<th>Description</th>
-<th>Default</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><code>auth_token</code></td>
-<td><code>SpotifyAuthorisationToken</code></td>
-<td>
-<p>The auth token if you set the api class not to keep the token in memory</p>
-</td>
-<td><code>None</code></td>
-</tr>
-<tr>
-<td><code>kwargs</code></td>
-<td><code></code></td>
-<td>
-<p>Optional arguments as keyword args</p>
-</td>
-<td><code>{}</code></td>
-</tr>
-</tbody>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Type</th>
+      <th>Description</th>
+      <th>Default</th>
+    </tr>
+  </thead>
+  <tbody>
+      <tr>
+        <td><code>auth_token</code></td>
+        <td><code>SpotifyAuthorisationToken</code></td>
+        <td><p>The auth token if you set the api class not to keep the token in memory</p></td>
+        <td><code>None</code></td>
+      </tr>
+      <tr>
+        <td><code>kwargs</code></td>
+        <td></td>
+        <td><p>Optional arguments as keyword args</p></td>
+        <td><code>{}</code></td>
+      </tr>
+  </tbody>
 </table>
 <p><strong>Returns:</strong></p>
 <table>
-<thead>
-<tr>
-<th>Type</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><code>dict</code></td>
-<td>
-<p>The current track</p>
-</td>
-</tr>
-</tbody>
+  <thead>
+    <tr>
+      <th>Type</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code>dict</code></td>
+      <td><p>The current track</p></td>
+    </tr>
+  </tbody>
 </table>
-<details class="quote">
+        <details class="quote">
           <summary>Source code in <code>async_spotify/api/_endpoints/player.py</code></summary>
-          <table class="highlighttable">
-<tr>
-<td class="linenos">
-<div class="linenodiv">
-<pre><span></span>116
-117
-118
-119
-120
-121
-122
-123
-124
-125
-126
-127
-128
-129
-130
-131</pre>
-</div>
-</td>
-<td class="code">
-<div class="highlight">
-<pre><span></span><code><span class="k">async</span> <span class="k">def</span> <span class="nf">get_current_track</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">auth_token</span><span class="p">:</span> <span class="n">SpotifyAuthorisationToken</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">dict</span><span class="p">:</span>
-    <span class="sd">"""</span>
-<span class="sd">    Get the User's Currently Playing Track</span>
+          <div class="codehilite"><pre><span></span><code><span class="k">async</span> <span class="k">def</span> <span class="nf">get_current_track</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">auth_token</span><span class="p">:</span> <span class="n">SpotifyAuthorisationToken</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">dict</span><span class="p">:</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Get the User&#39;s Currently Playing Track</span>
 
 <span class="sd">    Notes:</span>
 <span class="sd">        [https://developer.spotify.com/documentation/web-api/reference/player/get-the-users-currently-playing-track/](https://developer.spotify.com/documentation/web-api/reference/player/get-the-users-currently-playing-track/)</span>
@@ -1278,95 +1557,76 @@
 
 <span class="sd">    Returns:</span>
 <span class="sd">        The current track</span>
-<span class="sd">    """</span>
+<span class="sd">    &quot;&quot;&quot;</span>
 
-    <span class="k">return</span> <span class="k">await</span> <span class="bp">self</span><span class="o">.</span><span class="n">api_request_handler</span><span class="o">.</span><span class="n">make_request</span><span class="p">(</span><span class="s1">'GET'</span><span class="p">,</span> <span class="n">URLS</span><span class="o">.</span><span class="n">PLAYER</span><span class="o">.</span><span class="n">PLAYING</span><span class="p">,</span> <span class="n">kwargs</span><span class="p">,</span> <span class="n">auth_token</span><span class="p">)</span>
-</code></pre>
-</div>
-</td>
-</tr>
-</table>
-</details>
-</div>
-</div>
-<div class="doc doc-object doc-method">
-<h3 class="doc doc-heading" id="async_spotify.api._endpoints.player.Player.get_devices">
+    <span class="k">return</span> <span class="k">await</span> <span class="bp">self</span><span class="o">.</span><span class="n">api_request_handler</span><span class="o">.</span><span class="n">make_request</span><span class="p">(</span><span class="s1">&#39;GET&#39;</span><span class="p">,</span> <span class="n">URLS</span><span class="o">.</span><span class="n">PLAYER</span><span class="o">.</span><span class="n">PLAYING</span><span class="p">,</span> <span class="n">kwargs</span><span class="p">,</span> <span class="n">auth_token</span><span class="p">)</span>
+</code></pre></div>
+        </details>
+    </div>
 
-<code class="highlight language-python"><span class="n">get_devices</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">auth_token</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span></code>
+  </div>
 
 
-      <a class="headerlink" href="#async_spotify.api._endpoints.player.Player.get_devices" title="Permanent link">&para;</a></h3>
-<div class="doc doc-contents ">
-<p>Get information about a user’s available devices.</p>
+
+  <div class="doc doc-object doc-method">
+
+
+
+<h3 id="async_spotify.api._endpoints.player.Player.get_devices" class="doc doc-heading">
+<code class="codehilite language-python"><span class="n">get_devices</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">auth_token</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span></code>
+
+  <span class="doc doc-properties">
+      <small class="doc doc-property doc-property-async"><code>async</code></small>
+  </span>
+
+<a href="#async_spotify.api._endpoints.player.Player.get_devices" class="headerlink" title="Permanent link">&para;</a></h3>
+
+    <div class="doc doc-contents ">
+
+      <p>Get information about a user’s available devices.</p>
 <div class="admonition notes">
 <p class="admonition-title">Notes</p>
 <p><a href="https://developer.spotify.com/documentation/web-api/reference/player/get-a-users-available-devices/">https://developer.spotify.com/documentation/web-api/reference/player/get-a-users-available-devices/</a></p>
 </div>
+
 <p><strong>Parameters:</strong></p>
 <table>
-<thead>
-<tr>
-<th>Name</th>
-<th>Type</th>
-<th>Description</th>
-<th>Default</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><code>auth_token</code></td>
-<td><code>SpotifyAuthorisationToken</code></td>
-<td>
-<p>The auth token if you set the api class not to keep the token in memory</p>
-</td>
-<td><code>None</code></td>
-</tr>
-</tbody>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Type</th>
+      <th>Description</th>
+      <th>Default</th>
+    </tr>
+  </thead>
+  <tbody>
+      <tr>
+        <td><code>auth_token</code></td>
+        <td><code>SpotifyAuthorisationToken</code></td>
+        <td><p>The auth token if you set the api class not to keep the token in memory</p></td>
+        <td><code>None</code></td>
+      </tr>
+  </tbody>
 </table>
 <p><strong>Returns:</strong></p>
 <table>
-<thead>
-<tr>
-<th>Type</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><code>dict</code></td>
-<td>
-<p>The available devices</p>
-</td>
-</tr>
-</tbody>
+  <thead>
+    <tr>
+      <th>Type</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code>dict</code></td>
+      <td><p>The available devices</p></td>
+    </tr>
+  </tbody>
 </table>
-<details class="quote">
+        <details class="quote">
           <summary>Source code in <code>async_spotify/api/_endpoints/player.py</code></summary>
-          <table class="highlighttable">
-<tr>
-<td class="linenos">
-<div class="linenodiv">
-<pre><span></span>23
-24
-25
-26
-27
-28
-29
-30
-31
-32
-33
-34
-35
-36
-37</pre>
-</div>
-</td>
-<td class="code">
-<div class="highlight">
-<pre><span></span><code><span class="k">async</span> <span class="k">def</span> <span class="nf">get_devices</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">auth_token</span><span class="p">:</span> <span class="n">SpotifyAuthorisationToken</span> <span class="o">=</span> <span class="kc">None</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">dict</span><span class="p">:</span>
-    <span class="sd">"""</span>
+          <div class="codehilite"><pre><span></span><code><span class="k">async</span> <span class="k">def</span> <span class="nf">get_devices</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">auth_token</span><span class="p">:</span> <span class="n">SpotifyAuthorisationToken</span> <span class="o">=</span> <span class="kc">None</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">dict</span><span class="p">:</span>
+    <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Get information about a user’s available devices.</span>
 
 <span class="sd">    Notes:</span>
@@ -1377,106 +1637,83 @@
 
 <span class="sd">    Returns:</span>
 <span class="sd">        The available devices</span>
-<span class="sd">    """</span>
+<span class="sd">    &quot;&quot;&quot;</span>
 
-    <span class="k">return</span> <span class="k">await</span> <span class="bp">self</span><span class="o">.</span><span class="n">api_request_handler</span><span class="o">.</span><span class="n">make_request</span><span class="p">(</span><span class="s1">'GET'</span><span class="p">,</span> <span class="n">URLS</span><span class="o">.</span><span class="n">PLAYER</span><span class="o">.</span><span class="n">DEVICES</span><span class="p">,</span> <span class="p">{},</span> <span class="n">auth_token</span><span class="p">)</span>
-</code></pre>
-</div>
-</td>
-</tr>
-</table>
-</details>
-</div>
-</div>
-<div class="doc doc-object doc-method">
-<h3 class="doc doc-heading" id="async_spotify.api._endpoints.player.Player.get_queue">
+    <span class="k">return</span> <span class="k">await</span> <span class="bp">self</span><span class="o">.</span><span class="n">api_request_handler</span><span class="o">.</span><span class="n">make_request</span><span class="p">(</span><span class="s1">&#39;GET&#39;</span><span class="p">,</span> <span class="n">URLS</span><span class="o">.</span><span class="n">PLAYER</span><span class="o">.</span><span class="n">DEVICES</span><span class="p">,</span> <span class="p">{},</span> <span class="n">auth_token</span><span class="p">)</span>
+</code></pre></div>
+        </details>
+    </div>
 
-<code class="highlight language-python"><span class="n">get_queue</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">auth_token</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span></code>
+  </div>
 
 
-      <a class="headerlink" href="#async_spotify.api._endpoints.player.Player.get_queue" title="Permanent link">&para;</a></h3>
-<div class="doc doc-contents ">
-<p>Get information about the user’s current playback state, including track or episode, progress,
+
+  <div class="doc doc-object doc-method">
+
+
+
+<h3 id="async_spotify.api._endpoints.player.Player.get_queue" class="doc doc-heading">
+<code class="codehilite language-python"><span class="n">get_queue</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">auth_token</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span></code>
+
+  <span class="doc doc-properties">
+      <small class="doc doc-property doc-property-async"><code>async</code></small>
+  </span>
+
+<a href="#async_spotify.api._endpoints.player.Player.get_queue" class="headerlink" title="Permanent link">&para;</a></h3>
+
+    <div class="doc doc-contents ">
+
+      <p>Get information about the user’s current playback state, including track or episode, progress,
 and active device.</p>
 <div class="admonition notes">
 <p class="admonition-title">Notes</p>
 <p><a href="https://developer.spotify.com/documentation/web-api/reference/player/get-information-about-the-users-current-playback/">https://developer.spotify.com/documentation/web-api/reference/player/get-information-about-the-users-current-playback/</a></p>
 </div>
+
 <p><strong>Parameters:</strong></p>
 <table>
-<thead>
-<tr>
-<th>Name</th>
-<th>Type</th>
-<th>Description</th>
-<th>Default</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><code>auth_token</code></td>
-<td><code>SpotifyAuthorisationToken</code></td>
-<td>
-<p>The auth token if you set the api class not to keep the token in memory</p>
-</td>
-<td><code>None</code></td>
-</tr>
-<tr>
-<td><code>kwargs</code></td>
-<td><code></code></td>
-<td>
-<p>Optional arguments as keyword args</p>
-</td>
-<td><code>{}</code></td>
-</tr>
-</tbody>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Type</th>
+      <th>Description</th>
+      <th>Default</th>
+    </tr>
+  </thead>
+  <tbody>
+      <tr>
+        <td><code>auth_token</code></td>
+        <td><code>SpotifyAuthorisationToken</code></td>
+        <td><p>The auth token if you set the api class not to keep the token in memory</p></td>
+        <td><code>None</code></td>
+      </tr>
+      <tr>
+        <td><code>kwargs</code></td>
+        <td></td>
+        <td><p>Optional arguments as keyword args</p></td>
+        <td><code>{}</code></td>
+      </tr>
+  </tbody>
 </table>
 <p><strong>Returns:</strong></p>
 <table>
-<thead>
-<tr>
-<th>Type</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><code>dict</code></td>
-<td>
-<p>The top tracks and artists</p>
-</td>
-</tr>
-</tbody>
+  <thead>
+    <tr>
+      <th>Type</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code>dict</code></td>
+      <td><p>The top tracks and artists</p></td>
+    </tr>
+  </tbody>
 </table>
-<details class="quote">
+        <details class="quote">
           <summary>Source code in <code>async_spotify/api/_endpoints/player.py</code></summary>
-          <table class="highlighttable">
-<tr>
-<td class="linenos">
-<div class="linenodiv">
-<pre><span></span>39
-40
-41
-42
-43
-44
-45
-46
-47
-48
-49
-50
-51
-52
-53
-54
-55</pre>
-</div>
-</td>
-<td class="code">
-<div class="highlight">
-<pre><span></span><code><span class="k">async</span> <span class="k">def</span> <span class="nf">get_queue</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">auth_token</span><span class="p">:</span> <span class="n">SpotifyAuthorisationToken</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">dict</span><span class="p">:</span>
-    <span class="sd">"""</span>
+          <div class="codehilite"><pre><span></span><code><span class="k">async</span> <span class="k">def</span> <span class="nf">get_queue</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">auth_token</span><span class="p">:</span> <span class="n">SpotifyAuthorisationToken</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">dict</span><span class="p">:</span>
+    <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Get information about the user’s current playback state, including track or episode, progress,</span>
 <span class="sd">    and active device.</span>
 
@@ -1489,105 +1726,83 @@ and active device.</p>
 
 <span class="sd">    Returns:</span>
 <span class="sd">        The top tracks and artists</span>
-<span class="sd">    """</span>
+<span class="sd">    &quot;&quot;&quot;</span>
 
-    <span class="k">return</span> <span class="k">await</span> <span class="bp">self</span><span class="o">.</span><span class="n">api_request_handler</span><span class="o">.</span><span class="n">make_request</span><span class="p">(</span><span class="s1">'GET'</span><span class="p">,</span> <span class="n">URLS</span><span class="o">.</span><span class="n">PLAYER</span><span class="o">.</span><span class="n">PLAYER</span><span class="p">,</span> <span class="n">kwargs</span><span class="p">,</span> <span class="n">auth_token</span><span class="p">)</span>
-</code></pre>
-</div>
-</td>
-</tr>
-</table>
-</details>
-</div>
-</div>
-<div class="doc doc-object doc-method">
-<h3 class="doc doc-heading" id="async_spotify.api._endpoints.player.Player.get_recent_tracks">
+    <span class="k">return</span> <span class="k">await</span> <span class="bp">self</span><span class="o">.</span><span class="n">api_request_handler</span><span class="o">.</span><span class="n">make_request</span><span class="p">(</span><span class="s1">&#39;GET&#39;</span><span class="p">,</span> <span class="n">URLS</span><span class="o">.</span><span class="n">PLAYER</span><span class="o">.</span><span class="n">PLAYER</span><span class="p">,</span> <span class="n">kwargs</span><span class="p">,</span> <span class="n">auth_token</span><span class="p">)</span>
+</code></pre></div>
+        </details>
+    </div>
 
-<code class="highlight language-python"><span class="n">get_recent_tracks</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">auth_token</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span></code>
+  </div>
 
 
-      <a class="headerlink" href="#async_spotify.api._endpoints.player.Player.get_recent_tracks" title="Permanent link">&para;</a></h3>
-<div class="doc doc-contents ">
-<p>Get the Current User's Recently Played Tracks</p>
+
+  <div class="doc doc-object doc-method">
+
+
+
+<h3 id="async_spotify.api._endpoints.player.Player.get_recent_tracks" class="doc doc-heading">
+<code class="codehilite language-python"><span class="n">get_recent_tracks</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">auth_token</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span></code>
+
+  <span class="doc doc-properties">
+      <small class="doc doc-property doc-property-async"><code>async</code></small>
+  </span>
+
+<a href="#async_spotify.api._endpoints.player.Player.get_recent_tracks" class="headerlink" title="Permanent link">&para;</a></h3>
+
+    <div class="doc doc-contents ">
+
+      <p>Get the Current User's Recently Played Tracks</p>
 <div class="admonition notes">
 <p class="admonition-title">Notes</p>
 <p><a href="https://developer.spotify.com/documentation/web-api/reference/player/get-recently-played/">https://developer.spotify.com/documentation/web-api/reference/player/get-recently-played/</a></p>
 </div>
+
 <p><strong>Parameters:</strong></p>
 <table>
-<thead>
-<tr>
-<th>Name</th>
-<th>Type</th>
-<th>Description</th>
-<th>Default</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><code>auth_token</code></td>
-<td><code>SpotifyAuthorisationToken</code></td>
-<td>
-<p>The auth token if you set the api class not to keep the token in memory</p>
-</td>
-<td><code>None</code></td>
-</tr>
-<tr>
-<td><code>kwargs</code></td>
-<td><code></code></td>
-<td>
-<p>Optional arguments as keyword args</p>
-</td>
-<td><code>{}</code></td>
-</tr>
-</tbody>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Type</th>
+      <th>Description</th>
+      <th>Default</th>
+    </tr>
+  </thead>
+  <tbody>
+      <tr>
+        <td><code>auth_token</code></td>
+        <td><code>SpotifyAuthorisationToken</code></td>
+        <td><p>The auth token if you set the api class not to keep the token in memory</p></td>
+        <td><code>None</code></td>
+      </tr>
+      <tr>
+        <td><code>kwargs</code></td>
+        <td></td>
+        <td><p>Optional arguments as keyword args</p></td>
+        <td><code>{}</code></td>
+      </tr>
+  </tbody>
 </table>
 <p><strong>Returns:</strong></p>
 <table>
-<thead>
-<tr>
-<th>Type</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><code>dict</code></td>
-<td>
-<p>The recent tracks</p>
-</td>
-</tr>
-</tbody>
+  <thead>
+    <tr>
+      <th>Type</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code>dict</code></td>
+      <td><p>The recent tracks</p></td>
+    </tr>
+  </tbody>
 </table>
-<details class="quote">
+        <details class="quote">
           <summary>Source code in <code>async_spotify/api/_endpoints/player.py</code></summary>
-          <table class="highlighttable">
-<tr>
-<td class="linenos">
-<div class="linenodiv">
-<pre><span></span> 99
-100
-101
-102
-103
-104
-105
-106
-107
-108
-109
-110
-111
-112
-113
-114</pre>
-</div>
-</td>
-<td class="code">
-<div class="highlight">
-<pre><span></span><code><span class="k">async</span> <span class="k">def</span> <span class="nf">get_recent_tracks</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">auth_token</span><span class="p">:</span> <span class="n">SpotifyAuthorisationToken</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">dict</span><span class="p">:</span>
-    <span class="sd">"""</span>
-<span class="sd">    Get the Current User's Recently Played Tracks</span>
+          <div class="codehilite"><pre><span></span><code><span class="k">async</span> <span class="k">def</span> <span class="nf">get_recent_tracks</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">auth_token</span><span class="p">:</span> <span class="n">SpotifyAuthorisationToken</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">dict</span><span class="p">:</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Get the Current User&#39;s Recently Played Tracks</span>
 
 <span class="sd">    Notes:</span>
 <span class="sd">        [https://developer.spotify.com/documentation/web-api/reference/player/get-recently-played/](https://developer.spotify.com/documentation/web-api/reference/player/get-recently-played/)</span>
@@ -1598,84 +1813,67 @@ and active device.</p>
 
 <span class="sd">    Returns:</span>
 <span class="sd">        The recent tracks</span>
-<span class="sd">    """</span>
+<span class="sd">    &quot;&quot;&quot;</span>
 
-    <span class="k">return</span> <span class="k">await</span> <span class="bp">self</span><span class="o">.</span><span class="n">api_request_handler</span><span class="o">.</span><span class="n">make_request</span><span class="p">(</span><span class="s1">'GET'</span><span class="p">,</span> <span class="n">URLS</span><span class="o">.</span><span class="n">PLAYER</span><span class="o">.</span><span class="n">RECENTLY</span><span class="p">,</span> <span class="n">kwargs</span><span class="p">,</span> <span class="n">auth_token</span><span class="p">)</span>
-</code></pre>
-</div>
-</td>
-</tr>
-</table>
-</details>
-</div>
-</div>
-<div class="doc doc-object doc-method">
-<h3 class="doc doc-heading" id="async_spotify.api._endpoints.player.Player.next">
+    <span class="k">return</span> <span class="k">await</span> <span class="bp">self</span><span class="o">.</span><span class="n">api_request_handler</span><span class="o">.</span><span class="n">make_request</span><span class="p">(</span><span class="s1">&#39;GET&#39;</span><span class="p">,</span> <span class="n">URLS</span><span class="o">.</span><span class="n">PLAYER</span><span class="o">.</span><span class="n">RECENTLY</span><span class="p">,</span> <span class="n">kwargs</span><span class="p">,</span> <span class="n">auth_token</span><span class="p">)</span>
+</code></pre></div>
+        </details>
+    </div>
 
-<code class="highlight language-python"><span class="nb">next</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">auth_token</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span></code>
+  </div>
 
 
-      <a class="headerlink" href="#async_spotify.api._endpoints.player.Player.next" title="Permanent link">&para;</a></h3>
-<div class="doc doc-contents ">
-<p>Set the volume for the user’s current playback device.</p>
+
+  <div class="doc doc-object doc-method">
+
+
+
+<h3 id="async_spotify.api._endpoints.player.Player.next" class="doc doc-heading">
+<code class="codehilite language-python"><span class="nb">next</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">auth_token</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span></code>
+
+  <span class="doc doc-properties">
+      <small class="doc doc-property doc-property-async"><code>async</code></small>
+  </span>
+
+<a href="#async_spotify.api._endpoints.player.Player.next" class="headerlink" title="Permanent link">&para;</a></h3>
+
+    <div class="doc doc-contents ">
+
+      <p>Set the volume for the user’s current playback device.</p>
 <div class="admonition notes">
 <p class="admonition-title">Notes</p>
 <p><a href="https://developer.spotify.com/documentation/web-api/reference/player/skip-users-playback-to-next-track/">https://developer.spotify.com/documentation/web-api/reference/player/skip-users-playback-to-next-track/</a></p>
 </div>
+
 <p><strong>Parameters:</strong></p>
 <table>
-<thead>
-<tr>
-<th>Name</th>
-<th>Type</th>
-<th>Description</th>
-<th>Default</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><code>auth_token</code></td>
-<td><code>SpotifyAuthorisationToken</code></td>
-<td>
-<p>The auth token if you set the api class not to keep the token in memory</p>
-</td>
-<td><code>None</code></td>
-</tr>
-<tr>
-<td><code>kwargs</code></td>
-<td><code></code></td>
-<td>
-<p>Optional arguments as keyword args</p>
-</td>
-<td><code>{}</code></td>
-</tr>
-</tbody>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Type</th>
+      <th>Description</th>
+      <th>Default</th>
+    </tr>
+  </thead>
+  <tbody>
+      <tr>
+        <td><code>auth_token</code></td>
+        <td><code>SpotifyAuthorisationToken</code></td>
+        <td><p>The auth token if you set the api class not to keep the token in memory</p></td>
+        <td><code>None</code></td>
+      </tr>
+      <tr>
+        <td><code>kwargs</code></td>
+        <td></td>
+        <td><p>Optional arguments as keyword args</p></td>
+        <td><code>{}</code></td>
+      </tr>
+  </tbody>
 </table>
-<details class="quote">
+        <details class="quote">
           <summary>Source code in <code>async_spotify/api/_endpoints/player.py</code></summary>
-          <table class="highlighttable">
-<tr>
-<td class="linenos">
-<div class="linenodiv">
-<pre><span></span>199
-200
-201
-202
-203
-204
-205
-206
-207
-208
-209
-210
-211</pre>
-</div>
-</td>
-<td class="code">
-<div class="highlight">
-<pre><span></span><code><span class="k">async</span> <span class="k">def</span> <span class="nf">next</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">auth_token</span><span class="p">:</span> <span class="n">SpotifyAuthorisationToken</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
-    <span class="sd">"""</span>
+          <div class="codehilite"><pre><span></span><code><span class="k">async</span> <span class="k">def</span> <span class="nf">next</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">auth_token</span><span class="p">:</span> <span class="n">SpotifyAuthorisationToken</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+    <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Set the volume for the user’s current playback device.</span>
 
 <span class="sd">    Notes:</span>
@@ -1684,84 +1882,67 @@ and active device.</p>
 <span class="sd">    Args:</span>
 <span class="sd">        auth_token: The auth token if you set the api class not to keep the token in memory</span>
 <span class="sd">        kwargs: Optional arguments as keyword args</span>
-<span class="sd">    """</span>
+<span class="sd">    &quot;&quot;&quot;</span>
 
-    <span class="k">await</span> <span class="bp">self</span><span class="o">.</span><span class="n">api_request_handler</span><span class="o">.</span><span class="n">make_request</span><span class="p">(</span><span class="s1">'POST'</span><span class="p">,</span> <span class="n">URLS</span><span class="o">.</span><span class="n">PLAYER</span><span class="o">.</span><span class="n">NEXT</span><span class="p">,</span> <span class="n">kwargs</span><span class="p">,</span> <span class="n">auth_token</span><span class="p">)</span>
-</code></pre>
-</div>
-</td>
-</tr>
-</table>
-</details>
-</div>
-</div>
-<div class="doc doc-object doc-method">
-<h3 class="doc doc-heading" id="async_spotify.api._endpoints.player.Player.pause">
+    <span class="k">await</span> <span class="bp">self</span><span class="o">.</span><span class="n">api_request_handler</span><span class="o">.</span><span class="n">make_request</span><span class="p">(</span><span class="s1">&#39;POST&#39;</span><span class="p">,</span> <span class="n">URLS</span><span class="o">.</span><span class="n">PLAYER</span><span class="o">.</span><span class="n">NEXT</span><span class="p">,</span> <span class="n">kwargs</span><span class="p">,</span> <span class="n">auth_token</span><span class="p">)</span>
+</code></pre></div>
+        </details>
+    </div>
 
-<code class="highlight language-python"><span class="n">pause</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">auth_token</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span></code>
+  </div>
 
 
-      <a class="headerlink" href="#async_spotify.api._endpoints.player.Player.pause" title="Permanent link">&para;</a></h3>
-<div class="doc doc-contents ">
-<p>Pause playback on the user’s account</p>
+
+  <div class="doc doc-object doc-method">
+
+
+
+<h3 id="async_spotify.api._endpoints.player.Player.pause" class="doc doc-heading">
+<code class="codehilite language-python"><span class="n">pause</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">auth_token</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span></code>
+
+  <span class="doc doc-properties">
+      <small class="doc doc-property doc-property-async"><code>async</code></small>
+  </span>
+
+<a href="#async_spotify.api._endpoints.player.Player.pause" class="headerlink" title="Permanent link">&para;</a></h3>
+
+    <div class="doc doc-contents ">
+
+      <p>Pause playback on the user’s account</p>
 <div class="admonition notes">
 <p class="admonition-title">Notes</p>
 <p><a href="https://developer.spotify.com/documentation/web-api/reference/player/pause-a-users-playback/">https://developer.spotify.com/documentation/web-api/reference/player/pause-a-users-playback/</a></p>
 </div>
+
 <p><strong>Parameters:</strong></p>
 <table>
-<thead>
-<tr>
-<th>Name</th>
-<th>Type</th>
-<th>Description</th>
-<th>Default</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><code>auth_token</code></td>
-<td><code>SpotifyAuthorisationToken</code></td>
-<td>
-<p>The auth token if you set the api class not to keep the token in memory</p>
-</td>
-<td><code>None</code></td>
-</tr>
-<tr>
-<td><code>kwargs</code></td>
-<td><code></code></td>
-<td>
-<p>Optional arguments as keyword args</p>
-</td>
-<td><code>{}</code></td>
-</tr>
-</tbody>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Type</th>
+      <th>Description</th>
+      <th>Default</th>
+    </tr>
+  </thead>
+  <tbody>
+      <tr>
+        <td><code>auth_token</code></td>
+        <td><code>SpotifyAuthorisationToken</code></td>
+        <td><p>The auth token if you set the api class not to keep the token in memory</p></td>
+        <td><code>None</code></td>
+      </tr>
+      <tr>
+        <td><code>kwargs</code></td>
+        <td></td>
+        <td><p>Optional arguments as keyword args</p></td>
+        <td><code>{}</code></td>
+      </tr>
+  </tbody>
 </table>
-<details class="quote">
+        <details class="quote">
           <summary>Source code in <code>async_spotify/api/_endpoints/player.py</code></summary>
-          <table class="highlighttable">
-<tr>
-<td class="linenos">
-<div class="linenodiv">
-<pre><span></span>133
-134
-135
-136
-137
-138
-139
-140
-141
-142
-143
-144
-145</pre>
-</div>
-</td>
-<td class="code">
-<div class="highlight">
-<pre><span></span><code><span class="k">async</span> <span class="k">def</span> <span class="nf">pause</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">auth_token</span><span class="p">:</span> <span class="n">SpotifyAuthorisationToken</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
-    <span class="sd">"""</span>
+          <div class="codehilite"><pre><span></span><code><span class="k">async</span> <span class="k">def</span> <span class="nf">pause</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">auth_token</span><span class="p">:</span> <span class="n">SpotifyAuthorisationToken</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+    <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Pause playback on the user’s account</span>
 
 <span class="sd">    Notes:</span>
@@ -1770,182 +1951,141 @@ and active device.</p>
 <span class="sd">    Args:</span>
 <span class="sd">        auth_token: The auth token if you set the api class not to keep the token in memory</span>
 <span class="sd">        kwargs: Optional arguments as keyword args</span>
-<span class="sd">    """</span>
+<span class="sd">    &quot;&quot;&quot;</span>
 
-    <span class="k">await</span> <span class="bp">self</span><span class="o">.</span><span class="n">api_request_handler</span><span class="o">.</span><span class="n">make_request</span><span class="p">(</span><span class="s1">'PUT'</span><span class="p">,</span> <span class="n">URLS</span><span class="o">.</span><span class="n">PLAYER</span><span class="o">.</span><span class="n">PAUSE</span><span class="p">,</span> <span class="n">kwargs</span><span class="p">,</span> <span class="n">auth_token</span><span class="p">)</span>
-</code></pre>
-</div>
-</td>
-</tr>
-</table>
-</details>
-</div>
-</div>
-<div class="doc doc-object doc-method">
-<h3 class="doc doc-heading" id="async_spotify.api._endpoints.player.Player.play">
+    <span class="k">await</span> <span class="bp">self</span><span class="o">.</span><span class="n">api_request_handler</span><span class="o">.</span><span class="n">make_request</span><span class="p">(</span><span class="s1">&#39;PUT&#39;</span><span class="p">,</span> <span class="n">URLS</span><span class="o">.</span><span class="n">PLAYER</span><span class="o">.</span><span class="n">PAUSE</span><span class="p">,</span> <span class="n">kwargs</span><span class="p">,</span> <span class="n">auth_token</span><span class="p">)</span>
+</code></pre></div>
+        </details>
+    </div>
 
-<code class="highlight language-python"><span class="n">play</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">device_id</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">auth_token</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span></code>
+  </div>
 
 
-      <a class="headerlink" href="#async_spotify.api._endpoints.player.Player.play" title="Permanent link">&para;</a></h3>
-<div class="doc doc-contents ">
-<p>Start a new context or resume current playback on the user’s active device.</p>
+
+  <div class="doc doc-object doc-method">
+
+
+
+<h3 id="async_spotify.api._endpoints.player.Player.play" class="doc doc-heading">
+<code class="codehilite language-python"><span class="n">play</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">auth_token</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span></code>
+
+  <span class="doc doc-properties">
+      <small class="doc doc-property doc-property-async"><code>async</code></small>
+  </span>
+
+<a href="#async_spotify.api._endpoints.player.Player.play" class="headerlink" title="Permanent link">&para;</a></h3>
+
+    <div class="doc doc-contents ">
+
+      <p>Start a new context or resume current playback on the user’s active device.</p>
 <div class="admonition notes">
 <p class="admonition-title">Notes</p>
 <p><a href="https://developer.spotify.com/documentation/web-api/reference/player/start-a-users-playback/">https://developer.spotify.com/documentation/web-api/reference/player/start-a-users-playback/</a></p>
 </div>
+
 <p><strong>Parameters:</strong></p>
 <table>
-<thead>
-<tr>
-<th>Name</th>
-<th>Type</th>
-<th>Description</th>
-<th>Default</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><code>device_id</code></td>
-<td><code>str</code></td>
-<td>
-<p>A single device ID</p>
-</td>
-<td><code>None</code></td>
-</tr>
-<tr>
-<td><code>auth_token</code></td>
-<td><code>SpotifyAuthorisationToken</code></td>
-<td>
-<p>The auth token if you set the api class not to keep the token in memory</p>
-</td>
-<td><code>None</code></td>
-</tr>
-<tr>
-<td><code>kwargs</code></td>
-<td><code></code></td>
-<td>
-<p>Optional arguments as keyword args</p>
-</td>
-<td><code>{}</code></td>
-</tr>
-</tbody>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Type</th>
+      <th>Description</th>
+      <th>Default</th>
+    </tr>
+  </thead>
+  <tbody>
+      <tr>
+        <td><code>auth_token</code></td>
+        <td><code>SpotifyAuthorisationToken</code></td>
+        <td><p>The auth token if you set the api class not to keep the token in memory</p></td>
+        <td><code>None</code></td>
+      </tr>
+      <tr>
+        <td><code>kwargs</code></td>
+        <td></td>
+        <td><p>Optional arguments as keyword args</p></td>
+        <td><code>{}</code></td>
+      </tr>
+  </tbody>
 </table>
-<details class="quote">
+        <details class="quote">
           <summary>Source code in <code>async_spotify/api/_endpoints/player.py</code></summary>
-          <table class="highlighttable">
-<tr>
-<td class="linenos">
-<div class="linenodiv">
-<pre><span></span>227
-228
-229
-230
-231
-232
-233
-234
-235
-236
-237
-238
-239
-240
-241</pre>
-</div>
-</td>
-<td class="code">
-<div class="highlight">
-<pre><span></span><code><span class="k">async</span> <span class="k">def</span> <span class="nf">play</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">device_id</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> <span class="n">auth_token</span><span class="p">:</span> <span class="n">SpotifyAuthorisationToken</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
-    <span class="sd">"""</span>
+          <div class="codehilite"><pre><span></span><code><span class="k">async</span> <span class="k">def</span> <span class="nf">play</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">auth_token</span><span class="p">:</span> <span class="n">SpotifyAuthorisationToken</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+    <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Start a new context or resume current playback on the user’s active device.</span>
 
 <span class="sd">    Notes:</span>
 <span class="sd">        [https://developer.spotify.com/documentation/web-api/reference/player/start-a-users-playback/](https://developer.spotify.com/documentation/web-api/reference/player/start-a-users-playback/)</span>
 
 <span class="sd">    Args:</span>
-<span class="sd">        device_id: A single device ID</span>
 <span class="sd">        auth_token: The auth token if you set the api class not to keep the token in memory</span>
 <span class="sd">        kwargs: Optional arguments as keyword args</span>
-<span class="sd">    """</span>
+<span class="sd">    &quot;&quot;&quot;</span>
 
-    <span class="k">await</span> <span class="bp">self</span><span class="o">.</span><span class="n">api_request_handler</span><span class="o">.</span><span class="n">make_request</span><span class="p">(</span><span class="s1">'PUT'</span><span class="p">,</span> <span class="n">URLS</span><span class="o">.</span><span class="n">PLAYER</span><span class="o">.</span><span class="n">PLAY</span><span class="p">,</span> <span class="p">{</span><span class="s1">'device_id'</span><span class="p">:</span> <span class="n">device_id</span><span class="p">},</span> <span class="n">auth_token</span><span class="p">,</span>
+    <span class="n">query_params</span> <span class="o">=</span> <span class="p">{}</span>
+    <span class="k">if</span> <span class="s2">&quot;device_id&quot;</span> <span class="ow">in</span> <span class="n">kwargs</span><span class="p">:</span>
+        <span class="n">query_params</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;device_id&#39;</span><span class="p">:</span> <span class="n">kwargs</span><span class="p">[</span><span class="s2">&quot;device_id&quot;</span><span class="p">]}</span>
+
+    <span class="k">await</span> <span class="bp">self</span><span class="o">.</span><span class="n">api_request_handler</span><span class="o">.</span><span class="n">make_request</span><span class="p">(</span><span class="s1">&#39;PUT&#39;</span><span class="p">,</span> <span class="n">URLS</span><span class="o">.</span><span class="n">PLAYER</span><span class="o">.</span><span class="n">PLAY</span><span class="p">,</span> <span class="n">query_params</span><span class="p">,</span> <span class="n">auth_token</span><span class="p">,</span>
                                                 <span class="n">kwargs</span><span class="p">)</span>
-</code></pre>
-</div>
-</td>
-</tr>
-</table>
-</details>
-</div>
-</div>
-<div class="doc doc-object doc-method">
-<h3 class="doc doc-heading" id="async_spotify.api._endpoints.player.Player.previous">
+</code></pre></div>
+        </details>
+    </div>
 
-<code class="highlight language-python"><span class="n">previous</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">auth_token</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span></code>
+  </div>
 
 
-      <a class="headerlink" href="#async_spotify.api._endpoints.player.Player.previous" title="Permanent link">&para;</a></h3>
-<div class="doc doc-contents ">
-<p>Skips to previous track in the user’s queue.</p>
+
+  <div class="doc doc-object doc-method">
+
+
+
+<h3 id="async_spotify.api._endpoints.player.Player.previous" class="doc doc-heading">
+<code class="codehilite language-python"><span class="n">previous</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">auth_token</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span></code>
+
+  <span class="doc doc-properties">
+      <small class="doc doc-property doc-property-async"><code>async</code></small>
+  </span>
+
+<a href="#async_spotify.api._endpoints.player.Player.previous" class="headerlink" title="Permanent link">&para;</a></h3>
+
+    <div class="doc doc-contents ">
+
+      <p>Skips to previous track in the user’s queue.</p>
 <div class="admonition notes">
 <p class="admonition-title">Notes</p>
 <p><a href="https://developer.spotify.com/documentation/web-api/reference/player/skip-users-playback-to-previous-track/">https://developer.spotify.com/documentation/web-api/reference/player/skip-users-playback-to-previous-track/</a></p>
 </div>
+
 <p><strong>Parameters:</strong></p>
 <table>
-<thead>
-<tr>
-<th>Name</th>
-<th>Type</th>
-<th>Description</th>
-<th>Default</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><code>auth_token</code></td>
-<td><code>SpotifyAuthorisationToken</code></td>
-<td>
-<p>The auth token if you set the api class not to keep the token in memory</p>
-</td>
-<td><code>None</code></td>
-</tr>
-<tr>
-<td><code>kwargs</code></td>
-<td><code></code></td>
-<td>
-<p>Optional arguments as keyword args</p>
-</td>
-<td><code>{}</code></td>
-</tr>
-</tbody>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Type</th>
+      <th>Description</th>
+      <th>Default</th>
+    </tr>
+  </thead>
+  <tbody>
+      <tr>
+        <td><code>auth_token</code></td>
+        <td><code>SpotifyAuthorisationToken</code></td>
+        <td><p>The auth token if you set the api class not to keep the token in memory</p></td>
+        <td><code>None</code></td>
+      </tr>
+      <tr>
+        <td><code>kwargs</code></td>
+        <td></td>
+        <td><p>Optional arguments as keyword args</p></td>
+        <td><code>{}</code></td>
+      </tr>
+  </tbody>
 </table>
-<details class="quote">
+        <details class="quote">
           <summary>Source code in <code>async_spotify/api/_endpoints/player.py</code></summary>
-          <table class="highlighttable">
-<tr>
-<td class="linenos">
-<div class="linenodiv">
-<pre><span></span>213
-214
-215
-216
-217
-218
-219
-220
-221
-222
-223
-224
-225</pre>
-</div>
-</td>
-<td class="code">
-<div class="highlight">
-<pre><span></span><code><span class="k">async</span> <span class="k">def</span> <span class="nf">previous</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">auth_token</span><span class="p">:</span> <span class="n">SpotifyAuthorisationToken</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
-    <span class="sd">"""</span>
+          <div class="codehilite"><pre><span></span><code><span class="k">async</span> <span class="k">def</span> <span class="nf">previous</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">auth_token</span><span class="p">:</span> <span class="n">SpotifyAuthorisationToken</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+    <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Skips to previous track in the user’s queue.</span>
 
 <span class="sd">    Notes:</span>
@@ -1954,97 +2094,76 @@ and active device.</p>
 <span class="sd">    Args:</span>
 <span class="sd">        auth_token: The auth token if you set the api class not to keep the token in memory</span>
 <span class="sd">        kwargs: Optional arguments as keyword args</span>
-<span class="sd">    """</span>
+<span class="sd">    &quot;&quot;&quot;</span>
 
-    <span class="k">await</span> <span class="bp">self</span><span class="o">.</span><span class="n">api_request_handler</span><span class="o">.</span><span class="n">make_request</span><span class="p">(</span><span class="s1">'POST'</span><span class="p">,</span> <span class="n">URLS</span><span class="o">.</span><span class="n">PLAYER</span><span class="o">.</span><span class="n">PREVIOUS</span><span class="p">,</span> <span class="n">kwargs</span><span class="p">,</span> <span class="n">auth_token</span><span class="p">)</span>
-</code></pre>
-</div>
-</td>
-</tr>
-</table>
-</details>
-</div>
-</div>
-<div class="doc doc-object doc-method">
-<h3 class="doc doc-heading" id="async_spotify.api._endpoints.player.Player.repeat">
+    <span class="k">await</span> <span class="bp">self</span><span class="o">.</span><span class="n">api_request_handler</span><span class="o">.</span><span class="n">make_request</span><span class="p">(</span><span class="s1">&#39;POST&#39;</span><span class="p">,</span> <span class="n">URLS</span><span class="o">.</span><span class="n">PLAYER</span><span class="o">.</span><span class="n">PREVIOUS</span><span class="p">,</span> <span class="n">kwargs</span><span class="p">,</span> <span class="n">auth_token</span><span class="p">)</span>
+</code></pre></div>
+        </details>
+    </div>
 
-<code class="highlight language-python"><span class="n">repeat</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">state</span><span class="p">,</span> <span class="n">auth_token</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span></code>
+  </div>
 
 
-      <a class="headerlink" href="#async_spotify.api._endpoints.player.Player.repeat" title="Permanent link">&para;</a></h3>
-<div class="doc doc-contents ">
-<p>Set the repeat mode for the user’s playback. Options are repeat-track, repeat-context, and off.</p>
+
+  <div class="doc doc-object doc-method">
+
+
+
+<h3 id="async_spotify.api._endpoints.player.Player.repeat" class="doc doc-heading">
+<code class="codehilite language-python"><span class="n">repeat</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">state</span><span class="p">,</span> <span class="n">auth_token</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span></code>
+
+  <span class="doc doc-properties">
+      <small class="doc doc-property doc-property-async"><code>async</code></small>
+  </span>
+
+<a href="#async_spotify.api._endpoints.player.Player.repeat" class="headerlink" title="Permanent link">&para;</a></h3>
+
+    <div class="doc doc-contents ">
+
+      <p>Set the repeat mode for the user’s playback. Options are repeat-track, repeat-context, and off.</p>
 <div class="admonition notes">
 <p class="admonition-title">Notes</p>
 <p><a href="https://developer.spotify.com/documentation/web-api/reference/player/set-repeat-mode-on-users-playback/">https://developer.spotify.com/documentation/web-api/reference/player/set-repeat-mode-on-users-playback/</a></p>
 </div>
+
 <p><strong>Parameters:</strong></p>
 <table>
-<thead>
-<tr>
-<th>Name</th>
-<th>Type</th>
-<th>Description</th>
-<th>Default</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><code>state</code></td>
-<td><code>str</code></td>
-<td>
-<p>track, context or off. track will repeat the current track. context will repeat the current context. off will turn repeat off.</p>
-</td>
-<td><em>required</em></td>
-</tr>
-<tr>
-<td><code>auth_token</code></td>
-<td><code>SpotifyAuthorisationToken</code></td>
-<td>
-<p>The auth token if you set the api class not to keep the token in memory</p>
-</td>
-<td><code>None</code></td>
-</tr>
-<tr>
-<td><code>kwargs</code></td>
-<td><code></code></td>
-<td>
-<p>Optional arguments as keyword args</p>
-</td>
-<td><code>{}</code></td>
-</tr>
-</tbody>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Type</th>
+      <th>Description</th>
+      <th>Default</th>
+    </tr>
+  </thead>
+  <tbody>
+      <tr>
+        <td><code>state</code></td>
+        <td><code>str</code></td>
+        <td><p>track, context or off.
+track will repeat the current track.
+context will repeat the current context.
+off will turn repeat off.</p></td>
+        <td><em>required</em></td>
+      </tr>
+      <tr>
+        <td><code>auth_token</code></td>
+        <td><code>SpotifyAuthorisationToken</code></td>
+        <td><p>The auth token if you set the api class not to keep the token in memory</p></td>
+        <td><code>None</code></td>
+      </tr>
+      <tr>
+        <td><code>kwargs</code></td>
+        <td></td>
+        <td><p>Optional arguments as keyword args</p></td>
+        <td><code>{}</code></td>
+      </tr>
+  </tbody>
 </table>
-<details class="quote">
+        <details class="quote">
           <summary>Source code in <code>async_spotify/api/_endpoints/player.py</code></summary>
-          <table class="highlighttable">
-<tr>
-<td class="linenos">
-<div class="linenodiv">
-<pre><span></span>164
-165
-166
-167
-168
-169
-170
-171
-172
-173
-174
-175
-176
-177
-178
-179
-180
-181</pre>
-</div>
-</td>
-<td class="code">
-<div class="highlight">
-<pre><span></span><code><span class="k">async</span> <span class="k">def</span> <span class="nf">repeat</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">state</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">auth_token</span><span class="p">:</span> <span class="n">SpotifyAuthorisationToken</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
-    <span class="sd">"""</span>
+          <div class="codehilite"><pre><span></span><code><span class="k">async</span> <span class="k">def</span> <span class="nf">repeat</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">state</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">auth_token</span><span class="p">:</span> <span class="n">SpotifyAuthorisationToken</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+    <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Set the repeat mode for the user’s playback. Options are repeat-track, repeat-context, and off.</span>
 
 <span class="sd">    Notes:</span>
@@ -2057,96 +2176,75 @@ and active device.</p>
 <span class="sd">            off will turn repeat off.</span>
 <span class="sd">        auth_token: The auth token if you set the api class not to keep the token in memory</span>
 <span class="sd">        kwargs: Optional arguments as keyword args</span>
-<span class="sd">    """</span>
+<span class="sd">    &quot;&quot;&quot;</span>
 
-    <span class="n">args</span> <span class="o">=</span> <span class="p">{</span><span class="o">**</span><span class="p">{</span><span class="s1">'state'</span><span class="p">:</span> <span class="n">state</span><span class="p">},</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">}</span>
-    <span class="k">await</span> <span class="bp">self</span><span class="o">.</span><span class="n">api_request_handler</span><span class="o">.</span><span class="n">make_request</span><span class="p">(</span><span class="s1">'PUT'</span><span class="p">,</span> <span class="n">URLS</span><span class="o">.</span><span class="n">PLAYER</span><span class="o">.</span><span class="n">REPEAT</span><span class="p">,</span> <span class="n">args</span><span class="p">,</span> <span class="n">auth_token</span><span class="p">)</span>
-</code></pre>
-</div>
-</td>
-</tr>
-</table>
-</details>
-</div>
-</div>
-<div class="doc doc-object doc-method">
-<h3 class="doc doc-heading" id="async_spotify.api._endpoints.player.Player.seek">
+    <span class="n">args</span> <span class="o">=</span> <span class="p">{</span><span class="o">**</span><span class="p">{</span><span class="s1">&#39;state&#39;</span><span class="p">:</span> <span class="n">state</span><span class="p">},</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">}</span>
+    <span class="k">await</span> <span class="bp">self</span><span class="o">.</span><span class="n">api_request_handler</span><span class="o">.</span><span class="n">make_request</span><span class="p">(</span><span class="s1">&#39;PUT&#39;</span><span class="p">,</span> <span class="n">URLS</span><span class="o">.</span><span class="n">PLAYER</span><span class="o">.</span><span class="n">REPEAT</span><span class="p">,</span> <span class="n">args</span><span class="p">,</span> <span class="n">auth_token</span><span class="p">)</span>
+</code></pre></div>
+        </details>
+    </div>
 
-<code class="highlight language-python"><span class="n">seek</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">position_ms</span><span class="p">,</span> <span class="n">auth_token</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span></code>
+  </div>
 
 
-      <a class="headerlink" href="#async_spotify.api._endpoints.player.Player.seek" title="Permanent link">&para;</a></h3>
-<div class="doc doc-contents ">
-<p>Pause playback on the user’s account</p>
+
+  <div class="doc doc-object doc-method">
+
+
+
+<h3 id="async_spotify.api._endpoints.player.Player.seek" class="doc doc-heading">
+<code class="codehilite language-python"><span class="n">seek</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">position_ms</span><span class="p">,</span> <span class="n">auth_token</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span></code>
+
+  <span class="doc doc-properties">
+      <small class="doc doc-property doc-property-async"><code>async</code></small>
+  </span>
+
+<a href="#async_spotify.api._endpoints.player.Player.seek" class="headerlink" title="Permanent link">&para;</a></h3>
+
+    <div class="doc doc-contents ">
+
+      <p>Pause playback on the user’s account</p>
 <div class="admonition notes">
 <p class="admonition-title">Notes</p>
 <p><a href="https://developer.spotify.com/documentation/web-api/reference/player/seek-to-position-in-currently-playing-track/">https://developer.spotify.com/documentation/web-api/reference/player/seek-to-position-in-currently-playing-track/</a></p>
 </div>
+
 <p><strong>Parameters:</strong></p>
 <table>
-<thead>
-<tr>
-<th>Name</th>
-<th>Type</th>
-<th>Description</th>
-<th>Default</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><code>position_ms</code></td>
-<td><code>int</code></td>
-<td>
-<p>The position in milliseconds to seek to. Must be a positive number. Passing in a position that is greater than the length of the track will cause the player to start playing the next song.</p>
-</td>
-<td><em>required</em></td>
-</tr>
-<tr>
-<td><code>auth_token</code></td>
-<td><code>SpotifyAuthorisationToken</code></td>
-<td>
-<p>The auth token if you set the api class not to keep the token in memory</p>
-</td>
-<td><code>None</code></td>
-</tr>
-<tr>
-<td><code>kwargs</code></td>
-<td><code></code></td>
-<td>
-<p>Optional arguments as keyword args</p>
-</td>
-<td><code>{}</code></td>
-</tr>
-</tbody>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Type</th>
+      <th>Description</th>
+      <th>Default</th>
+    </tr>
+  </thead>
+  <tbody>
+      <tr>
+        <td><code>position_ms</code></td>
+        <td><code>int</code></td>
+        <td><p>The position in milliseconds to seek to. Must be a positive number. Passing in a position that
+is greater than the length of the track will cause the player to start playing the next song.</p></td>
+        <td><em>required</em></td>
+      </tr>
+      <tr>
+        <td><code>auth_token</code></td>
+        <td><code>SpotifyAuthorisationToken</code></td>
+        <td><p>The auth token if you set the api class not to keep the token in memory</p></td>
+        <td><code>None</code></td>
+      </tr>
+      <tr>
+        <td><code>kwargs</code></td>
+        <td></td>
+        <td><p>Optional arguments as keyword args</p></td>
+        <td><code>{}</code></td>
+      </tr>
+  </tbody>
 </table>
-<details class="quote">
+        <details class="quote">
           <summary>Source code in <code>async_spotify/api/_endpoints/player.py</code></summary>
-          <table class="highlighttable">
-<tr>
-<td class="linenos">
-<div class="linenodiv">
-<pre><span></span>147
-148
-149
-150
-151
-152
-153
-154
-155
-156
-157
-158
-159
-160
-161
-162</pre>
-</div>
-</td>
-<td class="code">
-<div class="highlight">
-<pre><span></span><code><span class="k">async</span> <span class="k">def</span> <span class="nf">seek</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">position_ms</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span> <span class="n">auth_token</span><span class="p">:</span> <span class="n">SpotifyAuthorisationToken</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
-    <span class="sd">"""</span>
+          <div class="codehilite"><pre><span></span><code><span class="k">async</span> <span class="k">def</span> <span class="nf">seek</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">position_ms</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span> <span class="n">auth_token</span><span class="p">:</span> <span class="n">SpotifyAuthorisationToken</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+    <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Pause playback on the user’s account</span>
 
 <span class="sd">    Notes:</span>
@@ -2157,96 +2255,74 @@ and active device.</p>
 <span class="sd">            is greater than the length of the track will cause the player to start playing the next song.</span>
 <span class="sd">        auth_token: The auth token if you set the api class not to keep the token in memory</span>
 <span class="sd">        kwargs: Optional arguments as keyword args</span>
-<span class="sd">    """</span>
+<span class="sd">    &quot;&quot;&quot;</span>
 
-    <span class="n">args</span> <span class="o">=</span> <span class="p">{</span><span class="o">**</span><span class="p">{</span><span class="s1">'position_ms'</span><span class="p">:</span> <span class="n">position_ms</span><span class="p">},</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">}</span>
-    <span class="k">await</span> <span class="bp">self</span><span class="o">.</span><span class="n">api_request_handler</span><span class="o">.</span><span class="n">make_request</span><span class="p">(</span><span class="s1">'PUT'</span><span class="p">,</span> <span class="n">URLS</span><span class="o">.</span><span class="n">PLAYER</span><span class="o">.</span><span class="n">SEEK</span><span class="p">,</span> <span class="n">args</span><span class="p">,</span> <span class="n">auth_token</span><span class="p">)</span>
-</code></pre>
-</div>
-</td>
-</tr>
-</table>
-</details>
-</div>
-</div>
-<div class="doc doc-object doc-method">
-<h3 class="doc doc-heading" id="async_spotify.api._endpoints.player.Player.shuffle">
+    <span class="n">args</span> <span class="o">=</span> <span class="p">{</span><span class="o">**</span><span class="p">{</span><span class="s1">&#39;position_ms&#39;</span><span class="p">:</span> <span class="n">position_ms</span><span class="p">},</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">}</span>
+    <span class="k">await</span> <span class="bp">self</span><span class="o">.</span><span class="n">api_request_handler</span><span class="o">.</span><span class="n">make_request</span><span class="p">(</span><span class="s1">&#39;PUT&#39;</span><span class="p">,</span> <span class="n">URLS</span><span class="o">.</span><span class="n">PLAYER</span><span class="o">.</span><span class="n">SEEK</span><span class="p">,</span> <span class="n">args</span><span class="p">,</span> <span class="n">auth_token</span><span class="p">)</span>
+</code></pre></div>
+        </details>
+    </div>
 
-<code class="highlight language-python"><span class="n">shuffle</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">shuffle_on</span><span class="p">,</span> <span class="n">auth_token</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span></code>
+  </div>
 
 
-      <a class="headerlink" href="#async_spotify.api._endpoints.player.Player.shuffle" title="Permanent link">&para;</a></h3>
-<div class="doc doc-contents ">
-<p>Toggle shuffle on or off for user’s playback.</p>
+
+  <div class="doc doc-object doc-method">
+
+
+
+<h3 id="async_spotify.api._endpoints.player.Player.shuffle" class="doc doc-heading">
+<code class="codehilite language-python"><span class="n">shuffle</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">shuffle_on</span><span class="p">,</span> <span class="n">auth_token</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span></code>
+
+  <span class="doc doc-properties">
+      <small class="doc doc-property doc-property-async"><code>async</code></small>
+  </span>
+
+<a href="#async_spotify.api._endpoints.player.Player.shuffle" class="headerlink" title="Permanent link">&para;</a></h3>
+
+    <div class="doc doc-contents ">
+
+      <p>Toggle shuffle on or off for user’s playback.</p>
 <div class="admonition notes">
 <p class="admonition-title">Notes</p>
 <p><a href="https://developer.spotify.com/documentation/web-api/reference/player/toggle-shuffle-for-users-playback/">https://developer.spotify.com/documentation/web-api/reference/player/toggle-shuffle-for-users-playback/</a></p>
 </div>
+
 <p><strong>Parameters:</strong></p>
 <table>
-<thead>
-<tr>
-<th>Name</th>
-<th>Type</th>
-<th>Description</th>
-<th>Default</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><code>shuffle_on</code></td>
-<td><code>bool</code></td>
-<td>
-<p>The state of the shuffle</p>
-</td>
-<td><em>required</em></td>
-</tr>
-<tr>
-<td><code>auth_token</code></td>
-<td><code>SpotifyAuthorisationToken</code></td>
-<td>
-<p>The auth token if you set the api class not to keep the token in memory</p>
-</td>
-<td><code>None</code></td>
-</tr>
-<tr>
-<td><code>kwargs</code></td>
-<td><code></code></td>
-<td>
-<p>Optional arguments as keyword args</p>
-</td>
-<td><code>{}</code></td>
-</tr>
-</tbody>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Type</th>
+      <th>Description</th>
+      <th>Default</th>
+    </tr>
+  </thead>
+  <tbody>
+      <tr>
+        <td><code>shuffle_on</code></td>
+        <td><code>bool</code></td>
+        <td><p>The state of the shuffle</p></td>
+        <td><em>required</em></td>
+      </tr>
+      <tr>
+        <td><code>auth_token</code></td>
+        <td><code>SpotifyAuthorisationToken</code></td>
+        <td><p>The auth token if you set the api class not to keep the token in memory</p></td>
+        <td><code>None</code></td>
+      </tr>
+      <tr>
+        <td><code>kwargs</code></td>
+        <td></td>
+        <td><p>Optional arguments as keyword args</p></td>
+        <td><code>{}</code></td>
+      </tr>
+  </tbody>
 </table>
-<details class="quote">
+        <details class="quote">
           <summary>Source code in <code>async_spotify/api/_endpoints/player.py</code></summary>
-          <table class="highlighttable">
-<tr>
-<td class="linenos">
-<div class="linenodiv">
-<pre><span></span>243
-244
-245
-246
-247
-248
-249
-250
-251
-252
-253
-254
-255
-256
-257
-258</pre>
-</div>
-</td>
-<td class="code">
-<div class="highlight">
-<pre><span></span><code><span class="k">async</span> <span class="k">def</span> <span class="nf">shuffle</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">shuffle_on</span><span class="p">:</span> <span class="nb">bool</span><span class="p">,</span> <span class="n">auth_token</span><span class="p">:</span> <span class="n">SpotifyAuthorisationToken</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
-    <span class="sd">"""</span>
+          <div class="codehilite"><pre><span></span><code><span class="k">async</span> <span class="k">def</span> <span class="nf">shuffle</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">shuffle_on</span><span class="p">:</span> <span class="nb">bool</span><span class="p">,</span> <span class="n">auth_token</span><span class="p">:</span> <span class="n">SpotifyAuthorisationToken</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+    <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Toggle shuffle on or off for user’s playback.</span>
 
 <span class="sd">    Notes:</span>
@@ -2256,102 +2332,76 @@ and active device.</p>
 <span class="sd">        shuffle_on: The state of the shuffle</span>
 <span class="sd">        auth_token: The auth token if you set the api class not to keep the token in memory</span>
 <span class="sd">        kwargs: Optional arguments as keyword args</span>
-<span class="sd">    """</span>
+<span class="sd">    &quot;&quot;&quot;</span>
 
-    <span class="n">args</span> <span class="o">=</span> <span class="p">{</span><span class="o">**</span><span class="p">{</span><span class="s1">'state'</span><span class="p">:</span> <span class="n">shuffle_on</span><span class="p">},</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">}</span>
+    <span class="n">args</span> <span class="o">=</span> <span class="p">{</span><span class="o">**</span><span class="p">{</span><span class="s1">&#39;state&#39;</span><span class="p">:</span> <span class="n">shuffle_on</span><span class="p">},</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">}</span>
 
-    <span class="k">await</span> <span class="bp">self</span><span class="o">.</span><span class="n">api_request_handler</span><span class="o">.</span><span class="n">make_request</span><span class="p">(</span><span class="s1">'PUT'</span><span class="p">,</span> <span class="n">URLS</span><span class="o">.</span><span class="n">PLAYER</span><span class="o">.</span><span class="n">SHUFFLE</span><span class="p">,</span> <span class="n">args</span><span class="p">,</span> <span class="n">auth_token</span><span class="p">)</span>
-</code></pre>
-</div>
-</td>
-</tr>
-</table>
-</details>
-</div>
-</div>
-<div class="doc doc-object doc-method">
-<h3 class="doc doc-heading" id="async_spotify.api._endpoints.player.Player.transfer">
+    <span class="k">await</span> <span class="bp">self</span><span class="o">.</span><span class="n">api_request_handler</span><span class="o">.</span><span class="n">make_request</span><span class="p">(</span><span class="s1">&#39;PUT&#39;</span><span class="p">,</span> <span class="n">URLS</span><span class="o">.</span><span class="n">PLAYER</span><span class="o">.</span><span class="n">SHUFFLE</span><span class="p">,</span> <span class="n">args</span><span class="p">,</span> <span class="n">auth_token</span><span class="p">)</span>
+</code></pre></div>
+        </details>
+    </div>
 
-<code class="highlight language-python"><span class="n">transfer</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">device_id</span><span class="p">,</span> <span class="n">play</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">auth_token</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span></code>
+  </div>
 
 
-      <a class="headerlink" href="#async_spotify.api._endpoints.player.Player.transfer" title="Permanent link">&para;</a></h3>
-<div class="doc doc-contents ">
-<p>Transfer playback to a new device and determine if it should start playing.</p>
+
+  <div class="doc doc-object doc-method">
+
+
+
+<h3 id="async_spotify.api._endpoints.player.Player.transfer" class="doc doc-heading">
+<code class="codehilite language-python"><span class="n">transfer</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">device_id</span><span class="p">,</span> <span class="n">play</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">auth_token</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span></code>
+
+  <span class="doc doc-properties">
+      <small class="doc doc-property doc-property-async"><code>async</code></small>
+  </span>
+
+<a href="#async_spotify.api._endpoints.player.Player.transfer" class="headerlink" title="Permanent link">&para;</a></h3>
+
+    <div class="doc doc-contents ">
+
+      <p>Transfer playback to a new device and determine if it should start playing.</p>
 <div class="admonition notes">
 <p class="admonition-title">Notes</p>
 <p><a href="https://developer.spotify.com/documentation/web-api/reference/player/transfer-a-users-playback/">https://developer.spotify.com/documentation/web-api/reference/player/transfer-a-users-playback/</a></p>
 </div>
+
 <p><strong>Parameters:</strong></p>
 <table>
-<thead>
-<tr>
-<th>Name</th>
-<th>Type</th>
-<th>Description</th>
-<th>Default</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><code>play</code></td>
-<td><code>bool</code></td>
-<td>
-<p>ensure playback happens on new device</p>
-</td>
-<td><code>False</code></td>
-</tr>
-<tr>
-<td><code>device_id</code></td>
-<td><code>List[str]</code></td>
-<td>
-<p>A SINGLE device ID</p>
-</td>
-<td><em>required</em></td>
-</tr>
-<tr>
-<td><code>auth_token</code></td>
-<td><code>SpotifyAuthorisationToken</code></td>
-<td>
-<p>The auth token if you set the api class not to keep the token in memory</p>
-</td>
-<td><code>None</code></td>
-</tr>
-</tbody>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Type</th>
+      <th>Description</th>
+      <th>Default</th>
+    </tr>
+  </thead>
+  <tbody>
+      <tr>
+        <td><code>play</code></td>
+        <td><code>bool</code></td>
+        <td><p>ensure playback happens on new device</p></td>
+        <td><code>False</code></td>
+      </tr>
+      <tr>
+        <td><code>device_id</code></td>
+        <td><code>List[str]</code></td>
+        <td><p>A SINGLE device ID</p></td>
+        <td><em>required</em></td>
+      </tr>
+      <tr>
+        <td><code>auth_token</code></td>
+        <td><code>SpotifyAuthorisationToken</code></td>
+        <td><p>The auth token if you set the api class not to keep the token in memory</p></td>
+        <td><code>None</code></td>
+      </tr>
+  </tbody>
 </table>
-<details class="quote">
+        <details class="quote">
           <summary>Source code in <code>async_spotify/api/_endpoints/player.py</code></summary>
-          <table class="highlighttable">
-<tr>
-<td class="linenos">
-<div class="linenodiv">
-<pre><span></span>260
-261
-262
-263
-264
-265
-266
-267
-268
-269
-270
-271
-272
-273
-274
-275
-276
-277
-278
-279</pre>
-</div>
-</td>
-<td class="code">
-<div class="highlight">
-<pre><span></span><code><span class="k">async</span> <span class="k">def</span> <span class="nf">transfer</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">device_id</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="nb">str</span><span class="p">],</span> <span class="n">play</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span>
+          <div class="codehilite"><pre><span></span><code><span class="k">async</span> <span class="k">def</span> <span class="nf">transfer</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">device_id</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="nb">str</span><span class="p">],</span> <span class="n">play</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span>
                    <span class="n">auth_token</span><span class="p">:</span> <span class="n">SpotifyAuthorisationToken</span> <span class="o">=</span> <span class="kc">None</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
-    <span class="sd">"""</span>
+    <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Transfer playback to a new device and determine if it should start playing.</span>
 
 <span class="sd">    Notes:</span>
@@ -2361,99 +2411,78 @@ and active device.</p>
 <span class="sd">        play: ensure playback happens on new device</span>
 <span class="sd">        device_id: A SINGLE device ID</span>
 <span class="sd">        auth_token: The auth token if you set the api class not to keep the token in memory</span>
-<span class="sd">    """</span>
+<span class="sd">    &quot;&quot;&quot;</span>
 
     <span class="n">body</span> <span class="o">=</span> <span class="p">{</span>
-        <span class="s2">"device_ids"</span><span class="p">:</span> <span class="n">device_id</span><span class="p">,</span>
-        <span class="s2">"state"</span><span class="p">:</span> <span class="n">play</span>
+        <span class="s2">&quot;device_ids&quot;</span><span class="p">:</span> <span class="n">device_id</span><span class="p">,</span>
+        <span class="s2">&quot;state&quot;</span><span class="p">:</span> <span class="n">play</span>
     <span class="p">}</span>
 
-    <span class="k">await</span> <span class="bp">self</span><span class="o">.</span><span class="n">api_request_handler</span><span class="o">.</span><span class="n">make_request</span><span class="p">(</span><span class="s1">'PUT'</span><span class="p">,</span> <span class="n">URLS</span><span class="o">.</span><span class="n">PLAYER</span><span class="o">.</span><span class="n">PLAYER</span><span class="p">,</span> <span class="p">{},</span> <span class="n">auth_token</span><span class="p">,</span> <span class="n">body</span><span class="o">=</span><span class="n">body</span><span class="p">)</span>
-</code></pre>
-</div>
-</td>
-</tr>
-</table>
-</details>
-</div>
-</div>
-<div class="doc doc-object doc-method">
-<h3 class="doc doc-heading" id="async_spotify.api._endpoints.player.Player.volume">
+    <span class="k">await</span> <span class="bp">self</span><span class="o">.</span><span class="n">api_request_handler</span><span class="o">.</span><span class="n">make_request</span><span class="p">(</span><span class="s1">&#39;PUT&#39;</span><span class="p">,</span> <span class="n">URLS</span><span class="o">.</span><span class="n">PLAYER</span><span class="o">.</span><span class="n">PLAYER</span><span class="p">,</span> <span class="p">{},</span> <span class="n">auth_token</span><span class="p">,</span> <span class="n">body</span><span class="o">=</span><span class="n">body</span><span class="p">)</span>
+</code></pre></div>
+        </details>
+    </div>
 
-<code class="highlight language-python"><span class="n">volume</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">volume_percent</span><span class="p">,</span> <span class="n">auth_token</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span></code>
+  </div>
 
 
-      <a class="headerlink" href="#async_spotify.api._endpoints.player.Player.volume" title="Permanent link">&para;</a></h3>
-<div class="doc doc-contents ">
-<p>Set the volume for the user’s current playback device.</p>
+
+  <div class="doc doc-object doc-method">
+
+
+
+<h3 id="async_spotify.api._endpoints.player.Player.volume" class="doc doc-heading">
+<code class="codehilite language-python"><span class="n">volume</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">volume_percent</span><span class="p">,</span> <span class="n">auth_token</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span></code>
+
+  <span class="doc doc-properties">
+      <small class="doc doc-property doc-property-async"><code>async</code></small>
+  </span>
+
+<a href="#async_spotify.api._endpoints.player.Player.volume" class="headerlink" title="Permanent link">&para;</a></h3>
+
+    <div class="doc doc-contents ">
+
+      <p>Set the volume for the user’s current playback device.</p>
 <div class="admonition notes">
 <p class="admonition-title">Notes</p>
 <p><a href="https://developer.spotify.com/documentation/web-api/reference/player/set-volume-for-users-playback/">https://developer.spotify.com/documentation/web-api/reference/player/set-volume-for-users-playback/</a></p>
 </div>
+
 <p><strong>Parameters:</strong></p>
 <table>
-<thead>
-<tr>
-<th>Name</th>
-<th>Type</th>
-<th>Description</th>
-<th>Default</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><code>volume_percent</code></td>
-<td><code>int</code></td>
-<td>
-<p>Integer. The volume to set. Must be a value from 0 to 100 inclusive.</p>
-</td>
-<td><em>required</em></td>
-</tr>
-<tr>
-<td><code>auth_token</code></td>
-<td><code>SpotifyAuthorisationToken</code></td>
-<td>
-<p>The auth token if you set the api class not to keep the token in memory</p>
-</td>
-<td><code>None</code></td>
-</tr>
-<tr>
-<td><code>kwargs</code></td>
-<td><code></code></td>
-<td>
-<p>Optional arguments as keyword args</p>
-</td>
-<td><code>{}</code></td>
-</tr>
-</tbody>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Type</th>
+      <th>Description</th>
+      <th>Default</th>
+    </tr>
+  </thead>
+  <tbody>
+      <tr>
+        <td><code>volume_percent</code></td>
+        <td><code>int</code></td>
+        <td><p>Integer. The volume to set. Must be a value from 0 to 100 inclusive.</p></td>
+        <td><em>required</em></td>
+      </tr>
+      <tr>
+        <td><code>auth_token</code></td>
+        <td><code>SpotifyAuthorisationToken</code></td>
+        <td><p>The auth token if you set the api class not to keep the token in memory</p></td>
+        <td><code>None</code></td>
+      </tr>
+      <tr>
+        <td><code>kwargs</code></td>
+        <td></td>
+        <td><p>Optional arguments as keyword args</p></td>
+        <td><code>{}</code></td>
+      </tr>
+  </tbody>
 </table>
-<details class="quote">
+        <details class="quote">
           <summary>Source code in <code>async_spotify/api/_endpoints/player.py</code></summary>
-          <table class="highlighttable">
-<tr>
-<td class="linenos">
-<div class="linenodiv">
-<pre><span></span>183
-184
-185
-186
-187
-188
-189
-190
-191
-192
-193
-194
-195
-196
-197</pre>
-</div>
-</td>
-<td class="code">
-<div class="highlight">
-<pre><span></span><code><span class="k">async</span> <span class="k">def</span> <span class="nf">volume</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">volume_percent</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span> <span class="n">auth_token</span><span class="p">:</span> <span class="n">SpotifyAuthorisationToken</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
-    <span class="sd">"""</span>
+          <div class="codehilite"><pre><span></span><code><span class="k">async</span> <span class="k">def</span> <span class="nf">volume</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">volume_percent</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span> <span class="n">auth_token</span><span class="p">:</span> <span class="n">SpotifyAuthorisationToken</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+    <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Set the volume for the user’s current playback device.</span>
 
 <span class="sd">    Notes:</span>
@@ -2463,128 +2492,130 @@ and active device.</p>
 <span class="sd">        volume_percent: Integer. The volume to set. Must be a value from 0 to 100 inclusive.</span>
 <span class="sd">        auth_token: The auth token if you set the api class not to keep the token in memory</span>
 <span class="sd">        kwargs: Optional arguments as keyword args</span>
-<span class="sd">    """</span>
+<span class="sd">    &quot;&quot;&quot;</span>
 
-    <span class="n">args</span> <span class="o">=</span> <span class="p">{</span><span class="o">**</span><span class="p">{</span><span class="s1">'volume_percent'</span><span class="p">:</span> <span class="n">volume_percent</span><span class="p">},</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">}</span>
-    <span class="k">await</span> <span class="bp">self</span><span class="o">.</span><span class="n">api_request_handler</span><span class="o">.</span><span class="n">make_request</span><span class="p">(</span><span class="s1">'PUT'</span><span class="p">,</span> <span class="n">URLS</span><span class="o">.</span><span class="n">PLAYER</span><span class="o">.</span><span class="n">VOLUME</span><span class="p">,</span> <span class="n">args</span><span class="p">,</span> <span class="n">auth_token</span><span class="p">)</span>
-</code></pre>
-</div>
-</td>
-</tr>
-</table>
-</details>
-</div>
-</div>
-</div>
-</div>
-</div>
-</div>
-</div>
-</div>
-                
-                  
-                    
+    <span class="n">args</span> <span class="o">=</span> <span class="p">{</span><span class="o">**</span><span class="p">{</span><span class="s1">&#39;volume_percent&#39;</span><span class="p">:</span> <span class="n">volume_percent</span><span class="p">},</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">}</span>
+    <span class="k">await</span> <span class="bp">self</span><span class="o">.</span><span class="n">api_request_handler</span><span class="o">.</span><span class="n">make_request</span><span class="p">(</span><span class="s1">&#39;PUT&#39;</span><span class="p">,</span> <span class="n">URLS</span><span class="o">.</span><span class="n">PLAYER</span><span class="o">.</span><span class="n">VOLUME</span><span class="p">,</span> <span class="n">args</span><span class="p">,</span> <span class="n">auth_token</span><span class="p">)</span>
+</code></pre></div>
+        </details>
+    </div>
 
-<hr>
-<div class="md-source-date">
+  </div>
+
+
+
+
+
+  </div>
+
+    </div>
+
+  </div>
+
+
+
+
+
+
+
+  </div>
+
+    </div>
+
+  </div>
+
+  <hr>
+<div class="md-source-file">
   <small>
     
-      Last update: <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">April 27, 2020</span>
+      Last update:
+      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">April 27, 2020</span>
+      
     
   </small>
 </div>
-                  
-                
-              
-              
-                
-
 
               
             </article>
           </div>
         </div>
+        
       </main>
       
-        
-<footer class="md-footer">
+        <footer class="md-footer">
   
-    <div class="md-footer-nav">
-      <nav class="md-footer-nav__inner md-grid" aria-label="Footer">
+    <nav class="md-footer__inner md-grid" aria-label="Footer">
+      
         
-          <a href="../personalization/" class="md-footer-nav__link md-footer-nav__link--prev" rel="prev">
-            <div class="md-footer-nav__button md-icon">
-              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+        <a href="../personalization/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Personalization" rel="prev">
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+          </div>
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                Previous
+              </span>
+              Personalization
             </div>
-            <div class="md-footer-nav__title">
-              <div class="md-ellipsis">
-                <span class="md-footer-nav__direction">
-                  Previous
-                </span>
-                Personalization
-              </div>
-            </div>
-          </a>
+          </div>
+        </a>
+      
+      
         
-        
-          <a href="../playlists/" class="md-footer-nav__link md-footer-nav__link--next" rel="next">
-            <div class="md-footer-nav__title">
-              <div class="md-ellipsis">
-                <span class="md-footer-nav__direction">
-                  Next
-                </span>
-                Playlists
-              </div>
+        <a href="../playlists/" class="md-footer__link md-footer__link--next" aria-label="Next: Playlists" rel="next">
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                Next
+              </span>
+              Playlists
             </div>
-            <div class="md-footer-nav__button md-icon">
-              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4z"/></svg>
-            </div>
-          </a>
-        
-      </nav>
-    </div>
+          </div>
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4z"/></svg>
+          </div>
+        </a>
+      
+    </nav>
   
   <div class="md-footer-meta md-typeset">
     <div class="md-footer-meta__inner md-grid">
-      <div class="md-footer-copyright">
-        
-        Made with
-        <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
-          Material for MkDocs
-        </a>
-      </div>
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
       
-  <div class="md-footer-social">
+        <div class="md-social">
+  
+    
     
       
       
-        
-        
-      
-      <a href="https://github.com/huiibuh" target="_blank" rel="noopener" title="github.com" class="md-footer-social__link">
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 480 512"><path d="M186.1 328.7c0 20.9-10.9 55.1-36.7 55.1s-36.7-34.2-36.7-55.1 10.9-55.1 36.7-55.1 36.7 34.2 36.7 55.1zM480 278.2c0 31.9-3.2 65.7-17.5 95-37.9 76.6-142.1 74.8-216.7 74.8-75.8 0-186.2 2.7-225.6-74.8-14.6-29-20.2-63.1-20.2-95 0-41.9 13.9-81.5 41.5-113.6-5.2-15.8-7.7-32.4-7.7-48.8 0-21.5 4.9-32.3 14.6-51.8 45.3 0 74.3 9 108.8 36 29-6.9 58.8-10 88.7-10 27 0 54.2 2.9 80.4 9.2 34-26.7 63-35.2 107.8-35.2 9.8 19.5 14.6 30.3 14.6 51.8 0 16.4-2.6 32.7-7.7 48.2 27.5 32.4 39 72.3 39 114.2zm-64.3 50.5c0-43.9-26.7-82.6-73.5-82.6-18.9 0-37 3.4-56 6-14.9 2.3-29.8 3.2-45.1 3.2-15.2 0-30.1-.9-45.1-3.2-18.7-2.6-37-6-56-6-46.8 0-73.5 38.7-73.5 82.6 0 87.8 80.4 101.3 150.4 101.3h48.2c70.3 0 150.6-13.4 150.6-101.3zm-82.6-55.1c-25.8 0-36.7 34.2-36.7 55.1s10.9 55.1 36.7 55.1 36.7-34.2 36.7-55.1-10.9-55.1-36.7-55.1z"/></svg>
-      </a>
     
-  </div>
-
+    <a href="https://github.com/huiibuh" target="_blank" rel="noopener" title="github.com" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 480 512"><path d="M186.1 328.7c0 20.9-10.9 55.1-36.7 55.1s-36.7-34.2-36.7-55.1 10.9-55.1 36.7-55.1 36.7 34.2 36.7 55.1zM480 278.2c0 31.9-3.2 65.7-17.5 95-37.9 76.6-142.1 74.8-216.7 74.8-75.8 0-186.2 2.7-225.6-74.8-14.6-29-20.2-63.1-20.2-95 0-41.9 13.9-81.5 41.5-113.6-5.2-15.8-7.7-32.4-7.7-48.8 0-21.5 4.9-32.3 14.6-51.8 45.3 0 74.3 9 108.8 36 29-6.9 58.8-10 88.7-10 27 0 54.2 2.9 80.4 9.2 34-26.7 63-35.2 107.8-35.2 9.8 19.5 14.6 30.3 14.6 51.8 0 16.4-2.6 32.7-7.7 48.2 27.5 32.4 39 72.3 39 114.2zm-64.3 50.5c0-43.9-26.7-82.6-73.5-82.6-18.9 0-37 3.4-56 6-14.9 2.3-29.8 3.2-45.1 3.2-15.2 0-30.1-.9-45.1-3.2-18.7-2.6-37-6-56-6-46.8 0-73.5 38.7-73.5 82.6 0 87.8 80.4 101.3 150.4 101.3h48.2c70.3 0 150.6-13.4 150.6-101.3zm-82.6-55.1c-25.8 0-36.7 34.2-36.7 55.1s10.9 55.1 36.7 55.1 36.7-34.2 36.7-55.1-10.9-55.1-36.7-55.1z"/></svg>
+    </a>
+  
+</div>
+      
     </div>
   </div>
 </footer>
       
     </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    <script id="__config" type="application/json">{"base": "../../..", "features": ["instant"], "translations": {"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.term.missing": "Missing", "select.version.title": "Select version"}, "search": "../../../assets/javascripts/workers/search.22074ed6.min.js"}</script>
     
-      <script src="../../../assets/javascripts/vendor.93c04032.min.js"></script>
-      <script src="../../../assets/javascripts/bundle.83e5331e.min.js"></script><script id="__lang" type="application/json">{"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.term.missing": "Missing"}</script>
-      
-      <script>
-        app = initialize({
-          base: "../../..",
-          features: ['instant'],
-          search: Object.assign({
-            worker: "../../../assets/javascripts/worker/search.8c7e0a7e.min.js"
-          }, typeof search !== "undefined" && search)
-        })
-      </script>
+    
+      <script src="../../../assets/javascripts/bundle.1514a9a0.min.js"></script>
       
     
   </body>

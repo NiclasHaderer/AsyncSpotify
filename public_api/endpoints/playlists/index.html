@@ -10,11 +10,10 @@
       
       
       
-      
         <link rel="canonical" href="https://huiibuh.github.io/AsyncSpotify/public_api/endpoints/playlists/">
       
-      <link rel="shortcut icon" href="https://upload.wikimedia.org/wikipedia/commons/9/9b/Font_Awesome_5_brands_spotify.svg">
-      <meta name="generator" content="mkdocs-1.1, mkdocs-material-6.2.4">
+      <link rel="icon" href="https://upload.wikimedia.org/wikipedia/commons/9/9b/Font_Awesome_5_brands_spotify.svg">
+      <meta name="generator" content="mkdocs-1.2.3, mkdocs-material-8.1.6">
     
     
       
@@ -22,10 +21,10 @@
       
     
     
-      <link rel="stylesheet" href="../../../assets/stylesheets/main.15aa0b43.min.css">
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.cd566b2a.min.css">
       
         
-        <link rel="stylesheet" href="../../../assets/stylesheets/palette.75751829.min.css">
+        <link rel="stylesheet" href="../../../assets/stylesheets/palette.e6a45f82.min.css">
         
           
           
@@ -39,15 +38,18 @@
         
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
         <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700%7CRoboto+Mono&display=fallback">
-        <style>body,input{font-family:"Roboto",-apple-system,BlinkMacSystemFont,Helvetica,Arial,sans-serif}code,kbd,pre{font-family:"Roboto Mono",SFMono-Regular,Consolas,Menlo,monospace}</style>
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
       
     
     
+      <link rel="stylesheet" href="../../../assets/_mkdocstrings.css">
     
       <link rel="stylesheet" href="../../../custom.css">
     
+    <script>__md_scope=new URL("../../..",location),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
+
     
     
   </head>
@@ -59,10 +61,8 @@
     
     
     <body dir="ltr" data-md-color-scheme="preference" data-md-color-primary="green" data-md-color-accent="green">
-      
-        <script>matchMedia("(prefers-color-scheme: dark)").matches&&document.body.setAttribute("data-md-color-scheme","slate")</script>
-      
   
+    
     
     <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
     <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
@@ -79,27 +79,28 @@
       
     </div>
     
+    
       
 
 <header class="md-header" data-md-component="header">
-  <nav class="md-header-nav md-grid" aria-label="Header">
-    <a href="https://huiibuh.github.io/AsyncSpotify/" title="Async Spotify" class="md-header-nav__button md-logo" aria-label="Async Spotify">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../../.." title="Async Spotify" class="md-header__button md-logo" aria-label="Async Spotify" data-md-component="logo">
       
   
-  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17.9 10.9C14.7 9 9.35 8.8 6.3 9.75c-.5.15-1-.15-1.15-.6-.15-.5.15-1 .6-1.15 3.55-1.05 9.4-.85 13.1 1.35.45.25.6.85.35 1.3-.25.35-.85.5-1.3.25m-.1 2.8c-.25.35-.7.5-1.05.25-2.7-1.65-6.8-2.15-9.95-1.15-.4.1-.85-.1-.95-.5-.1-.4.1-.85.5-.95 3.65-1.1 8.15-.55 11.25 1.35.3.15.45.65.2 1m-1.2 2.75c-.2.3-.55.4-.85.2-2.35-1.45-5.3-1.75-8.8-.95-.35.1-.65-.15-.75-.45-.1-.35.15-.65.45-.75 3.8-.85 7.1-.5 9.7 1.1.35.15.4.55.25.85M12 2A10 10 0 002 12a10 10 0 0010 10 10 10 0 0010-10A10 10 0 0012 2z"/></svg>
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17.9 10.9C14.7 9 9.35 8.8 6.3 9.75c-.5.15-1-.15-1.15-.6-.15-.5.15-1 .6-1.15 3.55-1.05 9.4-.85 13.1 1.35.45.25.6.85.35 1.3-.25.35-.85.5-1.3.25m-.1 2.8c-.25.35-.7.5-1.05.25-2.7-1.65-6.8-2.15-9.95-1.15-.4.1-.85-.1-.95-.5-.1-.4.1-.85.5-.95 3.65-1.1 8.15-.55 11.25 1.35.3.15.45.65.2 1m-1.2 2.75c-.2.3-.55.4-.85.2-2.35-1.45-5.3-1.75-8.8-.95-.35.1-.65-.15-.75-.45-.1-.35.15-.65.45-.75 3.8-.85 7.1-.5 9.7 1.1.35.15.4.55.25.85M12 2A10 10 0 0 0 2 12a10 10 0 0 0 10 10 10 10 0 0 0 10-10A10 10 0 0 0 12 2z"/></svg>
 
     </a>
-    <label class="md-header-nav__button md-icon" for="__drawer">
+    <label class="md-header__button md-icon" for="__drawer">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2z"/></svg>
     </label>
-    <div class="md-header-nav__title" data-md-component="header-title">
-      <div class="md-header-nav__ellipsis">
-        <div class="md-header-nav__topic">
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
           <span class="md-ellipsis">
             Async Spotify
           </span>
         </div>
-        <div class="md-header-nav__topic">
+        <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
               Playlists
@@ -109,22 +110,27 @@
       </div>
     </div>
     
-      <label class="md-header-nav__button md-icon" for="__search">
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0116 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 019.5 16 6.5 6.5 0 013 9.5 6.5 6.5 0 019.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
       </label>
-      
-<div class="md-search" data-md-component="search" role="dialog">
+      <div class="md-search" data-md-component="search" role="dialog">
   <label class="md-search__overlay" for="__search"></label>
   <div class="md-search__inner" role="search">
     <form class="md-search__form" name="search">
-      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" data-md-state="active" required>
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
       <label class="md-search__icon md-icon" for="__search">
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0116 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 019.5 16 6.5 6.5 0 013 9.5 6.5 6.5 0 019.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
       </label>
-      <button type="reset" class="md-search__icon md-icon" aria-label="Clear" data-md-component="search-reset" tabindex="-1">
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41z"/></svg>
-      </button>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" aria-label="Clear" tabindex="-1">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41z"/></svg>
+        </button>
+      </nav>
+      
     </form>
     <div class="md-search__output">
       <div class="md-search__scrollwrap" data-md-scrollfix>
@@ -140,12 +146,11 @@
 </div>
     
     
-      <div class="md-header-nav__source">
-        
-<a href="https://github.com/HuiiBuh/AsyncSpotify/" title="Go to repository" class="md-source">
+      <div class="md-header__source">
+        <a href="https://github.com/HuiiBuh/AsyncSpotify/" title="Go to repository" class="md-source" data-md-component="source">
   <div class="md-source__icon md-icon">
     
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M2.6 10.59L8.38 4.8l1.69 1.7c-.24.85.15 1.78.93 2.23v5.54c-.6.34-1 .99-1 1.73a2 2 0 002 2 2 2 0 002-2c0-.74-.4-1.39-1-1.73V9.41l2.07 2.09c-.07.15-.07.32-.07.5a2 2 0 002 2 2 2 0 002-2 2 2 0 00-2-2c-.18 0-.35 0-.5.07L13.93 7.5a1.98 1.98 0 00-1.15-2.34c-.43-.16-.88-.2-1.28-.09L9.8 3.38l.79-.78c.78-.79 2.04-.79 2.82 0l7.99 7.99c.79.78.79 2.04 0 2.82l-7.99 7.99c-.78.79-2.04.79-2.82 0L2.6 13.41c-.79-.78-.79-2.04 0-2.82z"/></svg>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M2.6 10.59 8.38 4.8l1.69 1.7c-.24.85.15 1.78.93 2.23v5.54c-.6.34-1 .99-1 1.73a2 2 0 0 0 2 2 2 2 0 0 0 2-2c0-.74-.4-1.39-1-1.73V9.41l2.07 2.09c-.07.15-.07.32-.07.5a2 2 0 0 0 2 2 2 2 0 0 0 2-2 2 2 0 0 0-2-2c-.18 0-.35 0-.5.07L13.93 7.5a1.98 1.98 0 0 0-1.15-2.34c-.43-.16-.88-.2-1.28-.09L9.8 3.38l.79-.78c.78-.79 2.04-.79 2.82 0l7.99 7.99c.79.78.79 2.04 0 2.82l-7.99 7.99c-.78.79-2.04.79-2.82 0L2.6 13.41c-.79-.78-.79-2.04 0-2.82z"/></svg>
   </div>
   <div class="md-source__repository">
     HuiiBuh/AsyncSpotify
@@ -154,11 +159,14 @@
       </div>
     
   </nav>
+  
 </header>
     
     <div class="md-container" data-md-component="container">
       
       
+        
+          
         
       
       <main class="md-main" data-md-component="main">
@@ -166,31 +174,28 @@
           
             
               
-              <div class="md-sidebar md-sidebar--primary" data-md-component="navigation" >
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
                 <div class="md-sidebar__scrollwrap">
                   <div class="md-sidebar__inner">
                     
 
 
-
-
 <nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
   <label class="md-nav__title" for="__drawer">
-    <a href="https://huiibuh.github.io/AsyncSpotify/" title="Async Spotify" class="md-nav__button md-logo" aria-label="Async Spotify">
+    <a href="../../.." title="Async Spotify" class="md-nav__button md-logo" aria-label="Async Spotify" data-md-component="logo">
       
   
-  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17.9 10.9C14.7 9 9.35 8.8 6.3 9.75c-.5.15-1-.15-1.15-.6-.15-.5.15-1 .6-1.15 3.55-1.05 9.4-.85 13.1 1.35.45.25.6.85.35 1.3-.25.35-.85.5-1.3.25m-.1 2.8c-.25.35-.7.5-1.05.25-2.7-1.65-6.8-2.15-9.95-1.15-.4.1-.85-.1-.95-.5-.1-.4.1-.85.5-.95 3.65-1.1 8.15-.55 11.25 1.35.3.15.45.65.2 1m-1.2 2.75c-.2.3-.55.4-.85.2-2.35-1.45-5.3-1.75-8.8-.95-.35.1-.65-.15-.75-.45-.1-.35.15-.65.45-.75 3.8-.85 7.1-.5 9.7 1.1.35.15.4.55.25.85M12 2A10 10 0 002 12a10 10 0 0010 10 10 10 0 0010-10A10 10 0 0012 2z"/></svg>
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17.9 10.9C14.7 9 9.35 8.8 6.3 9.75c-.5.15-1-.15-1.15-.6-.15-.5.15-1 .6-1.15 3.55-1.05 9.4-.85 13.1 1.35.45.25.6.85.35 1.3-.25.35-.85.5-1.3.25m-.1 2.8c-.25.35-.7.5-1.05.25-2.7-1.65-6.8-2.15-9.95-1.15-.4.1-.85-.1-.95-.5-.1-.4.1-.85.5-.95 3.65-1.1 8.15-.55 11.25 1.35.3.15.45.65.2 1m-1.2 2.75c-.2.3-.55.4-.85.2-2.35-1.45-5.3-1.75-8.8-.95-.35.1-.65-.15-.75-.45-.1-.35.15-.65.45-.75 3.8-.85 7.1-.5 9.7 1.1.35.15.4.55.25.85M12 2A10 10 0 0 0 2 12a10 10 0 0 0 10 10 10 10 0 0 0 10-10A10 10 0 0 0 12 2z"/></svg>
 
     </a>
     Async Spotify
   </label>
   
     <div class="md-nav__source">
-      
-<a href="https://github.com/HuiiBuh/AsyncSpotify/" title="Go to repository" class="md-source">
+      <a href="https://github.com/HuiiBuh/AsyncSpotify/" title="Go to repository" class="md-source" data-md-component="source">
   <div class="md-source__icon md-icon">
     
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M2.6 10.59L8.38 4.8l1.69 1.7c-.24.85.15 1.78.93 2.23v5.54c-.6.34-1 .99-1 1.73a2 2 0 002 2 2 2 0 002-2c0-.74-.4-1.39-1-1.73V9.41l2.07 2.09c-.07.15-.07.32-.07.5a2 2 0 002 2 2 2 0 002-2 2 2 0 00-2-2c-.18 0-.35 0-.5.07L13.93 7.5a1.98 1.98 0 00-1.15-2.34c-.43-.16-.88-.2-1.28-.09L9.8 3.38l.79-.78c.78-.79 2.04-.79 2.82 0l7.99 7.99c.79.78.79 2.04 0 2.82l-7.99 7.99c-.78.79-2.04.79-2.82 0L2.6 13.41c-.79-.78-.79-2.04 0-2.82z"/></svg>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M2.6 10.59 8.38 4.8l1.69 1.7c-.24.85.15 1.78.93 2.23v5.54c-.6.34-1 .99-1 1.73a2 2 0 0 0 2 2 2 2 0 0 0 2-2c0-.74-.4-1.39-1-1.73V9.41l2.07 2.09c-.07.15-.07.32-.07.5a2 2 0 0 0 2 2 2 2 0 0 0 2-2 2 2 0 0 0-2-2c-.18 0-.35 0-.5.07L13.93 7.5a1.98 1.98 0 0 0-1.15-2.34c-.43-.16-.88-.2-1.28-.09L9.8 3.38l.79-.78c.78-.79 2.04-.79 2.82 0l7.99 7.99c.79.78.79 2.04 0 2.82l-7.99 7.99c-.78.79-2.04.79-2.82 0L2.6 13.41c-.79-.78-.79-2.04 0-2.82z"/></svg>
   </div>
   <div class="md-source__repository">
     HuiiBuh/AsyncSpotify
@@ -204,273 +209,298 @@
       
       
 
-
-
-  <li class="md-nav__item">
-    <a href="../../.." class="md-nav__link">
-      Overview
-    </a>
-  </li>
-
-    
-      
-      
-      
-
-
-
-  <li class="md-nav__item">
-    <a href="../../../EXAMPLES/" class="md-nav__link">
-      Examples
-    </a>
-  </li>
-
-    
-      
-      
-      
-
-
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../.." class="md-nav__link">
+        Overview
+      </a>
+    </li>
   
 
+    
+      
+      
+      
 
   
-  <li class="md-nav__item md-nav__item--active md-nav__item--nested">
-    
-    
-      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-3" type="checkbox" id="nav-3" checked>
-    
-    <label class="md-nav__link" for="nav-3">
-      Public API
-      <span class="md-nav__icon md-icon"></span>
-    </label>
-    <nav class="md-nav" aria-label="Public API" data-md-level="1">
-      <label class="md-nav__title" for="nav-3">
-        <span class="md-nav__icon md-icon"></span>
-        Public API
-      </label>
-      <ul class="md-nav__list" data-md-scrollfix>
-        
-        
-          
-          
-          
-
-
-
-  <li class="md-nav__item">
-    <a href="../../spotify_api_client/" class="md-nav__link">
-      Spotify Api Client
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-
-  <li class="md-nav__item">
-    <a href="../../authentification/" class="md-nav__link">
-      Authentification
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-
-  <li class="md-nav__item">
-    <a href="../../token_renew_class/" class="md-nav__link">
-      Token Renew Hook
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-
-  <li class="md-nav__item">
-    <a href="../../spotify_errors/" class="md-nav__link">
-      Spotify Errors
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../EXAMPLES/" class="md-nav__link">
+        Examples
+      </a>
+    </li>
   
 
+    
+      
+      
+      
 
   
-  <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+  
     
+  
+  
     
-      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-3-5" type="checkbox" id="nav-3-5" checked>
-    
-    <label class="md-nav__link" for="nav-3-5">
-      Endpoints
-      <span class="md-nav__icon md-icon"></span>
-    </label>
-    <nav class="md-nav" aria-label="Endpoints" data-md-level="2">
-      <label class="md-nav__title" for="nav-3-5">
-        <span class="md-nav__icon md-icon"></span>
-        Endpoints
-      </label>
-      <ul class="md-nav__list" data-md-scrollfix>
-        
-        
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3" type="checkbox" id="__nav_3" checked>
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_3">
+          Public API
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Public API" data-md-level="1">
+        <label class="md-nav__title" for="__nav_3">
+          <span class="md-nav__icon md-icon"></span>
+          Public API
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
           
-          
-          
-
-
-
-  <li class="md-nav__item">
-    <a href="../overview/" class="md-nav__link">
-      Overview
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-
-  <li class="md-nav__item">
-    <a href="../albums/" class="md-nav__link">
-      Albums
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-
-  <li class="md-nav__item">
-    <a href="../artists/" class="md-nav__link">
-      Artists
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-
-  <li class="md-nav__item">
-    <a href="../browse/" class="md-nav__link">
-      Browse
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-
-  <li class="md-nav__item">
-    <a href="../episodes/" class="md-nav__link">
-      Episodes
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-
-  <li class="md-nav__item">
-    <a href="../follow/" class="md-nav__link">
-      Follow
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-
-  <li class="md-nav__item">
-    <a href="../library/" class="md-nav__link">
-      Library
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-
-  <li class="md-nav__item">
-    <a href="../personalization/" class="md-nav__link">
-      Personalization
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-
-  <li class="md-nav__item">
-    <a href="../player/" class="md-nav__link">
-      Player
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../spotify_api_client/" class="md-nav__link">
+        Spotify Api Client
+      </a>
+    </li>
   
 
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../authentification/" class="md-nav__link">
+        Authentification
+      </a>
+    </li>
+  
 
-  <li class="md-nav__item md-nav__item--active">
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../token_renew_class/" class="md-nav__link">
+        Token Renew Hook
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../spotify_errors/" class="md-nav__link">
+        Spotify Errors
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
     
-    <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+  
+  
     
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3_5" type="checkbox" id="__nav_3_5" checked>
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_3_5">
+          Endpoints
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Endpoints" data-md-level="2">
+        <label class="md-nav__title" for="__nav_3_5">
+          <span class="md-nav__icon md-icon"></span>
+          Endpoints
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../overview/" class="md-nav__link">
+        Overview
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../albums/" class="md-nav__link">
+        Albums
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../artists/" class="md-nav__link">
+        Artists
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../browse/" class="md-nav__link">
+        Browse
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../episodes/" class="md-nav__link">
+        Episodes
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../follow/" class="md-nav__link">
+        Follow
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../library/" class="md-nav__link">
+        Library
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../personalization/" class="md-nav__link">
+        Personalization
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../player/" class="md-nav__link">
+        Player
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
     
-      <label class="md-nav__link md-nav__link--active" for="__toc">
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+      
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          Playlists
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         Playlists
-        <span class="md-nav__icon md-icon"></span>
-      </label>
-    
-    <a href="./" class="md-nav__link md-nav__link--active">
-      Playlists
-    </a>
-    
+      </a>
       
+        
+
 <nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
   
   
   
@@ -478,7 +508,7 @@
       <span class="md-nav__icon md-icon"></span>
       Table of contents
     </label>
-    <ul class="md-nav__list" data-md-scrollfix>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
   <a href="#async_spotify.api._endpoints.playlists" class="md-nav__link">
@@ -587,177 +617,199 @@
     </ul>
   
 </nav>
+      
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../search/" class="md-nav__link">
+        Search
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../shows/" class="md-nav__link">
+        Shows
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../tracks/" class="md-nav__link">
+        Tracks
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../user/" class="md-nav__link">
+        User
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
     
-  </li>
-
-        
-          
-          
-          
-
-
-
-  <li class="md-nav__item">
-    <a href="../search/" class="md-nav__link">
-      Search
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-
-  <li class="md-nav__item">
-    <a href="../shows/" class="md-nav__link">
-      Shows
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-
-  <li class="md-nav__item">
-    <a href="../tracks/" class="md-nav__link">
-      Tracks
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-
-  <li class="md-nav__item">
-    <a href="../user/" class="md-nav__link">
-      User
-    </a>
-  </li>
-
-        
-      </ul>
-    </nav>
-  </li>
-
-        
-      </ul>
-    </nav>
-  </li>
-
-    
       
       
       
-
-
 
   
-  <li class="md-nav__item md-nav__item--nested">
+  
+  
     
-    
-      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-4" type="checkbox" id="nav-4" >
-    
-    <label class="md-nav__link" for="nav-4">
-      Reference
-      <span class="md-nav__icon md-icon"></span>
-    </label>
-    <nav class="md-nav" aria-label="Reference" data-md-level="1">
-      <label class="md-nav__title" for="nav-4">
-        <span class="md-nav__icon md-icon"></span>
-        Reference
-      </label>
-      <ul class="md-nav__list" data-md-scrollfix>
-        
-        
-          
-          
-          
-
-
-
-  <li class="md-nav__item">
-    <a href="../../../reference/error_message/" class="md-nav__link">
-      Error Message
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-
-  <li class="md-nav__item">
-    <a href="../../../reference/request_handler/" class="md-nav__link">
-      Request Handler
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-
-  <li class="md-nav__item">
-    <a href="../../../reference/status_classes/" class="md-nav__link">
-      Status Classes
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-
-  <li class="md-nav__item">
-    <a href="../../../reference/url/" class="md-nav__link">
-      URLS
-    </a>
-  </li>
-
-        
-      </ul>
-    </nav>
-  </li>
-
-    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_4" type="checkbox" id="__nav_4" >
       
       
       
+      
+        <label class="md-nav__link" for="__nav_4">
+          Reference
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Reference" data-md-level="1">
+        <label class="md-nav__title" for="__nav_4">
+          <span class="md-nav__icon md-icon"></span>
+          Reference
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../reference/error_message/" class="md-nav__link">
+        Error Message
+      </a>
+    </li>
+  
 
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../reference/request_handler/" class="md-nav__link">
+        Request Handler
+      </a>
+    </li>
+  
 
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../reference/status_classes/" class="md-nav__link">
+        Status Classes
+      </a>
+    </li>
+  
 
-  <li class="md-nav__item">
-    <a href="../../../STUFF/" class="md-nav__link">
-      Tests
-    </a>
-  </li>
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../reference/url/" class="md-nav__link">
+        URLS
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
 
     
       
       
       
 
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../STUFF/" class="md-nav__link">
+        Tests
+      </a>
+    </li>
+  
 
+    
+      
+      
+      
 
-  <li class="md-nav__item">
-    <a href="../../../LICENCE/" class="md-nav__link">
-      Licence
-    </a>
-  </li>
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../LICENCE/" class="md-nav__link">
+        Licence
+      </a>
+    </li>
+  
 
     
   </ul>
@@ -768,11 +820,13 @@
             
             
               
-              <div class="md-sidebar md-sidebar--secondary" data-md-component="toc" >
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
                 <div class="md-sidebar__scrollwrap">
                   <div class="md-sidebar__inner">
                     
+
 <nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
   
   
   
@@ -780,7 +834,7 @@
       <span class="md-nav__icon md-icon"></span>
       Table of contents
     </label>
-    <ul class="md-nav__list" data-md-scrollfix>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
   <a href="#async_spotify.api._endpoints.playlists" class="md-nav__link">
@@ -894,130 +948,374 @@
               </div>
             
           
-          <div class="md-content">
+          <div class="md-content" data-md-component="content">
             <article class="md-content__inner md-typeset">
               
                 
-                  <a href="https://github.com/HuiiBuh/AsyncSpotify/edit/master/docs/public_api/endpoints/playlists.md" title="Edit this page" class="md-content__button md-icon">
-                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75L3 17.25z"/></svg>
-                  </a>
-                
-                
-                  <h1>Playlists</h1>
-                
-                <div class="doc doc-object doc-module">
-<h2 class="hidden-toc" id="async_spotify.api._endpoints.playlists" style="visibility: hidden; position: absolute;">
-        <a class="headerlink" href="#async_spotify.api._endpoints.playlists" title="Permanent link">&para;</a></h2>
-<div class="doc doc-contents first">
-<p>Module with the playlists endpoint</p>
-<div class="doc doc-children">
-<div class="doc doc-object doc-class">
-<h2 class="doc doc-heading" id="async_spotify.api._endpoints.playlists.Playlists">
+<a href="https://github.com/HuiiBuh/AsyncSpotify/edit/master/docs/public_api/endpoints/playlists.md" title="Edit this page" class="md-content__button md-icon">
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75L3 17.25z"/></svg>
+</a>
 
-        <code>Playlists</code>
+
+  <h1>Playlists</h1>
+
+<div class="doc doc-object doc-module">
+
+<a id="async_spotify.api._endpoints.playlists"></a>
+    <div class="doc doc-contents first">
+
+      <p>Module with the playlists endpoint</p>
 
 
 
-      <a class="headerlink" href="#async_spotify.api._endpoints.playlists.Playlists" title="Permanent link">&para;</a></h2>
-<div class="doc doc-contents ">
-<p>Playlist endpoint</p>
-<div class="doc doc-children">
-<div class="doc doc-object doc-method">
-<h3 class="doc doc-heading" id="async_spotify.api._endpoints.playlists.Playlists.add_tracks">
-
-<code class="highlight language-python"><span class="n">add_tracks</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">playlist_id</span><span class="p">,</span> <span class="n">spotify_uris</span><span class="p">,</span> <span class="n">position</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">auth_token</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span></code>
+  <div class="doc doc-children">
 
 
-      <a class="headerlink" href="#async_spotify.api._endpoints.playlists.Playlists.add_tracks" title="Permanent link">&para;</a></h3>
-<div class="doc doc-contents ">
-<p>Add one or more tracks to a user’s playlist.</p>
+
+
+
+
+
+  <div class="doc doc-object doc-class">
+
+
+
+<h2 id="async_spotify.api._endpoints.playlists.Playlists" class="doc doc-heading">
+        <code>
+Playlists            (<span title="async_spotify.api._endpoints.endpoint.Endpoint">Endpoint</span>)
+        </code>
+
+
+
+<a href="#async_spotify.api._endpoints.playlists.Playlists" class="headerlink" title="Permanent link">&para;</a></h2>
+
+    <div class="doc doc-contents ">
+
+      <p>Playlist endpoint</p>
+
+        <details class="quote">
+          <summary>Source code in <code>async_spotify/api/_endpoints/playlists.py</code></summary>
+          <div class="codehilite"><pre><span></span><code><span class="k">class</span> <span class="nc">Playlists</span><span class="p">(</span><span class="n">Endpoint</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Playlist endpoint</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="k">async</span> <span class="k">def</span> <span class="nf">add_tracks</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">playlist_id</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">spotify_uris</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="nb">str</span><span class="p">],</span> <span class="n">position</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+                         <span class="n">auth_token</span><span class="p">:</span> <span class="n">SpotifyAuthorisationToken</span> <span class="o">=</span> <span class="kc">None</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Add one or more tracks to a user’s playlist.</span>
+
+<span class="sd">        Notes:</span>
+<span class="sd">            [https://developer.spotify.com/documentation/web-api/reference/playlists/add-tracks-to-playlist/](https://developer.spotify.com/documentation/web-api/reference/playlists/add-tracks-to-playlist/)</span>
+
+<span class="sd">        Args:</span>
+<span class="sd">            position: The position to insert the items, a zero-based index. Appended if omitted</span>
+<span class="sd">            spotify_uris: A list of spotify uris</span>
+<span class="sd">            playlist_id: The id of the playlist</span>
+<span class="sd">            auth_token: The auth token if you set the api class not to keep the token in memory</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+
+        <span class="n">body</span> <span class="o">=</span> <span class="p">{</span>
+            <span class="s1">&#39;uris&#39;</span><span class="p">:</span> <span class="n">spotify_uris</span>
+        <span class="p">}</span>
+
+        <span class="k">if</span> <span class="n">position</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="n">body</span><span class="p">[</span><span class="s1">&#39;position&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">position</span>
+
+        <span class="n">url</span><span class="p">,</span> <span class="n">_</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_add_url_params</span><span class="p">(</span><span class="n">URLS</span><span class="o">.</span><span class="n">PLAYLIST</span><span class="o">.</span><span class="n">ADD_TRACKS</span><span class="p">,</span> <span class="p">{</span><span class="s1">&#39;playlist_id&#39;</span><span class="p">:</span> <span class="n">playlist_id</span><span class="p">})</span>
+
+        <span class="k">await</span> <span class="bp">self</span><span class="o">.</span><span class="n">api_request_handler</span><span class="o">.</span><span class="n">make_request</span><span class="p">(</span><span class="s1">&#39;POST&#39;</span><span class="p">,</span> <span class="n">url</span><span class="p">,</span> <span class="p">{},</span> <span class="n">auth_token</span><span class="p">,</span> <span class="n">body</span><span class="o">=</span><span class="n">body</span><span class="p">)</span>
+
+    <span class="k">async</span> <span class="k">def</span> <span class="nf">change_details</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">playlist_id</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">auth_token</span><span class="p">:</span> <span class="n">SpotifyAuthorisationToken</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Change a playlist’s name and public/private state. (The user must, of course, own the playlist.)</span>
+
+<span class="sd">        Notes:</span>
+<span class="sd">            [https://developer.spotify.com/documentation/web-api/reference/playlists/change-playlist-details/](https://developer.spotify.com/documentation/web-api/reference/playlists/change-playlist-details/)</span>
+
+<span class="sd">        Args:</span>
+<span class="sd">            playlist_id: The id of the playlist</span>
+<span class="sd">            auth_token: The auth token if you set the api class not to keep the token in memory</span>
+<span class="sd">            kwargs: Optional arguments as keyword args</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+
+        <span class="n">url</span><span class="p">,</span> <span class="n">_</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_add_url_params</span><span class="p">(</span><span class="n">URLS</span><span class="o">.</span><span class="n">PLAYLIST</span><span class="o">.</span><span class="n">ONE</span><span class="p">,</span> <span class="p">{</span><span class="s1">&#39;playlist_id&#39;</span><span class="p">:</span> <span class="n">playlist_id</span><span class="p">})</span>
+        <span class="k">await</span> <span class="bp">self</span><span class="o">.</span><span class="n">api_request_handler</span><span class="o">.</span><span class="n">make_request</span><span class="p">(</span><span class="s1">&#39;PUT&#39;</span><span class="p">,</span> <span class="n">url</span><span class="p">,</span> <span class="p">{},</span> <span class="n">auth_token</span><span class="p">,</span> <span class="n">body</span><span class="o">=</span><span class="n">kwargs</span><span class="p">)</span>
+
+    <span class="k">async</span> <span class="k">def</span> <span class="nf">create_playlist</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">user_id</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">playlist_name</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">auth_token</span><span class="p">:</span> <span class="n">SpotifyAuthorisationToken</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+                              <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">dict</span><span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Change a playlist’s name and public/private state. (The user must, of course, own the playlist.)</span>
+
+<span class="sd">        Notes:</span>
+<span class="sd">            [https://developer.spotify.com/documentation/web-api/reference/playlists/create-playlist/](https://developer.spotify.com/documentation/web-api/reference/playlists/create-playlist/)</span>
+
+<span class="sd">        Args:</span>
+<span class="sd">            user_id: The id of the user</span>
+<span class="sd">            playlist_name: THe name of the playlist</span>
+<span class="sd">            auth_token: The auth token if you set the api class not to keep the token in memory</span>
+<span class="sd">            kwargs: Optional arguments as keyword args</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+
+        <span class="n">url</span><span class="p">,</span> <span class="n">_</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_add_url_params</span><span class="p">(</span><span class="n">URLS</span><span class="o">.</span><span class="n">PLAYLIST</span><span class="o">.</span><span class="n">CREATE</span><span class="p">,</span> <span class="p">{</span><span class="s1">&#39;user_id&#39;</span><span class="p">:</span> <span class="n">user_id</span><span class="p">})</span>
+        <span class="k">return</span> <span class="k">await</span> <span class="bp">self</span><span class="o">.</span><span class="n">api_request_handler</span><span class="o">.</span><span class="n">make_request</span><span class="p">(</span><span class="s1">&#39;POST&#39;</span><span class="p">,</span> <span class="n">url</span><span class="p">,</span> <span class="p">{},</span> <span class="n">auth_token</span><span class="p">,</span>
+                                                           <span class="n">body</span><span class="o">=</span><span class="p">{</span><span class="o">**</span><span class="p">{</span><span class="s1">&#39;name&#39;</span><span class="p">:</span> <span class="n">playlist_name</span><span class="p">},</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">})</span>
+
+    <span class="k">async</span> <span class="k">def</span> <span class="nf">current_get_all</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">auth_token</span><span class="p">:</span> <span class="n">SpotifyAuthorisationToken</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">dict</span><span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Get a list of the playlists owned or followed by the current Spotify user.</span>
+
+<span class="sd">        Notes:</span>
+<span class="sd">            [https://developer.spotify.com/documentation/web-api/reference/playlists/get-a-list-of-current-users-playlists/](https://developer.spotify.com/documentation/web-api/reference/playlists/get-a-list-of-current-users-playlists/)</span>
+
+<span class="sd">        Args:</span>
+<span class="sd">            auth_token: The auth token if you set the api class not to keep the token in memory</span>
+<span class="sd">            kwargs: Optional arguments as keyword args</span>
+
+<span class="sd">        Returns:</span>
+<span class="sd">            A List of Current User&#39;s Playlists</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+
+        <span class="k">return</span> <span class="k">await</span> <span class="bp">self</span><span class="o">.</span><span class="n">api_request_handler</span><span class="o">.</span><span class="n">make_request</span><span class="p">(</span><span class="s1">&#39;GET&#39;</span><span class="p">,</span> <span class="n">URLS</span><span class="o">.</span><span class="n">PLAYLIST</span><span class="o">.</span><span class="n">ME</span><span class="p">,</span> <span class="n">kwargs</span><span class="p">,</span> <span class="n">auth_token</span><span class="p">)</span>
+
+    <span class="k">async</span> <span class="k">def</span> <span class="nf">get_user_all</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">user_id</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">auth_token</span><span class="p">:</span> <span class="n">SpotifyAuthorisationToken</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">dict</span><span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Get a list of the playlists owned or followed by a Spotify user.</span>
+
+<span class="sd">        Notes:</span>
+<span class="sd">            [https://developer.spotify.com/documentation/web-api/reference/playlists/get-list-users-playlists/](https://developer.spotify.com/documentation/web-api/reference/playlists/get-list-users-playlists/)</span>
+
+<span class="sd">        Args:</span>
+<span class="sd">            user_id: The id of the spotify user</span>
+<span class="sd">            auth_token: The auth token if you set the api class not to keep the token in memory</span>
+<span class="sd">            kwargs: Optional arguments as keyword args</span>
+
+<span class="sd">        Returns:</span>
+<span class="sd">            A List of a User&#39;s Playlists</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+
+        <span class="n">url</span><span class="p">,</span> <span class="n">_</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_add_url_params</span><span class="p">(</span><span class="n">URLS</span><span class="o">.</span><span class="n">PLAYLIST</span><span class="o">.</span><span class="n">USER</span><span class="p">,</span> <span class="p">{</span><span class="s1">&#39;user_id&#39;</span><span class="p">:</span> <span class="n">user_id</span><span class="p">})</span>
+        <span class="k">return</span> <span class="k">await</span> <span class="bp">self</span><span class="o">.</span><span class="n">api_request_handler</span><span class="o">.</span><span class="n">make_request</span><span class="p">(</span><span class="s1">&#39;GET&#39;</span><span class="p">,</span> <span class="n">url</span><span class="p">,</span> <span class="n">kwargs</span><span class="p">,</span> <span class="n">auth_token</span><span class="p">)</span>
+
+    <span class="k">async</span> <span class="k">def</span> <span class="nf">get_one</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">playlist_id</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">auth_token</span><span class="p">:</span> <span class="n">SpotifyAuthorisationToken</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">dict</span><span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">       Get a playlist owned by a Spotify user.</span>
+
+<span class="sd">        Notes:</span>
+<span class="sd">            [https://developer.spotify.com/documentation/web-api/reference/playlists/get-playlist/](https://developer.spotify.com/documentation/web-api/reference/playlists/get-playlist/)</span>
+
+<span class="sd">        Args:</span>
+<span class="sd">            playlist_id: The id of the Playlist</span>
+<span class="sd">            auth_token: The auth token if you set the api class not to keep the token in memory</span>
+<span class="sd">            kwargs: Optional arguments as keyword args</span>
+
+<span class="sd">        Returns:</span>
+<span class="sd">            A Playlist</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+
+        <span class="n">url</span><span class="p">,</span> <span class="n">_</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_add_url_params</span><span class="p">(</span><span class="n">URLS</span><span class="o">.</span><span class="n">PLAYLIST</span><span class="o">.</span><span class="n">ONE</span><span class="p">,</span> <span class="p">{</span><span class="s1">&#39;playlist_id&#39;</span><span class="p">:</span> <span class="n">playlist_id</span><span class="p">})</span>
+        <span class="k">return</span> <span class="k">await</span> <span class="bp">self</span><span class="o">.</span><span class="n">api_request_handler</span><span class="o">.</span><span class="n">make_request</span><span class="p">(</span><span class="s1">&#39;GET&#39;</span><span class="p">,</span> <span class="n">url</span><span class="p">,</span> <span class="n">kwargs</span><span class="p">,</span> <span class="n">auth_token</span><span class="p">)</span>
+
+    <span class="k">async</span> <span class="k">def</span> <span class="nf">get_cover</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">playlist_id</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">auth_token</span><span class="p">:</span> <span class="n">SpotifyAuthorisationToken</span> <span class="o">=</span> <span class="kc">None</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">dict</span><span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Get the current image associated with a specific playlist.</span>
+
+<span class="sd">        Notes:</span>
+<span class="sd">            [https://developer.spotify.com/documentation/web-api/reference/playlists/get-playlist-cover/](https://developer.spotify.com/documentation/web-api/reference/playlists/get-playlist-cover/)</span>
+
+<span class="sd">        Args:</span>
+<span class="sd">            playlist_id: The id of the Playlist</span>
+<span class="sd">            auth_token: The auth token if you set the api class not to keep the token in memory</span>
+
+<span class="sd">        Returns:</span>
+<span class="sd">            The cover image</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+
+        <span class="n">url</span><span class="p">,</span> <span class="n">_</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_add_url_params</span><span class="p">(</span><span class="n">URLS</span><span class="o">.</span><span class="n">PLAYLIST</span><span class="o">.</span><span class="n">COVER</span><span class="p">,</span> <span class="p">{</span><span class="s1">&#39;playlist_id&#39;</span><span class="p">:</span> <span class="n">playlist_id</span><span class="p">})</span>
+        <span class="k">return</span> <span class="k">await</span> <span class="bp">self</span><span class="o">.</span><span class="n">api_request_handler</span><span class="o">.</span><span class="n">make_request</span><span class="p">(</span><span class="s1">&#39;GET&#39;</span><span class="p">,</span> <span class="n">url</span><span class="p">,</span> <span class="p">{},</span> <span class="n">auth_token</span><span class="p">)</span>
+
+    <span class="k">async</span> <span class="k">def</span> <span class="nf">get_tracks</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">playlist_id</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">auth_token</span><span class="p">:</span> <span class="n">SpotifyAuthorisationToken</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">dict</span><span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Get full details of the tracks or episodes of a playlist owned by a Spotify user.</span>
+
+<span class="sd">        Notes:</span>
+<span class="sd">            [https://developer.spotify.com/documentation/web-api/reference/playlists/get-playlists-tracks/](https://developer.spotify.com/documentation/web-api/reference/playlists/get-playlists-tracks/)</span>
+
+<span class="sd">        Args:</span>
+<span class="sd">            playlist_id: The id of the Playlist</span>
+<span class="sd">            auth_token: The auth token if you set the api class not to keep the token in memory</span>
+<span class="sd">            kwargs: Optional arguments as keyword args</span>
+
+<span class="sd">        Returns:</span>
+<span class="sd">            The cover image</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+
+        <span class="n">args</span> <span class="o">=</span> <span class="p">{</span><span class="o">**</span><span class="p">{</span><span class="s1">&#39;playlist_id&#39;</span><span class="p">:</span> <span class="n">playlist_id</span><span class="p">},</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">}</span>
+        <span class="n">url</span><span class="p">,</span> <span class="n">args</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_add_url_params</span><span class="p">(</span><span class="n">URLS</span><span class="o">.</span><span class="n">PLAYLIST</span><span class="o">.</span><span class="n">TRACKS</span><span class="p">,</span> <span class="n">args</span><span class="p">)</span>
+        <span class="k">return</span> <span class="k">await</span> <span class="bp">self</span><span class="o">.</span><span class="n">api_request_handler</span><span class="o">.</span><span class="n">make_request</span><span class="p">(</span><span class="s1">&#39;GET&#39;</span><span class="p">,</span> <span class="n">url</span><span class="p">,</span> <span class="n">args</span><span class="p">,</span> <span class="n">auth_token</span><span class="p">)</span>
+
+    <span class="k">async</span> <span class="k">def</span> <span class="nf">remove_tracks</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">playlist_id</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">spotify_uris</span><span class="p">:</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">List</span><span class="p">[</span><span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Any</span><span class="p">]]],</span>
+                            <span class="n">auth_token</span><span class="p">:</span> <span class="n">SpotifyAuthorisationToken</span> <span class="o">=</span> <span class="kc">None</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Remove one or more items from a user’s playlist.</span>
+
+<span class="sd">        Notes:</span>
+<span class="sd">            [https://developer.spotify.com/documentation/web-api/reference/playlists/remove-tracks-playlist/](https://developer.spotify.com/documentation/web-api/reference/playlists/remove-tracks-playlist/)</span>
+
+<span class="sd">        Args:</span>
+<span class="sd">            playlist_id: The id of the playlist</span>
+<span class="sd">            spotify_uris: A dict with a list of spotify uris in the tracks key</span>
+<span class="sd">            auth_token: The auth token if you set the api class not to keep the token in memory</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+
+        <span class="n">url</span><span class="p">,</span> <span class="n">_</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_add_url_params</span><span class="p">(</span><span class="n">URLS</span><span class="o">.</span><span class="n">PLAYLIST</span><span class="o">.</span><span class="n">ADD_TRACKS</span><span class="p">,</span> <span class="p">{</span><span class="s1">&#39;playlist_id&#39;</span><span class="p">:</span> <span class="n">playlist_id</span><span class="p">})</span>
+
+        <span class="k">await</span> <span class="bp">self</span><span class="o">.</span><span class="n">api_request_handler</span><span class="o">.</span><span class="n">make_request</span><span class="p">(</span><span class="s1">&#39;DELETE&#39;</span><span class="p">,</span> <span class="n">url</span><span class="p">,</span> <span class="p">{},</span> <span class="n">auth_token</span><span class="p">,</span> <span class="n">body</span><span class="o">=</span><span class="n">spotify_uris</span><span class="p">)</span>
+
+    <span class="k">async</span> <span class="k">def</span> <span class="nf">reorder_tracks</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">playlist_id</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">position_dict</span><span class="p">:</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Union</span><span class="p">[</span><span class="nb">int</span><span class="p">,</span> <span class="nb">str</span><span class="p">]],</span> <span class="n">snapshot_id</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+                             <span class="n">auth_token</span><span class="p">:</span> <span class="n">SpotifyAuthorisationToken</span> <span class="o">=</span> <span class="kc">None</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">dict</span><span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Reorder an item or a group of items in a playlist.</span>
+
+<span class="sd">        Notes:</span>
+<span class="sd">            [https://developer.spotify.com/documentation/web-api/reference/playlists/reorder-playlists-tracks/](https://developer.spotify.com/documentation/web-api/reference/playlists/reorder-playlists-tracks/)</span>
+
+<span class="sd">        Args:</span>
+<span class="sd">            playlist_id: The playlist id</span>
+<span class="sd">            position_dict: The dict which reorders the tracks</span>
+<span class="sd">            snapshot_id: The playlist’s snapshot ID against which you want to make the changes.</span>
+<span class="sd">            auth_token: The auth token if you set the api class not to keep the token in memory</span>
+
+<span class="sd">        Returns:</span>
+<span class="sd">            A json with the snapshot_id</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+
+        <span class="n">url</span><span class="p">,</span> <span class="n">_</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_add_url_params</span><span class="p">(</span><span class="n">URLS</span><span class="o">.</span><span class="n">PLAYLIST</span><span class="o">.</span><span class="n">TRACKS</span><span class="p">,</span> <span class="p">{</span><span class="s1">&#39;playlist_id&#39;</span><span class="p">:</span> <span class="n">playlist_id</span><span class="p">})</span>
+
+        <span class="n">body</span> <span class="o">=</span> <span class="n">position_dict</span>
+        <span class="k">if</span> <span class="n">snapshot_id</span><span class="p">:</span>
+            <span class="n">body</span><span class="p">[</span><span class="s1">&#39;snapshot_id&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">snapshot_id</span>
+
+        <span class="k">return</span> <span class="k">await</span> <span class="bp">self</span><span class="o">.</span><span class="n">api_request_handler</span><span class="o">.</span><span class="n">make_request</span><span class="p">(</span><span class="s1">&#39;PUT&#39;</span><span class="p">,</span> <span class="n">url</span><span class="p">,</span> <span class="p">{},</span> <span class="n">auth_token</span><span class="p">,</span> <span class="n">body</span><span class="o">=</span><span class="n">body</span><span class="p">)</span>
+
+    <span class="k">async</span> <span class="k">def</span> <span class="nf">replace_tracks</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">playlist_id</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">spotify_uris</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="nb">str</span><span class="p">],</span>
+                             <span class="n">auth_token</span><span class="p">:</span> <span class="n">SpotifyAuthorisationToken</span> <span class="o">=</span> <span class="kc">None</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Replace all the items in a playlist, overwriting its existing items. This powerful request can be useful for</span>
+<span class="sd">        replacing items, re-ordering existing items, or clearing the playlist.</span>
+
+<span class="sd">        Notes:</span>
+<span class="sd">            [https://developer.spotify.com/documentation/web-api/reference/playlists/replace-playlists-tracks/](https://developer.spotify.com/documentation/web-api/reference/playlists/replace-playlists-tracks/)</span>
+
+<span class="sd">        Args:</span>
+<span class="sd">            spotify_uris: A list of spotify uris</span>
+<span class="sd">            playlist_id: The id of the playlist</span>
+<span class="sd">            auth_token: The auth token if you set the api class not to keep the token in memory</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+
+        <span class="n">body</span> <span class="o">=</span> <span class="p">{</span>
+            <span class="s1">&#39;uris&#39;</span><span class="p">:</span> <span class="n">spotify_uris</span>
+        <span class="p">}</span>
+
+        <span class="n">url</span><span class="p">,</span> <span class="n">_</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_add_url_params</span><span class="p">(</span><span class="n">URLS</span><span class="o">.</span><span class="n">PLAYLIST</span><span class="o">.</span><span class="n">ADD_TRACKS</span><span class="p">,</span> <span class="p">{</span><span class="s1">&#39;playlist_id&#39;</span><span class="p">:</span> <span class="n">playlist_id</span><span class="p">})</span>
+
+        <span class="k">await</span> <span class="bp">self</span><span class="o">.</span><span class="n">api_request_handler</span><span class="o">.</span><span class="n">make_request</span><span class="p">(</span><span class="s1">&#39;PUT&#39;</span><span class="p">,</span> <span class="n">url</span><span class="p">,</span> <span class="p">{},</span> <span class="n">auth_token</span><span class="p">,</span> <span class="n">body</span><span class="o">=</span><span class="n">body</span><span class="p">)</span>
+
+    <span class="k">async</span> <span class="k">def</span> <span class="nf">upload_cover</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">playlist_id</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">base_64_image</span><span class="p">:</span> <span class="n">base64</span><span class="p">,</span>
+                           <span class="n">auth_token</span><span class="p">:</span> <span class="n">SpotifyAuthorisationToken</span> <span class="o">=</span> <span class="kc">None</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Replace the image used to represent a specific playlist.</span>
+
+<span class="sd">        Notes:</span>
+<span class="sd">            [https://developer.spotify.com/documentation/web-api/reference/playlists/upload-custom-playlist-cover/](https://developer.spotify.com/documentation/web-api/reference/playlists/upload-custom-playlist-cover/)</span>
+
+<span class="sd">        Args:</span>
+<span class="sd">            playlist_id: The id of the playlist</span>
+<span class="sd">            base_64_image: Base64 encoded JPEG image data, maximum payload size is 256 KB</span>
+<span class="sd">            auth_token: The auth token if you set the api class not to keep the token in memory</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+
+        <span class="n">url</span><span class="p">,</span> <span class="n">_</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_add_url_params</span><span class="p">(</span><span class="n">URLS</span><span class="o">.</span><span class="n">PLAYLIST</span><span class="o">.</span><span class="n">COVER</span><span class="p">,</span> <span class="p">{</span><span class="s1">&#39;playlist_id&#39;</span><span class="p">:</span> <span class="n">playlist_id</span><span class="p">})</span>
+        <span class="k">await</span> <span class="bp">self</span><span class="o">.</span><span class="n">api_request_handler</span><span class="o">.</span><span class="n">make_request</span><span class="p">(</span><span class="s1">&#39;PUT&#39;</span><span class="p">,</span> <span class="n">url</span><span class="p">,</span> <span class="p">{},</span> <span class="n">auth_token</span><span class="p">,</span> <span class="n">base_64_image</span><span class="p">)</span>
+</code></pre></div>
+        </details>
+
+
+
+  <div class="doc doc-children">
+
+
+
+
+
+
+
+
+
+  <div class="doc doc-object doc-method">
+
+
+
+<h3 id="async_spotify.api._endpoints.playlists.Playlists.add_tracks" class="doc doc-heading">
+<code class="codehilite language-python"><span class="n">add_tracks</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">playlist_id</span><span class="p">,</span> <span class="n">spotify_uris</span><span class="p">,</span> <span class="n">position</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">auth_token</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span></code>
+
+  <span class="doc doc-properties">
+      <small class="doc doc-property doc-property-async"><code>async</code></small>
+  </span>
+
+<a href="#async_spotify.api._endpoints.playlists.Playlists.add_tracks" class="headerlink" title="Permanent link">&para;</a></h3>
+
+    <div class="doc doc-contents ">
+
+      <p>Add one or more tracks to a user’s playlist.</p>
 <div class="admonition notes">
 <p class="admonition-title">Notes</p>
 <p><a href="https://developer.spotify.com/documentation/web-api/reference/playlists/add-tracks-to-playlist/">https://developer.spotify.com/documentation/web-api/reference/playlists/add-tracks-to-playlist/</a></p>
 </div>
+
 <p><strong>Parameters:</strong></p>
 <table>
-<thead>
-<tr>
-<th>Name</th>
-<th>Type</th>
-<th>Description</th>
-<th>Default</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><code>position</code></td>
-<td><code>int</code></td>
-<td>
-<p>The position to insert the items, a zero-based index. Appended if omitted</p>
-</td>
-<td><code>None</code></td>
-</tr>
-<tr>
-<td><code>spotify_uris</code></td>
-<td><code>List[str]</code></td>
-<td>
-<p>A list of spotify uris</p>
-</td>
-<td><em>required</em></td>
-</tr>
-<tr>
-<td><code>playlist_id</code></td>
-<td><code>str</code></td>
-<td>
-<p>The id of the playlist</p>
-</td>
-<td><em>required</em></td>
-</tr>
-<tr>
-<td><code>auth_token</code></td>
-<td><code>SpotifyAuthorisationToken</code></td>
-<td>
-<p>The auth token if you set the api class not to keep the token in memory</p>
-</td>
-<td><code>None</code></td>
-</tr>
-</tbody>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Type</th>
+      <th>Description</th>
+      <th>Default</th>
+    </tr>
+  </thead>
+  <tbody>
+      <tr>
+        <td><code>position</code></td>
+        <td><code>int</code></td>
+        <td><p>The position to insert the items, a zero-based index. Appended if omitted</p></td>
+        <td><code>None</code></td>
+      </tr>
+      <tr>
+        <td><code>spotify_uris</code></td>
+        <td><code>List[str]</code></td>
+        <td><p>A list of spotify uris</p></td>
+        <td><em>required</em></td>
+      </tr>
+      <tr>
+        <td><code>playlist_id</code></td>
+        <td><code>str</code></td>
+        <td><p>The id of the playlist</p></td>
+        <td><em>required</em></td>
+      </tr>
+      <tr>
+        <td><code>auth_token</code></td>
+        <td><code>SpotifyAuthorisationToken</code></td>
+        <td><p>The auth token if you set the api class not to keep the token in memory</p></td>
+        <td><code>None</code></td>
+      </tr>
+  </tbody>
 </table>
-<details class="quote">
+        <details class="quote">
           <summary>Source code in <code>async_spotify/api/_endpoints/playlists.py</code></summary>
-          <table class="highlighttable">
-<tr>
-<td class="linenos">
-<div class="linenodiv">
-<pre><span></span>25
-26
-27
-28
-29
-30
-31
-32
-33
-34
-35
-36
-37
-38
-39
-40
-41
-42
-43
-44
-45
-46
-47
-48
-49</pre>
-</div>
-</td>
-<td class="code">
-<div class="highlight">
-<pre><span></span><code><span class="k">async</span> <span class="k">def</span> <span class="nf">add_tracks</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">playlist_id</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">spotify_uris</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="nb">str</span><span class="p">],</span> <span class="n">position</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+          <div class="codehilite"><pre><span></span><code><span class="k">async</span> <span class="k">def</span> <span class="nf">add_tracks</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">playlist_id</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">spotify_uris</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="nb">str</span><span class="p">],</span> <span class="n">position</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
                      <span class="n">auth_token</span><span class="p">:</span> <span class="n">SpotifyAuthorisationToken</span> <span class="o">=</span> <span class="kc">None</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
-    <span class="sd">"""</span>
+    <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Add one or more tracks to a user’s playlist.</span>
 
 <span class="sd">    Notes:</span>
@@ -1028,103 +1326,82 @@
 <span class="sd">        spotify_uris: A list of spotify uris</span>
 <span class="sd">        playlist_id: The id of the playlist</span>
 <span class="sd">        auth_token: The auth token if you set the api class not to keep the token in memory</span>
-<span class="sd">    """</span>
+<span class="sd">    &quot;&quot;&quot;</span>
 
     <span class="n">body</span> <span class="o">=</span> <span class="p">{</span>
-        <span class="s1">'uris'</span><span class="p">:</span> <span class="n">spotify_uris</span>
+        <span class="s1">&#39;uris&#39;</span><span class="p">:</span> <span class="n">spotify_uris</span>
     <span class="p">}</span>
 
     <span class="k">if</span> <span class="n">position</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
-        <span class="n">body</span><span class="p">[</span><span class="s1">'position'</span><span class="p">]</span> <span class="o">=</span> <span class="n">position</span>
+        <span class="n">body</span><span class="p">[</span><span class="s1">&#39;position&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">position</span>
 
-    <span class="n">url</span><span class="p">,</span> <span class="n">_</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_add_url_params</span><span class="p">(</span><span class="n">URLS</span><span class="o">.</span><span class="n">PLAYLIST</span><span class="o">.</span><span class="n">ADD_TRACKS</span><span class="p">,</span> <span class="p">{</span><span class="s1">'playlist_id'</span><span class="p">:</span> <span class="n">playlist_id</span><span class="p">})</span>
+    <span class="n">url</span><span class="p">,</span> <span class="n">_</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_add_url_params</span><span class="p">(</span><span class="n">URLS</span><span class="o">.</span><span class="n">PLAYLIST</span><span class="o">.</span><span class="n">ADD_TRACKS</span><span class="p">,</span> <span class="p">{</span><span class="s1">&#39;playlist_id&#39;</span><span class="p">:</span> <span class="n">playlist_id</span><span class="p">})</span>
 
-    <span class="k">await</span> <span class="bp">self</span><span class="o">.</span><span class="n">api_request_handler</span><span class="o">.</span><span class="n">make_request</span><span class="p">(</span><span class="s1">'POST'</span><span class="p">,</span> <span class="n">url</span><span class="p">,</span> <span class="p">{},</span> <span class="n">auth_token</span><span class="p">,</span> <span class="n">body</span><span class="o">=</span><span class="n">body</span><span class="p">)</span>
-</code></pre>
-</div>
-</td>
-</tr>
-</table>
-</details>
-</div>
-</div>
-<div class="doc doc-object doc-method">
-<h3 class="doc doc-heading" id="async_spotify.api._endpoints.playlists.Playlists.change_details">
+    <span class="k">await</span> <span class="bp">self</span><span class="o">.</span><span class="n">api_request_handler</span><span class="o">.</span><span class="n">make_request</span><span class="p">(</span><span class="s1">&#39;POST&#39;</span><span class="p">,</span> <span class="n">url</span><span class="p">,</span> <span class="p">{},</span> <span class="n">auth_token</span><span class="p">,</span> <span class="n">body</span><span class="o">=</span><span class="n">body</span><span class="p">)</span>
+</code></pre></div>
+        </details>
+    </div>
 
-<code class="highlight language-python"><span class="n">change_details</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">playlist_id</span><span class="p">,</span> <span class="n">auth_token</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span></code>
+  </div>
 
 
-      <a class="headerlink" href="#async_spotify.api._endpoints.playlists.Playlists.change_details" title="Permanent link">&para;</a></h3>
-<div class="doc doc-contents ">
-<p>Change a playlist’s name and public/private state. (The user must, of course, own the playlist.)</p>
+
+  <div class="doc doc-object doc-method">
+
+
+
+<h3 id="async_spotify.api._endpoints.playlists.Playlists.change_details" class="doc doc-heading">
+<code class="codehilite language-python"><span class="n">change_details</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">playlist_id</span><span class="p">,</span> <span class="n">auth_token</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span></code>
+
+  <span class="doc doc-properties">
+      <small class="doc doc-property doc-property-async"><code>async</code></small>
+  </span>
+
+<a href="#async_spotify.api._endpoints.playlists.Playlists.change_details" class="headerlink" title="Permanent link">&para;</a></h3>
+
+    <div class="doc doc-contents ">
+
+      <p>Change a playlist’s name and public/private state. (The user must, of course, own the playlist.)</p>
 <div class="admonition notes">
 <p class="admonition-title">Notes</p>
 <p><a href="https://developer.spotify.com/documentation/web-api/reference/playlists/change-playlist-details/">https://developer.spotify.com/documentation/web-api/reference/playlists/change-playlist-details/</a></p>
 </div>
+
 <p><strong>Parameters:</strong></p>
 <table>
-<thead>
-<tr>
-<th>Name</th>
-<th>Type</th>
-<th>Description</th>
-<th>Default</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><code>playlist_id</code></td>
-<td><code>str</code></td>
-<td>
-<p>The id of the playlist</p>
-</td>
-<td><em>required</em></td>
-</tr>
-<tr>
-<td><code>auth_token</code></td>
-<td><code>SpotifyAuthorisationToken</code></td>
-<td>
-<p>The auth token if you set the api class not to keep the token in memory</p>
-</td>
-<td><code>None</code></td>
-</tr>
-<tr>
-<td><code>kwargs</code></td>
-<td><code></code></td>
-<td>
-<p>Optional arguments as keyword args</p>
-</td>
-<td><code>{}</code></td>
-</tr>
-</tbody>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Type</th>
+      <th>Description</th>
+      <th>Default</th>
+    </tr>
+  </thead>
+  <tbody>
+      <tr>
+        <td><code>playlist_id</code></td>
+        <td><code>str</code></td>
+        <td><p>The id of the playlist</p></td>
+        <td><em>required</em></td>
+      </tr>
+      <tr>
+        <td><code>auth_token</code></td>
+        <td><code>SpotifyAuthorisationToken</code></td>
+        <td><p>The auth token if you set the api class not to keep the token in memory</p></td>
+        <td><code>None</code></td>
+      </tr>
+      <tr>
+        <td><code>kwargs</code></td>
+        <td></td>
+        <td><p>Optional arguments as keyword args</p></td>
+        <td><code>{}</code></td>
+      </tr>
+  </tbody>
 </table>
-<details class="quote">
+        <details class="quote">
           <summary>Source code in <code>async_spotify/api/_endpoints/playlists.py</code></summary>
-          <table class="highlighttable">
-<tr>
-<td class="linenos">
-<div class="linenodiv">
-<pre><span></span>51
-52
-53
-54
-55
-56
-57
-58
-59
-60
-61
-62
-63
-64
-65</pre>
-</div>
-</td>
-<td class="code">
-<div class="highlight">
-<pre><span></span><code><span class="k">async</span> <span class="k">def</span> <span class="nf">change_details</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">playlist_id</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">auth_token</span><span class="p">:</span> <span class="n">SpotifyAuthorisationToken</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
-    <span class="sd">"""</span>
+          <div class="codehilite"><pre><span></span><code><span class="k">async</span> <span class="k">def</span> <span class="nf">change_details</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">playlist_id</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">auth_token</span><span class="p">:</span> <span class="n">SpotifyAuthorisationToken</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+    <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Change a playlist’s name and public/private state. (The user must, of course, own the playlist.)</span>
 
 <span class="sd">    Notes:</span>
@@ -1134,107 +1411,81 @@
 <span class="sd">        playlist_id: The id of the playlist</span>
 <span class="sd">        auth_token: The auth token if you set the api class not to keep the token in memory</span>
 <span class="sd">        kwargs: Optional arguments as keyword args</span>
-<span class="sd">    """</span>
+<span class="sd">    &quot;&quot;&quot;</span>
 
-    <span class="n">url</span><span class="p">,</span> <span class="n">_</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_add_url_params</span><span class="p">(</span><span class="n">URLS</span><span class="o">.</span><span class="n">PLAYLIST</span><span class="o">.</span><span class="n">ONE</span><span class="p">,</span> <span class="p">{</span><span class="s1">'playlist_id'</span><span class="p">:</span> <span class="n">playlist_id</span><span class="p">})</span>
-    <span class="k">await</span> <span class="bp">self</span><span class="o">.</span><span class="n">api_request_handler</span><span class="o">.</span><span class="n">make_request</span><span class="p">(</span><span class="s1">'PUT'</span><span class="p">,</span> <span class="n">url</span><span class="p">,</span> <span class="p">{},</span> <span class="n">auth_token</span><span class="p">,</span> <span class="n">body</span><span class="o">=</span><span class="n">kwargs</span><span class="p">)</span>
-</code></pre>
-</div>
-</td>
-</tr>
-</table>
-</details>
-</div>
-</div>
-<div class="doc doc-object doc-method">
-<h3 class="doc doc-heading" id="async_spotify.api._endpoints.playlists.Playlists.create_playlist">
+    <span class="n">url</span><span class="p">,</span> <span class="n">_</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_add_url_params</span><span class="p">(</span><span class="n">URLS</span><span class="o">.</span><span class="n">PLAYLIST</span><span class="o">.</span><span class="n">ONE</span><span class="p">,</span> <span class="p">{</span><span class="s1">&#39;playlist_id&#39;</span><span class="p">:</span> <span class="n">playlist_id</span><span class="p">})</span>
+    <span class="k">await</span> <span class="bp">self</span><span class="o">.</span><span class="n">api_request_handler</span><span class="o">.</span><span class="n">make_request</span><span class="p">(</span><span class="s1">&#39;PUT&#39;</span><span class="p">,</span> <span class="n">url</span><span class="p">,</span> <span class="p">{},</span> <span class="n">auth_token</span><span class="p">,</span> <span class="n">body</span><span class="o">=</span><span class="n">kwargs</span><span class="p">)</span>
+</code></pre></div>
+        </details>
+    </div>
 
-<code class="highlight language-python"><span class="n">create_playlist</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">user_id</span><span class="p">,</span> <span class="n">playlist_name</span><span class="p">,</span> <span class="n">auth_token</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span></code>
+  </div>
 
 
-      <a class="headerlink" href="#async_spotify.api._endpoints.playlists.Playlists.create_playlist" title="Permanent link">&para;</a></h3>
-<div class="doc doc-contents ">
-<p>Change a playlist’s name and public/private state. (The user must, of course, own the playlist.)</p>
+
+  <div class="doc doc-object doc-method">
+
+
+
+<h3 id="async_spotify.api._endpoints.playlists.Playlists.create_playlist" class="doc doc-heading">
+<code class="codehilite language-python"><span class="n">create_playlist</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">user_id</span><span class="p">,</span> <span class="n">playlist_name</span><span class="p">,</span> <span class="n">auth_token</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span></code>
+
+  <span class="doc doc-properties">
+      <small class="doc doc-property doc-property-async"><code>async</code></small>
+  </span>
+
+<a href="#async_spotify.api._endpoints.playlists.Playlists.create_playlist" class="headerlink" title="Permanent link">&para;</a></h3>
+
+    <div class="doc doc-contents ">
+
+      <p>Change a playlist’s name and public/private state. (The user must, of course, own the playlist.)</p>
 <div class="admonition notes">
 <p class="admonition-title">Notes</p>
 <p><a href="https://developer.spotify.com/documentation/web-api/reference/playlists/create-playlist/">https://developer.spotify.com/documentation/web-api/reference/playlists/create-playlist/</a></p>
 </div>
+
 <p><strong>Parameters:</strong></p>
 <table>
-<thead>
-<tr>
-<th>Name</th>
-<th>Type</th>
-<th>Description</th>
-<th>Default</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><code>user_id</code></td>
-<td><code>str</code></td>
-<td>
-<p>The id of the user</p>
-</td>
-<td><em>required</em></td>
-</tr>
-<tr>
-<td><code>playlist_name</code></td>
-<td><code>str</code></td>
-<td>
-<p>THe name of the playlist</p>
-</td>
-<td><em>required</em></td>
-</tr>
-<tr>
-<td><code>auth_token</code></td>
-<td><code>SpotifyAuthorisationToken</code></td>
-<td>
-<p>The auth token if you set the api class not to keep the token in memory</p>
-</td>
-<td><code>None</code></td>
-</tr>
-<tr>
-<td><code>kwargs</code></td>
-<td><code></code></td>
-<td>
-<p>Optional arguments as keyword args</p>
-</td>
-<td><code>{}</code></td>
-</tr>
-</tbody>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Type</th>
+      <th>Description</th>
+      <th>Default</th>
+    </tr>
+  </thead>
+  <tbody>
+      <tr>
+        <td><code>user_id</code></td>
+        <td><code>str</code></td>
+        <td><p>The id of the user</p></td>
+        <td><em>required</em></td>
+      </tr>
+      <tr>
+        <td><code>playlist_name</code></td>
+        <td><code>str</code></td>
+        <td><p>THe name of the playlist</p></td>
+        <td><em>required</em></td>
+      </tr>
+      <tr>
+        <td><code>auth_token</code></td>
+        <td><code>SpotifyAuthorisationToken</code></td>
+        <td><p>The auth token if you set the api class not to keep the token in memory</p></td>
+        <td><code>None</code></td>
+      </tr>
+      <tr>
+        <td><code>kwargs</code></td>
+        <td></td>
+        <td><p>Optional arguments as keyword args</p></td>
+        <td><code>{}</code></td>
+      </tr>
+  </tbody>
 </table>
-<details class="quote">
+        <details class="quote">
           <summary>Source code in <code>async_spotify/api/_endpoints/playlists.py</code></summary>
-          <table class="highlighttable">
-<tr>
-<td class="linenos">
-<div class="linenodiv">
-<pre><span></span>67
-68
-69
-70
-71
-72
-73
-74
-75
-76
-77
-78
-79
-80
-81
-82
-83
-84</pre>
-</div>
-</td>
-<td class="code">
-<div class="highlight">
-<pre><span></span><code><span class="k">async</span> <span class="k">def</span> <span class="nf">create_playlist</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">user_id</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">playlist_name</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">auth_token</span><span class="p">:</span> <span class="n">SpotifyAuthorisationToken</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+          <div class="codehilite"><pre><span></span><code><span class="k">async</span> <span class="k">def</span> <span class="nf">create_playlist</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">user_id</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">playlist_name</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">auth_token</span><span class="p">:</span> <span class="n">SpotifyAuthorisationToken</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
                           <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">dict</span><span class="p">:</span>
-    <span class="sd">"""</span>
+    <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Change a playlist’s name and public/private state. (The user must, of course, own the playlist.)</span>
 
 <span class="sd">    Notes:</span>
@@ -1245,106 +1496,84 @@
 <span class="sd">        playlist_name: THe name of the playlist</span>
 <span class="sd">        auth_token: The auth token if you set the api class not to keep the token in memory</span>
 <span class="sd">        kwargs: Optional arguments as keyword args</span>
-<span class="sd">    """</span>
+<span class="sd">    &quot;&quot;&quot;</span>
 
-    <span class="n">url</span><span class="p">,</span> <span class="n">_</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_add_url_params</span><span class="p">(</span><span class="n">URLS</span><span class="o">.</span><span class="n">PLAYLIST</span><span class="o">.</span><span class="n">CREATE</span><span class="p">,</span> <span class="p">{</span><span class="s1">'user_id'</span><span class="p">:</span> <span class="n">user_id</span><span class="p">})</span>
-    <span class="k">return</span> <span class="k">await</span> <span class="bp">self</span><span class="o">.</span><span class="n">api_request_handler</span><span class="o">.</span><span class="n">make_request</span><span class="p">(</span><span class="s1">'POST'</span><span class="p">,</span> <span class="n">url</span><span class="p">,</span> <span class="p">{},</span> <span class="n">auth_token</span><span class="p">,</span>
-                                                       <span class="n">body</span><span class="o">=</span><span class="p">{</span><span class="o">**</span><span class="p">{</span><span class="s1">'name'</span><span class="p">:</span> <span class="n">playlist_name</span><span class="p">},</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">})</span>
-</code></pre>
-</div>
-</td>
-</tr>
-</table>
-</details>
-</div>
-</div>
-<div class="doc doc-object doc-method">
-<h3 class="doc doc-heading" id="async_spotify.api._endpoints.playlists.Playlists.current_get_all">
+    <span class="n">url</span><span class="p">,</span> <span class="n">_</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_add_url_params</span><span class="p">(</span><span class="n">URLS</span><span class="o">.</span><span class="n">PLAYLIST</span><span class="o">.</span><span class="n">CREATE</span><span class="p">,</span> <span class="p">{</span><span class="s1">&#39;user_id&#39;</span><span class="p">:</span> <span class="n">user_id</span><span class="p">})</span>
+    <span class="k">return</span> <span class="k">await</span> <span class="bp">self</span><span class="o">.</span><span class="n">api_request_handler</span><span class="o">.</span><span class="n">make_request</span><span class="p">(</span><span class="s1">&#39;POST&#39;</span><span class="p">,</span> <span class="n">url</span><span class="p">,</span> <span class="p">{},</span> <span class="n">auth_token</span><span class="p">,</span>
+                                                       <span class="n">body</span><span class="o">=</span><span class="p">{</span><span class="o">**</span><span class="p">{</span><span class="s1">&#39;name&#39;</span><span class="p">:</span> <span class="n">playlist_name</span><span class="p">},</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">})</span>
+</code></pre></div>
+        </details>
+    </div>
 
-<code class="highlight language-python"><span class="n">current_get_all</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">auth_token</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span></code>
+  </div>
 
 
-      <a class="headerlink" href="#async_spotify.api._endpoints.playlists.Playlists.current_get_all" title="Permanent link">&para;</a></h3>
-<div class="doc doc-contents ">
-<p>Get a list of the playlists owned or followed by the current Spotify user.</p>
+
+  <div class="doc doc-object doc-method">
+
+
+
+<h3 id="async_spotify.api._endpoints.playlists.Playlists.current_get_all" class="doc doc-heading">
+<code class="codehilite language-python"><span class="n">current_get_all</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">auth_token</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span></code>
+
+  <span class="doc doc-properties">
+      <small class="doc doc-property doc-property-async"><code>async</code></small>
+  </span>
+
+<a href="#async_spotify.api._endpoints.playlists.Playlists.current_get_all" class="headerlink" title="Permanent link">&para;</a></h3>
+
+    <div class="doc doc-contents ">
+
+      <p>Get a list of the playlists owned or followed by the current Spotify user.</p>
 <div class="admonition notes">
 <p class="admonition-title">Notes</p>
 <p><a href="https://developer.spotify.com/documentation/web-api/reference/playlists/get-a-list-of-current-users-playlists/">https://developer.spotify.com/documentation/web-api/reference/playlists/get-a-list-of-current-users-playlists/</a></p>
 </div>
+
 <p><strong>Parameters:</strong></p>
 <table>
-<thead>
-<tr>
-<th>Name</th>
-<th>Type</th>
-<th>Description</th>
-<th>Default</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><code>auth_token</code></td>
-<td><code>SpotifyAuthorisationToken</code></td>
-<td>
-<p>The auth token if you set the api class not to keep the token in memory</p>
-</td>
-<td><code>None</code></td>
-</tr>
-<tr>
-<td><code>kwargs</code></td>
-<td><code></code></td>
-<td>
-<p>Optional arguments as keyword args</p>
-</td>
-<td><code>{}</code></td>
-</tr>
-</tbody>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Type</th>
+      <th>Description</th>
+      <th>Default</th>
+    </tr>
+  </thead>
+  <tbody>
+      <tr>
+        <td><code>auth_token</code></td>
+        <td><code>SpotifyAuthorisationToken</code></td>
+        <td><p>The auth token if you set the api class not to keep the token in memory</p></td>
+        <td><code>None</code></td>
+      </tr>
+      <tr>
+        <td><code>kwargs</code></td>
+        <td></td>
+        <td><p>Optional arguments as keyword args</p></td>
+        <td><code>{}</code></td>
+      </tr>
+  </tbody>
 </table>
 <p><strong>Returns:</strong></p>
 <table>
-<thead>
-<tr>
-<th>Type</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><code>dict</code></td>
-<td>
-<p>A List of Current User's Playlists</p>
-</td>
-</tr>
-</tbody>
+  <thead>
+    <tr>
+      <th>Type</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code>dict</code></td>
+      <td><p>A List of Current User's Playlists</p></td>
+    </tr>
+  </tbody>
 </table>
-<details class="quote">
+        <details class="quote">
           <summary>Source code in <code>async_spotify/api/_endpoints/playlists.py</code></summary>
-          <table class="highlighttable">
-<tr>
-<td class="linenos">
-<div class="linenodiv">
-<pre><span></span> 86
- 87
- 88
- 89
- 90
- 91
- 92
- 93
- 94
- 95
- 96
- 97
- 98
- 99
-100
-101</pre>
-</div>
-</td>
-<td class="code">
-<div class="highlight">
-<pre><span></span><code><span class="k">async</span> <span class="k">def</span> <span class="nf">current_get_all</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">auth_token</span><span class="p">:</span> <span class="n">SpotifyAuthorisationToken</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">dict</span><span class="p">:</span>
-    <span class="sd">"""</span>
+          <div class="codehilite"><pre><span></span><code><span class="k">async</span> <span class="k">def</span> <span class="nf">current_get_all</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">auth_token</span><span class="p">:</span> <span class="n">SpotifyAuthorisationToken</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">dict</span><span class="p">:</span>
+    <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Get a list of the playlists owned or followed by the current Spotify user.</span>
 
 <span class="sd">    Notes:</span>
@@ -1355,106 +1584,83 @@
 <span class="sd">        kwargs: Optional arguments as keyword args</span>
 
 <span class="sd">    Returns:</span>
-<span class="sd">        A List of Current User's Playlists</span>
-<span class="sd">    """</span>
+<span class="sd">        A List of Current User&#39;s Playlists</span>
+<span class="sd">    &quot;&quot;&quot;</span>
 
-    <span class="k">return</span> <span class="k">await</span> <span class="bp">self</span><span class="o">.</span><span class="n">api_request_handler</span><span class="o">.</span><span class="n">make_request</span><span class="p">(</span><span class="s1">'GET'</span><span class="p">,</span> <span class="n">URLS</span><span class="o">.</span><span class="n">PLAYLIST</span><span class="o">.</span><span class="n">ME</span><span class="p">,</span> <span class="n">kwargs</span><span class="p">,</span> <span class="n">auth_token</span><span class="p">)</span>
-</code></pre>
-</div>
-</td>
-</tr>
-</table>
-</details>
-</div>
-</div>
-<div class="doc doc-object doc-method">
-<h3 class="doc doc-heading" id="async_spotify.api._endpoints.playlists.Playlists.get_cover">
+    <span class="k">return</span> <span class="k">await</span> <span class="bp">self</span><span class="o">.</span><span class="n">api_request_handler</span><span class="o">.</span><span class="n">make_request</span><span class="p">(</span><span class="s1">&#39;GET&#39;</span><span class="p">,</span> <span class="n">URLS</span><span class="o">.</span><span class="n">PLAYLIST</span><span class="o">.</span><span class="n">ME</span><span class="p">,</span> <span class="n">kwargs</span><span class="p">,</span> <span class="n">auth_token</span><span class="p">)</span>
+</code></pre></div>
+        </details>
+    </div>
 
-<code class="highlight language-python"><span class="n">get_cover</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">playlist_id</span><span class="p">,</span> <span class="n">auth_token</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span></code>
+  </div>
 
 
-      <a class="headerlink" href="#async_spotify.api._endpoints.playlists.Playlists.get_cover" title="Permanent link">&para;</a></h3>
-<div class="doc doc-contents ">
-<p>Get the current image associated with a specific playlist.</p>
+
+  <div class="doc doc-object doc-method">
+
+
+
+<h3 id="async_spotify.api._endpoints.playlists.Playlists.get_cover" class="doc doc-heading">
+<code class="codehilite language-python"><span class="n">get_cover</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">playlist_id</span><span class="p">,</span> <span class="n">auth_token</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span></code>
+
+  <span class="doc doc-properties">
+      <small class="doc doc-property doc-property-async"><code>async</code></small>
+  </span>
+
+<a href="#async_spotify.api._endpoints.playlists.Playlists.get_cover" class="headerlink" title="Permanent link">&para;</a></h3>
+
+    <div class="doc doc-contents ">
+
+      <p>Get the current image associated with a specific playlist.</p>
 <div class="admonition notes">
 <p class="admonition-title">Notes</p>
 <p><a href="https://developer.spotify.com/documentation/web-api/reference/playlists/get-playlist-cover/">https://developer.spotify.com/documentation/web-api/reference/playlists/get-playlist-cover/</a></p>
 </div>
+
 <p><strong>Parameters:</strong></p>
 <table>
-<thead>
-<tr>
-<th>Name</th>
-<th>Type</th>
-<th>Description</th>
-<th>Default</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><code>playlist_id</code></td>
-<td><code>str</code></td>
-<td>
-<p>The id of the Playlist</p>
-</td>
-<td><em>required</em></td>
-</tr>
-<tr>
-<td><code>auth_token</code></td>
-<td><code>SpotifyAuthorisationToken</code></td>
-<td>
-<p>The auth token if you set the api class not to keep the token in memory</p>
-</td>
-<td><code>None</code></td>
-</tr>
-</tbody>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Type</th>
+      <th>Description</th>
+      <th>Default</th>
+    </tr>
+  </thead>
+  <tbody>
+      <tr>
+        <td><code>playlist_id</code></td>
+        <td><code>str</code></td>
+        <td><p>The id of the Playlist</p></td>
+        <td><em>required</em></td>
+      </tr>
+      <tr>
+        <td><code>auth_token</code></td>
+        <td><code>SpotifyAuthorisationToken</code></td>
+        <td><p>The auth token if you set the api class not to keep the token in memory</p></td>
+        <td><code>None</code></td>
+      </tr>
+  </tbody>
 </table>
 <p><strong>Returns:</strong></p>
 <table>
-<thead>
-<tr>
-<th>Type</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><code>dict</code></td>
-<td>
-<p>The cover image</p>
-</td>
-</tr>
-</tbody>
+  <thead>
+    <tr>
+      <th>Type</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code>dict</code></td>
+      <td><p>The cover image</p></td>
+    </tr>
+  </tbody>
 </table>
-<details class="quote">
+        <details class="quote">
           <summary>Source code in <code>async_spotify/api/_endpoints/playlists.py</code></summary>
-          <table class="highlighttable">
-<tr>
-<td class="linenos">
-<div class="linenodiv">
-<pre><span></span>141
-142
-143
-144
-145
-146
-147
-148
-149
-150
-151
-152
-153
-154
-155
-156
-157</pre>
-</div>
-</td>
-<td class="code">
-<div class="highlight">
-<pre><span></span><code><span class="k">async</span> <span class="k">def</span> <span class="nf">get_cover</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">playlist_id</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">auth_token</span><span class="p">:</span> <span class="n">SpotifyAuthorisationToken</span> <span class="o">=</span> <span class="kc">None</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">dict</span><span class="p">:</span>
-    <span class="sd">"""</span>
+          <div class="codehilite"><pre><span></span><code><span class="k">async</span> <span class="k">def</span> <span class="nf">get_cover</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">playlist_id</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">auth_token</span><span class="p">:</span> <span class="n">SpotifyAuthorisationToken</span> <span class="o">=</span> <span class="kc">None</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">dict</span><span class="p">:</span>
+    <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Get the current image associated with a specific playlist.</span>
 
 <span class="sd">    Notes:</span>
@@ -1466,27 +1672,34 @@
 
 <span class="sd">    Returns:</span>
 <span class="sd">        The cover image</span>
-<span class="sd">    """</span>
+<span class="sd">    &quot;&quot;&quot;</span>
 
-    <span class="n">url</span><span class="p">,</span> <span class="n">_</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_add_url_params</span><span class="p">(</span><span class="n">URLS</span><span class="o">.</span><span class="n">PLAYLIST</span><span class="o">.</span><span class="n">COVER</span><span class="p">,</span> <span class="p">{</span><span class="s1">'playlist_id'</span><span class="p">:</span> <span class="n">playlist_id</span><span class="p">})</span>
-    <span class="k">return</span> <span class="k">await</span> <span class="bp">self</span><span class="o">.</span><span class="n">api_request_handler</span><span class="o">.</span><span class="n">make_request</span><span class="p">(</span><span class="s1">'GET'</span><span class="p">,</span> <span class="n">url</span><span class="p">,</span> <span class="p">{},</span> <span class="n">auth_token</span><span class="p">)</span>
-</code></pre>
-</div>
-</td>
-</tr>
-</table>
-</details>
-</div>
-</div>
-<div class="doc doc-object doc-method">
-<h3 class="doc doc-heading" id="async_spotify.api._endpoints.playlists.Playlists.get_one">
+    <span class="n">url</span><span class="p">,</span> <span class="n">_</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_add_url_params</span><span class="p">(</span><span class="n">URLS</span><span class="o">.</span><span class="n">PLAYLIST</span><span class="o">.</span><span class="n">COVER</span><span class="p">,</span> <span class="p">{</span><span class="s1">&#39;playlist_id&#39;</span><span class="p">:</span> <span class="n">playlist_id</span><span class="p">})</span>
+    <span class="k">return</span> <span class="k">await</span> <span class="bp">self</span><span class="o">.</span><span class="n">api_request_handler</span><span class="o">.</span><span class="n">make_request</span><span class="p">(</span><span class="s1">&#39;GET&#39;</span><span class="p">,</span> <span class="n">url</span><span class="p">,</span> <span class="p">{},</span> <span class="n">auth_token</span><span class="p">)</span>
+</code></pre></div>
+        </details>
+    </div>
 
-<code class="highlight language-python"><span class="n">get_one</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">playlist_id</span><span class="p">,</span> <span class="n">auth_token</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span></code>
+  </div>
 
 
-      <a class="headerlink" href="#async_spotify.api._endpoints.playlists.Playlists.get_one" title="Permanent link">&para;</a></h3>
-<div class="doc doc-contents ">
-<p>Get a playlist owned by a Spotify user.</p>
+
+  <div class="doc doc-object doc-method">
+
+
+
+<h3 id="async_spotify.api._endpoints.playlists.Playlists.get_one" class="doc doc-heading">
+<code class="codehilite language-python"><span class="n">get_one</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">playlist_id</span><span class="p">,</span> <span class="n">auth_token</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span></code>
+
+  <span class="doc doc-properties">
+      <small class="doc doc-property doc-property-async"><code>async</code></small>
+  </span>
+
+<a href="#async_spotify.api._endpoints.playlists.Playlists.get_one" class="headerlink" title="Permanent link">&para;</a></h3>
+
+    <div class="doc doc-contents ">
+
+      <p>Get a playlist owned by a Spotify user.</p>
 <p>!!! notes
      <a href="https://developer.spotify.com/documentation/web-api/reference/playlists/get-playlist/">https://developer.spotify.com/documentation/web-api/reference/playlists/get-playlist/</a></p>
 <p>!!! args
@@ -1495,36 +1708,11 @@
      kwargs: Optional arguments as keyword args</p>
 <p>!!! returns
      A Playlist</p>
-<details class="quote">
+
+        <details class="quote">
           <summary>Source code in <code>async_spotify/api/_endpoints/playlists.py</code></summary>
-          <table class="highlighttable">
-<tr>
-<td class="linenos">
-<div class="linenodiv">
-<pre><span></span>122
-123
-124
-125
-126
-127
-128
-129
-130
-131
-132
-133
-134
-135
-136
-137
-138
-139</pre>
-</div>
-</td>
-<td class="code">
-<div class="highlight">
-<pre><span></span><code><span class="k">async</span> <span class="k">def</span> <span class="nf">get_one</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">playlist_id</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">auth_token</span><span class="p">:</span> <span class="n">SpotifyAuthorisationToken</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">dict</span><span class="p">:</span>
-    <span class="sd">"""</span>
+          <div class="codehilite"><pre><span></span><code><span class="k">async</span> <span class="k">def</span> <span class="nf">get_one</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">playlist_id</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">auth_token</span><span class="p">:</span> <span class="n">SpotifyAuthorisationToken</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">dict</span><span class="p">:</span>
+    <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">   Get a playlist owned by a Spotify user.</span>
 
 <span class="sd">    Notes:</span>
@@ -1537,116 +1725,89 @@
 
 <span class="sd">    Returns:</span>
 <span class="sd">        A Playlist</span>
-<span class="sd">    """</span>
+<span class="sd">    &quot;&quot;&quot;</span>
 
-    <span class="n">url</span><span class="p">,</span> <span class="n">_</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_add_url_params</span><span class="p">(</span><span class="n">URLS</span><span class="o">.</span><span class="n">PLAYLIST</span><span class="o">.</span><span class="n">ONE</span><span class="p">,</span> <span class="p">{</span><span class="s1">'playlist_id'</span><span class="p">:</span> <span class="n">playlist_id</span><span class="p">})</span>
-    <span class="k">return</span> <span class="k">await</span> <span class="bp">self</span><span class="o">.</span><span class="n">api_request_handler</span><span class="o">.</span><span class="n">make_request</span><span class="p">(</span><span class="s1">'GET'</span><span class="p">,</span> <span class="n">url</span><span class="p">,</span> <span class="n">kwargs</span><span class="p">,</span> <span class="n">auth_token</span><span class="p">)</span>
-</code></pre>
-</div>
-</td>
-</tr>
-</table>
-</details>
-</div>
-</div>
-<div class="doc doc-object doc-method">
-<h3 class="doc doc-heading" id="async_spotify.api._endpoints.playlists.Playlists.get_tracks">
+    <span class="n">url</span><span class="p">,</span> <span class="n">_</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_add_url_params</span><span class="p">(</span><span class="n">URLS</span><span class="o">.</span><span class="n">PLAYLIST</span><span class="o">.</span><span class="n">ONE</span><span class="p">,</span> <span class="p">{</span><span class="s1">&#39;playlist_id&#39;</span><span class="p">:</span> <span class="n">playlist_id</span><span class="p">})</span>
+    <span class="k">return</span> <span class="k">await</span> <span class="bp">self</span><span class="o">.</span><span class="n">api_request_handler</span><span class="o">.</span><span class="n">make_request</span><span class="p">(</span><span class="s1">&#39;GET&#39;</span><span class="p">,</span> <span class="n">url</span><span class="p">,</span> <span class="n">kwargs</span><span class="p">,</span> <span class="n">auth_token</span><span class="p">)</span>
+</code></pre></div>
+        </details>
+    </div>
 
-<code class="highlight language-python"><span class="n">get_tracks</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">playlist_id</span><span class="p">,</span> <span class="n">auth_token</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span></code>
+  </div>
 
 
-      <a class="headerlink" href="#async_spotify.api._endpoints.playlists.Playlists.get_tracks" title="Permanent link">&para;</a></h3>
-<div class="doc doc-contents ">
-<p>Get full details of the tracks or episodes of a playlist owned by a Spotify user.</p>
+
+  <div class="doc doc-object doc-method">
+
+
+
+<h3 id="async_spotify.api._endpoints.playlists.Playlists.get_tracks" class="doc doc-heading">
+<code class="codehilite language-python"><span class="n">get_tracks</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">playlist_id</span><span class="p">,</span> <span class="n">auth_token</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span></code>
+
+  <span class="doc doc-properties">
+      <small class="doc doc-property doc-property-async"><code>async</code></small>
+  </span>
+
+<a href="#async_spotify.api._endpoints.playlists.Playlists.get_tracks" class="headerlink" title="Permanent link">&para;</a></h3>
+
+    <div class="doc doc-contents ">
+
+      <p>Get full details of the tracks or episodes of a playlist owned by a Spotify user.</p>
 <div class="admonition notes">
 <p class="admonition-title">Notes</p>
 <p><a href="https://developer.spotify.com/documentation/web-api/reference/playlists/get-playlists-tracks/">https://developer.spotify.com/documentation/web-api/reference/playlists/get-playlists-tracks/</a></p>
 </div>
+
 <p><strong>Parameters:</strong></p>
 <table>
-<thead>
-<tr>
-<th>Name</th>
-<th>Type</th>
-<th>Description</th>
-<th>Default</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><code>playlist_id</code></td>
-<td><code>str</code></td>
-<td>
-<p>The id of the Playlist</p>
-</td>
-<td><em>required</em></td>
-</tr>
-<tr>
-<td><code>auth_token</code></td>
-<td><code>SpotifyAuthorisationToken</code></td>
-<td>
-<p>The auth token if you set the api class not to keep the token in memory</p>
-</td>
-<td><code>None</code></td>
-</tr>
-<tr>
-<td><code>kwargs</code></td>
-<td><code></code></td>
-<td>
-<p>Optional arguments as keyword args</p>
-</td>
-<td><code>{}</code></td>
-</tr>
-</tbody>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Type</th>
+      <th>Description</th>
+      <th>Default</th>
+    </tr>
+  </thead>
+  <tbody>
+      <tr>
+        <td><code>playlist_id</code></td>
+        <td><code>str</code></td>
+        <td><p>The id of the Playlist</p></td>
+        <td><em>required</em></td>
+      </tr>
+      <tr>
+        <td><code>auth_token</code></td>
+        <td><code>SpotifyAuthorisationToken</code></td>
+        <td><p>The auth token if you set the api class not to keep the token in memory</p></td>
+        <td><code>None</code></td>
+      </tr>
+      <tr>
+        <td><code>kwargs</code></td>
+        <td></td>
+        <td><p>Optional arguments as keyword args</p></td>
+        <td><code>{}</code></td>
+      </tr>
+  </tbody>
 </table>
 <p><strong>Returns:</strong></p>
 <table>
-<thead>
-<tr>
-<th>Type</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><code>dict</code></td>
-<td>
-<p>The cover image</p>
-</td>
-</tr>
-</tbody>
+  <thead>
+    <tr>
+      <th>Type</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code>dict</code></td>
+      <td><p>The cover image</p></td>
+    </tr>
+  </tbody>
 </table>
-<details class="quote">
+        <details class="quote">
           <summary>Source code in <code>async_spotify/api/_endpoints/playlists.py</code></summary>
-          <table class="highlighttable">
-<tr>
-<td class="linenos">
-<div class="linenodiv">
-<pre><span></span>159
-160
-161
-162
-163
-164
-165
-166
-167
-168
-169
-170
-171
-172
-173
-174
-175
-176
-177</pre>
-</div>
-</td>
-<td class="code">
-<div class="highlight">
-<pre><span></span><code><span class="k">async</span> <span class="k">def</span> <span class="nf">get_tracks</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">playlist_id</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">auth_token</span><span class="p">:</span> <span class="n">SpotifyAuthorisationToken</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">dict</span><span class="p">:</span>
-    <span class="sd">"""</span>
+          <div class="codehilite"><pre><span></span><code><span class="k">async</span> <span class="k">def</span> <span class="nf">get_tracks</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">playlist_id</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">auth_token</span><span class="p">:</span> <span class="n">SpotifyAuthorisationToken</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">dict</span><span class="p">:</span>
+    <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Get full details of the tracks or episodes of a playlist owned by a Spotify user.</span>
 
 <span class="sd">    Notes:</span>
@@ -1659,116 +1820,90 @@
 
 <span class="sd">    Returns:</span>
 <span class="sd">        The cover image</span>
-<span class="sd">    """</span>
+<span class="sd">    &quot;&quot;&quot;</span>
 
-    <span class="n">args</span> <span class="o">=</span> <span class="p">{</span><span class="o">**</span><span class="p">{</span><span class="s1">'playlist_id'</span><span class="p">:</span> <span class="n">playlist_id</span><span class="p">},</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">}</span>
+    <span class="n">args</span> <span class="o">=</span> <span class="p">{</span><span class="o">**</span><span class="p">{</span><span class="s1">&#39;playlist_id&#39;</span><span class="p">:</span> <span class="n">playlist_id</span><span class="p">},</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">}</span>
     <span class="n">url</span><span class="p">,</span> <span class="n">args</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_add_url_params</span><span class="p">(</span><span class="n">URLS</span><span class="o">.</span><span class="n">PLAYLIST</span><span class="o">.</span><span class="n">TRACKS</span><span class="p">,</span> <span class="n">args</span><span class="p">)</span>
-    <span class="k">return</span> <span class="k">await</span> <span class="bp">self</span><span class="o">.</span><span class="n">api_request_handler</span><span class="o">.</span><span class="n">make_request</span><span class="p">(</span><span class="s1">'GET'</span><span class="p">,</span> <span class="n">url</span><span class="p">,</span> <span class="n">args</span><span class="p">,</span> <span class="n">auth_token</span><span class="p">)</span>
-</code></pre>
-</div>
-</td>
-</tr>
-</table>
-</details>
-</div>
-</div>
-<div class="doc doc-object doc-method">
-<h3 class="doc doc-heading" id="async_spotify.api._endpoints.playlists.Playlists.get_user_all">
+    <span class="k">return</span> <span class="k">await</span> <span class="bp">self</span><span class="o">.</span><span class="n">api_request_handler</span><span class="o">.</span><span class="n">make_request</span><span class="p">(</span><span class="s1">&#39;GET&#39;</span><span class="p">,</span> <span class="n">url</span><span class="p">,</span> <span class="n">args</span><span class="p">,</span> <span class="n">auth_token</span><span class="p">)</span>
+</code></pre></div>
+        </details>
+    </div>
 
-<code class="highlight language-python"><span class="n">get_user_all</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">user_id</span><span class="p">,</span> <span class="n">auth_token</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span></code>
+  </div>
 
 
-      <a class="headerlink" href="#async_spotify.api._endpoints.playlists.Playlists.get_user_all" title="Permanent link">&para;</a></h3>
-<div class="doc doc-contents ">
-<p>Get a list of the playlists owned or followed by a Spotify user.</p>
+
+  <div class="doc doc-object doc-method">
+
+
+
+<h3 id="async_spotify.api._endpoints.playlists.Playlists.get_user_all" class="doc doc-heading">
+<code class="codehilite language-python"><span class="n">get_user_all</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">user_id</span><span class="p">,</span> <span class="n">auth_token</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span></code>
+
+  <span class="doc doc-properties">
+      <small class="doc doc-property doc-property-async"><code>async</code></small>
+  </span>
+
+<a href="#async_spotify.api._endpoints.playlists.Playlists.get_user_all" class="headerlink" title="Permanent link">&para;</a></h3>
+
+    <div class="doc doc-contents ">
+
+      <p>Get a list of the playlists owned or followed by a Spotify user.</p>
 <div class="admonition notes">
 <p class="admonition-title">Notes</p>
 <p><a href="https://developer.spotify.com/documentation/web-api/reference/playlists/get-list-users-playlists/">https://developer.spotify.com/documentation/web-api/reference/playlists/get-list-users-playlists/</a></p>
 </div>
+
 <p><strong>Parameters:</strong></p>
 <table>
-<thead>
-<tr>
-<th>Name</th>
-<th>Type</th>
-<th>Description</th>
-<th>Default</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><code>user_id</code></td>
-<td><code>str</code></td>
-<td>
-<p>The id of the spotify user</p>
-</td>
-<td><em>required</em></td>
-</tr>
-<tr>
-<td><code>auth_token</code></td>
-<td><code>SpotifyAuthorisationToken</code></td>
-<td>
-<p>The auth token if you set the api class not to keep the token in memory</p>
-</td>
-<td><code>None</code></td>
-</tr>
-<tr>
-<td><code>kwargs</code></td>
-<td><code></code></td>
-<td>
-<p>Optional arguments as keyword args</p>
-</td>
-<td><code>{}</code></td>
-</tr>
-</tbody>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Type</th>
+      <th>Description</th>
+      <th>Default</th>
+    </tr>
+  </thead>
+  <tbody>
+      <tr>
+        <td><code>user_id</code></td>
+        <td><code>str</code></td>
+        <td><p>The id of the spotify user</p></td>
+        <td><em>required</em></td>
+      </tr>
+      <tr>
+        <td><code>auth_token</code></td>
+        <td><code>SpotifyAuthorisationToken</code></td>
+        <td><p>The auth token if you set the api class not to keep the token in memory</p></td>
+        <td><code>None</code></td>
+      </tr>
+      <tr>
+        <td><code>kwargs</code></td>
+        <td></td>
+        <td><p>Optional arguments as keyword args</p></td>
+        <td><code>{}</code></td>
+      </tr>
+  </tbody>
 </table>
 <p><strong>Returns:</strong></p>
 <table>
-<thead>
-<tr>
-<th>Type</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><code>dict</code></td>
-<td>
-<p>A List of a User's Playlists</p>
-</td>
-</tr>
-</tbody>
+  <thead>
+    <tr>
+      <th>Type</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code>dict</code></td>
+      <td><p>A List of a User's Playlists</p></td>
+    </tr>
+  </tbody>
 </table>
-<details class="quote">
+        <details class="quote">
           <summary>Source code in <code>async_spotify/api/_endpoints/playlists.py</code></summary>
-          <table class="highlighttable">
-<tr>
-<td class="linenos">
-<div class="linenodiv">
-<pre><span></span>103
-104
-105
-106
-107
-108
-109
-110
-111
-112
-113
-114
-115
-116
-117
-118
-119
-120</pre>
-</div>
-</td>
-<td class="code">
-<div class="highlight">
-<pre><span></span><code><span class="k">async</span> <span class="k">def</span> <span class="nf">get_user_all</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">user_id</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">auth_token</span><span class="p">:</span> <span class="n">SpotifyAuthorisationToken</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">dict</span><span class="p">:</span>
-    <span class="sd">"""</span>
+          <div class="codehilite"><pre><span></span><code><span class="k">async</span> <span class="k">def</span> <span class="nf">get_user_all</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">user_id</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">auth_token</span><span class="p">:</span> <span class="n">SpotifyAuthorisationToken</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">dict</span><span class="p">:</span>
+    <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Get a list of the playlists owned or followed by a Spotify user.</span>
 
 <span class="sd">    Notes:</span>
@@ -1780,99 +1915,76 @@
 <span class="sd">        kwargs: Optional arguments as keyword args</span>
 
 <span class="sd">    Returns:</span>
-<span class="sd">        A List of a User's Playlists</span>
-<span class="sd">    """</span>
+<span class="sd">        A List of a User&#39;s Playlists</span>
+<span class="sd">    &quot;&quot;&quot;</span>
 
-    <span class="n">url</span><span class="p">,</span> <span class="n">_</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_add_url_params</span><span class="p">(</span><span class="n">URLS</span><span class="o">.</span><span class="n">PLAYLIST</span><span class="o">.</span><span class="n">USER</span><span class="p">,</span> <span class="p">{</span><span class="s1">'user_id'</span><span class="p">:</span> <span class="n">user_id</span><span class="p">})</span>
-    <span class="k">return</span> <span class="k">await</span> <span class="bp">self</span><span class="o">.</span><span class="n">api_request_handler</span><span class="o">.</span><span class="n">make_request</span><span class="p">(</span><span class="s1">'GET'</span><span class="p">,</span> <span class="n">url</span><span class="p">,</span> <span class="n">kwargs</span><span class="p">,</span> <span class="n">auth_token</span><span class="p">)</span>
-</code></pre>
-</div>
-</td>
-</tr>
-</table>
-</details>
-</div>
-</div>
-<div class="doc doc-object doc-method">
-<h3 class="doc doc-heading" id="async_spotify.api._endpoints.playlists.Playlists.remove_tracks">
+    <span class="n">url</span><span class="p">,</span> <span class="n">_</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_add_url_params</span><span class="p">(</span><span class="n">URLS</span><span class="o">.</span><span class="n">PLAYLIST</span><span class="o">.</span><span class="n">USER</span><span class="p">,</span> <span class="p">{</span><span class="s1">&#39;user_id&#39;</span><span class="p">:</span> <span class="n">user_id</span><span class="p">})</span>
+    <span class="k">return</span> <span class="k">await</span> <span class="bp">self</span><span class="o">.</span><span class="n">api_request_handler</span><span class="o">.</span><span class="n">make_request</span><span class="p">(</span><span class="s1">&#39;GET&#39;</span><span class="p">,</span> <span class="n">url</span><span class="p">,</span> <span class="n">kwargs</span><span class="p">,</span> <span class="n">auth_token</span><span class="p">)</span>
+</code></pre></div>
+        </details>
+    </div>
 
-<code class="highlight language-python"><span class="n">remove_tracks</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">playlist_id</span><span class="p">,</span> <span class="n">spotify_uris</span><span class="p">,</span> <span class="n">auth_token</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span></code>
+  </div>
 
 
-      <a class="headerlink" href="#async_spotify.api._endpoints.playlists.Playlists.remove_tracks" title="Permanent link">&para;</a></h3>
-<div class="doc doc-contents ">
-<p>Remove one or more items from a user’s playlist.</p>
+
+  <div class="doc doc-object doc-method">
+
+
+
+<h3 id="async_spotify.api._endpoints.playlists.Playlists.remove_tracks" class="doc doc-heading">
+<code class="codehilite language-python"><span class="n">remove_tracks</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">playlist_id</span><span class="p">,</span> <span class="n">spotify_uris</span><span class="p">,</span> <span class="n">auth_token</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span></code>
+
+  <span class="doc doc-properties">
+      <small class="doc doc-property doc-property-async"><code>async</code></small>
+  </span>
+
+<a href="#async_spotify.api._endpoints.playlists.Playlists.remove_tracks" class="headerlink" title="Permanent link">&para;</a></h3>
+
+    <div class="doc doc-contents ">
+
+      <p>Remove one or more items from a user’s playlist.</p>
 <div class="admonition notes">
 <p class="admonition-title">Notes</p>
 <p><a href="https://developer.spotify.com/documentation/web-api/reference/playlists/remove-tracks-playlist/">https://developer.spotify.com/documentation/web-api/reference/playlists/remove-tracks-playlist/</a></p>
 </div>
+
 <p><strong>Parameters:</strong></p>
 <table>
-<thead>
-<tr>
-<th>Name</th>
-<th>Type</th>
-<th>Description</th>
-<th>Default</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><code>playlist_id</code></td>
-<td><code>str</code></td>
-<td>
-<p>The id of the playlist</p>
-</td>
-<td><em>required</em></td>
-</tr>
-<tr>
-<td><code>spotify_uris</code></td>
-<td><code>Dict[str, List[Dict[str, Any]]]</code></td>
-<td>
-<p>A dict with a list of spotify uris in the tracks key</p>
-</td>
-<td><em>required</em></td>
-</tr>
-<tr>
-<td><code>auth_token</code></td>
-<td><code>SpotifyAuthorisationToken</code></td>
-<td>
-<p>The auth token if you set the api class not to keep the token in memory</p>
-</td>
-<td><code>None</code></td>
-</tr>
-</tbody>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Type</th>
+      <th>Description</th>
+      <th>Default</th>
+    </tr>
+  </thead>
+  <tbody>
+      <tr>
+        <td><code>playlist_id</code></td>
+        <td><code>str</code></td>
+        <td><p>The id of the playlist</p></td>
+        <td><em>required</em></td>
+      </tr>
+      <tr>
+        <td><code>spotify_uris</code></td>
+        <td><code>Dict[str, List[Dict[str, Any]]]</code></td>
+        <td><p>A dict with a list of spotify uris in the tracks key</p></td>
+        <td><em>required</em></td>
+      </tr>
+      <tr>
+        <td><code>auth_token</code></td>
+        <td><code>SpotifyAuthorisationToken</code></td>
+        <td><p>The auth token if you set the api class not to keep the token in memory</p></td>
+        <td><code>None</code></td>
+      </tr>
+  </tbody>
 </table>
-<details class="quote">
+        <details class="quote">
           <summary>Source code in <code>async_spotify/api/_endpoints/playlists.py</code></summary>
-          <table class="highlighttable">
-<tr>
-<td class="linenos">
-<div class="linenodiv">
-<pre><span></span>179
-180
-181
-182
-183
-184
-185
-186
-187
-188
-189
-190
-191
-192
-193
-194
-195</pre>
-</div>
-</td>
-<td class="code">
-<div class="highlight">
-<pre><span></span><code><span class="k">async</span> <span class="k">def</span> <span class="nf">remove_tracks</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">playlist_id</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">spotify_uris</span><span class="p">:</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">List</span><span class="p">[</span><span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Any</span><span class="p">]]],</span>
+          <div class="codehilite"><pre><span></span><code><span class="k">async</span> <span class="k">def</span> <span class="nf">remove_tracks</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">playlist_id</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">spotify_uris</span><span class="p">:</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">List</span><span class="p">[</span><span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Any</span><span class="p">]]],</span>
                         <span class="n">auth_token</span><span class="p">:</span> <span class="n">SpotifyAuthorisationToken</span> <span class="o">=</span> <span class="kc">None</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
-    <span class="sd">"""</span>
+    <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Remove one or more items from a user’s playlist.</span>
 
 <span class="sd">    Notes:</span>
@@ -1882,132 +1994,97 @@
 <span class="sd">        playlist_id: The id of the playlist</span>
 <span class="sd">        spotify_uris: A dict with a list of spotify uris in the tracks key</span>
 <span class="sd">        auth_token: The auth token if you set the api class not to keep the token in memory</span>
-<span class="sd">    """</span>
+<span class="sd">    &quot;&quot;&quot;</span>
 
-    <span class="n">url</span><span class="p">,</span> <span class="n">_</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_add_url_params</span><span class="p">(</span><span class="n">URLS</span><span class="o">.</span><span class="n">PLAYLIST</span><span class="o">.</span><span class="n">ADD_TRACKS</span><span class="p">,</span> <span class="p">{</span><span class="s1">'playlist_id'</span><span class="p">:</span> <span class="n">playlist_id</span><span class="p">})</span>
+    <span class="n">url</span><span class="p">,</span> <span class="n">_</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_add_url_params</span><span class="p">(</span><span class="n">URLS</span><span class="o">.</span><span class="n">PLAYLIST</span><span class="o">.</span><span class="n">ADD_TRACKS</span><span class="p">,</span> <span class="p">{</span><span class="s1">&#39;playlist_id&#39;</span><span class="p">:</span> <span class="n">playlist_id</span><span class="p">})</span>
 
-    <span class="k">await</span> <span class="bp">self</span><span class="o">.</span><span class="n">api_request_handler</span><span class="o">.</span><span class="n">make_request</span><span class="p">(</span><span class="s1">'DELETE'</span><span class="p">,</span> <span class="n">url</span><span class="p">,</span> <span class="p">{},</span> <span class="n">auth_token</span><span class="p">,</span> <span class="n">body</span><span class="o">=</span><span class="n">spotify_uris</span><span class="p">)</span>
-</code></pre>
-</div>
-</td>
-</tr>
-</table>
-</details>
-</div>
-</div>
-<div class="doc doc-object doc-method">
-<h3 class="doc doc-heading" id="async_spotify.api._endpoints.playlists.Playlists.reorder_tracks">
+    <span class="k">await</span> <span class="bp">self</span><span class="o">.</span><span class="n">api_request_handler</span><span class="o">.</span><span class="n">make_request</span><span class="p">(</span><span class="s1">&#39;DELETE&#39;</span><span class="p">,</span> <span class="n">url</span><span class="p">,</span> <span class="p">{},</span> <span class="n">auth_token</span><span class="p">,</span> <span class="n">body</span><span class="o">=</span><span class="n">spotify_uris</span><span class="p">)</span>
+</code></pre></div>
+        </details>
+    </div>
 
-<code class="highlight language-python"><span class="n">reorder_tracks</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">playlist_id</span><span class="p">,</span> <span class="n">position_dict</span><span class="p">,</span> <span class="n">snapshot_id</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">auth_token</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span></code>
+  </div>
 
 
-      <a class="headerlink" href="#async_spotify.api._endpoints.playlists.Playlists.reorder_tracks" title="Permanent link">&para;</a></h3>
-<div class="doc doc-contents ">
-<p>Reorder an item or a group of items in a playlist.</p>
+
+  <div class="doc doc-object doc-method">
+
+
+
+<h3 id="async_spotify.api._endpoints.playlists.Playlists.reorder_tracks" class="doc doc-heading">
+<code class="codehilite language-python"><span class="n">reorder_tracks</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">playlist_id</span><span class="p">,</span> <span class="n">position_dict</span><span class="p">,</span> <span class="n">snapshot_id</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">auth_token</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span></code>
+
+  <span class="doc doc-properties">
+      <small class="doc doc-property doc-property-async"><code>async</code></small>
+  </span>
+
+<a href="#async_spotify.api._endpoints.playlists.Playlists.reorder_tracks" class="headerlink" title="Permanent link">&para;</a></h3>
+
+    <div class="doc doc-contents ">
+
+      <p>Reorder an item or a group of items in a playlist.</p>
 <div class="admonition notes">
 <p class="admonition-title">Notes</p>
 <p><a href="https://developer.spotify.com/documentation/web-api/reference/playlists/reorder-playlists-tracks/">https://developer.spotify.com/documentation/web-api/reference/playlists/reorder-playlists-tracks/</a></p>
 </div>
+
 <p><strong>Parameters:</strong></p>
 <table>
-<thead>
-<tr>
-<th>Name</th>
-<th>Type</th>
-<th>Description</th>
-<th>Default</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><code>playlist_id</code></td>
-<td><code>str</code></td>
-<td>
-<p>The playlist id</p>
-</td>
-<td><em>required</em></td>
-</tr>
-<tr>
-<td><code>position_dict</code></td>
-<td><code>Dict[str, Union[int, str]]</code></td>
-<td>
-<p>The dict which reorders the tracks</p>
-</td>
-<td><em>required</em></td>
-</tr>
-<tr>
-<td><code>snapshot_id</code></td>
-<td><code>str</code></td>
-<td>
-<p>The playlist’s snapshot ID against which you want to make the changes.</p>
-</td>
-<td><code>None</code></td>
-</tr>
-<tr>
-<td><code>auth_token</code></td>
-<td><code>SpotifyAuthorisationToken</code></td>
-<td>
-<p>The auth token if you set the api class not to keep the token in memory</p>
-</td>
-<td><code>None</code></td>
-</tr>
-</tbody>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Type</th>
+      <th>Description</th>
+      <th>Default</th>
+    </tr>
+  </thead>
+  <tbody>
+      <tr>
+        <td><code>playlist_id</code></td>
+        <td><code>str</code></td>
+        <td><p>The playlist id</p></td>
+        <td><em>required</em></td>
+      </tr>
+      <tr>
+        <td><code>position_dict</code></td>
+        <td><code>Dict[str, Union[int, str]]</code></td>
+        <td><p>The dict which reorders the tracks</p></td>
+        <td><em>required</em></td>
+      </tr>
+      <tr>
+        <td><code>snapshot_id</code></td>
+        <td><code>str</code></td>
+        <td><p>The playlist’s snapshot ID against which you want to make the changes.</p></td>
+        <td><code>None</code></td>
+      </tr>
+      <tr>
+        <td><code>auth_token</code></td>
+        <td><code>SpotifyAuthorisationToken</code></td>
+        <td><p>The auth token if you set the api class not to keep the token in memory</p></td>
+        <td><code>None</code></td>
+      </tr>
+  </tbody>
 </table>
 <p><strong>Returns:</strong></p>
 <table>
-<thead>
-<tr>
-<th>Type</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><code>dict</code></td>
-<td>
-<p>A json with the snapshot_id</p>
-</td>
-</tr>
-</tbody>
+  <thead>
+    <tr>
+      <th>Type</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code>dict</code></td>
+      <td><p>A json with the snapshot_id</p></td>
+    </tr>
+  </tbody>
 </table>
-<details class="quote">
+        <details class="quote">
           <summary>Source code in <code>async_spotify/api/_endpoints/playlists.py</code></summary>
-          <table class="highlighttable">
-<tr>
-<td class="linenos">
-<div class="linenodiv">
-<pre><span></span>197
-198
-199
-200
-201
-202
-203
-204
-205
-206
-207
-208
-209
-210
-211
-212
-213
-214
-215
-216
-217
-218
-219
-220
-221</pre>
-</div>
-</td>
-<td class="code">
-<div class="highlight">
-<pre><span></span><code><span class="k">async</span> <span class="k">def</span> <span class="nf">reorder_tracks</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">playlist_id</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">position_dict</span><span class="p">:</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Union</span><span class="p">[</span><span class="nb">int</span><span class="p">,</span> <span class="nb">str</span><span class="p">]],</span> <span class="n">snapshot_id</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+          <div class="codehilite"><pre><span></span><code><span class="k">async</span> <span class="k">def</span> <span class="nf">reorder_tracks</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">playlist_id</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">position_dict</span><span class="p">:</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Union</span><span class="p">[</span><span class="nb">int</span><span class="p">,</span> <span class="nb">str</span><span class="p">]],</span> <span class="n">snapshot_id</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
                          <span class="n">auth_token</span><span class="p">:</span> <span class="n">SpotifyAuthorisationToken</span> <span class="o">=</span> <span class="kc">None</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">dict</span><span class="p">:</span>
-    <span class="sd">"""</span>
+    <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Reorder an item or a group of items in a playlist.</span>
 
 <span class="sd">    Notes:</span>
@@ -2021,109 +2098,81 @@
 
 <span class="sd">    Returns:</span>
 <span class="sd">        A json with the snapshot_id</span>
-<span class="sd">    """</span>
+<span class="sd">    &quot;&quot;&quot;</span>
 
-    <span class="n">url</span><span class="p">,</span> <span class="n">_</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_add_url_params</span><span class="p">(</span><span class="n">URLS</span><span class="o">.</span><span class="n">PLAYLIST</span><span class="o">.</span><span class="n">TRACKS</span><span class="p">,</span> <span class="p">{</span><span class="s1">'playlist_id'</span><span class="p">:</span> <span class="n">playlist_id</span><span class="p">})</span>
+    <span class="n">url</span><span class="p">,</span> <span class="n">_</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_add_url_params</span><span class="p">(</span><span class="n">URLS</span><span class="o">.</span><span class="n">PLAYLIST</span><span class="o">.</span><span class="n">TRACKS</span><span class="p">,</span> <span class="p">{</span><span class="s1">&#39;playlist_id&#39;</span><span class="p">:</span> <span class="n">playlist_id</span><span class="p">})</span>
 
     <span class="n">body</span> <span class="o">=</span> <span class="n">position_dict</span>
     <span class="k">if</span> <span class="n">snapshot_id</span><span class="p">:</span>
-        <span class="n">body</span><span class="p">[</span><span class="s1">'snapshot_id'</span><span class="p">]</span> <span class="o">=</span> <span class="n">snapshot_id</span>
+        <span class="n">body</span><span class="p">[</span><span class="s1">&#39;snapshot_id&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">snapshot_id</span>
 
-    <span class="k">return</span> <span class="k">await</span> <span class="bp">self</span><span class="o">.</span><span class="n">api_request_handler</span><span class="o">.</span><span class="n">make_request</span><span class="p">(</span><span class="s1">'PUT'</span><span class="p">,</span> <span class="n">url</span><span class="p">,</span> <span class="p">{},</span> <span class="n">auth_token</span><span class="p">,</span> <span class="n">body</span><span class="o">=</span><span class="n">body</span><span class="p">)</span>
-</code></pre>
-</div>
-</td>
-</tr>
-</table>
-</details>
-</div>
-</div>
-<div class="doc doc-object doc-method">
-<h3 class="doc doc-heading" id="async_spotify.api._endpoints.playlists.Playlists.replace_tracks">
+    <span class="k">return</span> <span class="k">await</span> <span class="bp">self</span><span class="o">.</span><span class="n">api_request_handler</span><span class="o">.</span><span class="n">make_request</span><span class="p">(</span><span class="s1">&#39;PUT&#39;</span><span class="p">,</span> <span class="n">url</span><span class="p">,</span> <span class="p">{},</span> <span class="n">auth_token</span><span class="p">,</span> <span class="n">body</span><span class="o">=</span><span class="n">body</span><span class="p">)</span>
+</code></pre></div>
+        </details>
+    </div>
 
-<code class="highlight language-python"><span class="n">replace_tracks</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">playlist_id</span><span class="p">,</span> <span class="n">spotify_uris</span><span class="p">,</span> <span class="n">auth_token</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span></code>
+  </div>
 
 
-      <a class="headerlink" href="#async_spotify.api._endpoints.playlists.Playlists.replace_tracks" title="Permanent link">&para;</a></h3>
-<div class="doc doc-contents ">
-<p>Replace all the items in a playlist, overwriting its existing items. This powerful request can be useful for
+
+  <div class="doc doc-object doc-method">
+
+
+
+<h3 id="async_spotify.api._endpoints.playlists.Playlists.replace_tracks" class="doc doc-heading">
+<code class="codehilite language-python"><span class="n">replace_tracks</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">playlist_id</span><span class="p">,</span> <span class="n">spotify_uris</span><span class="p">,</span> <span class="n">auth_token</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span></code>
+
+  <span class="doc doc-properties">
+      <small class="doc doc-property doc-property-async"><code>async</code></small>
+  </span>
+
+<a href="#async_spotify.api._endpoints.playlists.Playlists.replace_tracks" class="headerlink" title="Permanent link">&para;</a></h3>
+
+    <div class="doc doc-contents ">
+
+      <p>Replace all the items in a playlist, overwriting its existing items. This powerful request can be useful for
 replacing items, re-ordering existing items, or clearing the playlist.</p>
 <div class="admonition notes">
 <p class="admonition-title">Notes</p>
 <p><a href="https://developer.spotify.com/documentation/web-api/reference/playlists/replace-playlists-tracks/">https://developer.spotify.com/documentation/web-api/reference/playlists/replace-playlists-tracks/</a></p>
 </div>
+
 <p><strong>Parameters:</strong></p>
 <table>
-<thead>
-<tr>
-<th>Name</th>
-<th>Type</th>
-<th>Description</th>
-<th>Default</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><code>spotify_uris</code></td>
-<td><code>List[str]</code></td>
-<td>
-<p>A list of spotify uris</p>
-</td>
-<td><em>required</em></td>
-</tr>
-<tr>
-<td><code>playlist_id</code></td>
-<td><code>str</code></td>
-<td>
-<p>The id of the playlist</p>
-</td>
-<td><em>required</em></td>
-</tr>
-<tr>
-<td><code>auth_token</code></td>
-<td><code>SpotifyAuthorisationToken</code></td>
-<td>
-<p>The auth token if you set the api class not to keep the token in memory</p>
-</td>
-<td><code>None</code></td>
-</tr>
-</tbody>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Type</th>
+      <th>Description</th>
+      <th>Default</th>
+    </tr>
+  </thead>
+  <tbody>
+      <tr>
+        <td><code>spotify_uris</code></td>
+        <td><code>List[str]</code></td>
+        <td><p>A list of spotify uris</p></td>
+        <td><em>required</em></td>
+      </tr>
+      <tr>
+        <td><code>playlist_id</code></td>
+        <td><code>str</code></td>
+        <td><p>The id of the playlist</p></td>
+        <td><em>required</em></td>
+      </tr>
+      <tr>
+        <td><code>auth_token</code></td>
+        <td><code>SpotifyAuthorisationToken</code></td>
+        <td><p>The auth token if you set the api class not to keep the token in memory</p></td>
+        <td><code>None</code></td>
+      </tr>
+  </tbody>
 </table>
-<details class="quote">
+        <details class="quote">
           <summary>Source code in <code>async_spotify/api/_endpoints/playlists.py</code></summary>
-          <table class="highlighttable">
-<tr>
-<td class="linenos">
-<div class="linenodiv">
-<pre><span></span>223
-224
-225
-226
-227
-228
-229
-230
-231
-232
-233
-234
-235
-236
-237
-238
-239
-240
-241
-242
-243
-244</pre>
-</div>
-</td>
-<td class="code">
-<div class="highlight">
-<pre><span></span><code><span class="k">async</span> <span class="k">def</span> <span class="nf">replace_tracks</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">playlist_id</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">spotify_uris</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="nb">str</span><span class="p">],</span>
+          <div class="codehilite"><pre><span></span><code><span class="k">async</span> <span class="k">def</span> <span class="nf">replace_tracks</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">playlist_id</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">spotify_uris</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="nb">str</span><span class="p">],</span>
                          <span class="n">auth_token</span><span class="p">:</span> <span class="n">SpotifyAuthorisationToken</span> <span class="o">=</span> <span class="kc">None</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
-    <span class="sd">"""</span>
+    <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Replace all the items in a playlist, overwriting its existing items. This powerful request can be useful for</span>
 <span class="sd">    replacing items, re-ordering existing items, or clearing the playlist.</span>
 
@@ -2134,104 +2183,81 @@ replacing items, re-ordering existing items, or clearing the playlist.</p>
 <span class="sd">        spotify_uris: A list of spotify uris</span>
 <span class="sd">        playlist_id: The id of the playlist</span>
 <span class="sd">        auth_token: The auth token if you set the api class not to keep the token in memory</span>
-<span class="sd">    """</span>
+<span class="sd">    &quot;&quot;&quot;</span>
 
     <span class="n">body</span> <span class="o">=</span> <span class="p">{</span>
-        <span class="s1">'uris'</span><span class="p">:</span> <span class="n">spotify_uris</span>
+        <span class="s1">&#39;uris&#39;</span><span class="p">:</span> <span class="n">spotify_uris</span>
     <span class="p">}</span>
 
-    <span class="n">url</span><span class="p">,</span> <span class="n">_</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_add_url_params</span><span class="p">(</span><span class="n">URLS</span><span class="o">.</span><span class="n">PLAYLIST</span><span class="o">.</span><span class="n">ADD_TRACKS</span><span class="p">,</span> <span class="p">{</span><span class="s1">'playlist_id'</span><span class="p">:</span> <span class="n">playlist_id</span><span class="p">})</span>
+    <span class="n">url</span><span class="p">,</span> <span class="n">_</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_add_url_params</span><span class="p">(</span><span class="n">URLS</span><span class="o">.</span><span class="n">PLAYLIST</span><span class="o">.</span><span class="n">ADD_TRACKS</span><span class="p">,</span> <span class="p">{</span><span class="s1">&#39;playlist_id&#39;</span><span class="p">:</span> <span class="n">playlist_id</span><span class="p">})</span>
 
-    <span class="k">await</span> <span class="bp">self</span><span class="o">.</span><span class="n">api_request_handler</span><span class="o">.</span><span class="n">make_request</span><span class="p">(</span><span class="s1">'PUT'</span><span class="p">,</span> <span class="n">url</span><span class="p">,</span> <span class="p">{},</span> <span class="n">auth_token</span><span class="p">,</span> <span class="n">body</span><span class="o">=</span><span class="n">body</span><span class="p">)</span>
-</code></pre>
-</div>
-</td>
-</tr>
-</table>
-</details>
-</div>
-</div>
-<div class="doc doc-object doc-method">
-<h3 class="doc doc-heading" id="async_spotify.api._endpoints.playlists.Playlists.upload_cover">
+    <span class="k">await</span> <span class="bp">self</span><span class="o">.</span><span class="n">api_request_handler</span><span class="o">.</span><span class="n">make_request</span><span class="p">(</span><span class="s1">&#39;PUT&#39;</span><span class="p">,</span> <span class="n">url</span><span class="p">,</span> <span class="p">{},</span> <span class="n">auth_token</span><span class="p">,</span> <span class="n">body</span><span class="o">=</span><span class="n">body</span><span class="p">)</span>
+</code></pre></div>
+        </details>
+    </div>
 
-<code class="highlight language-python"><span class="n">upload_cover</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">playlist_id</span><span class="p">,</span> <span class="n">base_64_image</span><span class="p">,</span> <span class="n">auth_token</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span></code>
+  </div>
 
 
-      <a class="headerlink" href="#async_spotify.api._endpoints.playlists.Playlists.upload_cover" title="Permanent link">&para;</a></h3>
-<div class="doc doc-contents ">
-<p>Replace the image used to represent a specific playlist.</p>
+
+  <div class="doc doc-object doc-method">
+
+
+
+<h3 id="async_spotify.api._endpoints.playlists.Playlists.upload_cover" class="doc doc-heading">
+<code class="codehilite language-python"><span class="n">upload_cover</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">playlist_id</span><span class="p">,</span> <span class="n">base_64_image</span><span class="p">,</span> <span class="n">auth_token</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span></code>
+
+  <span class="doc doc-properties">
+      <small class="doc doc-property doc-property-async"><code>async</code></small>
+  </span>
+
+<a href="#async_spotify.api._endpoints.playlists.Playlists.upload_cover" class="headerlink" title="Permanent link">&para;</a></h3>
+
+    <div class="doc doc-contents ">
+
+      <p>Replace the image used to represent a specific playlist.</p>
 <div class="admonition notes">
 <p class="admonition-title">Notes</p>
 <p><a href="https://developer.spotify.com/documentation/web-api/reference/playlists/upload-custom-playlist-cover/">https://developer.spotify.com/documentation/web-api/reference/playlists/upload-custom-playlist-cover/</a></p>
 </div>
+
 <p><strong>Parameters:</strong></p>
 <table>
-<thead>
-<tr>
-<th>Name</th>
-<th>Type</th>
-<th>Description</th>
-<th>Default</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><code>playlist_id</code></td>
-<td><code>str</code></td>
-<td>
-<p>The id of the playlist</p>
-</td>
-<td><em>required</em></td>
-</tr>
-<tr>
-<td><code>base_64_image</code></td>
-<td><code>&lt;module 'base64' from '/usr/lib/python3.8/base64.py'&gt;</code></td>
-<td>
-<p>Base64 encoded JPEG image data, maximum payload size is 256 KB</p>
-</td>
-<td><em>required</em></td>
-</tr>
-<tr>
-<td><code>auth_token</code></td>
-<td><code>SpotifyAuthorisationToken</code></td>
-<td>
-<p>The auth token if you set the api class not to keep the token in memory</p>
-</td>
-<td><code>None</code></td>
-</tr>
-</tbody>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Type</th>
+      <th>Description</th>
+      <th>Default</th>
+    </tr>
+  </thead>
+  <tbody>
+      <tr>
+        <td><code>playlist_id</code></td>
+        <td><code>str</code></td>
+        <td><p>The id of the playlist</p></td>
+        <td><em>required</em></td>
+      </tr>
+      <tr>
+        <td><code>base_64_image</code></td>
+        <td><code>&lt;module &#39;base64&#39; from &#39;/usr/lib/python3.8/base64.py&#39;&gt;</code></td>
+        <td><p>Base64 encoded JPEG image data, maximum payload size is 256 KB</p></td>
+        <td><em>required</em></td>
+      </tr>
+      <tr>
+        <td><code>auth_token</code></td>
+        <td><code>SpotifyAuthorisationToken</code></td>
+        <td><p>The auth token if you set the api class not to keep the token in memory</p></td>
+        <td><code>None</code></td>
+      </tr>
+  </tbody>
 </table>
-<details class="quote">
+        <details class="quote">
           <summary>Source code in <code>async_spotify/api/_endpoints/playlists.py</code></summary>
-          <table class="highlighttable">
-<tr>
-<td class="linenos">
-<div class="linenodiv">
-<pre><span></span>246
-247
-248
-249
-250
-251
-252
-253
-254
-255
-256
-257
-258
-259
-260
-261
-262</pre>
-</div>
-</td>
-<td class="code">
-<div class="highlight">
-<pre><span></span><code><span class="k">async</span> <span class="k">def</span> <span class="nf">upload_cover</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">playlist_id</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">base_64_image</span><span class="p">:</span> <span class="n">base64</span><span class="p">,</span>
+          <div class="codehilite"><pre><span></span><code><span class="k">async</span> <span class="k">def</span> <span class="nf">upload_cover</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">playlist_id</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">base_64_image</span><span class="p">:</span> <span class="n">base64</span><span class="p">,</span>
                        <span class="n">auth_token</span><span class="p">:</span> <span class="n">SpotifyAuthorisationToken</span> <span class="o">=</span> <span class="kc">None</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
 
-    <span class="sd">"""</span>
+    <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Replace the image used to represent a specific playlist.</span>
 
 <span class="sd">    Notes:</span>
@@ -2241,128 +2267,130 @@ replacing items, re-ordering existing items, or clearing the playlist.</p>
 <span class="sd">        playlist_id: The id of the playlist</span>
 <span class="sd">        base_64_image: Base64 encoded JPEG image data, maximum payload size is 256 KB</span>
 <span class="sd">        auth_token: The auth token if you set the api class not to keep the token in memory</span>
-<span class="sd">    """</span>
+<span class="sd">    &quot;&quot;&quot;</span>
 
-    <span class="n">url</span><span class="p">,</span> <span class="n">_</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_add_url_params</span><span class="p">(</span><span class="n">URLS</span><span class="o">.</span><span class="n">PLAYLIST</span><span class="o">.</span><span class="n">COVER</span><span class="p">,</span> <span class="p">{</span><span class="s1">'playlist_id'</span><span class="p">:</span> <span class="n">playlist_id</span><span class="p">})</span>
-    <span class="k">await</span> <span class="bp">self</span><span class="o">.</span><span class="n">api_request_handler</span><span class="o">.</span><span class="n">make_request</span><span class="p">(</span><span class="s1">'PUT'</span><span class="p">,</span> <span class="n">url</span><span class="p">,</span> <span class="p">{},</span> <span class="n">auth_token</span><span class="p">,</span> <span class="n">base_64_image</span><span class="p">)</span>
-</code></pre>
-</div>
-</td>
-</tr>
-</table>
-</details>
-</div>
-</div>
-</div>
-</div>
-</div>
-</div>
-</div>
-</div>
-                
-                  
-                    
+    <span class="n">url</span><span class="p">,</span> <span class="n">_</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_add_url_params</span><span class="p">(</span><span class="n">URLS</span><span class="o">.</span><span class="n">PLAYLIST</span><span class="o">.</span><span class="n">COVER</span><span class="p">,</span> <span class="p">{</span><span class="s1">&#39;playlist_id&#39;</span><span class="p">:</span> <span class="n">playlist_id</span><span class="p">})</span>
+    <span class="k">await</span> <span class="bp">self</span><span class="o">.</span><span class="n">api_request_handler</span><span class="o">.</span><span class="n">make_request</span><span class="p">(</span><span class="s1">&#39;PUT&#39;</span><span class="p">,</span> <span class="n">url</span><span class="p">,</span> <span class="p">{},</span> <span class="n">auth_token</span><span class="p">,</span> <span class="n">base_64_image</span><span class="p">)</span>
+</code></pre></div>
+        </details>
+    </div>
 
-<hr>
-<div class="md-source-date">
+  </div>
+
+
+
+
+
+  </div>
+
+    </div>
+
+  </div>
+
+
+
+
+
+
+
+  </div>
+
+    </div>
+
+  </div>
+
+  <hr>
+<div class="md-source-file">
   <small>
     
-      Last update: <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">April 27, 2020</span>
+      Last update:
+      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">April 27, 2020</span>
+      
     
   </small>
 </div>
-                  
-                
-              
-              
-                
-
 
               
             </article>
           </div>
         </div>
+        
       </main>
       
-        
-<footer class="md-footer">
+        <footer class="md-footer">
   
-    <div class="md-footer-nav">
-      <nav class="md-footer-nav__inner md-grid" aria-label="Footer">
+    <nav class="md-footer__inner md-grid" aria-label="Footer">
+      
         
-          <a href="../player/" class="md-footer-nav__link md-footer-nav__link--prev" rel="prev">
-            <div class="md-footer-nav__button md-icon">
-              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+        <a href="../player/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Player" rel="prev">
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+          </div>
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                Previous
+              </span>
+              Player
             </div>
-            <div class="md-footer-nav__title">
-              <div class="md-ellipsis">
-                <span class="md-footer-nav__direction">
-                  Previous
-                </span>
-                Player
-              </div>
-            </div>
-          </a>
+          </div>
+        </a>
+      
+      
         
-        
-          <a href="../search/" class="md-footer-nav__link md-footer-nav__link--next" rel="next">
-            <div class="md-footer-nav__title">
-              <div class="md-ellipsis">
-                <span class="md-footer-nav__direction">
-                  Next
-                </span>
-                Search
-              </div>
+        <a href="../search/" class="md-footer__link md-footer__link--next" aria-label="Next: Search" rel="next">
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                Next
+              </span>
+              Search
             </div>
-            <div class="md-footer-nav__button md-icon">
-              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4z"/></svg>
-            </div>
-          </a>
-        
-      </nav>
-    </div>
+          </div>
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4z"/></svg>
+          </div>
+        </a>
+      
+    </nav>
   
   <div class="md-footer-meta md-typeset">
     <div class="md-footer-meta__inner md-grid">
-      <div class="md-footer-copyright">
-        
-        Made with
-        <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
-          Material for MkDocs
-        </a>
-      </div>
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
       
-  <div class="md-footer-social">
+        <div class="md-social">
+  
+    
     
       
       
-        
-        
-      
-      <a href="https://github.com/huiibuh" target="_blank" rel="noopener" title="github.com" class="md-footer-social__link">
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 480 512"><path d="M186.1 328.7c0 20.9-10.9 55.1-36.7 55.1s-36.7-34.2-36.7-55.1 10.9-55.1 36.7-55.1 36.7 34.2 36.7 55.1zM480 278.2c0 31.9-3.2 65.7-17.5 95-37.9 76.6-142.1 74.8-216.7 74.8-75.8 0-186.2 2.7-225.6-74.8-14.6-29-20.2-63.1-20.2-95 0-41.9 13.9-81.5 41.5-113.6-5.2-15.8-7.7-32.4-7.7-48.8 0-21.5 4.9-32.3 14.6-51.8 45.3 0 74.3 9 108.8 36 29-6.9 58.8-10 88.7-10 27 0 54.2 2.9 80.4 9.2 34-26.7 63-35.2 107.8-35.2 9.8 19.5 14.6 30.3 14.6 51.8 0 16.4-2.6 32.7-7.7 48.2 27.5 32.4 39 72.3 39 114.2zm-64.3 50.5c0-43.9-26.7-82.6-73.5-82.6-18.9 0-37 3.4-56 6-14.9 2.3-29.8 3.2-45.1 3.2-15.2 0-30.1-.9-45.1-3.2-18.7-2.6-37-6-56-6-46.8 0-73.5 38.7-73.5 82.6 0 87.8 80.4 101.3 150.4 101.3h48.2c70.3 0 150.6-13.4 150.6-101.3zm-82.6-55.1c-25.8 0-36.7 34.2-36.7 55.1s10.9 55.1 36.7 55.1 36.7-34.2 36.7-55.1-10.9-55.1-36.7-55.1z"/></svg>
-      </a>
     
-  </div>
-
+    <a href="https://github.com/huiibuh" target="_blank" rel="noopener" title="github.com" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 480 512"><path d="M186.1 328.7c0 20.9-10.9 55.1-36.7 55.1s-36.7-34.2-36.7-55.1 10.9-55.1 36.7-55.1 36.7 34.2 36.7 55.1zM480 278.2c0 31.9-3.2 65.7-17.5 95-37.9 76.6-142.1 74.8-216.7 74.8-75.8 0-186.2 2.7-225.6-74.8-14.6-29-20.2-63.1-20.2-95 0-41.9 13.9-81.5 41.5-113.6-5.2-15.8-7.7-32.4-7.7-48.8 0-21.5 4.9-32.3 14.6-51.8 45.3 0 74.3 9 108.8 36 29-6.9 58.8-10 88.7-10 27 0 54.2 2.9 80.4 9.2 34-26.7 63-35.2 107.8-35.2 9.8 19.5 14.6 30.3 14.6 51.8 0 16.4-2.6 32.7-7.7 48.2 27.5 32.4 39 72.3 39 114.2zm-64.3 50.5c0-43.9-26.7-82.6-73.5-82.6-18.9 0-37 3.4-56 6-14.9 2.3-29.8 3.2-45.1 3.2-15.2 0-30.1-.9-45.1-3.2-18.7-2.6-37-6-56-6-46.8 0-73.5 38.7-73.5 82.6 0 87.8 80.4 101.3 150.4 101.3h48.2c70.3 0 150.6-13.4 150.6-101.3zm-82.6-55.1c-25.8 0-36.7 34.2-36.7 55.1s10.9 55.1 36.7 55.1 36.7-34.2 36.7-55.1-10.9-55.1-36.7-55.1z"/></svg>
+    </a>
+  
+</div>
+      
     </div>
   </div>
 </footer>
       
     </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    <script id="__config" type="application/json">{"base": "../../..", "features": ["instant"], "translations": {"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.term.missing": "Missing", "select.version.title": "Select version"}, "search": "../../../assets/javascripts/workers/search.22074ed6.min.js"}</script>
     
-      <script src="../../../assets/javascripts/vendor.93c04032.min.js"></script>
-      <script src="../../../assets/javascripts/bundle.83e5331e.min.js"></script><script id="__lang" type="application/json">{"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.term.missing": "Missing"}</script>
-      
-      <script>
-        app = initialize({
-          base: "../../..",
-          features: ['instant'],
-          search: Object.assign({
-            worker: "../../../assets/javascripts/worker/search.8c7e0a7e.min.js"
-          }, typeof search !== "undefined" && search)
-        })
-      </script>
+    
+      <script src="../../../assets/javascripts/bundle.1514a9a0.min.js"></script>
       
     
   </body>
