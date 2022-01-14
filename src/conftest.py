@@ -55,7 +55,6 @@ async def prepared_api():
     auth_code_flow.scopes = TestDataTransfer.scopes
 
     api = SpotifyApiClient(auth_code_flow, hold_authentication=True)
-
     code = await api.get_code_with_cookie(TestDataTransfer.cookies)
     await api.get_auth_token_with_code(code)
 
@@ -89,8 +88,7 @@ def prepare_test_data():
         """
 
         cookies = SpotifyCookie()
-        cookies.load_from_file(os.environ.get("cookie_file_path",
-                                              "/home/niclas/IdeaProjects/AsyncSpotify/examples/private/cookies.json"))
+        cookies.load_from_file(os.environ["cookie_file_path"])
         TestDataTransfer.cookies = cookies
 
     def add_auth_code_flow():

@@ -6,6 +6,6 @@ pytest-cov==2.10.0
 pytest-asyncio==0.10.0
 
 # Documentation
-mkdocstrings==0.14.0
-mkdocs-material==6.2.4
-mkdocs-git-revision-date-localized-plugin==0.8
+mkdocstrings==0.17.0
+mkdocs-material==8.1.6
+mkdocs-git-revision-date-localized-plugin==0.11.1
