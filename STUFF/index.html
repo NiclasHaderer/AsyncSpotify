@@ -829,7 +829,8 @@ pip install -r requirements.txt
 <h2 id="run-the-tests-in-intellij">Run the tests in IntelliJ<a class="headerlink" href="#run-the-tests-in-intellij" title="Permanent link">&para;</a></h2>
 <p><img alt="Test in intellij" src="https://i.imgur.com/4BNRlRz.png" /></p>
 <h2 id="run-the-tests-in-the-console">Run the tests in the console<a class="headerlink" href="#run-the-tests-in-the-console" title="Permanent link">&para;</a></h2>
-<p>Go into the root directory of this project and run the following command</p>
+<p>Go into the root directory of this project and run the following command.
+Make sure you have set the location of the <em>cookie.json</em> with <code>cookie_file_path</code> as well as <code>application_id</code>, <code>application_secret</code> and <code>redirect_url</code> as environment variables. </p>
 <div class="highlight"><pre><span></span><code>pytest -s --cov<span class="o">=</span>async_spotify src/test --cov-report<span class="o">=</span>xml
 </code></pre></div>
 <h2 id="build-and-publish">Build and Publish<a class="headerlink" href="#build-and-publish" title="Permanent link">&para;</a></h2>
@@ -845,7 +846,7 @@ To publish the docs run <code>PYTHONPATH=src mkdocs gh-deploy</code>  </p>
   <small>
     
       Last update:
-      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">August 28, 2020</span>
+      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">January 14, 2022</span>
       
     
   </small>
