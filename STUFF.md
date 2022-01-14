@@ -13,7 +13,8 @@ pip install -r requirements.txt
 
 ## Run the tests in the console
 
-Go into the root directory of this project and run the following command
+Go into the root directory of this project and run the following command.
+Make sure you have set the location of the *cookie.json* with `cookie_file_path` as well as `application_id`, `application_secret` and `redirect_url` as environment variables. 
 
 ```bash
 pytest -s --cov=async_spotify src/test --cov-report=xml
