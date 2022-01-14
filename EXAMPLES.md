@@ -2,7 +2,7 @@
 
 ## Getting started
 
-If you want to start connecting to the spotify api you have to create a new instance of one of the AuthorizationCodeFlows. Currently onle the `AuthorizationCodeFlow` and `ClientCredentialsFlow` are supported. These AuthorizationCodeFlow hold all sorts of configurations.
+If you want to start connecting to the spotify api you have to create a new instance of one of the AuthorizationCodeFlows. Currently, only the `AuthorizationCodeFlow` and `ClientCredentialsFlow` are supported. These AuthorizationCodeFlow hold all sorts of configurations.
 
 ```python
 from async_spotify.authentification.authorization_flows import AuthorizationCodeFlow
@@ -115,6 +115,11 @@ Look [here](https://huiibuh.github.io/AsyncSpotify/public_api/spotify_api_client
 api_client.albums.whatever()
 # For the artist endpoint
 api_client.artist.whatever()
+# Every argument mentioned by the Spotify API can be passed as kwarg. The client will figure out if your provided kwarg
+# should be added to the request body, or the url
+await api_client.player.play(context_uri="spotify:album:5ht7ItJgpBH7W6vJ5BqpPr", device_id="whatever_id")
+#                                 ^                                                  ^
+#                                BODY                                               URL      
 ```
 
 ## Advanced Configuration
@@ -160,7 +165,7 @@ Each of the exceptions implements the `get_json()` method which will return the 
 }
 ```
 
-The status is the HTTP status code and if not aplicable the number 0.
+The status is the HTTP status code and if not applicable the number 0.
 The message is the reason something failed.
 
 ```python
