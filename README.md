@@ -58,6 +58,12 @@ album_tracks: dict = await api.albums.get_tracks('03dlqdFWY9gwJxGl3AREVy')
 
 # If you pass a valid auth_token this auth_token will be used for making the requests
 album_tracks: dict = await api.albums.get_tracks('03dlqdFWY9gwJxGl3AREVy', auth_token)
+
+# Every argument mentioned by the Spotify API can be passed as kwarg. The client will figure out if your provided kwarg
+# should be added to the request body, or the url
+await api_client.player.play(context_uri="spotify:album:5ht7ItJgpBH7W6vJ5BqpPr", device_id="whatever_id")
+#                                 ^                                                 ^
+#                                URL                                               BODY      
 ```
 
 ## Tests

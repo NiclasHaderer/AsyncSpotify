@@ -12,7 +12,7 @@ Asynchronous spotify api wrapper
 
 __title__ = 'async_spotify'
 __author__ = 'HuiiBuh'
-__version__ = '0.4.0'
+__version__ = '0.4.2'
 __license__ = 'MIT'
 
 from .api.spotify_api_client import SpotifyApiClient
