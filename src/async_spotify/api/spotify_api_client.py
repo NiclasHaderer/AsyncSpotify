@@ -304,7 +304,7 @@ class SpotifyApiClient:
         Get the auth token with the client credential flow
 
         Notes:
-            [https://developer.spotify.com/documentation/general/guides/authorization-guide/#client-credentials-flow]/https://developer.spotify.com/documentation/general/guides/authorization-guide/#client-credentials-flow)
+            [https://developer.spotify.com/documentation/general/guides/authorization-guide/#client-credentials-flow](https://developer.spotify.com/documentation/general/guides/authorization-guide/#client-credentials-flow)
 
         Raises:
             SpotifyError: If the request to the refresh api point was not successful
@@ -383,7 +383,7 @@ class SpotifyApiClient:
                 hold_authentication. Then the internal token will be used.
 
         Notes:
-            https://developer.spotify.com/documentation/general/guides/authorization-guide/#authorization-code-flow
+            [https://developer.spotify.com/documentation/general/guides/authorization-guide/#authorization-code-flow](https://developer.spotify.com/documentation/general/guides/authorization-guide/#authorization-code-flow)
 
         Returns:
             The SpotifyAuthorisationToken
