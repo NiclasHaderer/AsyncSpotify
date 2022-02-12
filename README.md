@@ -44,26 +44,26 @@ auth_flow = AuthorizationCodeFlow()
 auth_flow.load_from_env()
 
 # Create a new Api client and pass the auth_code_flow
-api = SpotifyApiClient(auth_flow, hold_authentication=True)
+api_client = SpotifyApiClient(auth_flow, hold_authentication=True)
 
 # Get the auth token with your code
 code: str = "Your Spotify Code"
-auth_token: SpotifyAuthorisationToken = await api.get_auth_token_with_code(code)
+auth_token: SpotifyAuthorisationToken = await api_client.get_auth_token_with_code(code)
 
 # Create a new client
-await api.create_new_client(request_limit=1500)
+await api_client.create_new_client(request_limit=1500)
 
 # Start making queries with the internally saved token
-album_tracks: dict = await api.albums.get_tracks('03dlqdFWY9gwJxGl3AREVy')
+album_tracks: dict = await api_client.albums.get_tracks('03dlqdFWY9gwJxGl3AREVy')
 
 # If you pass a valid auth_token this auth_token will be used for making the requests
-album_tracks: dict = await api.albums.get_tracks('03dlqdFWY9gwJxGl3AREVy', auth_token)
+album_tracks: dict = await api_client.albums.get_tracks('03dlqdFWY9gwJxGl3AREVy', auth_token)
 
 # Every argument mentioned by the Spotify API can be passed as kwarg. The client will figure out if your provided kwarg
 # should be added to the request body, or the url
 await api_client.player.play(context_uri="spotify:album:5ht7ItJgpBH7W6vJ5BqpPr", device_id="whatever_id")
 #                                 ^                                                 ^
-#                                URL                                               BODY      
+#                                URL                                               BODY
 ```
 
 ## Tests
