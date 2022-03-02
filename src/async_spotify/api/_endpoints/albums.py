@@ -86,7 +86,7 @@ class Albums(Endpoint):
             All the albums you queried
         """
 
-        required_args = {"ids": album_id_list}
+        required_args = {"ids": ",".join(album_id_list)}
         args = {**required_args, **kwargs}
 
         url, args = self._add_url_params(URLS.ALBUM.MULTIPLE, args)
