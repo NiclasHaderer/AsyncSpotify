@@ -55,7 +55,7 @@ class Albums(Endpoint):
             kwargs: Optional arguments as keyword args
 
         Notes:
-            https://developer.spotify.com/documentation/web-api/reference/albums/get-albums-tracks/
+            [https://developer.spotify.com/documentation/web-api/reference/albums/get-albums-tracks/](https://developer.spotify.com/documentation/web-api/reference/albums/get-albums-tracks/)
 
         Returns:
             The tracks of an album
@@ -80,7 +80,7 @@ class Albums(Endpoint):
             kwargs: Optional arguments as keyword args
 
         Notes:
-            https://developer.spotify.com/documentation/web-api/reference/albums/get-several-albums/
+            [https://developer.spotify.com/documentation/web-api/reference/albums/get-several-albums/](https://developer.spotify.com/documentation/web-api/reference/albums/get-several-albums/)
 
         Returns:
             All the albums you queried
