@@ -197,8 +197,7 @@ class ApiRequestHandler:
             if not isinstance(query_params[key], List):
                 query_params[key] = [str(query_params[key])]
 
-            for value in query_params[key]:
-                return_params.append((key, str(value)))
+            return_params.append((key, ",".join([str(i) for i in query_params[key]])))
 
         return return_params
 
