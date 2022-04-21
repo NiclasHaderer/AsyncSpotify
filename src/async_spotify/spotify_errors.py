@@ -49,6 +49,11 @@ class RateLimitExceeded(SpotifyBaseError):
     """
     Custom rate limit exceeded exception
     """
+    retry_after: float
+
+    def __init__(self, message: dict, retry_after: float):
+        self.message: dict = message
+        self.retry_after: float = retry_after
 
 
 class SpotifyAPIError(SpotifyBaseError):
