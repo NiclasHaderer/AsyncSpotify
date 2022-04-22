@@ -145,7 +145,11 @@ class ApiRequestHandler:
 
         # Rate limit exceeded
         if response_status.code == 429:
-            raise RateLimitExceeded(message=response_json, retry_after=retry_after)
+            try:
+                float_val = float(retry_after)
+            except ValueError:
+                float_val = 0
+            raise RateLimitExceeded(message=response_json, retry_after=float_val)
 
         # Check if the response was a success
         if not response_status.success:
