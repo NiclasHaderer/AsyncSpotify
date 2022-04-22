@@ -27,7 +27,7 @@ async def test_rate_limit(prepared_api: SpotifyApiClient):
             pass
         except asyncio.TimeoutError:
             pass
-    except RateLimitExceeded:
-        pass
+    except RateLimitExceeded as e:
+        assert isinstance(e.retry_after, float)
 
     await asyncio.sleep(10)
