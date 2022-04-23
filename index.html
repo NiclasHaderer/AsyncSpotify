@@ -860,26 +860,26 @@
 <span class="n">auth_flow</span><span class="o">.</span><span class="n">load_from_env</span><span class="p">()</span>
 
 <span class="c1"># Create a new Api client and pass the auth_code_flow</span>
-<span class="n">api</span> <span class="o">=</span> <span class="n">SpotifyApiClient</span><span class="p">(</span><span class="n">auth_flow</span><span class="p">,</span> <span class="n">hold_authentication</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">api_client</span> <span class="o">=</span> <span class="n">SpotifyApiClient</span><span class="p">(</span><span class="n">auth_flow</span><span class="p">,</span> <span class="n">hold_authentication</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 
 <span class="c1"># Get the auth token with your code</span>
 <span class="n">code</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">&quot;Your Spotify Code&quot;</span>
-<span class="n">auth_token</span><span class="p">:</span> <span class="n">SpotifyAuthorisationToken</span> <span class="o">=</span> <span class="k">await</span> <span class="n">api</span><span class="o">.</span><span class="n">get_auth_token_with_code</span><span class="p">(</span><span class="n">code</span><span class="p">)</span>
+<span class="n">auth_token</span><span class="p">:</span> <span class="n">SpotifyAuthorisationToken</span> <span class="o">=</span> <span class="k">await</span> <span class="n">api_client</span><span class="o">.</span><span class="n">get_auth_token_with_code</span><span class="p">(</span><span class="n">code</span><span class="p">)</span>
 
 <span class="c1"># Create a new client</span>
-<span class="k">await</span> <span class="n">api</span><span class="o">.</span><span class="n">create_new_client</span><span class="p">(</span><span class="n">request_limit</span><span class="o">=</span><span class="mi">1500</span><span class="p">)</span>
+<span class="k">await</span> <span class="n">api_client</span><span class="o">.</span><span class="n">create_new_client</span><span class="p">(</span><span class="n">request_limit</span><span class="o">=</span><span class="mi">1500</span><span class="p">)</span>
 
 <span class="c1"># Start making queries with the internally saved token</span>
-<span class="n">album_tracks</span><span class="p">:</span> <span class="nb">dict</span> <span class="o">=</span> <span class="k">await</span> <span class="n">api</span><span class="o">.</span><span class="n">albums</span><span class="o">.</span><span class="n">get_tracks</span><span class="p">(</span><span class="s1">&#39;03dlqdFWY9gwJxGl3AREVy&#39;</span><span class="p">)</span>
+<span class="n">album_tracks</span><span class="p">:</span> <span class="nb">dict</span> <span class="o">=</span> <span class="k">await</span> <span class="n">api_client</span><span class="o">.</span><span class="n">albums</span><span class="o">.</span><span class="n">get_tracks</span><span class="p">(</span><span class="s1">&#39;03dlqdFWY9gwJxGl3AREVy&#39;</span><span class="p">)</span>
 
 <span class="c1"># If you pass a valid auth_token this auth_token will be used for making the requests</span>
-<span class="n">album_tracks</span><span class="p">:</span> <span class="nb">dict</span> <span class="o">=</span> <span class="k">await</span> <span class="n">api</span><span class="o">.</span><span class="n">albums</span><span class="o">.</span><span class="n">get_tracks</span><span class="p">(</span><span class="s1">&#39;03dlqdFWY9gwJxGl3AREVy&#39;</span><span class="p">,</span> <span class="n">auth_token</span><span class="p">)</span>
+<span class="n">album_tracks</span><span class="p">:</span> <span class="nb">dict</span> <span class="o">=</span> <span class="k">await</span> <span class="n">api_client</span><span class="o">.</span><span class="n">albums</span><span class="o">.</span><span class="n">get_tracks</span><span class="p">(</span><span class="s1">&#39;03dlqdFWY9gwJxGl3AREVy&#39;</span><span class="p">,</span> <span class="n">auth_token</span><span class="p">)</span>
 
 <span class="c1"># Every argument mentioned by the Spotify API can be passed as kwarg. The client will figure out if your provided kwarg</span>
 <span class="c1"># should be added to the request body, or the url</span>
 <span class="k">await</span> <span class="n">api_client</span><span class="o">.</span><span class="n">player</span><span class="o">.</span><span class="n">play</span><span class="p">(</span><span class="n">context_uri</span><span class="o">=</span><span class="s2">&quot;spotify:album:5ht7ItJgpBH7W6vJ5BqpPr&quot;</span><span class="p">,</span> <span class="n">device_id</span><span class="o">=</span><span class="s2">&quot;whatever_id&quot;</span><span class="p">)</span>
 <span class="c1">#                                 ^                                                 ^</span>
-<span class="c1">#                                URL                                               BODY      </span>
+<span class="c1">#                                URL                                               BODY</span>
 </code></pre></div>
 <h2 id="tests">Tests<a class="headerlink" href="#tests" title="Permanent link">&para;</a></h2>
 <p>See <a href="STUFF/">here</a>.</p>
@@ -889,7 +889,7 @@
   <small>
     
       Last update:
-      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">January 14, 2022</span>
+      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">February 12, 2022</span>
       
     
   </small>

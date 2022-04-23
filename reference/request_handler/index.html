@@ -978,6 +978,7 @@ This class is a singleton.</p>
             <span class="c1"># Handle the parsing of the rate limit exceeded response which does not work for some reason</span>
             <span class="n">response_text</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="k">await</span> <span class="n">response</span><span class="o">.</span><span class="n">text</span><span class="p">()</span>
             <span class="n">response_json</span><span class="p">:</span> <span class="nb">dict</span> <span class="o">=</span> <span class="p">{}</span>
+            <span class="n">retry_after</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="n">response</span><span class="o">.</span><span class="n">headers</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;Retry-After&#39;</span><span class="p">,</span> <span class="kc">None</span><span class="p">)</span>
 
             <span class="k">try</span><span class="p">:</span>
                 <span class="n">response_json</span><span class="p">:</span> <span class="nb">dict</span> <span class="o">=</span> <span class="n">json</span><span class="o">.</span><span class="n">loads</span><span class="p">(</span><span class="n">response_text</span><span class="p">)</span>
@@ -1002,7 +1003,11 @@ This class is a singleton.</p>
 
         <span class="c1"># Rate limit exceeded</span>
         <span class="k">if</span> <span class="n">response_status</span><span class="o">.</span><span class="n">code</span> <span class="o">==</span> <span class="mi">429</span><span class="p">:</span>
-            <span class="k">raise</span> <span class="n">RateLimitExceeded</span><span class="p">(</span><span class="n">response_json</span><span class="p">)</span>
+            <span class="k">try</span><span class="p">:</span>
+                <span class="n">float_val</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="n">retry_after</span><span class="p">)</span>
+            <span class="k">except</span> <span class="ne">ValueError</span><span class="p">:</span>
+                <span class="n">float_val</span> <span class="o">=</span> <span class="mi">0</span>
+            <span class="k">raise</span> <span class="n">RateLimitExceeded</span><span class="p">(</span><span class="n">message</span><span class="o">=</span><span class="n">response_json</span><span class="p">,</span> <span class="n">retry_after</span><span class="o">=</span><span class="n">float_val</span><span class="p">)</span>
 
         <span class="c1"># Check if the response was a success</span>
         <span class="k">if</span> <span class="ow">not</span> <span class="n">response_status</span><span class="o">.</span><span class="n">success</span><span class="p">:</span>
@@ -1055,8 +1060,7 @@ This class is a singleton.</p>
             <span class="k">if</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">query_params</span><span class="p">[</span><span class="n">key</span><span class="p">],</span> <span class="n">List</span><span class="p">):</span>
                 <span class="n">query_params</span><span class="p">[</span><span class="n">key</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="nb">str</span><span class="p">(</span><span class="n">query_params</span><span class="p">[</span><span class="n">key</span><span class="p">])]</span>
 
-            <span class="k">for</span> <span class="n">value</span> <span class="ow">in</span> <span class="n">query_params</span><span class="p">[</span><span class="n">key</span><span class="p">]:</span>
-                <span class="n">return_params</span><span class="o">.</span><span class="n">append</span><span class="p">((</span><span class="n">key</span><span class="p">,</span> <span class="nb">str</span><span class="p">(</span><span class="n">value</span><span class="p">)))</span>
+            <span class="n">return_params</span><span class="o">.</span><span class="n">append</span><span class="p">((</span><span class="n">key</span><span class="p">,</span> <span class="s2">&quot;,&quot;</span><span class="o">.</span><span class="n">join</span><span class="p">([</span><span class="nb">str</span><span class="p">(</span><span class="n">i</span><span class="p">)</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">query_params</span><span class="p">[</span><span class="n">key</span><span class="p">]])))</span>
 
         <span class="k">return</span> <span class="n">return_params</span>
 
@@ -1394,6 +1398,7 @@ This method should always be called before you end your program</p>
         <span class="c1"># Handle the parsing of the rate limit exceeded response which does not work for some reason</span>
         <span class="n">response_text</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="k">await</span> <span class="n">response</span><span class="o">.</span><span class="n">text</span><span class="p">()</span>
         <span class="n">response_json</span><span class="p">:</span> <span class="nb">dict</span> <span class="o">=</span> <span class="p">{}</span>
+        <span class="n">retry_after</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="n">response</span><span class="o">.</span><span class="n">headers</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;Retry-After&#39;</span><span class="p">,</span> <span class="kc">None</span><span class="p">)</span>
 
         <span class="k">try</span><span class="p">:</span>
             <span class="n">response_json</span><span class="p">:</span> <span class="nb">dict</span> <span class="o">=</span> <span class="n">json</span><span class="o">.</span><span class="n">loads</span><span class="p">(</span><span class="n">response_text</span><span class="p">)</span>
@@ -1418,7 +1423,11 @@ This method should always be called before you end your program</p>
 
     <span class="c1"># Rate limit exceeded</span>
     <span class="k">if</span> <span class="n">response_status</span><span class="o">.</span><span class="n">code</span> <span class="o">==</span> <span class="mi">429</span><span class="p">:</span>
-        <span class="k">raise</span> <span class="n">RateLimitExceeded</span><span class="p">(</span><span class="n">response_json</span><span class="p">)</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="n">float_val</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="n">retry_after</span><span class="p">)</span>
+        <span class="k">except</span> <span class="ne">ValueError</span><span class="p">:</span>
+            <span class="n">float_val</span> <span class="o">=</span> <span class="mi">0</span>
+        <span class="k">raise</span> <span class="n">RateLimitExceeded</span><span class="p">(</span><span class="n">message</span><span class="o">=</span><span class="n">response_json</span><span class="p">,</span> <span class="n">retry_after</span><span class="o">=</span><span class="n">float_val</span><span class="p">)</span>
 
     <span class="c1"># Check if the response was a success</span>
     <span class="k">if</span> <span class="ow">not</span> <span class="n">response_status</span><span class="o">.</span><span class="n">success</span><span class="p">:</span>
