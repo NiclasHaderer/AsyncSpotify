@@ -120,6 +120,7 @@ class ApiRequestHandler:
             # Handle the parsing of the rate limit exceeded response which does not work for some reason
             response_text: str = await response.text()
             response_json: dict = {}
+            retry_after: str = response.headers.get('Retry-After', None)
 
             try:
                 response_json: dict = json.loads(response_text)
@@ -144,7 +145,11 @@ class ApiRequestHandler:
 
         # Rate limit exceeded
         if response_status.code == 429:
-            raise RateLimitExceeded(response_json)
+            try:
+                float_val = float(retry_after)
+            except ValueError:
+                float_val = 0
+            raise RateLimitExceeded(message=response_json, retry_after=float_val)
 
         # Check if the response was a success
         if not response_status.success:
