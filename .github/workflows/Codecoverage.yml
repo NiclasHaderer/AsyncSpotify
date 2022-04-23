@@ -3,15 +3,12 @@ on:
   push:
     branches:
       - master
-  watch:
-    types: [started]
 jobs:
   run:
     runs-on: ${{ matrix.os }}
     strategy:
       matrix:
         os: [ubuntu-latest]
-    if: github.actor == github.event.repository.owner.login
     steps:
     - uses: actions/checkout@master
     
