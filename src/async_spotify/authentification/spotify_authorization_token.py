@@ -5,7 +5,7 @@ The refresh_token property is only present if you use a authorization flow which
 """
 
 # ##################################################################################################
-#  Copyright (c) 2020. HuiiBuh                                                                     #
+#  Copyright (c) 2020. niclashaderer                                                                     #
 #  This file (spotify_authorization_token.py) is part of AsyncSpotify which is released under MIT. #
 #  You are not allowed to use this code or this file for another project without                   #
 #  linking to the original source.                                                                 #

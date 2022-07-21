@@ -1,5 +1,5 @@
 # ##################################################################################################
-#  Copyright (c) 2020. HuiiBuh                                                                     #
+#  Copyright (c) 2020. niclashaderer                                                                     #
 #  This file (setup.py) is part of AsyncSpotify which is released under MIT.                       #
 #  You are not allowed to use this code or this file for another project without                   #
 #  linking to the original source.                                                                 #
@@ -14,12 +14,12 @@ setuptools.setup(
     name="async-spotify",
     packages=setuptools.find_packages(),
     version="0.4.4",
-    author="HuiiBuh",
+    author="niclashaderer",
     author_email="nhaderer1@gmail.com",
     description="An async spotify api client",
     long_description=long_description,
     long_description_content_type="text/markdown",
-    url="https://github.com/HuiiBuh/AsyncSpotify",
+    url="https://github.com/niclashaderer/AsyncSpotify",
     keywords=["Spotify", "Async", "API", "Wrapper", "AioHttp"],
     install_requires=["aiohttp>=3.6.2", "aiodns>=2.0.0"],
     classifiers=[

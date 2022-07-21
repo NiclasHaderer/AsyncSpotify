@@ -108,7 +108,7 @@ album = await api_client.albums.get_one(album_id, market='DE', auth_token=auth_t
 ## Endpoints
 
 Every Api Endpoint is represented as an instance variables of the `SpotifyApiClient`.  
-Look [here](https://huiibuh.github.io/AsyncSpotify/public_api/spotify_api_client/) for every instance variable and the associated classes.
+Look [here](https://niclashaderer.github.io/AsyncSpotify/public_api/spotify_api_client/) for every instance variable and the associated classes.
 
 ```python
 # For the albums endpoint

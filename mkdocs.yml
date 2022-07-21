@@ -1,8 +1,8 @@
 site_name: "Async Spotify"
 site_description: "Async wrapper in python for the spotify api"
-site_url: "https://huiibuh.github.io/AsyncSpotify/"
-repo_url: "https://github.com/HuiiBuh/AsyncSpotify"
-repo_name: "HuiiBuh/AsyncSpotify"
+site_url: "https://niclashaderer.github.io/AsyncSpotify/"
+repo_url: "https://github.com/niclashaderer/AsyncSpotify"
+repo_name: "niclashaderer/AsyncSpotify"
 
 nav:
   - Overview: "index.md"
@@ -67,7 +67,7 @@ markdown_extensions:
 extra:
   social:
     - icon: fontawesome/brands/github-alt
-      link: https://github.com/huiibuh
+      link: https://github.com/niclashaderer
 
 plugins:
   - search

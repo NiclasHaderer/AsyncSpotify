@@ -6,7 +6,7 @@ BASE_URL: str = "https://api.spotify.com/v1"
 
 
 # ##################################################################################################
-#  Copyright (c) 2020. HuiiBuh                                                                     #
+#  Copyright (c) 2020. niclashaderer                                                                     #
 #  This file (urls.py) is part of AsyncSpotify which is released under MIT.                        #
 #  You are not allowed to use this code or this file for another project without                   #
 #  linking to the original source.                                                                 #

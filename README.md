@@ -1,12 +1,12 @@
 # AsyncSpotify
 
-![Unit Tests](https://github.com/HuiiBuh/AsyncSpotify/workflows/Unit%20Tests/badge.svg)
-[![Codacy Badge](https://api.codacy.com/project/badge/Grade/65dd7dbb2b4b4efcb3fc365f2d3f1684)](https://app.codacy.com/manual/nhaderer1/AsyncSpotify?utm_source=github.com&utm_medium=referral&utm_content=HuiiBuh/AsyncSpotify&utm_campaign=Badge_Grade_Dashboard)
-[![codecov](https://codecov.io/gh/HuiiBuh/AsyncSpotify/branch/master/graph/badge.svg?token=0oC3x1chKb)](https://codecov.io/gh/HuiiBuh/AsyncSpotify)
+![Unit Tests](https://github.com/niclashaderer/AsyncSpotify/workflows/Unit%20Tests/badge.svg)
+[![Codacy Badge](https://api.codacy.com/project/badge/Grade/65dd7dbb2b4b4efcb3fc365f2d3f1684)](https://app.codacy.com/manual/nhaderer1/AsyncSpotify?utm_source=github.com&utm_medium=referral&utm_content=niclashaderer/AsyncSpotify&utm_campaign=Badge_Grade_Dashboard)
+[![codecov](https://codecov.io/gh/niclashaderer/AsyncSpotify/branch/master/graph/badge.svg?token=0oC3x1chKb)](https://codecov.io/gh/niclashaderer/AsyncSpotify)
 
 ## Documentation
 
-The full documentation can be viewed [here](https://huiibuh.github.io/AsyncSpotify/).
+The full documentation can be viewed [here](https://niclashaderer.github.io/AsyncSpotify/).
 
 ## Why should you use this library
 
@@ -33,7 +33,7 @@ pip install async-spotify
 
 ## Example
 
-For more in depth examples take a look [here](https://huiibuh.github.io/AsyncSpotify/EXAMPLES/) or visit the documentation.
+For more in depth examples take a look [here](https://niclashaderer.github.io/AsyncSpotify/EXAMPLES/) or visit the documentation.
 
 ```python
 from async_spotify import SpotifyApiClient
